@@ -9,6 +9,7 @@ using namespace cocos2d;
 class HelloWorld : public cocos2d::CCLayer
 {
     Field *_field;
+    bool _touching;
     
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -21,6 +22,7 @@ public:
     void menuCloseCallback(CCObject* pSender);
 
     void ccTouchesBegan(cocos2d::CCSet* pTouches, cocos2d::CCEvent* event);
+    void ccTouchesEnded(cocos2d::CCSet* pTouches, cocos2d::CCEvent* event);
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(HelloWorld);
     void update(float dt);
