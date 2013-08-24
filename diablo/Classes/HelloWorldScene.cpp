@@ -1,8 +1,16 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+#include "PanelSprite.h"
+#include "Field.h"
+
+#include <typeinfo>
 
 using namespace cocos2d;
 using namespace CocosDenshion;
+
+
+// int を bool に変換
+inline bool IntToBool(int a){ return a != 0; }
 
 CCScene* HelloWorld::scene()
 {
@@ -61,17 +69,45 @@ bool HelloWorld::init()
 
     // add the label as a child to this layer
     this->addChild(pLabel, 1);
-
     // add "HelloWorld" splash screen"
-    CCSprite* pSprite = CCSprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(size.width/2, size.height/2) );
-
-    // add the sprite as a child to this layer
-    this->addChild(pSprite, 0);
+    //CCSprite* pSprite = CCSprite::create("panels.png");
     
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("panels.plist");
+ 
+    _field = new Field((CCLayer*) this);
+    CCArray *panels = _field->createInitialField();
+    
+    PanelSprite *panel = NULL;
+    CCObject* targetObject = NULL;
+    
+    CCARRAY_FOREACH(panels,targetObject){
+        panel = (PanelSprite*) targetObject;
+        this->addChild(panel);
+    }
+    
+    this->setTouchEnabled(true);
+ 
+    this->schedule(schedule_selector(HelloWorld::update));
     return true;
+}
+
+void HelloWorld::ccTouchesBegan(CCSet* pTouches, CCEvent* event){
+    CCSetIterator i;
+    CCTouch* touch;
+
+    for( i = pTouches->begin(); i != pTouches->end(); i++ ){
+        touch = (CCTouch*) (*i);
+        if(touch) {
+            _field->onTouchStart(touch);
+        }
+    }
+}
+
+void HelloWorld::update(float dt){
+    _field->restockPanels();
+    _field->setMoves();
+    _field->movePanels();
+    _field->onTurnEnd();
 }
 
 void HelloWorld::menuCloseCallback(CCObject* pSender)

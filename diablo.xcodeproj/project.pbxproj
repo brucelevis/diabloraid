@@ -202,6 +202,11 @@
 		25B2FF9C17BF4517008E4D34 /* HttpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FF9B17BF4517008E4D34 /* HttpClient.cpp */; };
 		25B2FFA517BF4517008E4D34 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFA417BF4517008E4D34 /* AppDelegate.cpp */; };
 		25B2FFA817BF4517008E4D34 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFA717BF4517008E4D34 /* HelloWorldScene.cpp */; };
+		25B2FFB217BF4EFA008E4D34 /* panels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25B2FFB017BF4EFA008E4D34 /* panels.plist */; };
+		25B2FFB317BF4EFA008E4D34 /* panels.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B2FFB117BF4EFA008E4D34 /* panels.png */; };
+		25B2FFB917BFBFC7008E4D34 /* PanelSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFB717BFBFC6008E4D34 /* PanelSprite.cpp */; };
+		25B2FFBC17BFDBB1008E4D34 /* Field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFBA17BFDBB0008E4D34 /* Field.cpp */; };
+		25B2FFBF17C09D4D008E4D34 /* TurnManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFBD17C09D4C008E4D34 /* TurnManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -634,6 +639,14 @@
 		25B2FFA417BF4517008E4D34 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		25B2FFA617BF4517008E4D34 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		25B2FFA717BF4517008E4D34 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		25B2FFB017BF4EFA008E4D34 /* panels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = panels.plist; path = Resources/panels.plist; sourceTree = "<group>"; };
+		25B2FFB117BF4EFA008E4D34 /* panels.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = panels.png; path = Resources/panels.png; sourceTree = "<group>"; };
+		25B2FFB717BFBFC6008E4D34 /* PanelSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PanelSprite.cpp; sourceTree = "<group>"; };
+		25B2FFB817BFBFC7008E4D34 /* PanelSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelSprite.h; sourceTree = "<group>"; };
+		25B2FFBA17BFDBB0008E4D34 /* Field.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Field.cpp; sourceTree = "<group>"; };
+		25B2FFBB17BFDBB0008E4D34 /* Field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Field.h; sourceTree = "<group>"; };
+		25B2FFBD17C09D4C008E4D34 /* TurnManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TurnManager.cpp; sourceTree = "<group>"; };
+		25B2FFBE17C09D4C008E4D34 /* TurnManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurnManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -712,6 +725,8 @@
 				25B2FD2417BF4510008E4D34 /* Icon-Small.png */,
 				25B2FD2617BF4510008E4D34 /* Icon-Small@2x.png */,
 				25B2FD2817BF4510008E4D34 /* Icon.png */,
+				25B2FFB017BF4EFA008E4D34 /* panels.plist */,
+				25B2FFB117BF4EFA008E4D34 /* panels.png */,
 				25B2FD2A17BF4510008E4D34 /* Icon@2x.png */,
 				25B2FD2C17BF4510008E4D34 /* iTunesArtwork */,
 				25B2FD2E17BF4510008E4D34 /* Info.plist */,
@@ -1519,6 +1534,12 @@
 				25B2FFA417BF4517008E4D34 /* AppDelegate.cpp */,
 				25B2FFA617BF4517008E4D34 /* HelloWorldScene.h */,
 				25B2FFA717BF4517008E4D34 /* HelloWorldScene.cpp */,
+				25B2FFB717BFBFC6008E4D34 /* PanelSprite.cpp */,
+				25B2FFB817BFBFC7008E4D34 /* PanelSprite.h */,
+				25B2FFBA17BFDBB0008E4D34 /* Field.cpp */,
+				25B2FFBB17BFDBB0008E4D34 /* Field.h */,
+				25B2FFBD17C09D4C008E4D34 /* TurnManager.cpp */,
+				25B2FFBE17C09D4C008E4D34 /* TurnManager.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1585,6 +1606,8 @@
 				25B2FD2B17BF4510008E4D34 /* Icon@2x.png in Resources */,
 				25B2FD2D17BF4510008E4D34 /* iTunesArtwork in Resources */,
 				25B2FDBF17BF4511008E4D34 /* ChangeLog in Resources */,
+				25B2FFB217BF4EFA008E4D34 /* panels.plist in Resources */,
+				25B2FFB317BF4EFA008E4D34 /* panels.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1769,6 +1792,9 @@
 				25B2FF9C17BF4517008E4D34 /* HttpClient.cpp in Sources */,
 				25B2FFA517BF4517008E4D34 /* AppDelegate.cpp in Sources */,
 				25B2FFA817BF4517008E4D34 /* HelloWorldScene.cpp in Sources */,
+				25B2FFB917BFBFC7008E4D34 /* PanelSprite.cpp in Sources */,
+				25B2FFBC17BFDBB1008E4D34 /* Field.cpp in Sources */,
+				25B2FFBF17C09D4D008E4D34 /* TurnManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1779,7 +1805,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kousuke Takami (25S6P8VKTV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kousuke Takami (25S6P8VKTV)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1801,6 +1828,8 @@
 					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PROVISIONING_PROFILE = "B6F73CDE-2777-45BD-A7AB-C7B5C705458C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6F73CDE-2777-45BD-A7AB-C7B5C705458C";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1810,6 +1839,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kousuke Takami (25S6P8VKTV)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1830,6 +1860,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "B6F73CDE-2777-45BD-A7AB-C7B5C705458C";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1900,6 +1931,7 @@
 				25B2FFAD17BF4517008E4D34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
