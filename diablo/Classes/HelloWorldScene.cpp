@@ -104,6 +104,7 @@ void HelloWorld::ccTouchesBegan(CCSet* pTouches, CCEvent* event){
 }
 
 void HelloWorld::update(float dt){
+    _field->removePanels();
     _field->restockPanels();
     _field->setMoves();
     _field->movePanels();

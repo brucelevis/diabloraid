@@ -10,6 +10,7 @@
 
 PanelSprite::PanelSprite(void){
     _deltaY = 0;
+    _willRemoved = false;
 }
 
 PanelSprite::~PanelSprite(void){
@@ -24,6 +25,14 @@ PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameNa
     }
     CC_SAFE_DELETE(sprite);
     return NULL;
+}
+
+void PanelSprite::setRemoved(){
+    _willRemoved = true;
+}
+
+bool PanelSprite::isRemoved(){
+    return _willRemoved;
 }
 
 void PanelSprite::setDeltaY(float deltaY){

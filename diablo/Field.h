@@ -34,6 +34,7 @@ public:
     void setRemovedPanel(CCPoint* point);
     void setMoves();
     PanelSprite* createPanel(int indexX, int indexY);
+    void removePanels();
     void restockPanels();
     void movePanels();
     void closeUp();

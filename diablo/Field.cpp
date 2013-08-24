@@ -57,25 +57,12 @@ void Field::onTouchStart(CCTouch* touch){
     PanelSprite *panel = NULL;
     CCObject* targetObject = NULL;
     
-    int count = 0;
-    int removedIndex = 0;
-    bool removed = false;
-        
     CCARRAY_FOREACH(this->_panels, targetObject){
         panel = (PanelSprite*) targetObject;
         
         if(panel && panel->getTouchRect().containsPoint(tap)){
-            removed = true;
-            removedIndex = count;
-            panel->removeFromParentAndCleanup(true);
-            //const CCPoint& removedPoint = panel->getPosition();
-            this->setRemovedPanel(new CCPoint(panel->getPositionX(), panel->getPositionY()));
+            panel->setRemoved();
         }
-        count++;
-    }
-    
-    if (removed) {
-        this->_panels->removeObjectAtIndex(removedIndex);
     }
 }
 
@@ -113,6 +100,35 @@ void Field::restockPanels(){
         PanelSprite* pSprite = this->createPanel(int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), 6);
         _panels->addObject(pSprite);
         this->_parentLayer->addChild(pSprite);
+    }
+}
+
+//フラグがたっているパネルを全部消す
+void Field::removePanels(){
+    CCArray* removedIndexes = CCArray::create();
+    
+    PanelSprite *panel = NULL;
+    CCObject* targetObject = NULL;
+    
+    int count = 0;
+    CCARRAY_FOREACH(this->_panels, targetObject){
+        panel = (PanelSprite*) targetObject;
+        
+        //消えるパネルなら消す。
+        if(panel->isRemoved()){
+            panel->removeFromParentAndCleanup(true);
+            this->setRemovedPanel(new CCPoint(panel->getPositionX(), panel->getPositionY()));
+            removedIndexes->addObject(CCInteger::create(count));
+        }
+        count++;
+    }
+    
+    CCInteger *index = NULL;
+    CCObject* targetObject2 = NULL;
+    
+    CCARRAY_FOREACH(removedIndexes, targetObject2){
+        index = (CCInteger*) targetObject2;
+        this->_panels->removeObjectAtIndex(index->getValue());
     }
 }
 
