@@ -36,7 +36,7 @@ bool PanelSprite::isRemoved(){
 }
 
 void PanelSprite::setDeltaY(float deltaY){
-    _deltaY = deltaY;
+    _deltaY += deltaY;
     this->_velocity = _deltaY / 100 * 10;
 }
 

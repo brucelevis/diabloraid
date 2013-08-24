@@ -94,10 +94,22 @@ void Field::restockPanels(){
     CCPoint *removedPoint = NULL;
     CCObject* targetObject = NULL;
     
+    CCDictionary* removedCount = CCDictionary::create();
     
     CCARRAY_FOREACH(removedPanels, targetObject){
         removedPoint = (CCPoint*) targetObject;
-        PanelSprite* pSprite = this->createPanel(int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), 6);
+        int y = 6;
+        CCInteger* count = (CCInteger*) removedCount->objectForKey(removedPoint->x);
+        //既にその列が消えている場合は、追加する場所がn段上になる。
+        if(count){
+            y += count->getValue();
+            removedCount->setObject(CCInteger::create(count->getValue()+1),removedPoint->x);
+        //その列がまだ消えていない場合は、dictionaryに追加
+        } else {
+            removedCount->setObject(CCInteger::create(1),removedPoint->x);
+        }
+        
+        PanelSprite* pSprite = this->createPanel(int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), y);
         _panels->addObject(pSprite);
         this->_parentLayer->addChild(pSprite);
     }
@@ -123,11 +135,11 @@ void Field::removePanels(){
         count++;
     }
     
-    CCInteger *index = NULL;
-    CCObject* targetObject2 = NULL;
     
-    CCARRAY_FOREACH(removedIndexes, targetObject2){
-        index = (CCInteger*) targetObject2;
+    int maxIndex = removedIndexes->count();
+    //上から順に消す
+    for(int i = (maxIndex - 1); i >= 0; i--){
+        CCInteger* index = (CCInteger*) removedIndexes->objectAtIndex(i);
         this->_panels->removeObjectAtIndex(index->getValue());
     }
 }
@@ -173,6 +185,7 @@ void Field::movePanels(){
         _moveState = false;
     }
 }
+
 
 //ターン終了
 void Field::onTurnEnd(){

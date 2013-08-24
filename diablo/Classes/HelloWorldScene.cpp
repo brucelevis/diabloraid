@@ -93,6 +93,9 @@ bool HelloWorld::init()
 
 void HelloWorld::ccTouchesBegan(CCSet* pTouches, CCEvent* event){
     _touching = true;
+}
+
+void HelloWorld::ccTouchesMoved(CCSet* pTouches, CCEvent* event){
     CCSetIterator i;
     CCTouch* touch;
 
@@ -103,19 +106,21 @@ void HelloWorld::ccTouchesBegan(CCSet* pTouches, CCEvent* event){
         }
     }
 }
+
 void HelloWorld::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
     _touching = false;
+    _field->removePanels();
+    _field->restockPanels();
+    _field->setMoves();
+    _field->onTurnEnd();
 }
 
 void HelloWorld::update(float dt){
     if(_touching) {
         return;
     }
-    _field->removePanels();
-    _field->restockPanels();
-    _field->setMoves();
+    
     _field->movePanels();
-    _field->onTurnEnd();
 }
 
 void HelloWorld::menuCloseCallback(CCObject* pSender)
