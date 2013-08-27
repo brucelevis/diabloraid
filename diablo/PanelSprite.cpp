@@ -18,13 +18,22 @@ PanelSprite::~PanelSprite(void){
 
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){
     PanelSprite* sprite = new PanelSprite();
-    if(sprite && sprite->initWithSpriteFrameName(pszSpriteFrameName)){
+    
+    sprite->_panelName = pszSpriteFrameName;
+    if(sprite && sprite->initWithSpriteFrameName((sprite->_panelName + ".png").c_str())){
         sprite->_touchRect = *new CCRect();
         sprite->autorelease();
         return sprite;
     }
     CC_SAFE_DELETE(sprite);
     return NULL;
+}
+void PanelSprite::setTouched(){
+    std::string offFrameName = (this->_panelName + "_off.png").c_str();
+    _offFrame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(offFrameName.c_str());
+    this->setTexture(_offFrame->getTexture());
+    this->setTextureRect(_offFrame->getRect());
+    this->setDisplayFrame(_offFrame);
 }
 
 void PanelSprite::setRemoved(){

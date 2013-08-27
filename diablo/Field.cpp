@@ -16,11 +16,11 @@ Field::Field(CCLayer* parentLayer){
     this->_panelNames->retain();
 
 //    CCArray *_panelNames = new CCArray();
-    this->_panelNames->addObject(new CCString("coin.png"));
-    this->_panelNames->addObject(new CCString("skelton.png"));
-    this->_panelNames->addObject(new CCString("shield.png"));
-    this->_panelNames->addObject(new CCString("sword.png"));
-    this->_panelNames->addObject(new CCString("potion.png"));
+    this->_panelNames->addObject(new CCString("coin"));
+    this->_panelNames->addObject(new CCString("skelton"));
+    this->_panelNames->addObject(new CCString("shield"));
+    this->_panelNames->addObject(new CCString("sword"));
+    this->_panelNames->addObject(new CCString("potion"));
 }
 
 Field::~Field(void){
@@ -61,6 +61,7 @@ void Field::onTouchStart(CCTouch* touch){
         panel = (PanelSprite*) targetObject;
         
         if(panel && panel->getTouchRect().containsPoint(tap)){
+            panel->setTouched();
             panel->setRemoved();
         }
     }
