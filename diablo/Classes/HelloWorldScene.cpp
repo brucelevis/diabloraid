@@ -93,9 +93,6 @@ bool HelloWorld::init()
 
 void HelloWorld::ccTouchesBegan(CCSet* pTouches, CCEvent* event){
     _touching = true;
-}
-
-void HelloWorld::ccTouchesMoved(CCSet* pTouches, CCEvent* event){
     CCSetIterator i;
     CCTouch* touch;
 
@@ -107,8 +104,29 @@ void HelloWorld::ccTouchesMoved(CCSet* pTouches, CCEvent* event){
     }
 }
 
+void HelloWorld::ccTouchesMoved(CCSet* pTouches, CCEvent* event){
+    CCSetIterator i;
+    CCTouch* touch;
+
+    for( i = pTouches->begin(); i != pTouches->end(); i++ ){
+        touch = (CCTouch*) (*i);
+        if(touch) {
+            _field->onTouchMove(touch);
+        }
+    }
+}
+
 void HelloWorld::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
     _touching = false;
+    CCSetIterator i;
+    CCTouch* touch;
+
+    for( i = pTouches->begin(); i != pTouches->end(); i++ ){
+        touch = (CCTouch*) (*i);
+        if(touch) {
+            _field->onTouchEnd(touch);
+        }
+    }
     _field->removePanels();
     _field->restockPanels();
     _field->setMoves();

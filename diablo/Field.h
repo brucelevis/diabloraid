@@ -28,7 +28,9 @@ public:
     
     CCArray* createInitialField();
     CCArray* getPanels();
+    void onTouchMove(CCTouch* touch);
     void onTouchStart(CCTouch* touch);
+    void onTouchEnd(CCTouch* touch);
     bool getOnTurn();
     void onTurnStart();
     void onTurnEnd();

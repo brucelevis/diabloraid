@@ -16,11 +16,16 @@ PanelSprite::PanelSprite(void){
 PanelSprite::~PanelSprite(void){
 }
 
+std::string PanelSprite::getPanelName(){
+    return _panelName;
+}
+
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){
     PanelSprite* sprite = new PanelSprite();
     
     sprite->_panelName = pszSpriteFrameName;
     if(sprite && sprite->initWithSpriteFrameName((sprite->_panelName + ".png").c_str())){
+        //sprite->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName((sprite->_panelName + ".png").c_str()));
         sprite->_touchRect = *new CCRect();
         sprite->autorelease();
         return sprite;
@@ -28,12 +33,21 @@ PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameNa
     CC_SAFE_DELETE(sprite);
     return NULL;
 }
+
 void PanelSprite::setTouched(){
     std::string offFrameName = (this->_panelName + "_off.png").c_str();
     _offFrame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(offFrameName.c_str());
     this->setTexture(_offFrame->getTexture());
     this->setTextureRect(_offFrame->getRect());
     this->setDisplayFrame(_offFrame);
+}
+
+void PanelSprite::setUnTouched(){
+    std::string onFrameName = (this->_panelName + ".png").c_str();
+    _onFrame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(onFrameName.c_str());
+    this->setTexture(_onFrame->getTexture());
+    this->setTextureRect(_onFrame->getRect());
+    this->setDisplayFrame(_onFrame);
 }
 
 void PanelSprite::setRemoved(){
@@ -52,7 +66,7 @@ void PanelSprite::setDeltaY(float deltaY){
 void PanelSprite::setPosition(const CCPoint& pos){
     this->CCSprite::setPosition(pos);
     CCSize size = this->getContentSize();
-    this->_touchRect.setRect(pos.x - size.width/2 + 1, pos.y - size.height/2 + 1, size.width - 2, size.height - 2);    
+    this->_touchRect.setRect(pos.x - size.width/2 + 1, pos.y - size.height/2 + 1, size.width - 2, size.height - 2);
 }
 
 //移動量に合わせて移動させて、deltaXを減らす。

@@ -21,13 +21,16 @@ class PanelSprite : public cocos2d::CCSprite
     std::string _panelName;
     CCRect _touchRect;
     CCSpriteFrame* _offFrame;
+    CCSpriteFrame* _onFrame;
 public:
     PanelSprite(void);
     ~PanelSprite(void);
     
     static PanelSprite* createWithSpriteFrameName(const char *pszSpriteFrameName);
+    std::string getPanelName();
     void setRemoved();
     void setTouched();
+    void setUnTouched();
     bool isRemoved();
     void setDeltaY(float deltaY);
     void setPosition(const CCPoint& pos);

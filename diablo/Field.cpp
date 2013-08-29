@@ -48,6 +48,37 @@ CCArray* Field::getPanels(){
 }
 
 void Field::onTouchStart(CCTouch* touch){
+    CCPoint tap = CCDirector::sharedDirector()->convertToGL( touch->getLocationInView() );
+    
+    PanelSprite *panel = NULL;
+    CCObject* targetObject = NULL;
+    
+    CCARRAY_FOREACH(this->_panels, targetObject){
+        panel = (PanelSprite*) targetObject;
+        
+        //if(panel && panel->getTouchRect().containsPoint(tap)){
+        if(panel && panel->boundingBox().containsPoint(tap)){
+            panel->setTouched();
+        }
+    }
+}
+
+void Field::onTouchEnd(CCTouch* touch){
+    CCPoint tap = CCDirector::sharedDirector()->convertToGL( touch->getLocationInView() );
+    
+    PanelSprite *panel = NULL;
+    CCObject* targetObject = NULL;
+    
+    CCARRAY_FOREACH(this->_panels, targetObject){
+        panel = (PanelSprite*) targetObject;
+        
+        if(panel && panel->getTouchRect().containsPoint(tap)){
+            panel->setUnTouched();
+        }
+    }
+}
+
+void Field::onTouchMove(CCTouch* touch){
     //動いている時はタッチ出来ない。
     if(_moveState){
         return;
@@ -82,7 +113,6 @@ PanelSprite* Field::createPanel(int indexX, int indexY){
     PanelSprite* pSprite = PanelSprite::createWithSpriteFrameName(panelName->getCString());
     pSprite->setScale(PANEL_SCALE);
     float size = PANEL_SIZE * PANEL_SCALE;
-    pSprite->setContentSize(CCSize(size, size));
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(32 + size * indexX, 128 + size * indexY) );
     return pSprite;
