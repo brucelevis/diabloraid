@@ -8,6 +8,7 @@
 
 #include "Field.h"
 #include "PanelSprite.h"
+#include <math.h>
 
 Field::Field(CCLayer* parentLayer){
     this->_parentLayer = parentLayer;
@@ -62,6 +63,7 @@ void Field::onTouchStart(CCTouch* touch){
         
         if(panel && panel->getTouchRect().containsPoint(tap)){
             _touchedPanelName = panel->getPanelName();
+            _currentPanel = panel;
             _lastPanel = panel;
             panel->setRemoved();
             panel->setTouched();
@@ -105,8 +107,13 @@ void Field::onTouchMove(CCTouch* touch){
     CCARRAY_FOREACH(this->_panels, targetObject){
         panel = (PanelSprite*) targetObject;
         
-        if(panel && panel->getTouchRect().containsPoint(tap) && panel->isSamePanel(_touchedPanelName) && panel->isNextPanel(_lastPanel)){
-            _lastPanel = panel;
+        if(panel && panel->getTouchRect().containsPoint(tap)
+           && panel->isSamePanel(_touchedPanelName) && panel->isNextPanel(_lastPanel)){
+            if(_currentPanel && panel != _currentPanel){
+                //今のパネルが、次のパネルに移ったとき
+                _lastPanel = _currentPanel;
+                _currentPanel = panel;
+            }
             panel->setTouched();
             panel->setRemoved();
         }
@@ -192,6 +199,19 @@ void Field::removePanels(){
         this->_panels->removeObjectAtIndex(index->getValue());
     }
 }
+
+void Field::showDirections(){
+    //順に消えるパネルを取得して、それに合わせて、CCSpriteを生成して、表示する。
+    CCObject* targetObject = NULL;
+    PanelSprite* panel  = NULL;
+    
+    if( _currentPanel ) {
+        if( _lastPanel ) {
+            _lastPanel->getDirection(_currentPanel);
+        }
+    }
+}
+
 
 //移動量をパネル達にセットする。
 //消えたパネルよりも上にあるパネルを取得して、セットする。

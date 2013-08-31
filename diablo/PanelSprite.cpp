@@ -49,6 +49,18 @@ PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameNa
     return NULL;
 }
 
+int PanelSprite::getDirection(PanelSprite* panel){
+    //後でクラスを作って移動する。
+    double degrees = 180 / 3.14 * atan((panel->getPositionY() - this->getPositionY())
+                                       / (panel->getPositionX() - this->getPositionX()));
+    
+    CCLog("degrees: %f", degrees);
+    //CCLog("tan:%f", tan(3.14 / 4));
+    //CCLog("atan:%f", 180 * atan(1) / 3.14);
+    
+    return 1;
+}
+
 void PanelSprite::setSize(float size){
     _size = size;
 }

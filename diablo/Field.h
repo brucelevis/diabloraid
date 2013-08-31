@@ -22,6 +22,7 @@ class Field {
     CCArray* _panels;
     CCArray* _removedPanels;
     PanelSprite* _lastPanel;
+    PanelSprite* _currentPanel;
     std::string _touchedPanelName;
     bool _moveState;
 public:
@@ -33,6 +34,7 @@ public:
     void onTouchMove(CCTouch* touch);
     void onTouchStart(CCTouch* touch);
     void onTouchEnd(CCTouch* touch);
+    void showDirections(); //今まさに消えんとしているパネルの上に、方向を表示する。
     bool getOnTurn();
     void onTurnStart();
     void onTurnEnd();

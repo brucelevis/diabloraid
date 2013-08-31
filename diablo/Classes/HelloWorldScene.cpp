@@ -115,6 +115,7 @@ void HelloWorld::ccTouchesMoved(CCSet* pTouches, CCEvent* event){
             _field->onTouchMove(touch);
         }
     }
+    _field->showDirections();
 }
 
 void HelloWorld::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
