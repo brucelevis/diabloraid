@@ -11,6 +11,7 @@
 PanelSprite::PanelSprite(void){
     _deltaY = 0;
     _willRemoved = false;
+    _isOn = false;
 }
 
 PanelSprite::~PanelSprite(void){
@@ -33,14 +34,14 @@ PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameNa
     return NULL;
 }
 
-void PanelSprite::_setTouched(bool touched){
+void PanelSprite::_switchOn(bool isOn){
     std::string frameName;
-    if(touched){
-        frameName = (this->_panelName + "_off.png").c_str();
-        _touched = true;
-    } else {
+    if(isOn){
         frameName = (this->_panelName + ".png").c_str();
-        _touched = false;
+        _isOn = true;
+    } else {
+        frameName = (this->_panelName + "_off.png").c_str();
+        _isOn = false;
     }
     
     CCSpriteFrame* _frame;
@@ -51,19 +52,23 @@ void PanelSprite::_setTouched(bool touched){
 }
 
 void PanelSprite::setTouched(){
-    //既にタッチ状態なら何もしない。
-    if(_touched){
+    //既にoff状態なら何もしない。
+    if(!_isOn){
         return;
     }
-    this->_setTouched(true);
+    this->_switchOn(false);
 }
 
 void PanelSprite::setUnTouched(){
-    //既にアンタッチ状態なら何もしない。
-    if(!_touched){
+    //既にon状態なら何もしない。
+    if(_isOn){
         return;
     }
-    this->_setTouched(false);
+    this->_switchOn(true);
+}
+
+void PanelSprite::setOff(){
+    
 }
 
 void PanelSprite::setRemoved(){

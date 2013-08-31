@@ -18,10 +18,10 @@ class PanelSprite : public cocos2d::CCSprite
     float _deltaY;
     float _velocity;
     bool _willRemoved; //消去されるflag
-    bool _touched; //タッチされたか否か
+    bool _isOn; //on状態か
     std::string _panelName;
     CCRect _touchRect;
-    void _setTouched(bool touched);
+    void _switchOn(bool isOn);
 public:
     PanelSprite(void);
     ~PanelSprite(void);
@@ -31,6 +31,7 @@ public:
     void setRemoved();
     void setTouched();
     void setUnTouched();
+    void setOff(); //off画像に変更する。
     bool isRemoved();
     void setDeltaY(float deltaY);
     void setPosition(const CCPoint& pos);
