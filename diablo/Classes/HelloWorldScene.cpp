@@ -73,7 +73,8 @@ bool HelloWorld::init()
     //CCSprite* pSprite = CCSprite::create("panels.png");
     
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("panels.plist");
- 
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("direction.plist");
+    
     _field = new Field((CCLayer*) this);
     CCArray *panels = _field->createInitialField();
     

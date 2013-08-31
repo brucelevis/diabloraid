@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2544CF0817D1E5520023929D /* direction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0617D1E5520023929D /* direction.plist */; };
+		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
 		25B2FD0717BF4510008E4D34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0617BF4510008E4D34 /* QuartzCore.framework */; };
 		25B2FD0917BF4510008E4D34 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0817BF4510008E4D34 /* OpenGLES.framework */; };
 		25B2FD0B17BF4510008E4D34 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0A17BF4510008E4D34 /* OpenAL.framework */; };
@@ -210,6 +212,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2544CF0617D1E5520023929D /* direction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = direction.plist; path = Resources/direction.plist; sourceTree = "<group>"; };
+		2544CF0717D1E5520023929D /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = direction.png; path = Resources/direction.png; sourceTree = "<group>"; };
 		25B2FD0317BF4510008E4D34 /* diablo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diablo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B2FD0617BF4510008E4D34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		25B2FD0817BF4510008E4D34 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -725,6 +729,8 @@
 				25B2FD2417BF4510008E4D34 /* Icon-Small.png */,
 				25B2FD2617BF4510008E4D34 /* Icon-Small@2x.png */,
 				25B2FD2817BF4510008E4D34 /* Icon.png */,
+				2544CF0617D1E5520023929D /* direction.plist */,
+				2544CF0717D1E5520023929D /* direction.png */,
 				25B2FFB017BF4EFA008E4D34 /* panels.plist */,
 				25B2FFB117BF4EFA008E4D34 /* panels.png */,
 				25B2FD2A17BF4510008E4D34 /* Icon@2x.png */,
@@ -1608,6 +1614,8 @@
 				25B2FDBF17BF4511008E4D34 /* ChangeLog in Resources */,
 				25B2FFB217BF4EFA008E4D34 /* panels.plist in Resources */,
 				25B2FFB317BF4EFA008E4D34 /* panels.png in Resources */,
+				2544CF0817D1E5520023929D /* direction.plist in Resources */,
+				2544CF0917D1E5520023929D /* direction.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
