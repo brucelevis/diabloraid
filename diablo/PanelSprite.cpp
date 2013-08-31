@@ -25,7 +25,6 @@ PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameNa
     
     sprite->_panelName = pszSpriteFrameName;
     if(sprite && sprite->initWithSpriteFrameName((sprite->_panelName + ".png").c_str())){
-        //sprite->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName((sprite->_panelName + ".png").c_str()));
         sprite->_touchRect = *new CCRect();
         sprite->autorelease();
         return sprite;
@@ -34,20 +33,37 @@ PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameNa
     return NULL;
 }
 
+void PanelSprite::_setTouched(bool touched){
+    std::string frameName;
+    if(touched){
+        frameName = (this->_panelName + "_off.png").c_str();
+        _touched = true;
+    } else {
+        frameName = (this->_panelName + ".png").c_str();
+        _touched = false;
+    }
+    
+    CCSpriteFrame* _frame;
+    _frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName.c_str());
+    this->setTexture(_frame->getTexture());
+    this->setTextureRect(_frame->getRect());
+    this->setDisplayFrame(_frame);
+}
+
 void PanelSprite::setTouched(){
-    std::string offFrameName = (this->_panelName + "_off.png").c_str();
-    _offFrame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(offFrameName.c_str());
-    this->setTexture(_offFrame->getTexture());
-    this->setTextureRect(_offFrame->getRect());
-    this->setDisplayFrame(_offFrame);
+    //既にタッチ状態なら何もしない。
+    if(_touched){
+        return;
+    }
+    this->_setTouched(true);
 }
 
 void PanelSprite::setUnTouched(){
-    std::string onFrameName = (this->_panelName + ".png").c_str();
-    _onFrame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(onFrameName.c_str());
-    this->setTexture(_onFrame->getTexture());
-    this->setTextureRect(_onFrame->getRect());
-    this->setDisplayFrame(_onFrame);
+    //既にアンタッチ状態なら何もしない。
+    if(!_touched){
+        return;
+    }
+    this->_setTouched(false);
 }
 
 void PanelSprite::setRemoved(){

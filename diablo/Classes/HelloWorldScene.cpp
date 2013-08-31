@@ -134,10 +134,6 @@ void HelloWorld::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
 }
 
 void HelloWorld::update(float dt){
-    if(_touching) {
-        return;
-    }
-    
     _field->movePanels();
 }
 

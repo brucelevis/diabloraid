@@ -18,10 +18,10 @@ class PanelSprite : public cocos2d::CCSprite
     float _deltaY;
     float _velocity;
     bool _willRemoved; //消去されるflag
+    bool _touched; //タッチされたか否か
     std::string _panelName;
     CCRect _touchRect;
-    CCSpriteFrame* _offFrame;
-    CCSpriteFrame* _onFrame;
+    void _setTouched(bool touched);
 public:
     PanelSprite(void);
     ~PanelSprite(void);

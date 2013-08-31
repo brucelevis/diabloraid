@@ -71,10 +71,7 @@ void Field::onTouchEnd(CCTouch* touch){
     
     CCARRAY_FOREACH(this->_panels, targetObject){
         panel = (PanelSprite*) targetObject;
-        
-        if(panel && panel->getTouchRect().containsPoint(tap)){
-            panel->setUnTouched();
-        }
+        panel->setUnTouched();
     }
 }
 
