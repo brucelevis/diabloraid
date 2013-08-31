@@ -48,6 +48,10 @@ CCArray* Field::getPanels(){
 }
 
 void Field::onTouchStart(CCTouch* touch){
+    //動いている時はタッチ出来ない。
+    if(_moveState){
+        return;
+    }
     CCPoint tap = CCDirector::sharedDirector()->convertToGL( touch->getLocationInView() );
     
     PanelSprite *panel = NULL;
@@ -57,7 +61,8 @@ void Field::onTouchStart(CCTouch* touch){
         panel = (PanelSprite*) targetObject;
         
         //if(panel && panel->getTouchRect().containsPoint(tap)){
-        if(panel && panel->boundingBox().containsPoint(tap)){
+        if(panel && panel->getTouchRect().containsPoint(tap)){
+            panel->setRemoved();
             panel->setTouched();
         }
     }
@@ -76,10 +81,6 @@ void Field::onTouchEnd(CCTouch* touch){
 }
 
 void Field::onTouchMove(CCTouch* touch){
-    //動いている時はタッチ出来ない。
-    if(_moveState){
-        return;
-    }
     CCPoint tap = CCDirector::sharedDirector()->convertToGL( touch->getLocationInView() );
     
     PanelSprite *panel = NULL;
