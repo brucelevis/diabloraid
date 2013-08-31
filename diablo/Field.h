@@ -21,6 +21,7 @@ class Field {
     CCArray* _panelNames;
     CCArray* _panels;
     CCArray* _removedPanels;
+    std::string _touchedPanelName;
     bool _moveState;
 public:
     Field(CCLayer *parentLayer);

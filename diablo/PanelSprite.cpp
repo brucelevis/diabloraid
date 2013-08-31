@@ -21,6 +21,10 @@ std::string PanelSprite::getPanelName(){
     return _panelName;
 }
 
+bool PanelSprite::isSamePanel(std::string panelName){
+    return (this->getPanelName() == panelName);
+}
+
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){
     PanelSprite* sprite = new PanelSprite();
     
@@ -32,6 +36,10 @@ PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameNa
     }
     CC_SAFE_DELETE(sprite);
     return NULL;
+}
+
+void PanelSprite::setSize(float size){
+    _size = size;
 }
 
 void PanelSprite::_switchOn(bool isOn){
@@ -47,28 +55,23 @@ void PanelSprite::_switchOn(bool isOn){
     CCSpriteFrame* _frame;
     _frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName.c_str());
     this->setTexture(_frame->getTexture());
-    this->setTextureRect(_frame->getRect());
-    this->setDisplayFrame(_frame);
+    this->setTextureRect(_frame->getRect(), false, CCSize(_size, _size));
 }
 
 void PanelSprite::setTouched(){
-    //既にoff状態なら何もしない。
-    if(!_isOn){
-        return;
-    }
+    //本当は、矢印をだす。
+    //暫定で、タッチしたら、消灯するようにしている。
     this->_switchOn(false);
 }
 
 void PanelSprite::setUnTouched(){
-    //既にon状態なら何もしない。
-    if(_isOn){
-        return;
-    }
+    //本当は、矢印を消す。
+    //暫定で、タッチしたら、消灯するようにしている。
     this->_switchOn(true);
 }
 
-void PanelSprite::setOff(){
-    
+void PanelSprite::switchOff(){
+    this->_switchOn(false);
 }
 
 void PanelSprite::setRemoved(){

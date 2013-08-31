@@ -60,8 +60,8 @@ void Field::onTouchStart(CCTouch* touch){
     CCARRAY_FOREACH(this->_panels, targetObject){
         panel = (PanelSprite*) targetObject;
         
-        //if(panel && panel->getTouchRect().containsPoint(tap)){
         if(panel && panel->getTouchRect().containsPoint(tap)){
+            _touchedPanelName = panel->getPanelName();
             panel->setRemoved();
             panel->setTouched();
         }
@@ -78,6 +78,7 @@ void Field::onTouchEnd(CCTouch* touch){
         panel = (PanelSprite*) targetObject;
         panel->setUnTouched();
     }
+    _touchedPanelName = "";//初期化
 }
 
 void Field::onTouchMove(CCTouch* touch){
@@ -93,7 +94,7 @@ void Field::onTouchMove(CCTouch* touch){
     CCARRAY_FOREACH(this->_panels, targetObject){
         panel = (PanelSprite*) targetObject;
         
-        if(panel && panel->getTouchRect().containsPoint(tap)){
+        if(panel && panel->getTouchRect().containsPoint(tap) && panel->isSamePanel(_touchedPanelName)){
             panel->setTouched();
             panel->setRemoved();
         }
@@ -113,10 +114,13 @@ void Field::setRemovedPanel(CCPoint* point){
 PanelSprite* Field::createPanel(int indexX, int indexY){
     CCString* panelName = (CCString*) _panelNames->objectAtIndex(rand()%5);
     PanelSprite* pSprite = PanelSprite::createWithSpriteFrameName(panelName->getCString());
-    pSprite->setScale(PANEL_SCALE);
     float size = PANEL_SIZE * PANEL_SCALE;
+    pSprite->setSize(size);
+    pSprite->setContentSize(CCSize(size,size));
+    pSprite->setScale(PANEL_SCALE);
     // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(32 + size * indexX, 128 + size * indexY) );
+    pSprite->setPosition( ccp(size/2 + size * indexX, 96 + size/2 + size * indexY) );
+    pSprite->setUnTouched();
     return pSprite;
 }
 
