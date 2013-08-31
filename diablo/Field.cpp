@@ -62,6 +62,7 @@ void Field::onTouchStart(CCTouch* touch){
         
         if(panel && panel->getTouchRect().containsPoint(tap)){
             _touchedPanelName = panel->getPanelName();
+            _lastPanel = panel;
             panel->setRemoved();
             panel->setTouched();
         }
@@ -104,7 +105,8 @@ void Field::onTouchMove(CCTouch* touch){
     CCARRAY_FOREACH(this->_panels, targetObject){
         panel = (PanelSprite*) targetObject;
         
-        if(panel && panel->getTouchRect().containsPoint(tap) && panel->isSamePanel(_touchedPanelName)){
+        if(panel && panel->getTouchRect().containsPoint(tap) && panel->isSamePanel(_touchedPanelName) && panel->isNextPanel(_lastPanel)){
+            _lastPanel = panel;
             panel->setTouched();
             panel->setRemoved();
         }

@@ -21,6 +21,7 @@ class Field {
     CCArray* _panelNames;
     CCArray* _panels;
     CCArray* _removedPanels;
+    PanelSprite* _lastPanel;
     std::string _touchedPanelName;
     bool _moveState;
 public:

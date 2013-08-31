@@ -25,6 +25,17 @@ bool PanelSprite::isSamePanel(std::string panelName){
     return (this->getPanelName() == panelName);
 }
 
+bool PanelSprite::isNextPanel(PanelSprite* panel){
+    //隣り合う条件は、上下左右斜め圏内にpanelが入っていること。
+    //それぞれのミニマム値とマックス値
+    float minX = this->getPositionX() - _size/2 - _size;
+    float maxX = this->getPositionX() + _size/2 + _size;
+    float minY = this->getPositionY() - _size/2 - _size;
+    float maxY = this->getPositionY() + _size/2 + _size;
+    
+    return (minX <= panel->getPositionX() && maxX > panel->getPositionX() && minY <= panel->getPositionY() && maxY > panel->getPositionY());
+}
+
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){
     PanelSprite* sprite = new PanelSprite();
     

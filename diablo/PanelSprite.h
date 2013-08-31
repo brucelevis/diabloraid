@@ -31,6 +31,7 @@ public:
     std::string getPanelName();
     void setSize(float size); //サイズをsetする。
     bool isSamePanel(std::string panelName);
+    bool isNextPanel(PanelSprite* panel);
     void setRemoved();
     void setTouched();
     void setUnTouched();
