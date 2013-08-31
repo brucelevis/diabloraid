@@ -81,6 +81,10 @@ void Field::onTouchEnd(CCTouch* touch){
 }
 
 void Field::onTouchMove(CCTouch* touch){
+    //動いている時はタッチmove出来ない。
+    if(_moveState){
+        return;
+    }
     CCPoint tap = CCDirector::sharedDirector()->convertToGL( touch->getLocationInView() );
     
     PanelSprite *panel = NULL;
