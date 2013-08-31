@@ -66,6 +66,16 @@ void Field::onTouchStart(CCTouch* touch){
             panel->setTouched();
         }
     }
+    
+    CCARRAY_FOREACH(this->_panels, targetObject){
+        panel = (PanelSprite*) targetObject;
+        
+        if(panel && panel->isSamePanel(_touchedPanelName)){
+            panel->switchOn();
+        } else {
+            panel->switchOff();
+        }
+    }
 }
 
 void Field::onTouchEnd(CCTouch* touch){

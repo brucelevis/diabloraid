@@ -74,6 +74,10 @@ void PanelSprite::switchOff(){
     this->_switchOn(false);
 }
 
+void PanelSprite::switchOn(){
+    this->_switchOn(true);
+}
+
 void PanelSprite::setRemoved(){
     _willRemoved = true;
 }

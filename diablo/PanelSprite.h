@@ -34,6 +34,7 @@ public:
     void setRemoved();
     void setTouched();
     void setUnTouched();
+    void switchOn(); //on画像に変更する。
     void switchOff(); //off画像に変更する。
     bool isRemoved();
     void setDeltaY(float deltaY);
