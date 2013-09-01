@@ -23,6 +23,8 @@ class PanelSprite : public cocos2d::CCSprite
     std::string _panelName;
     CCRect _touchRect;
     void _switchOn(bool isOn);
+    CCDictionary* _displayedDirection;
+    CCArray* _directionSprites; //方向の絵を保持する。
 public:
     PanelSprite(void);
     ~PanelSprite(void);
@@ -38,6 +40,12 @@ public:
     void setUnTouched();
     void switchOn(); //on画像に変更する。
     void switchOff(); //off画像に変更する。
+    
+    void pushDirectionSprite(int direction); //方向を表す数を受け取って画像を突っ込んで表示する。
+    void popDirectionSprite(); //突っ込まれたDirection表記を一つpopする。
+    void removeAllDirectionSprite(); //突っ込まれたDirection表記を全て消し去る。
+    int hasArrow(); //矢印がある時は、その矢印のintを返す。
+    
     bool isRemoved();
     void setDeltaY(float deltaY);
     void setPosition(const CCPoint& pos);

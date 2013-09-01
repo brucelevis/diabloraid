@@ -12,6 +12,10 @@ PanelSprite::PanelSprite(void){
     _deltaY = 0;
     _willRemoved = false;
     _isOn = false;
+    _directionSprites = CCArray::create();
+    _displayedDirection = CCDictionary::create();
+    _displayedDirection->retain();
+    _directionSprites->retain();
 }
 
 PanelSprite::~PanelSprite(void){
@@ -33,7 +37,7 @@ bool PanelSprite::isNextPanel(PanelSprite* panel){
     float minY = this->getPositionY() - _size/2 - _size;
     float maxY = this->getPositionY() + _size/2 + _size;
     
-    return (minX <= panel->getPositionX() && maxX > panel->getPositionX() && minY <= panel->getPositionY() && maxY > panel->getPositionY());
+    return (minX <= panel->getPositionX() && maxX >= panel->getPositionX() && minY <= panel->getPositionY() && maxY >= panel->getPositionY());
 }
 
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){
@@ -50,15 +54,45 @@ PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameNa
 }
 
 int PanelSprite::getDirection(PanelSprite* panel){
-    //後でクラスを作って移動する。
-    double degrees = 180 / 3.14 * atan((panel->getPositionY() - this->getPositionY())
-                                       / (panel->getPositionX() - this->getPositionX()));
+    //角度は以下で取得出来る(-90 - 90)
+    float dx = panel->getPositionX() - this->getPositionX();
+    float dy = panel->getPositionY() - this->getPositionY();
+    double degrees = 180 / 3.14 * atan(dy / dx);
+    // 0 - 359に変換
+    if (dx >= 0 && dy >= 0){
+    } else if ( dx >= 0 && dy < 0 ) {
+        //第四象限だから 0: 360, -90: 270
+        degrees += 360;
+    } else {
+        //第二と第三象限だから
+        degrees  = 180 + degrees;
+    }
     
-    CCLog("degrees: %f", degrees);
-    //CCLog("tan:%f", tan(3.14 / 4));
-    //CCLog("atan:%f", 180 * atan(1) / 3.14);
-    
-    return 1;
+    //return (int)floor(degrees + 0.5);
+    switch ((int)floor(degrees + 0.5)) {
+        case 0:
+            return 6;
+            break;
+        case 45:
+            return 3;
+        case 90:
+            return 2;
+        case 135:
+            return 1;
+        case 180:
+            return 4;
+        case 225:
+            return 7;
+        case 270:
+            return 8;
+        case 315:
+            return 9;
+        case 360:
+            return 6;
+        default:
+            return 3;
+            break;
+    }
 }
 
 void PanelSprite::setSize(float size){
@@ -99,6 +133,66 @@ void PanelSprite::switchOff(){
 
 void PanelSprite::switchOn(){
     this->_switchOn(true);
+}
+
+void PanelSprite::pushDirectionSprite(int direction){
+    //同じ方向のものは一つで十分
+    if(_displayedDirection->objectForKey(direction)){
+        return;
+    }
+    int arrowDirectionInt = this->hasArrow();
+    if(arrowDirectionInt > 0){
+        //矢印がある時は、削除してから、pushする。
+        CCSprite* arrowDirection = (CCSprite*) _displayedDirection->objectForKey(arrowDirectionInt);
+        this->removeChild(arrowDirection, true);
+        arrowDirection->release();
+        _displayedDirection->removeObjectForKey(arrowDirectionInt);
+    }
+    
+    CCString* directionFileName = CCString::createWithFormat("%i.png",direction);
+    CCSprite* directionSprite   =
+        CCSprite::createWithSpriteFrameName(directionFileName->getCString());
+    directionSprite->setPosition(CCPoint(_size/2, _size/2));
+    _directionSprites->addObject(directionSprite);
+    this->addChild(directionSprite);
+    _displayedDirection->setObject(directionSprite, direction);
+}
+
+void PanelSprite::popDirectionSprite(){
+}
+
+int PanelSprite::hasArrow(){
+    CCArray* arrowIntegers = CCArray::create();
+    arrowIntegers->addObject(new CCInteger(15));
+    arrowIntegers->addObject(new CCInteger(25));
+    arrowIntegers->addObject(new CCInteger(35));
+    arrowIntegers->addObject(new CCInteger(45));
+    arrowIntegers->addObject(new CCInteger(65));
+    arrowIntegers->addObject(new CCInteger(75));
+    arrowIntegers->addObject(new CCInteger(85));
+    arrowIntegers->addObject(new CCInteger(95));
+    
+    CCObject* targetObject    = NULL;
+    CCInteger* integer        = NULL;
+    int retVal          = 0;
+    CCARRAY_FOREACH(arrowIntegers, targetObject){
+        integer = (CCInteger*) targetObject;
+        if(_displayedDirection->objectForKey(integer->getValue())){
+            retVal = integer->getValue();
+        };
+    }
+    return retVal;
+}
+
+void PanelSprite::removeAllDirectionSprite(){
+    CCSprite* directionSprite = NULL;
+    CCObject* targetObject    = NULL;
+    
+    CCARRAY_FOREACH(_directionSprites, targetObject){
+        directionSprite = (CCSprite*) targetObject;
+        directionSprite->release();
+    }
+    _directionSprites->removeAllObjects();
 }
 
 void PanelSprite::setRemoved(){

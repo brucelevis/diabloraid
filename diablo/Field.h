@@ -21,6 +21,7 @@ class Field {
     CCArray* _panelNames;
     CCArray* _panels;
     CCArray* _removedPanels;
+    CCArray* _touchedPanels; //タッチされたパネルを順に格納する。
     PanelSprite* _lastPanel;
     PanelSprite* _currentPanel;
     std::string _touchedPanelName;
