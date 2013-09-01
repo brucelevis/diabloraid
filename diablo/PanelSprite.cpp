@@ -37,7 +37,7 @@ bool PanelSprite::isNextPanel(PanelSprite* panel){
     float minY = this->getPositionY() - _size/2 - _size;
     float maxY = this->getPositionY() + _size/2 + _size;
     
-    return (minX <= panel->getPositionX() && maxX >= panel->getPositionX() && minY <= panel->getPositionY() && maxY >= panel->getPositionY());
+    return (minX <= panel->getPositionX() && maxX > panel->getPositionX() && minY <= panel->getPositionY() && maxY > panel->getPositionY());
 }
 
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){
