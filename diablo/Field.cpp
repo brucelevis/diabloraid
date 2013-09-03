@@ -60,14 +60,12 @@ void Field::pushTouchedPanels(PanelSprite* panel){
 }
 
 void Field::popTouchedPanels(PanelSprite *panel){
-    CCLog("popTouchedPanels");
     if(_touchedPanels->lastObject() == panel){
         return;
     }
     if(!_touchedPanels->containsObject(panel)){
         return;
     }
-    CCLog("popTouchedPanels panel is not last");
     
     int index = _touchedPanels->indexOfObject((CCObject*) panel);
     
@@ -75,6 +73,7 @@ void Field::popTouchedPanels(PanelSprite *panel){
     for(int i = lastCount; i > index; i--){
         _touchedPanels->removeObjectAtIndex(i);
     }
+    _lastPanel = (PanelSprite*) _touchedPanels->objectAtIndex(index);
 }
 
 void Field::onTouchStart(CCTouch* touch){
