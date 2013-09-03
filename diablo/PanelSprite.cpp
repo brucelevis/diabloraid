@@ -190,9 +190,10 @@ void PanelSprite::removeAllDirectionSprite(){
     
     CCARRAY_FOREACH(_directionSprites, targetObject){
         directionSprite = (CCSprite*) targetObject;
-        directionSprite->release();
+        this->removeChild(directionSprite, true);
     }
     _directionSprites->removeAllObjects();
+    _displayedDirection->removeAllObjects();
 }
 
 void PanelSprite::setRemoved(){

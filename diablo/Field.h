@@ -32,6 +32,8 @@ public:
     
     CCArray* createInitialField();
     CCArray* getPanels();
+    void pushTouchedPanels(PanelSprite* panel);
+    void popTouchedPanels(PanelSprite* panel);
     void onTouchMove(CCTouch* touch);
     void onTouchStart(CCTouch* touch);
     void onTouchEnd(CCTouch* touch);
@@ -40,6 +42,7 @@ public:
     void onTurnStart();
     void onTurnEnd();
     CCArray* getRemovedPanels();
+    void setRemoved();
     void setRemovedPanel(CCPoint* point);
     void setMoves();
     PanelSprite* createPanel(int indexX, int indexY);
@@ -47,6 +50,7 @@ public:
     void restockPanels();
     void movePanels();
     void closeUp();
+    void cleanUp(); //全パネルをなめて、上にのっている方向spriteを削除する。
 };
 
 #endif /* defined(__diablo__Field__) */

@@ -115,7 +115,6 @@ void HelloWorld::ccTouchesMoved(CCSet* pTouches, CCEvent* event){
             _field->onTouchMove(touch);
         }
     }
-    _field->showDirections();
 }
 
 void HelloWorld::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
@@ -137,6 +136,8 @@ void HelloWorld::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
 
 void HelloWorld::update(float dt){
     _field->movePanels();
+    _field->cleanUp();
+    _field->showDirections();
 }
 
 void HelloWorld::menuCloseCallback(CCObject* pSender)

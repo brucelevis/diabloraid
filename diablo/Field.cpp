@@ -50,6 +50,33 @@ CCArray* Field::getPanels(){
     return _panels;
 }
 
+void Field::pushTouchedPanels(PanelSprite* panel){
+    // 最初の一回だけ登録
+    if(_touchedPanels->containsObject((CCObject*) panel)){
+        return;
+    }
+    
+    _touchedPanels->addObject(panel);
+}
+
+void Field::popTouchedPanels(PanelSprite *panel){
+    CCLog("popTouchedPanels");
+    if(_touchedPanels->lastObject() == panel){
+        return;
+    }
+    if(!_touchedPanels->containsObject(panel)){
+        return;
+    }
+    CCLog("popTouchedPanels panel is not last");
+    
+    int index = _touchedPanels->indexOfObject((CCObject*) panel);
+    
+    int lastCount = _touchedPanels->count() - 1;
+    for(int i = lastCount; i > index; i--){
+        _touchedPanels->removeObjectAtIndex(i);
+    }
+}
+
 void Field::onTouchStart(CCTouch* touch){
     //動いている時はタッチ出来ない。
     if(_moveState){
@@ -66,12 +93,7 @@ void Field::onTouchStart(CCTouch* touch){
         if(panel && panel->getTouchRect().containsPoint(tap)){
             _touchedPanelName = panel->getPanelName();
             _lastPanel = panel;
-            if( !panel->isRemoved() ) {
-                // 最初の一回だけ登録
-                _touchedPanels->addObject(panel);
-            }
-            panel->setRemoved();
-            //panel->setTouched();
+            this->pushTouchedPanels(panel);
         }
     }
     
@@ -96,6 +118,7 @@ void Field::onTouchEnd(CCTouch* touch){
         panel = (PanelSprite*) targetObject;
         panel->setUnTouched();
     }
+    this->setRemoved();
     _touchedPanelName = "";//初期化
 }
 
@@ -112,15 +135,13 @@ void Field::onTouchMove(CCTouch* touch){
     CCARRAY_FOREACH(this->_panels, targetObject){
         panel = (PanelSprite*) targetObject;
         
-        if(panel && panel->getTouchRect().containsPoint(tap)
-           && panel->isSamePanel(_touchedPanelName) && panel->isNextPanel(_lastPanel)){
-            _lastPanel = panel;
-            if( !panel->isRemoved() ) {
-                // 最初の一回だけ登録
-                _touchedPanels->addObject(panel);
-            }
-            //panel->setTouched();
-            panel->setRemoved();
+        if(panel && panel->getTouchRect().containsPoint(tap)){
+           if(panel->isSamePanel(_touchedPanelName) && panel->isNextPanel(_lastPanel)){
+                _lastPanel = panel;
+                this->pushTouchedPanels(panel);
+           }
+           // 既に、登録されたパネルのうえに来た時は、そこまで_touchedPanelsをpopしていく
+           this->popTouchedPanels(panel);
         }
     }
 }
@@ -128,6 +149,16 @@ void Field::onTouchMove(CCTouch* touch){
 //消えたパネルを取得する。
 CCArray* Field::getRemovedPanels(){
     return _removedPanels;
+}
+
+void Field::setRemoved(){
+    PanelSprite* panel = NULL;
+    CCObject* targetObject = NULL;
+    
+    CCARRAY_FOREACH(_touchedPanels, targetObject){
+        panel = (PanelSprite*) targetObject;
+        panel->setRemoved();
+    }
 }
 
 //消えたパネルの座標をセットする。
@@ -219,8 +250,6 @@ void Field::showDirections(){
     CCARRAY_FOREACH(_touchedPanels, targetObject){
         panel = (PanelSprite*) targetObject;
         
-        CCLog("number:%d, x:%f, y:%f", count, panel->getPositionX(), panel->getPositionY());
-        //panel->pushDirectionSprite(24);
         if(count == 0){
             //スタート地点の時は何もしない。
             _beforePanel = panel;
@@ -323,5 +352,15 @@ void Field::onTurnEnd(){
 }
 
 void Field::closeUp(){
+}
+
+void Field::cleanUp(){
+    PanelSprite* panel = NULL;
+    CCObject* targetObject = NULL;
+    CCARRAY_FOREACH(_panels,  targetObject){
+        panel = (PanelSprite*) targetObject;
+        panel->removeAllDirectionSprite();
+    }
+    
 }
 
