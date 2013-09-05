@@ -6,7 +6,7 @@
 #include "Field.h"
 using namespace cocos2d;
 
-class HelloWorld : public cocos2d::CCLayer
+class MainGameScene : public cocos2d::CCLayer
 {
     Field *_field;
     bool _touching;
@@ -26,7 +26,7 @@ public:
     void ccTouchesMoved(cocos2d::CCSet* pTouches, cocos2d::CCEvent* event);
     void ccTouchesEnded(cocos2d::CCSet* pTouches, cocos2d::CCEvent* event);
     // preprocessor macro for "static create()" constructor ( node() deprecated )
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(MainGameScene);
     void update(float dt);
 };
 

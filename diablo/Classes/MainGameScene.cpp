@@ -1,4 +1,4 @@
-#include "HelloWorldScene.h"
+#include "MainGameScene.h"
 #include "SimpleAudioEngine.h"
 #include "PanelSprite.h"
 #include "Field.h"
@@ -12,13 +12,13 @@ using namespace CocosDenshion;
 // int を bool に変換
 inline bool IntToBool(int a){ return a != 0; }
 
-CCScene* HelloWorld::scene()
+CCScene* MainGameScene::scene()
 {
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
     
     // 'layer' is an autorelease object
-    HelloWorld *layer = HelloWorld::create();
+    MainGameScene *layer = MainGameScene::create();
 
     // add layer as a child to scene
     scene->addChild(layer);
@@ -28,7 +28,7 @@ CCScene* HelloWorld::scene()
 }
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init()
+bool MainGameScene::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -46,7 +46,7 @@ bool HelloWorld::init()
                                         "CloseNormal.png",
                                         "CloseSelected.png",
                                         this,
-                                        menu_selector(HelloWorld::menuCloseCallback) );
+                                        menu_selector(MainGameScene::menuCloseCallback) );
     pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
 
     // create menu, it's an autorelease object
@@ -69,17 +69,23 @@ bool HelloWorld::init()
 
     // add the label as a child to this layer
     this->addChild(pLabel, 1);
-    // add "HelloWorld" splash screen"
+    // add "MainGameScene" splash screen"
     //CCSprite* pSprite = CCSprite::create("panels.png");
     
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("panels.plist");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("direction.plist");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("hp.plist");
     
     _field = new Field((CCLayer*) this);
     CCArray *panels = _field->createInitialField();
     
     PanelSprite *panel = NULL;
     CCObject* targetObject = NULL;
+    
+    CCSprite* _hp = CCSprite::createWithSpriteFrameName("hp.png");
+    _hp->setScale(0.4);
+    _hp->setPosition(ccp(230, 50));
+    this->addChild(_hp);
     
     CCARRAY_FOREACH(panels,targetObject){
         panel = (PanelSprite*) targetObject;
@@ -88,11 +94,11 @@ bool HelloWorld::init()
     
     this->setTouchEnabled(true);
  
-    this->schedule(schedule_selector(HelloWorld::update));
+    this->schedule(schedule_selector(MainGameScene::update));
     return true;
 }
 
-void HelloWorld::ccTouchesBegan(CCSet* pTouches, CCEvent* event){
+void MainGameScene::ccTouchesBegan(CCSet* pTouches, CCEvent* event){
     _touching = true;
     CCSetIterator i;
     CCTouch* touch;
@@ -105,7 +111,7 @@ void HelloWorld::ccTouchesBegan(CCSet* pTouches, CCEvent* event){
     }
 }
 
-void HelloWorld::ccTouchesMoved(CCSet* pTouches, CCEvent* event){
+void MainGameScene::ccTouchesMoved(CCSet* pTouches, CCEvent* event){
     CCSetIterator i;
     CCTouch* touch;
 
@@ -117,7 +123,7 @@ void HelloWorld::ccTouchesMoved(CCSet* pTouches, CCEvent* event){
     }
 }
 
-void HelloWorld::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
+void MainGameScene::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
     _touching = false;
     CCSetIterator i;
     CCTouch* touch;
@@ -134,13 +140,13 @@ void HelloWorld::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
     _field->onTurnEnd();
 }
 
-void HelloWorld::update(float dt){
+void MainGameScene::update(float dt){
     _field->movePanels();
     _field->cleanUp();
     _field->showDirections();
 }
 
-void HelloWorld::menuCloseCallback(CCObject* pSender)
+void MainGameScene::menuCloseCallback(CCObject* pSender)
 {
     CCDirector::sharedDirector()->end();
 
