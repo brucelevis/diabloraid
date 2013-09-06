@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "Player.h"
 using namespace cocos2d;
 
 class PanelSprite : public cocos2d::CCSprite
@@ -40,6 +41,8 @@ public:
     void setUnTouched();
     void switchOn(); //on画像に変更する。
     void switchOff(); //off画像に変更する。
+    
+    virtual void actionRemoved(Player* player);
     
     void pushDirectionSprite(int direction); //方向を表す数を受け取って画像を突っ込んで表示する。
     void popDirectionSprite(); //突っ込まれたDirection表記を一つpopする。

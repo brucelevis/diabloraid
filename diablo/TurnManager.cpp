@@ -23,12 +23,24 @@ int TurnManager::getTurn(){
 }
 
 void TurnManager::start(){
+    CCArray* removedPanels = _field->getWillBeRemovedPanel();
+    this->actionRemoved(removedPanels);
     _field->removePanels();
     CCArray* enemies = _field->getEnemies();
     _field->restockPanels();
     _field->setMoves();
     this->attack(enemies);
     _field->onTurnEnd();
+}
+
+void TurnManager::actionRemoved(CCArray* removedPanels){
+    PanelSprite* panel;
+    CCObject* targetObject;
+    CCARRAY_FOREACH(removedPanels, targetObject){
+        panel = (PanelSprite*) targetObject;
+        panel->actionRemoved(_player);//player以外にアクションする場合は後で考える。
+    }
+    
 }
 
 void TurnManager::attack(CCArray* enemies){

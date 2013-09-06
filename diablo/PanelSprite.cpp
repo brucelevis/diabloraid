@@ -53,6 +53,7 @@ PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameNa
     return NULL;
 }
 
+
 int PanelSprite::getDirection(PanelSprite* panel){
     //角度は以下で取得出来る(-90 - 90)
     float dx = panel->getPositionX() - this->getPositionX();
@@ -129,6 +130,10 @@ void PanelSprite::setUnTouched(){
 
 void PanelSprite::switchOff(){
     this->_switchOn(false);
+}
+
+void PanelSprite::actionRemoved(Player* player){
+    //overrideする。
 }
 
 void PanelSprite::switchOn(){

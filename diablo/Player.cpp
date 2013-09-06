@@ -13,7 +13,10 @@ Player::Player(){
 
 //ダメージを受けたらhpを減らす。
 void Player::damage(int v){
-    CCLog("before_hp:%d", hp->getCurrentHp());
     hp->reduce(v);
-    CCLog("after_hp:%d", hp->getCurrentHp());
+}
+
+//回復したらhpを増やす。
+void Player::recover(int v){
+    hp->increase(v);
 }

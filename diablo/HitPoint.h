@@ -21,6 +21,7 @@ public:
     int getCurrentHp();
     void setCurrentHp(int v);
     void reduce(int v);
+    void increase(int v);
     HitPoint();
     ~HitPoint(void);
 };

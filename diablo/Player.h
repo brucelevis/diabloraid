@@ -18,6 +18,7 @@ class Player{
 public:
     HitPoint* hp;
     void damage(int v);
+    void recover(int v);
     Player();
     ~Player(void);
 };

@@ -14,6 +14,7 @@
 		259335E617D7848500D3C419 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335E417D7848500D3C419 /* Player.cpp */; };
 		259335E917D786C500D3C419 /* HitPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335E717D786C500D3C419 /* HitPoint.cpp */; };
 		259335EC17D8DBE600D3C419 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335EA17D8DBE500D3C419 /* Enemy.cpp */; };
+		259335EF17DA1E8D00D3C419 /* Potion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335ED17DA1E8D00D3C419 /* Potion.cpp */; };
 		25B2FD0717BF4510008E4D34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0617BF4510008E4D34 /* QuartzCore.framework */; };
 		25B2FD0917BF4510008E4D34 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0817BF4510008E4D34 /* OpenGLES.framework */; };
 		25B2FD0B17BF4510008E4D34 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0A17BF4510008E4D34 /* OpenAL.framework */; };
@@ -227,6 +228,8 @@
 		259335E817D786C500D3C419 /* HitPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitPoint.h; sourceTree = "<group>"; };
 		259335EA17D8DBE500D3C419 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		259335EB17D8DBE600D3C419 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
+		259335ED17DA1E8D00D3C419 /* Potion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Potion.cpp; sourceTree = "<group>"; };
+		259335EE17DA1E8D00D3C419 /* Potion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Potion.h; sourceTree = "<group>"; };
 		25B2FD0317BF4510008E4D34 /* diablo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diablo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B2FD0617BF4510008E4D34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		25B2FD0817BF4510008E4D34 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1554,6 +1557,8 @@
 				25B2FFA317BF4517008E4D34 /* AppDelegate.h */,
 				259335EA17D8DBE500D3C419 /* Enemy.cpp */,
 				259335EB17D8DBE600D3C419 /* Enemy.h */,
+				259335ED17DA1E8D00D3C419 /* Potion.cpp */,
+				259335EE17DA1E8D00D3C419 /* Potion.h */,
 				25B2FFA417BF4517008E4D34 /* AppDelegate.cpp */,
 				25B2FFA617BF4517008E4D34 /* MainGameScene.h */,
 				25B2FFA717BF4517008E4D34 /* MainGameScene.cpp */,
@@ -1829,6 +1834,7 @@
 				259335E617D7848500D3C419 /* Player.cpp in Sources */,
 				259335E917D786C500D3C419 /* HitPoint.cpp in Sources */,
 				259335EC17D8DBE600D3C419 /* Enemy.cpp in Sources */,
+				259335EF17DA1E8D00D3C419 /* Potion.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

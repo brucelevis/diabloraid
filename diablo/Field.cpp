@@ -9,6 +9,7 @@
 #include "Field.h"
 #include "PanelSprite.h"
 #include "Enemy.h"
+#include "Potion.h"
 #include <math.h>
 
 Field::Field(CCLayer* parentLayer){
@@ -62,6 +63,10 @@ CCArray* Field::getEnemies(){
 
 CCArray* Field::getPanels(){
     return _panels;
+}
+
+CCArray* Field::getWillBeRemovedPanel(){
+    return _touchedPanels;
 }
 
 void Field::pushTouchedPanels(PanelSprite* panel){
@@ -196,6 +201,8 @@ PanelSprite* Field::createPanelSprite(std::string panelName){
     PanelSprite* pSprite;
     if(panelName == "skelton"){
         pSprite = Enemy::createWithSpriteFrameName(panelName.c_str());
+    } else if(panelName == "potion"){
+        pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
     } else {
         pSprite = PanelSprite::createWithSpriteFrameName(panelName.c_str());
     }
