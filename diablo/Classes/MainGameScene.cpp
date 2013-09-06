@@ -87,6 +87,13 @@ bool MainGameScene::init()
     _hp->setPosition(ccp(230, 50));
     this->addChild(_hp);
     
+    _player = new Player();
+    HpLabel = CCLabelTTF::create(CCString::createWithFormat("%d/%d", _player->hp->getCurrentHp(), _player->hp->getMaxHp())->getCString(), "arial", 20);
+    HpLabel->setPosition(ccp(240, 50));
+    this->addChild(HpLabel);
+    
+    _turnManager = new TurnManager(_field, _player);
+    
     CCARRAY_FOREACH(panels,targetObject){
         panel = (PanelSprite*) targetObject;
         this->addChild(panel);
@@ -134,16 +141,14 @@ void MainGameScene::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
             _field->onTouchEnd(touch);
         }
     }
-    _field->removePanels();
-    _field->restockPanels();
-    _field->setMoves();
-    _field->onTurnEnd();
+    _turnManager->start();
 }
 
 void MainGameScene::update(float dt){
     _field->movePanels();
     _field->cleanUp();
     _field->showDirections();
+    HpLabel->setString(CCString::createWithFormat("%d/%d", _player->hp->getCurrentHp(), _player->hp->getMaxHp())->getCString());
 }
 
 void MainGameScene::menuCloseCallback(CCObject* pSender)

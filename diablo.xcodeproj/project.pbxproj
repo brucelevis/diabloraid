@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2544CF0817D1E5520023929D /* direction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0617D1E5520023929D /* direction.plist */; };
 		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
+		259335E217D63D0100D3C419 /* hp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259335E017D63D0100D3C419 /* hp.plist */; };
+		259335E317D63D0100D3C419 /* hp.png in Resources */ = {isa = PBXBuildFile; fileRef = 259335E117D63D0100D3C419 /* hp.png */; };
+		259335E617D7848500D3C419 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335E417D7848500D3C419 /* Player.cpp */; };
+		259335E917D786C500D3C419 /* HitPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335E717D786C500D3C419 /* HitPoint.cpp */; };
+		259335EC17D8DBE600D3C419 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335EA17D8DBE500D3C419 /* Enemy.cpp */; };
 		25B2FD0717BF4510008E4D34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0617BF4510008E4D34 /* QuartzCore.framework */; };
 		25B2FD0917BF4510008E4D34 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0817BF4510008E4D34 /* OpenGLES.framework */; };
 		25B2FD0B17BF4510008E4D34 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0A17BF4510008E4D34 /* OpenAL.framework */; };
@@ -203,7 +208,7 @@
 		25B2FF9817BF4516008E4D34 /* CCTableViewCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FF9717BF4516008E4D34 /* CCTableViewCell.cpp */; };
 		25B2FF9C17BF4517008E4D34 /* HttpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FF9B17BF4517008E4D34 /* HttpClient.cpp */; };
 		25B2FFA517BF4517008E4D34 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFA417BF4517008E4D34 /* AppDelegate.cpp */; };
-		25B2FFA817BF4517008E4D34 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFA717BF4517008E4D34 /* HelloWorldScene.cpp */; };
+		25B2FFA817BF4517008E4D34 /* MainGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFA717BF4517008E4D34 /* MainGameScene.cpp */; };
 		25B2FFB217BF4EFA008E4D34 /* panels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25B2FFB017BF4EFA008E4D34 /* panels.plist */; };
 		25B2FFB317BF4EFA008E4D34 /* panels.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B2FFB117BF4EFA008E4D34 /* panels.png */; };
 		25B2FFB917BFBFC7008E4D34 /* PanelSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFB717BFBFC6008E4D34 /* PanelSprite.cpp */; };
@@ -214,6 +219,14 @@
 /* Begin PBXFileReference section */
 		2544CF0617D1E5520023929D /* direction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = direction.plist; path = Resources/direction.plist; sourceTree = "<group>"; };
 		2544CF0717D1E5520023929D /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = direction.png; path = Resources/direction.png; sourceTree = "<group>"; };
+		259335E017D63D0100D3C419 /* hp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hp.plist; path = Resources/hp.plist; sourceTree = "<group>"; };
+		259335E117D63D0100D3C419 /* hp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hp.png; path = Resources/hp.png; sourceTree = "<group>"; };
+		259335E417D7848500D3C419 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		259335E517D7848500D3C419 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		259335E717D786C500D3C419 /* HitPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HitPoint.cpp; sourceTree = "<group>"; };
+		259335E817D786C500D3C419 /* HitPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitPoint.h; sourceTree = "<group>"; };
+		259335EA17D8DBE500D3C419 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		259335EB17D8DBE600D3C419 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		25B2FD0317BF4510008E4D34 /* diablo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diablo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B2FD0617BF4510008E4D34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		25B2FD0817BF4510008E4D34 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -641,8 +654,8 @@
 		25B2FFA117BF4517008E4D34 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		25B2FFA317BF4517008E4D34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		25B2FFA417BF4517008E4D34 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		25B2FFA617BF4517008E4D34 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		25B2FFA717BF4517008E4D34 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		25B2FFA617BF4517008E4D34 /* MainGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainGameScene.h; path = Classes/MainGameScene.h; sourceTree = "<group>"; };
+		25B2FFA717BF4517008E4D34 /* MainGameScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MainGameScene.cpp; path = Classes/MainGameScene.cpp; sourceTree = "<group>"; };
 		25B2FFB017BF4EFA008E4D34 /* panels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = panels.plist; path = Resources/panels.plist; sourceTree = "<group>"; };
 		25B2FFB117BF4EFA008E4D34 /* panels.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = panels.png; path = Resources/panels.png; sourceTree = "<group>"; };
 		25B2FFB717BFBFC6008E4D34 /* PanelSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PanelSprite.cpp; sourceTree = "<group>"; };
@@ -729,6 +742,8 @@
 				25B2FD2417BF4510008E4D34 /* Icon-Small.png */,
 				25B2FD2617BF4510008E4D34 /* Icon-Small@2x.png */,
 				25B2FD2817BF4510008E4D34 /* Icon.png */,
+				259335E017D63D0100D3C419 /* hp.plist */,
+				259335E117D63D0100D3C419 /* hp.png */,
 				2544CF0617D1E5520023929D /* direction.plist */,
 				2544CF0717D1E5520023929D /* direction.png */,
 				25B2FFB017BF4EFA008E4D34 /* panels.plist */,
@@ -1537,15 +1552,21 @@
 			isa = PBXGroup;
 			children = (
 				25B2FFA317BF4517008E4D34 /* AppDelegate.h */,
+				259335EA17D8DBE500D3C419 /* Enemy.cpp */,
+				259335EB17D8DBE600D3C419 /* Enemy.h */,
 				25B2FFA417BF4517008E4D34 /* AppDelegate.cpp */,
-				25B2FFA617BF4517008E4D34 /* HelloWorldScene.h */,
-				25B2FFA717BF4517008E4D34 /* HelloWorldScene.cpp */,
+				25B2FFA617BF4517008E4D34 /* MainGameScene.h */,
+				25B2FFA717BF4517008E4D34 /* MainGameScene.cpp */,
 				25B2FFB717BFBFC6008E4D34 /* PanelSprite.cpp */,
 				25B2FFB817BFBFC7008E4D34 /* PanelSprite.h */,
 				25B2FFBA17BFDBB0008E4D34 /* Field.cpp */,
 				25B2FFBB17BFDBB0008E4D34 /* Field.h */,
 				25B2FFBD17C09D4C008E4D34 /* TurnManager.cpp */,
 				25B2FFBE17C09D4C008E4D34 /* TurnManager.h */,
+				259335E417D7848500D3C419 /* Player.cpp */,
+				259335E517D7848500D3C419 /* Player.h */,
+				259335E717D786C500D3C419 /* HitPoint.cpp */,
+				259335E817D786C500D3C419 /* HitPoint.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1616,6 +1637,8 @@
 				25B2FFB317BF4EFA008E4D34 /* panels.png in Resources */,
 				2544CF0817D1E5520023929D /* direction.plist in Resources */,
 				2544CF0917D1E5520023929D /* direction.png in Resources */,
+				259335E217D63D0100D3C419 /* hp.plist in Resources */,
+				259335E317D63D0100D3C419 /* hp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1799,10 +1822,13 @@
 				25B2FF9817BF4516008E4D34 /* CCTableViewCell.cpp in Sources */,
 				25B2FF9C17BF4517008E4D34 /* HttpClient.cpp in Sources */,
 				25B2FFA517BF4517008E4D34 /* AppDelegate.cpp in Sources */,
-				25B2FFA817BF4517008E4D34 /* HelloWorldScene.cpp in Sources */,
+				25B2FFA817BF4517008E4D34 /* MainGameScene.cpp in Sources */,
 				25B2FFB917BFBFC7008E4D34 /* PanelSprite.cpp in Sources */,
 				25B2FFBC17BFDBB1008E4D34 /* Field.cpp in Sources */,
 				25B2FFBF17C09D4D008E4D34 /* TurnManager.cpp in Sources */,
+				259335E617D7848500D3C419 /* Player.cpp in Sources */,
+				259335E917D786C500D3C419 /* HitPoint.cpp in Sources */,
+				259335EC17D8DBE600D3C419 /* Enemy.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

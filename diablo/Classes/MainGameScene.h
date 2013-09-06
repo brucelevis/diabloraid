@@ -4,14 +4,18 @@
 #include "cocos2d.h"
 #include "PanelSprite.h"
 #include "Field.h"
+#include "Player.h"
+#include "TurnManager.h"
 using namespace cocos2d;
 
 class MainGameScene : public cocos2d::CCLayer
 {
     Field *_field;
+    Player* _player;
     bool _touching;
     bool _onTurn;
-    
+    TurnManager* _turnManager;
+    CCLabelTTF* HpLabel;
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
     virtual bool init();

@@ -11,14 +11,20 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "Field.h"
+#include "Player.h"
+
 using namespace cocos2d;
 
 class TurnManager {
     int *_turn;
+    Field* _field;
+    Player* _player;
 public:
-    TurnManager(void);
+    TurnManager(Field* field, Player* player);
     ~TurnManager(void);
     int getTurn();
+    void attack(CCArray* enemies);
     void start();
     void end();
 };

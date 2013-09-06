@@ -8,6 +8,7 @@
 
 #include "Field.h"
 #include "PanelSprite.h"
+#include "Enemy.h"
 #include <math.h>
 
 Field::Field(CCLayer* parentLayer){
@@ -18,7 +19,6 @@ Field::Field(CCLayer* parentLayer){
     this->_touchedPanels = CCArray::create();
     this->_touchedPanels->retain();
     
-//    CCArray *_panelNames = new CCArray();
     this->_panelNames->addObject(new CCString("coin"));
     this->_panelNames->addObject(new CCString("skelton"));
     this->_panelNames->addObject(new CCString("shield"));
@@ -44,6 +44,20 @@ CCArray* Field::createInitialField(){
     }
     
     return _panels;
+}
+
+CCArray* Field::getEnemies(){
+    CCArray* enemies = CCArray::create();
+    
+    PanelSprite* panel;
+    CCObject* targetObject;
+    CCARRAY_FOREACH(_panels, targetObject){
+        panel = (PanelSprite*) targetObject;
+        if(panel->getPanelName() == "skelton"){
+            enemies->addObject((CCObject*) panel);
+        }
+    }
+    return enemies;
 }
 
 CCArray* Field::getPanels(){
@@ -167,7 +181,7 @@ void Field::setRemovedPanel(CCPoint* point){
 
 PanelSprite* Field::createPanel(int indexX, int indexY){
     CCString* panelName = (CCString*) _panelNames->objectAtIndex(rand()%5);
-    PanelSprite* pSprite = PanelSprite::createWithSpriteFrameName(panelName->getCString());
+    PanelSprite* pSprite = this->createPanelSprite(panelName->getCString());
     float size = PANEL_SIZE * PANEL_SCALE;
     pSprite->setSize(size);
     pSprite->setContentSize(CCSize(size,size));
@@ -175,6 +189,16 @@ PanelSprite* Field::createPanel(int indexX, int indexY){
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(size/2 + size * indexX, 96 + size/2 + size * indexY) );
     pSprite->setUnTouched();
+    return pSprite;
+}
+
+PanelSprite* Field::createPanelSprite(std::string panelName){
+    PanelSprite* pSprite;
+    if(panelName == "skelton"){
+        pSprite = Enemy::createWithSpriteFrameName(panelName.c_str());
+    } else {
+        pSprite = PanelSprite::createWithSpriteFrameName(panelName.c_str());
+    }
     return pSprite;
 }
 

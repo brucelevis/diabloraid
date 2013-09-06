@@ -20,12 +20,12 @@ class PanelSprite : public cocos2d::CCSprite
     bool _willRemoved; //消去されるflag
     bool _isOn; //on状態か
     float _size;
-    std::string _panelName;
-    CCRect _touchRect;
     void _switchOn(bool isOn);
     CCDictionary* _displayedDirection;
     CCArray* _directionSprites; //方向の絵を保持する。
 public:
+    std::string _panelName;
+    CCRect _touchRect;
     PanelSprite(void);
     ~PanelSprite(void);
     

@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "PanelSprite.h"
+#include "Player.h"
 using namespace cocos2d;
 
 class Field {
@@ -32,6 +33,7 @@ public:
     
     CCArray* createInitialField();
     CCArray* getPanels();
+    CCArray* getEnemies();
     void pushTouchedPanels(PanelSprite* panel);
     void popTouchedPanels(PanelSprite* panel);
     void onTouchMove(CCTouch* touch);
@@ -46,6 +48,7 @@ public:
     void setRemovedPanel(CCPoint* point);
     void setMoves();
     PanelSprite* createPanel(int indexX, int indexY);
+    PanelSprite* createPanelSprite(std::string panelName);
     void removePanels();
     void restockPanels();
     void movePanels();
