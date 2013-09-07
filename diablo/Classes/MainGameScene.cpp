@@ -76,8 +76,6 @@ bool MainGameScene::init()
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("direction.plist");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("hp.plist");
     
-    SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.5);
-    SimpleAudioEngine::sharedEngine()->preloadEffect("mouhitoiki_01.wav");
     
     _field = new Field((CCLayer*) this);
     CCArray *panels = _field->createInitialField();

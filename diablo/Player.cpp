@@ -20,3 +20,7 @@ void Player::damage(int v){
 void Player::recover(int v){
     hp->increase(v);
 }
+
+bool Player::isAlive(){
+    return hp->getCurrentHp() > 0;
+}

@@ -27,6 +27,7 @@ public:
     void actionRemoved(CCArray* removedPanels); //消えるときに何かするならここで。
     void attack(CCArray* enemies);
     void start();
+    void gameOver();
     void end();
 };
 

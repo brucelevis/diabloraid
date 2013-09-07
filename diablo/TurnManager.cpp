@@ -8,6 +8,7 @@
 
 #include "TurnManager.h"
 #include "Enemy.h"
+#include "MenuScene.h"
 #include "SimpleAudioEngine.h"
 using namespace CocosDenshion;
 
@@ -26,14 +27,35 @@ int TurnManager::getTurn(){
 
 void TurnManager::start(){
     CCArray* removedPanels = _field->getWillBeRemovedPanel();
+    // 取り除かれたパネルのアクションを実行する。
     this->actionRemoved(removedPanels);
+    // パネルをとリ除く
     _field->removePanels();
     CCArray* enemies = _field->getEnemies();
+    // パネルを補充
     _field->restockPanels();
+    // パネルを移動
     _field->setMoves();
+    // 敵の攻撃
     this->attack(enemies);
-    _field->onTurnEnd();
-    SimpleAudioEngine::sharedEngine()->playEffect("mouhitoiki_01.wav");
+    // playerの生死を確認
+    if(!_player->isAlive()){
+        this->gameOver();
+    } else {
+        _field->onTurnEnd();
+        SimpleAudioEngine::sharedEngine()->playEffect("mouhitoiki_01.wav");
+    }
+}
+
+void TurnManager::gameOver(){
+    SimpleAudioEngine::sharedEngine()->playEffect("oyasuminasai_03.wav");
+    //切り替え先のシーン
+    CCScene *scene = MenuScene::scene();
+    //0.5秒でクロスフェード
+    CCTransitionCrossFade *crossFade = CCTransitionCrossFade::create(0.5f, scene);
+    //切り替え
+    CCDirector::sharedDirector()->replaceScene(crossFade);
+    
 }
 
 void TurnManager::actionRemoved(CCArray* removedPanels){

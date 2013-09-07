@@ -19,6 +19,7 @@ public:
     HitPoint* hp;
     void damage(int v);
     void recover(int v);
+    bool isAlive();
     Player();
     ~Player(void);
 };
