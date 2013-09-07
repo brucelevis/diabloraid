@@ -333,6 +333,10 @@ protected:
 
     /** calculates delta time since last time it was called */    
     void calculateDeltaTime();
+    
+    static double getAvailableBytes();
+    static double getAvailableKiloBytes();
+    static double getAvailableMegaBytes();
 protected:
     /* The CCEGLView, where everything is rendered */
     CCEGLView    *m_pobOpenGLView;
