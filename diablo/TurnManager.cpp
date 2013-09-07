@@ -8,6 +8,8 @@
 
 #include "TurnManager.h"
 #include "Enemy.h"
+#include "SimpleAudioEngine.h"
+using namespace CocosDenshion;
 
 TurnManager::TurnManager(Field *field, Player* player){
     _field = field;
@@ -31,6 +33,7 @@ void TurnManager::start(){
     _field->setMoves();
     this->attack(enemies);
     _field->onTurnEnd();
+    SimpleAudioEngine::sharedEngine()->playEffect("mouhitoiki_01.wav");
 }
 
 void TurnManager::actionRemoved(CCArray* removedPanels){
