@@ -50,7 +50,7 @@ void TurnManager::start(){
 }
 
 void TurnManager::gameOver(){
-    SimpleAudioEngine::sharedEngine()->playEffect("gameover.wav");
+    SimpleAudioEngine::sharedEngine()->playEffect("oyasuminasai_03.wav");
     //切り替え先のシーン
     CCScene *scene = MenuScene::scene();
     //0.5秒でクロスフェード

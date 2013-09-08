@@ -41,7 +41,7 @@ bool MenuScene::init()
     SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.5);
     SimpleAudioEngine::sharedEngine()->preloadEffect("ya_01.wav");
     SimpleAudioEngine::sharedEngine()->preloadEffect("mouhitoiki_01.wav");
-    SimpleAudioEngine::sharedEngine()->preloadEffect("gameover.wav");
+    SimpleAudioEngine::sharedEngine()->preloadEffect("oyasuminasai_03.wav");
     
     
     /////////////////////////////
