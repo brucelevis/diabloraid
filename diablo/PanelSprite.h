@@ -46,7 +46,8 @@ public:
     void switchOff(); //off画像に変更する。
     virtual void update(); //更新
     
-    virtual void actionRemoved(Player* player);
+    virtual void actionGotoRemoved(Player* player); //タッチを離したときにタッチされているパネルに対して、取り除かれないとしても呼ばれる。
+    virtual void actionRemoved(Player* player); //取り除かれたときに呼ばれる。
     virtual void actionTouched(Player* player); //タッチされたときに呼ばれる。
     virtual void actionUntouched(Player* player); //タッチが解除されたときによばれる。
     

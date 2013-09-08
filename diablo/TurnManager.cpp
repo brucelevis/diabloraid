@@ -27,6 +27,8 @@ int TurnManager::getTurn(){
 
 void TurnManager::start(){
     CCArray* removedPanels = _field->getWillBeRemovedPanel();
+    // 取り除かれそうになっているパネルのアクションを実行する。
+    this->actionGotoRemoved(removedPanels);
     // 取り除かれたパネルのアクションを実行する。
     this->actionRemoved(removedPanels);
     // パネルをとリ除く
@@ -60,6 +62,15 @@ void TurnManager::gameOver(){
     //切り替え
     CCDirector::sharedDirector()->replaceScene(crossFade);
     
+}
+
+void TurnManager::actionGotoRemoved(cocos2d::CCArray *removedPanels){
+    PanelSprite* panel;
+    CCObject* targetObject;
+    CCARRAY_FOREACH(removedPanels, targetObject){
+        panel = (PanelSprite*) targetObject;
+        panel->actionGotoRemoved(_player);//player以外にアクションする場合は後で考える。
+    }
 }
 
 void TurnManager::actionRemoved(CCArray* removedPanels){

@@ -28,6 +28,8 @@ public:
     static Enemy* createWithSpriteFrameName(const char *pszSpriteFrameName);
     void attack(Player* player); //Playerも攻撃対象とかの抽象クラスにするかもね。
     void setRemoved(Player* player);
+    void actionGotoRemoved(Player* player);
+    void update();
     Enemy();
     ~Enemy(void);
 };

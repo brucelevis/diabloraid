@@ -139,6 +139,10 @@ void PanelSprite::update(){
     this->_switchOn(true);
 }
 
+void PanelSprite::actionGotoRemoved(Player* player){
+    //overrideする。
+}
+
 void PanelSprite::actionRemoved(Player* player){
     //overrideする。
 }

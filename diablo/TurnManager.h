@@ -24,6 +24,7 @@ public:
     TurnManager(Field* field, Player* player);
     ~TurnManager(void);
     int getTurn();
+    void actionGotoRemoved(CCArray* removedPanels); //消えないときも触れられていたときに何かするならここで。
     void actionRemoved(CCArray* removedPanels); //消えるときに何かするならここで。
     void attack(CCArray* enemies);
     void start();

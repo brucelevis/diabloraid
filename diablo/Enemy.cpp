@@ -15,17 +15,8 @@ Enemy::Enemy(){
     defense = new Defense(5);
     
     //CCLog("%s",CCString::createWithFormat("%d", hp->getCurrentHp())->getCString());
-    //currentHpLabel = CCLabelTTF::create(CCString::createWithFormat("%d", hp->getCurrentHp())->getCString(), "arial", 8);
-    //currentHpLabel->setPosition(ccp(54, 54));
-    //this->addChild(currentHpLabel);
     
-    //defenseLabel = CCLabelTTF::create(CCString::createWithFormat("%d", defense->getValue())->getCString(), "arial", 4);
-    //defenseLabel->setPosition(ccp(54, 20));
-    //this->addChild(defenseLabel);
     
-    //strengthLabel = CCLabelTTF::create(CCString::createWithFormat("%d", strength->getValue())->getCString(), "arial", 4);
-    //strengthLabel->setPosition(ccp(54, 0));
-    //this->addChild(strengthLabel);
 }
 
 Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName){
@@ -33,12 +24,28 @@ Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName){
     
     sprite->_panelName = pszSpriteFrameName;
     if(sprite && sprite->initWithSpriteFrameName((sprite->_panelName + ".png").c_str())){
+        sprite->currentHpLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->hp->getCurrentHp())->getCString(), "arial", 10);
+        sprite->currentHpLabel->setPosition(ccp(48, 0));
+        sprite->addChild(sprite->currentHpLabel);
+        
+        sprite->defenseLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->defense->getValue())->getCString(), "arial", 10);
+        sprite->defenseLabel->setPosition(ccp(48, 27));
+        sprite->addChild(sprite->defenseLabel);
+        sprite->strengthLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->strength->getValue())->getCString(), "arial", 10);
+        sprite->strengthLabel->setPosition(ccp(48, 54));
+        sprite->addChild(sprite->strengthLabel);
+        
         sprite->_touchRect = *new CCRect();
         sprite->autorelease();
         return sprite;
     }
     CC_SAFE_DELETE(sprite);
     return NULL;
+}
+
+//このタイミングでダメージを与える。
+void Enemy::actionGotoRemoved(Player* player){
+    hp->reduce(player->getTotalDamage());
 }
 
 // override
@@ -50,12 +57,10 @@ void Enemy::setRemoved(Player* player){
     }
 }
 
-// ダメージ増減ロジック
-// つながっているパネルが剣敵A剣剣敵B剣とすると
-// 剣敵まで来た時に、敵にダメージ
-// 剣敵剣と来たときに、追加ダメージ
-// 剣敵剣から敵に戻した時は、敵を回復
-
+void Enemy::update(){
+    PanelSprite::update();
+    this->currentHpLabel->setString((CCString::createWithFormat("%d", this->hp->getCurrentHp())->getCString()));
+}
 
 void Enemy::attack(Player* player){
     player->damage(strength->getValue());
