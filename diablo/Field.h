@@ -47,6 +47,7 @@ public:
     void onTurnEnd();
     CCArray* getRemovedPanels();
     void setRemoved();
+    void setUnremoved();
     void setRemovedPanel(CCPoint* point);
     void setMoves();
     PanelSprite* createPanel(int indexX, int indexY);

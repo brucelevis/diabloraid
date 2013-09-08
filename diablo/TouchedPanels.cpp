@@ -21,6 +21,16 @@ void TouchedPanels::setRemoved(Player* player){
     }
 }
 
+void TouchedPanels::setUnremoved(){
+    PanelSprite* panel = NULL;
+    CCObject* targetObject = NULL;
+    
+    CCARRAY_FOREACH(this, targetObject){
+        panel = (PanelSprite*) targetObject;
+        panel->setUnremoved();
+    }
+}
+
 // タッチに登録
 // やること：[敵1剣1敵2敵3剣2敵4]だったら、
 // 剣1に来たら、敵1にダメージ追加

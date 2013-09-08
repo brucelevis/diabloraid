@@ -145,6 +145,10 @@ void Field::setRemoved(){
     _touchedPanels->setRemoved(_player);
 }
 
+void Field::setUnremoved(){
+    _touchedPanels->setUnremoved();
+}
+
 //消えたパネルの座標をセットする。
 void Field::setRemovedPanel(CCPoint* point){
     _removedPanels->addObject(point);
@@ -287,7 +291,6 @@ void Field::movePanels(){
 void Field::updateAllPanels(){
     PanelSprite* panel = NULL;
     CCObject* targetObject = NULL;
-    int movingPanelsNum = 0;
     CCARRAY_FOREACH(this->_panels, targetObject){
         panel = (PanelSprite*) targetObject;
         panel->update();
@@ -297,6 +300,7 @@ void Field::updateAllPanels(){
 //ターン終了
 void Field::onTurnEnd(){
     _touchedPanels->removeAllObjects();
+    CCLog("_touchedPanelsNum:%d", _touchedPanels->count());
     _removedPanels->removeAllObjects();
 }
 

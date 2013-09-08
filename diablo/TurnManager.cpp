@@ -27,6 +27,14 @@ int TurnManager::getTurn(){
 
 void TurnManager::start(){
     CCArray* removedPanels = _field->getWillBeRemovedPanel();
+    //removedPanelsの数が3以下なら表示をもとに戻す以外は何もしない。
+    if(removedPanels->count() < 3){
+        _field->setUnremoved();
+        _field->onTurnEnd();
+        _player->resetDamage();
+        _field->updateAllPanels();
+        return;
+    }
     // 取り除かれそうになっているパネルのアクションを実行する。
     this->actionGotoRemoved(removedPanels);
     // 取り除かれたパネルのアクションを実行する。

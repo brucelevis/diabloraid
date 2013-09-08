@@ -19,6 +19,7 @@ using namespace cocos2d;
 class TouchedPanels : public CCArray {
 public:
     void setRemoved(Player* player);
+    void setUnremoved();
     void showDirections();
     void push(PanelSprite* panel, Player* player);
     void pop(Player* player);

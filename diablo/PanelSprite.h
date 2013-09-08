@@ -41,6 +41,7 @@ public:
     bool isNextPanel(PanelSprite* panel);
     int  getDirection(PanelSprite* panel);
     virtual void setRemoved(Player* player);
+    void setUnremoved();
     void setTouched();
     void setUnTouched();
     void switchOn();  //on画像に変更する。

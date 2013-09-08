@@ -223,6 +223,10 @@ void PanelSprite::setRemoved(Player* player){
     _willRemoved = true;
 }
 
+void PanelSprite::setUnremoved(){
+    _willRemoved = false;
+}
+
 bool PanelSprite::isRemoved(){
     return _willRemoved;
 }
