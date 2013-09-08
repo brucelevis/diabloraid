@@ -13,10 +13,6 @@ Enemy::Enemy(){
     _connectType = 1;
     strength = new Strength(5);
     defense = new Defense(5);
-    
-    //CCLog("%s",CCString::createWithFormat("%d", hp->getCurrentHp())->getCString());
-    
-    
 }
 
 Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName){
@@ -48,6 +44,20 @@ void Enemy::actionGotoRemoved(Player* player){
     hp->reduce(player->getTotalDamage());
 }
 
+void Enemy::actionTouched(Player* player){
+    if(hp->getCurrentHp() - player->getTotalDamage() <= 0){
+        this->setKilledImage();
+    } else {
+        this->switchOn();
+    }
+}
+
+void Enemy::actionUntouched(Player* player){
+    if(hp->getCurrentHp() - player->getTotalDamage() > 0){
+        this->switchOn();
+    }
+}
+
 // override
 void Enemy::setRemoved(Player* player){
     // hpが今回の攻撃で0を下回る時だけ_willRemovedをたてる。
@@ -55,6 +65,17 @@ void Enemy::setRemoved(Player* player){
     if(hp->getCurrentHp() - player->getTotalDamage() <= 0){
         _willRemoved = true;
     }
+}
+
+
+void Enemy::setKilledImage(){
+    std::string frameName;
+    frameName = (this->_panelName + "_batsu.png").c_str();
+    
+    CCSpriteFrame* _frame;
+    _frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName.c_str());
+    this->setTexture(_frame->getTexture());
+    this->setTextureRect(_frame->getRect(), false, CCSize(_size, _size));
 }
 
 void Enemy::update(){

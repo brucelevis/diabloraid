@@ -29,6 +29,9 @@ public:
     void attack(Player* player); //Playerも攻撃対象とかの抽象クラスにするかもね。
     void setRemoved(Player* player);
     void actionGotoRemoved(Player* player);
+    void actionTouched(Player* player);
+    void actionUntouched(Player* player);
+    void setKilledImage();
     void update();
     Enemy();
     ~Enemy(void);

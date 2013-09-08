@@ -33,16 +33,29 @@ void TouchedPanels::push(PanelSprite* panel, Player* player){
     if(this->containsObject((CCObject*) panel)){
         return;
     }
-    
+    PanelSprite* p = NULL;
+    CCObject* targetObject = NULL;
     panel->actionTouched(player);
+    CCARRAY_FOREACH(this, targetObject){
+        p = (PanelSprite*) targetObject;
+        p->actionTouched(player); //個々までの部分も再実行
+    }
+    
+    
     this->addObject(panel);
 }
 
 //タッチから削除
 void TouchedPanels::pop(Player* player){
+    PanelSprite* p = NULL;
+    CCObject* targetObject = NULL;
     PanelSprite* panel = (PanelSprite*) this->lastObject();
     panel->actionUntouched(player);
     this->removeObject(panel);
+    CCARRAY_FOREACH(this, targetObject){
+        p = (PanelSprite*) targetObject;
+        p->actionTouched(player); //個々までの部分も再実行
+    }
 }
 
 void TouchedPanels::popTo(PanelSprite *panel, Player* player){

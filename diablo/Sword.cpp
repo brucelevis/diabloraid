@@ -12,6 +12,7 @@
 Sword::Sword(){
     damageValue = 20;
     _connectType = 1;
+    _alreadyActionTouched = false;
 }
 
 Sword* Sword::createWithSpriteFrameName(const char *pszSpriteFrameName){
@@ -30,13 +31,18 @@ Sword* Sword::createWithSpriteFrameName(const char *pszSpriteFrameName){
 // override
 // タッチされたときにやること:playerのaccumDamageに追加
 void Sword::actionTouched(Player* player){
+    if(_alreadyActionTouched){
+        return;
+    }
     player->pushDamage(damageValue);
+    _alreadyActionTouched = true;
 }
 
 // override
 // タッチが外れたときにやること:playerのaccumDamageをpop
 void Sword::actionUntouched(Player* player){
     player->popDamage();
+    _alreadyActionTouched = false;
 }
 
 Sword::~Sword(){

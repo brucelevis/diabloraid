@@ -148,6 +148,7 @@ void PanelSprite::actionRemoved(Player* player){
 }
 
 void PanelSprite::actionTouched(Player* player){
+    //何回呼ばれても同じになるように作る。
 }
 
 void PanelSprite::actionUntouched(Player* player){
