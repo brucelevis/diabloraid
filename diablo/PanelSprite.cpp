@@ -8,7 +8,7 @@
 
 #include "PanelSprite.h"
 
-PanelSprite::PanelSprite(void){
+PanelSprite::PanelSprite(){
     _deltaY = 0;
     _willRemoved = false;
     _isOn = false;
@@ -137,6 +137,12 @@ void PanelSprite::actionRemoved(Player* player){
     //overrideする。
 }
 
+void PanelSprite::actionTouched(Player* player){
+}
+
+void PanelSprite::actionUntouched(Player* player){
+}
+
 void PanelSprite::switchOn(){
     this->_switchOn(true);
 }
@@ -202,7 +208,7 @@ void PanelSprite::removeAllDirectionSprite(){
     _displayedDirection->removeAllObjects();
 }
 
-void PanelSprite::setRemoved(){
+void PanelSprite::setRemoved(Player* player){
     _willRemoved = true;
 }
 

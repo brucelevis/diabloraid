@@ -20,6 +20,7 @@ class Field {
     const float PANEL_SIZE = 64;
     const float PANEL_SCALE = 0.8;
     CCLayer* _parentLayer;
+    Player* _player;
     CCArray* _panelNames;
     CCArray* _panels;
     CCArray* _removedPanels;
@@ -29,7 +30,7 @@ class Field {
     PanelSprite* _connectPanel;
     bool _moveState;
 public:
-    Field(CCLayer *parentLayer);
+    Field(CCLayer *parentLayer, Player* player);
     ~Field(void);
     
     CCArray* createInitialField();

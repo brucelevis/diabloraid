@@ -77,7 +77,8 @@ bool MainGameScene::init()
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("hp.plist");
     
     
-    _field = new Field((CCLayer*) this);
+    _player = new Player();
+    _field = new Field((CCLayer*) this, _player);
     CCArray *panels = _field->createInitialField();
     
     PanelSprite *panel = NULL;
@@ -88,10 +89,13 @@ bool MainGameScene::init()
     _hp->setPosition(ccp(230, 50));
     this->addChild(_hp);
     
-    _player = new Player();
     HpLabel = CCLabelTTF::create(CCString::createWithFormat("%d/%d", _player->hp->getCurrentHp(), _player->hp->getMaxHp())->getCString(), "arial", 20);
     HpLabel->setPosition(ccp(240, 50));
     this->addChild(HpLabel);
+    
+    DamageLabel = CCLabelTTF::create(CCString::createWithFormat("%d", _player->getTotalDamage())->getCString(), "arial", 20);
+    DamageLabel->setPosition(ccp(140, 50));
+    this->addChild(DamageLabel);
     
     _turnManager = new TurnManager(_field, _player);
     
@@ -150,6 +154,7 @@ void MainGameScene::update(float dt){
     _field->cleanUp();
     _field->showDirections();
     HpLabel->setString(CCString::createWithFormat("%d/%d", _player->hp->getCurrentHp(), _player->hp->getMaxHp())->getCString());
+    DamageLabel->setString(CCString::createWithFormat("%d", _player->getTotalDamage())->getCString());
 }
 
 void MainGameScene::menuCloseCallback(CCObject* pSender)

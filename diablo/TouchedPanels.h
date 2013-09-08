@@ -12,14 +12,16 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "PanelSprite.h"
+#include "Player.h"
 using namespace cocos2d;
 
 //タッチされているパネルに対して何かするクラス
 class TouchedPanels : public CCArray {
 public:
-    void setRemoved();
-    void push(PanelSprite* panel);
+    void setRemoved(Player* player);
     void showDirections();
-    PanelSprite* popTo(PanelSprite* panel);
+    void push(PanelSprite* panel, Player* player);
+    void pop(Player* player);
+    void popTo(PanelSprite* panel, Player* player);
 };
 #endif /* defined(__diablo__TouchedPanels__) */

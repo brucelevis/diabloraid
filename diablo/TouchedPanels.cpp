@@ -11,38 +11,52 @@
 #include "cocos2d.h"
 using namespace cocos2d;
 
-void TouchedPanels::setRemoved(){
+void TouchedPanels::setRemoved(Player* player){
     PanelSprite* panel = NULL;
     CCObject* targetObject = NULL;
     
     CCARRAY_FOREACH(this, targetObject){
         panel = (PanelSprite*) targetObject;
-        panel->setRemoved();
+        panel->setRemoved(player);
     }
 }
 
-void TouchedPanels::push(PanelSprite* panel){
+// タッチに登録
+// やること：[敵1剣1敵2敵3剣2敵4]だったら、
+// 剣1に来たら、敵1にダメージ追加
+// 敵2に来たら、剣1の分ダメージ追加
+// 敵3に来たら、剣1の分ダメージ追加
+// 剣2に来たら、敵1、敵2、敵3に剣2の分のダメージ追加
+// 敵4に来たら、剣1と剣2の分のダメージ追加
+void TouchedPanels::push(PanelSprite* panel, Player* player){
     // 最初の一回だけ登録
     if(this->containsObject((CCObject*) panel)){
         return;
     }
     
+    panel->actionTouched(player);
     this->addObject(panel);
 }
 
-PanelSprite* TouchedPanels::popTo(PanelSprite *panel){
+//タッチから削除
+void TouchedPanels::pop(Player* player){
+    PanelSprite* panel = (PanelSprite*) this->lastObject();
+    panel->actionUntouched(player);
+    this->removeObject(panel);
+}
+
+void TouchedPanels::popTo(PanelSprite *panel, Player* player){
     if(this->lastObject() == panel){
-            return NULL;
-        }
+        return;
+    }
     if(!this->containsObject(panel)){
-            return NULL;
-        }
+        return;
+    }
     int index = this->indexOfObject((CCObject*) panel);
     int lastCount = this->count() - 1;
-    for(int i = lastCount; i > index; i--){
-            this->removeObjectAtIndex(i);
-        }
-    return (PanelSprite*) this->objectAtIndex(index);
+    for(int i = 0; i < lastCount - index; i++){
+        this->pop(player);
+    }
 }
 
 void TouchedPanels::showDirections(){

@@ -13,8 +13,6 @@ Enemy::Enemy(){
     _connectType = 1;
     strength = new Strength(5);
     defense = new Defense(5);
-    accumDamages = CCArray::create();
-    accumDamages->retain();
 }
 
 Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName){
@@ -31,9 +29,10 @@ Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName){
 }
 
 // override
-void Enemy::setRemoved(){
+void Enemy::setRemoved(Player* player){
     // hpが今回の攻撃で0を下回る時だけ_willRemovedをたてる。
-    if(hp->getCurrentHp() - this->getTotalDamage() <= 0){
+    // プレイヤーからのダメージをどう知るか。// Enemyがplayerを知っている？
+    if(hp->getCurrentHp() - player->getTotalDamage() <= 0){
         _willRemoved = true;
     }
 }
@@ -43,28 +42,6 @@ void Enemy::setRemoved(){
 // 剣敵まで来た時に、敵にダメージ
 // 剣敵剣と来たときに、追加ダメージ
 // 剣敵剣から敵に戻した時は、敵を回復
-void Enemy::pushDamage(int v){
-    accumDamages->addObject(CCInteger::create(v));
-}
-
-void Enemy::popDamage(){
-    accumDamages->removeObject(accumDamages->lastObject());
-}
-
-void Enemy::resetDamage(){
-    accumDamages->removeAllObjects();
-}
-
-int Enemy::getTotalDamage(){
-    CCInteger* damage      = NULL;
-    CCObject* targetObject = NULL;
-    int totalDamage = 0;
-    CCARRAY_FOREACH(accumDamages, targetObject){
-        damage = (CCInteger*) targetObject;
-        totalDamage += damage->getValue();
-    }
-    return totalDamage;
-}
 
 
 void Enemy::attack(Player* player){

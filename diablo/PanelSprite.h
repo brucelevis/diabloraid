@@ -29,7 +29,7 @@ protected:
 public:
     std::string _panelName;
     CCRect _touchRect;
-    PanelSprite(void);
+    PanelSprite();
     ~PanelSprite(void);
     
     static PanelSprite* createWithSpriteFrameName(const char *pszSpriteFrameName);
@@ -39,13 +39,15 @@ public:
     bool isSamePanel(std::string panelName);
     bool isNextPanel(PanelSprite* panel);
     int  getDirection(PanelSprite* panel);
-    virtual void setRemoved();
+    virtual void setRemoved(Player* player);
     void setTouched();
     void setUnTouched();
     void switchOn();  //on画像に変更する。
     void switchOff(); //off画像に変更する。
     
     virtual void actionRemoved(Player* player);
+    virtual void actionTouched(Player* player); //タッチされたときに呼ばれる。
+    virtual void actionUntouched(Player* player); //タッチが解除されたときによばれる。
     
     void pushDirectionSprite(int direction); //方向を表す数を受け取って画像を突っ込んで表示する。
     void popDirectionSprite(); //突っ込まれたDirection表記を一つpopする。

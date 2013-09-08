@@ -15,7 +15,8 @@
 #include "Shield.h"
 #include <math.h>
 
-Field::Field(CCLayer* parentLayer){
+Field::Field(CCLayer* parentLayer, Player* player){
+    this->_player = player;
     this->_parentLayer = parentLayer;
     
     this->_panelNames = CCArray::create();
@@ -89,7 +90,7 @@ void Field::onTouchStart(CCTouch* touch){
         if(panel && panel->getTouchRect().containsPoint(tap)){
             _touchedPanelName = panel->getPanelName();
             _connectPanel = panel;
-            _touchedPanels->push(panel);
+            _touchedPanels->push(panel, _player);
         }
     }
     
@@ -133,10 +134,10 @@ void Field::onTouchMove(CCTouch* touch){
         
         if(panel && panel->getTouchRect().containsPoint(tap)){
            if(panel->isConnectable(_connectPanel) && panel->isNextPanel((PanelSprite*)_touchedPanels->lastObject())){
-               _touchedPanels->push(panel);
+               _touchedPanels->push(panel, _player);
            }
            // 既に、登録されたパネルのうえに来た時は、そこまで_touchedPanelsをpopしていく
-           _touchedPanels->popTo(panel);
+           _touchedPanels->popTo(panel, _player);
         }
     }
 }
@@ -147,7 +148,7 @@ CCArray* Field::getRemovedPanels(){
 }
 
 void Field::setRemoved(){
-    _touchedPanels->setRemoved();
+    _touchedPanels->setRemoved(_player);
 }
 
 //消えたパネルの座標をセットする。

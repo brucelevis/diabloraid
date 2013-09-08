@@ -45,6 +45,8 @@ void TurnManager::start(){
         _field->onTurnEnd();
         SimpleAudioEngine::sharedEngine()->playEffect("mouhitoiki_01.wav");
     }
+    // playerの攻撃状態を解除する。
+    _player->resetDamage();
 }
 
 void TurnManager::gameOver(){

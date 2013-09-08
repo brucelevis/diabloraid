@@ -9,6 +9,8 @@
 
 Player::Player(){
     hp = new HitPoint();
+    accumDamages = CCArray::create();
+    accumDamages->retain();
 }
 
 //ダメージを受けたらhpを減らす。
@@ -23,4 +25,27 @@ void Player::recover(int v){
 
 bool Player::isAlive(){
     return hp->getCurrentHp() > 0;
+}
+
+void Player::pushDamage(int v){
+    accumDamages->addObject(CCInteger::create(v));
+}
+
+void Player::popDamage(){
+    accumDamages->removeObject(accumDamages->lastObject());
+}
+
+void Player::resetDamage(){
+    accumDamages->removeAllObjects();
+}
+
+int Player::getTotalDamage(){
+    CCInteger* damage      = NULL;
+    CCObject* targetObject = NULL;
+    int totalDamage = 0;
+    CCARRAY_FOREACH(accumDamages, targetObject){
+        damage = (CCInteger*) targetObject;
+        totalDamage += damage->getValue();
+    }
+    return totalDamage;
 }

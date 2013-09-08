@@ -13,9 +13,11 @@
 #include "PanelSprite.h"
 
 class Sword : public PanelSprite{
-    int _recoverNum;
+    int damageValue;
 public:
     static Sword* createWithSpriteFrameName(const char *pszSpriteFrameName);
+    void actionTouched(Player* player);
+    void actionUntouched(Player* player);
     Sword();
     ~Sword(void);
 };

@@ -15,11 +15,16 @@
 using namespace cocos2d;
 
 class Player{
+    CCArray* accumDamages; //パネルをタッチしている間の累積ダメージを保存する。push popで簡単に処理するため
 public:
     HitPoint* hp;
     void damage(int v);
     void recover(int v);
     bool isAlive();
+    void pushDamage(int v);
+    void popDamage();
+    void resetDamage();
+    int getTotalDamage(); //今回の累積ダメージを取得する。
     Player();
     ~Player(void);
 };
