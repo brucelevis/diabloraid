@@ -20,7 +20,7 @@ Field::Field(CCLayer* parentLayer){
     
     this->_panelNames = CCArray::create();
     this->_panelNames->retain();
-    this->_touchedPanels = CCArray::create();
+    this->_touchedPanels = (TouchedPanels*) TouchedPanels::create();
     this->_touchedPanels->retain();
     
     this->_panelNames->addObject(new CCString("coin"));
@@ -72,31 +72,6 @@ CCArray* Field::getWillBeRemovedPanel(){
     return _touchedPanels;
 }
 
-void Field::pushTouchedPanels(PanelSprite* panel){
-    // 最初の一回だけ登録
-    if(_touchedPanels->containsObject((CCObject*) panel)){
-        return;
-    }
-    
-    _touchedPanels->addObject(panel);
-}
-
-void Field::popTouchedPanels(PanelSprite *panel){
-    if(_touchedPanels->lastObject() == panel){
-        return;
-    }
-    if(!_touchedPanels->containsObject(panel)){
-        return;
-    }
-    
-    int index = _touchedPanels->indexOfObject((CCObject*) panel);
-    
-    int lastCount = _touchedPanels->count() - 1;
-    for(int i = lastCount; i > index; i--){
-        _touchedPanels->removeObjectAtIndex(i);
-    }
-    _lastPanel = (PanelSprite*) _touchedPanels->objectAtIndex(index);
-}
 
 void Field::onTouchStart(CCTouch* touch){
     //動いている時はタッチ出来ない。
@@ -114,15 +89,12 @@ void Field::onTouchStart(CCTouch* touch){
         if(panel && panel->getTouchRect().containsPoint(tap)){
             _touchedPanelName = panel->getPanelName();
             _connectPanel = panel;
-            _lastPanel = panel;
-            this->pushTouchedPanels(panel);
+            _touchedPanels->push(panel);
         }
     }
     
     CCARRAY_FOREACH(this->_panels, targetObject){
         panel = (PanelSprite*) targetObject;
-        
-        //if(panel && panel->isSamePanel(_touchedPanelName)){
         if(panel && panel->isConnectable(_connectPanel)){
             panel->switchOn();
         } else {
@@ -160,13 +132,11 @@ void Field::onTouchMove(CCTouch* touch){
         panel = (PanelSprite*) targetObject;
         
         if(panel && panel->getTouchRect().containsPoint(tap)){
-           //if(panel->isSamePanel(_touchedPanelName) && panel->isNextPanel(_lastPanel)){
-           if(panel->isConnectable(_connectPanel) && panel->isNextPanel(_lastPanel)){
-               _lastPanel = panel;
-                this->pushTouchedPanels(panel);
+           if(panel->isConnectable(_connectPanel) && panel->isNextPanel((PanelSprite*)_touchedPanels->lastObject())){
+               _touchedPanels->push(panel);
            }
            // 既に、登録されたパネルのうえに来た時は、そこまで_touchedPanelsをpopしていく
-           this->popTouchedPanels(panel);
+           _touchedPanels->popTo(panel);
         }
     }
 }
@@ -177,13 +147,7 @@ CCArray* Field::getRemovedPanels(){
 }
 
 void Field::setRemoved(){
-    PanelSprite* panel = NULL;
-    CCObject* targetObject = NULL;
-    
-    CCARRAY_FOREACH(_touchedPanels, targetObject){
-        panel = (PanelSprite*) targetObject;
-        panel->setRemoved();
-    }
+    _touchedPanels->setRemoved();
 }
 
 //消えたパネルの座標をセットする。
@@ -280,69 +244,7 @@ void Field::removePanels(){
 }
 
 void Field::showDirections(){
-    //順に消えるパネルを取得して、それに合わせて、CCSpriteを生成して、表示する。
-    PanelSprite* panel = NULL;
-    CCObject* targetObject = NULL;
-    
-    int count = 0;
-    PanelSprite* _beforePanel;
-    PanelSprite* _currentPanel;
-    PanelSprite* _nextPanel;
-    
-    int lastCount = _touchedPanels->count() - 1;
-    CCARRAY_FOREACH(_touchedPanels, targetObject){
-        panel = (PanelSprite*) targetObject;
-        
-        if(count == 0){
-            //スタート地点の時は何もしない。
-            _beforePanel = panel;
-        } else if(count == 1){
-            _currentPanel = panel;
-            //スタート地点に画像を出す。
-            //スタート地点から今のパネルへの方向を得る。
-            int direction = _beforePanel->getDirection(_currentPanel);
-            _beforePanel->pushDirectionSprite(CCString::createWithFormat("5%d", direction)->intValue());
-            if (count == lastCount){
-            //最後の時だけ、panelにも表示する。
-                int directionA = panel->getDirection(_beforePanel);
-                panel->pushDirectionSprite(CCString::createWithFormat("%d5", directionA)->intValue());
-            }
-        } else if(count == 2){
-            //2のとき
-            _nextPanel = panel;
-            //一個前の位置に方向を出す。
-            int directionA = _currentPanel->getDirection(_beforePanel);
-            int directionB = _currentPanel->getDirection(_nextPanel);
-            if( directionA < directionB){
-                _currentPanel->pushDirectionSprite(CCString::createWithFormat("%d%d", directionA, directionB )->intValue());
-            } else {
-                _currentPanel->pushDirectionSprite(CCString::createWithFormat("%d%d", directionB, directionA )->intValue());
-            }
-            if (count == lastCount){
-            //最後の時だけ、panelにも表示する。
-                int direction = panel->getDirection(_currentPanel);
-                panel->pushDirectionSprite(CCString::createWithFormat("%d5", direction)->intValue());
-            }
-        } else {
-            //2以上のとき
-            _beforePanel = _currentPanel;
-            _currentPanel = _nextPanel;
-            _nextPanel = panel;
-            int directionA = _currentPanel->getDirection(_beforePanel);
-            int directionB = _currentPanel->getDirection(_nextPanel);
-            if( directionA < directionB){
-                _currentPanel->pushDirectionSprite(CCString::createWithFormat("%d%d", directionA, directionB )->intValue());
-            } else {
-                _currentPanel->pushDirectionSprite(CCString::createWithFormat("%d%d", directionB, directionA )->intValue());
-            }
-            if (count == lastCount){
-            //最後の時だけ、panelにも表示する。
-                int direction = panel->getDirection(_currentPanel);
-                panel->pushDirectionSprite(CCString::createWithFormat("%d5", direction)->intValue());
-            }
-        }
-        count++;
-    }
+    _touchedPanels->showDirections();
 }
 
 //移動量をパネル達にセットする。

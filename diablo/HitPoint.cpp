@@ -12,6 +12,9 @@ HitPoint::HitPoint(){
     maxHp = 100;
     currentHp = 100;
 }
+HitPoint::~HitPoint(){
+    
+}
 
 int HitPoint::getMaxHp(){
     return maxHp;

@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 #include "PanelSprite.h"
 #include "Player.h"
+#include "TouchedPanels.h"
 using namespace cocos2d;
 
 class Field {
@@ -22,8 +23,7 @@ class Field {
     CCArray* _panelNames;
     CCArray* _panels;
     CCArray* _removedPanels;
-    CCArray* _touchedPanels; //タッチされたパネルを順に格納する。
-    PanelSprite* _lastPanel;
+    TouchedPanels* _touchedPanels; //タッチされたパネルを順に格納する。
     PanelSprite* _currentPanel;
     std::string _touchedPanelName;
     PanelSprite* _connectPanel;
@@ -36,8 +36,6 @@ public:
     CCArray* getPanels();
     CCArray* getWillBeRemovedPanel(); //今回消えるパネルを取得する。
     CCArray* getEnemies();
-    void pushTouchedPanels(PanelSprite* panel);
-    void popTouchedPanels(PanelSprite* panel);
     void onTouchMove(CCTouch* touch);
     void onTouchStart(CCTouch* touch);
     void onTouchEnd(CCTouch* touch);

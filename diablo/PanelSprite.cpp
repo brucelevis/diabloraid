@@ -121,9 +121,6 @@ void PanelSprite::_switchOn(bool isOn){
 }
 
 void PanelSprite::setTouched(){
-    //本当は、矢印をだす。
-    //暫定で、タッチしたら、消灯するようにしている。
-    this->_switchOn(false);
 }
 
 void PanelSprite::setUnTouched(){

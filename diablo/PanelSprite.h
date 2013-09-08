@@ -18,13 +18,13 @@ class PanelSprite : public cocos2d::CCSprite
 {
     float _deltaY;
     float _velocity;
-    bool _willRemoved; //消去されるflag
     bool _isOn; //on状態か
     float _size;
     void _switchOn(bool isOn);
     CCDictionary* _displayedDirection;
     CCArray* _directionSprites; //方向の絵を保持する。
 protected:
+    bool _willRemoved; //消去されるflag
     int _connectType; //つながるかどうかを保存する。
 public:
     std::string _panelName;
@@ -39,10 +39,10 @@ public:
     bool isSamePanel(std::string panelName);
     bool isNextPanel(PanelSprite* panel);
     int  getDirection(PanelSprite* panel);
-    void setRemoved();
+    virtual void setRemoved();
     void setTouched();
     void setUnTouched();
-    void switchOn(); //on画像に変更する。
+    void switchOn();  //on画像に変更する。
     void switchOff(); //off画像に変更する。
     
     virtual void actionRemoved(Player* player);
