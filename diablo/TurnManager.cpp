@@ -47,6 +47,8 @@ void TurnManager::start(){
     }
     // playerの攻撃状態を解除する。
     _player->resetDamage();
+    // 全パネルの表示を更新
+    _field->updateAllPanels();
 }
 
 void TurnManager::gameOver(){

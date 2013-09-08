@@ -290,6 +290,15 @@ void Field::movePanels(){
     }
 }
 
+void Field::updateAllPanels(){
+    PanelSprite* panel = NULL;
+    CCObject* targetObject = NULL;
+    int movingPanelsNum = 0;
+    CCARRAY_FOREACH(this->_panels, targetObject){
+        panel = (PanelSprite*) targetObject;
+        panel->update();
+    }
+}
 
 //ターン終了
 void Field::onTurnEnd(){

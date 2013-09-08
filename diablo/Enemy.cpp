@@ -13,6 +13,19 @@ Enemy::Enemy(){
     _connectType = 1;
     strength = new Strength(5);
     defense = new Defense(5);
+    
+    //CCLog("%s",CCString::createWithFormat("%d", hp->getCurrentHp())->getCString());
+    //currentHpLabel = CCLabelTTF::create(CCString::createWithFormat("%d", hp->getCurrentHp())->getCString(), "arial", 8);
+    //currentHpLabel->setPosition(ccp(54, 54));
+    //this->addChild(currentHpLabel);
+    
+    //defenseLabel = CCLabelTTF::create(CCString::createWithFormat("%d", defense->getValue())->getCString(), "arial", 4);
+    //defenseLabel->setPosition(ccp(54, 20));
+    //this->addChild(defenseLabel);
+    
+    //strengthLabel = CCLabelTTF::create(CCString::createWithFormat("%d", strength->getValue())->getCString(), "arial", 4);
+    //strengthLabel->setPosition(ccp(54, 0));
+    //this->addChild(strengthLabel);
 }
 
 Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName){

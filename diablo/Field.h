@@ -43,6 +43,7 @@ public:
     void showDirections(); //今まさに消えんとしているパネルの上に、方向を表示する。
     bool getOnTurn();
     void onTurnStart();
+    void updateAllPanels();
     void onTurnEnd();
     CCArray* getRemovedPanels();
     void setRemoved();

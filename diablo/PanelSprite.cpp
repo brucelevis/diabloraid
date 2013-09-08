@@ -126,11 +126,15 @@ void PanelSprite::setTouched(){
 void PanelSprite::setUnTouched(){
     //本当は、矢印を消す。
     //暫定で、タッチしたら、消灯するようにしている。
-    this->_switchOn(true);
 }
 
 void PanelSprite::switchOff(){
     this->_switchOn(false);
+}
+
+void PanelSprite::update(){
+    //overrideする。
+    this->_switchOn(true);
 }
 
 void PanelSprite::actionRemoved(Player* player){

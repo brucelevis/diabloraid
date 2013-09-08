@@ -44,6 +44,7 @@ public:
     void setUnTouched();
     void switchOn();  //on画像に変更する。
     void switchOff(); //off画像に変更する。
+    virtual void update(); //更新
     
     virtual void actionRemoved(Player* player);
     virtual void actionTouched(Player* player); //タッチされたときに呼ばれる。
