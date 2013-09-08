@@ -10,6 +10,7 @@
 
 Enemy::Enemy(){
     hp = new HitPoint();
+    _connectType = 1;
     strength = 5;
 }
 

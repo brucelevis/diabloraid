@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250557A517DB837400D85441 /* Shield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A317DB837400D85441 /* Shield.cpp */; };
+		250557A817DB842700D85441 /* Coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A617DB842700D85441 /* Coin.cpp */; };
+		250557AB17DB84A400D85441 /* Sword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A917DB84A400D85441 /* Sword.cpp */; };
+		250557AD17DC26C600D85441 /* gameover.wav in Resources */ = {isa = PBXBuildFile; fileRef = 250557AC17DC26C600D85441 /* gameover.wav */; };
 		2544CF0817D1E5520023929D /* direction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0617D1E5520023929D /* direction.plist */; };
 		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
 		259335E217D63D0100D3C419 /* hp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259335E017D63D0100D3C419 /* hp.plist */; };
@@ -239,6 +243,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		250557A317DB837400D85441 /* Shield.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shield.cpp; sourceTree = "<group>"; };
+		250557A417DB837400D85441 /* Shield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shield.h; sourceTree = "<group>"; };
+		250557A617DB842700D85441 /* Coin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Coin.cpp; sourceTree = "<group>"; };
+		250557A717DB842700D85441 /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
+		250557A917DB84A400D85441 /* Sword.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sword.cpp; sourceTree = "<group>"; };
+		250557AA17DB84A400D85441 /* Sword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sword.h; sourceTree = "<group>"; };
+		250557AC17DC26C600D85441 /* gameover.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = gameover.wav; path = Resources/gameover.wav; sourceTree = "<group>"; };
 		2544CF0617D1E5520023929D /* direction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = direction.plist; path = Resources/direction.plist; sourceTree = "<group>"; };
 		2544CF0717D1E5520023929D /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = direction.png; path = Resources/direction.png; sourceTree = "<group>"; };
 		259335E017D63D0100D3C419 /* hp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hp.plist; path = Resources/hp.plist; sourceTree = "<group>"; };
@@ -741,6 +752,12 @@
 				259335EB17D8DBE600D3C419 /* Enemy.h */,
 				259335ED17DA1E8D00D3C419 /* Potion.cpp */,
 				259335EE17DA1E8D00D3C419 /* Potion.h */,
+				250557A317DB837400D85441 /* Shield.cpp */,
+				250557A417DB837400D85441 /* Shield.h */,
+				250557A617DB842700D85441 /* Coin.cpp */,
+				250557A717DB842700D85441 /* Coin.h */,
+				250557A917DB84A400D85441 /* Sword.cpp */,
+				250557AA17DB84A400D85441 /* Sword.h */,
 			);
 			name = panel;
 			sourceTree = "<group>";
@@ -748,6 +765,7 @@
 		259335F617DAFD9A00D3C419 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				250557AC17DC26C600D85441 /* gameover.wav */,
 				259335F717DB27FA00D3C419 /* konbanwa_02.wav */,
 				259335F817DB27FA00D3C419 /* konbanwa_03.wav */,
 				259335F917DB27FB00D3C419 /* konnichiwa_02.wav */,
@@ -1745,6 +1763,7 @@
 				2593361C17DB27FC00D3C419 /* yahhoo_01.wav in Resources */,
 				2593361D17DB27FC00D3C419 /* yahhoo_02.wav in Resources */,
 				2593361E17DB27FC00D3C419 /* yoroshiku_01.wav in Resources */,
+				250557AD17DC26C600D85441 /* gameover.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1937,6 +1956,9 @@
 				259335EC17D8DBE600D3C419 /* Enemy.cpp in Sources */,
 				259335EF17DA1E8D00D3C419 /* Potion.cpp in Sources */,
 				259335F317DAE6DD00D3C419 /* MenuScene.cpp in Sources */,
+				250557A517DB837400D85441 /* Shield.cpp in Sources */,
+				250557A817DB842700D85441 /* Coin.cpp in Sources */,
+				250557AB17DB84A400D85441 /* Sword.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,10 @@ std::string PanelSprite::getPanelName(){
     return _panelName;
 }
 
+bool PanelSprite::isConnectable(PanelSprite* panel){
+    return _connectType == panel->_connectType;
+}
+
 bool PanelSprite::isSamePanel(std::string panelName){
     return (this->getPanelName() == panelName);
 }

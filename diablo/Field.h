@@ -26,6 +26,7 @@ class Field {
     PanelSprite* _lastPanel;
     PanelSprite* _currentPanel;
     std::string _touchedPanelName;
+    PanelSprite* _connectPanel;
     bool _moveState;
 public:
     Field(CCLayer *parentLayer);

@@ -24,6 +24,8 @@ class PanelSprite : public cocos2d::CCSprite
     void _switchOn(bool isOn);
     CCDictionary* _displayedDirection;
     CCArray* _directionSprites; //方向の絵を保持する。
+protected:
+    int _connectType; //つながるかどうかを保存する。
 public:
     std::string _panelName;
     CCRect _touchRect;
@@ -33,6 +35,7 @@ public:
     static PanelSprite* createWithSpriteFrameName(const char *pszSpriteFrameName);
     std::string getPanelName();
     void setSize(float size); //サイズをsetする。
+    bool isConnectable(PanelSprite* panel); //自身のconnectTypeと比較して、つながるかどうかチェック
     bool isSamePanel(std::string panelName);
     bool isNextPanel(PanelSprite* panel);
     int  getDirection(PanelSprite* panel);

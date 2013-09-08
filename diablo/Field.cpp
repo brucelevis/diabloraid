@@ -10,6 +10,9 @@
 #include "PanelSprite.h"
 #include "Enemy.h"
 #include "Potion.h"
+#include "Coin.h"
+#include "Sword.h"
+#include "Shield.h"
 #include <math.h>
 
 Field::Field(CCLayer* parentLayer){
@@ -110,6 +113,7 @@ void Field::onTouchStart(CCTouch* touch){
         
         if(panel && panel->getTouchRect().containsPoint(tap)){
             _touchedPanelName = panel->getPanelName();
+            _connectPanel = panel;
             _lastPanel = panel;
             this->pushTouchedPanels(panel);
         }
@@ -118,7 +122,8 @@ void Field::onTouchStart(CCTouch* touch){
     CCARRAY_FOREACH(this->_panels, targetObject){
         panel = (PanelSprite*) targetObject;
         
-        if(panel && panel->isSamePanel(_touchedPanelName)){
+        //if(panel && panel->isSamePanel(_touchedPanelName)){
+        if(panel && panel->isConnectable(_connectPanel)){
             panel->switchOn();
         } else {
             panel->switchOff();
@@ -137,7 +142,8 @@ void Field::onTouchEnd(CCTouch* touch){
         panel->setUnTouched();
     }
     this->setRemoved();
-    _touchedPanelName = "";//初期化
+    _touchedPanelName = "";//リセット
+    _connectPanel = NULL; //リセット
 }
 
 void Field::onTouchMove(CCTouch* touch){
@@ -154,8 +160,9 @@ void Field::onTouchMove(CCTouch* touch){
         panel = (PanelSprite*) targetObject;
         
         if(panel && panel->getTouchRect().containsPoint(tap)){
-           if(panel->isSamePanel(_touchedPanelName) && panel->isNextPanel(_lastPanel)){
-                _lastPanel = panel;
+           //if(panel->isSamePanel(_touchedPanelName) && panel->isNextPanel(_lastPanel)){
+           if(panel->isConnectable(_connectPanel) && panel->isNextPanel(_lastPanel)){
+               _lastPanel = panel;
                 this->pushTouchedPanels(panel);
            }
            // 既に、登録されたパネルのうえに来た時は、そこまで_touchedPanelsをpopしていく
@@ -203,6 +210,12 @@ PanelSprite* Field::createPanelSprite(std::string panelName){
         pSprite = Enemy::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "potion"){
         pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
+    } else if(panelName == "sword"){
+        pSprite = Sword::createWithSpriteFrameName(panelName.c_str());
+    } else if(panelName == "coin"){
+        pSprite = Coin::createWithSpriteFrameName(panelName.c_str());
+    } else if(panelName == "shield"){
+        pSprite = Shield::createWithSpriteFrameName(panelName.c_str());
     } else {
         pSprite = PanelSprite::createWithSpriteFrameName(panelName.c_str());
     }

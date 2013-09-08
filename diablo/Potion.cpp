@@ -8,7 +8,8 @@
 
 #include "Potion.h"
 Potion::Potion(){
-    _recoverNum = 3;
+    _connectType = 2;
+    _recoverNum  = 3;
 }
 
 Potion* Potion::createWithSpriteFrameName(const char *pszSpriteFrameName){
