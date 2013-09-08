@@ -18,6 +18,7 @@
 Field::Field(CCLayer* parentLayer, Player* player){
     this->_player = player;
     this->_parentLayer = parentLayer;
+    this->_connectPanel = NULL; //初期化
     
     this->_panelNames = CCArray::create();
     this->_panelNames->retain();
@@ -107,13 +108,6 @@ void Field::onTouchStart(CCTouch* touch){
 void Field::onTouchEnd(CCTouch* touch){
     CCPoint tap = CCDirector::sharedDirector()->convertToGL( touch->getLocationInView() );
     
-    PanelSprite *panel = NULL;
-    CCObject* targetObject = NULL;
-    
-    CCARRAY_FOREACH(this->_panels, targetObject){
-        panel = (PanelSprite*) targetObject;
-        panel->setUnTouched();
-    }
     this->setRemoved();
     _touchedPanelName = "";//リセット
     _connectPanel = NULL; //リセット
@@ -165,7 +159,7 @@ PanelSprite* Field::createPanel(int indexX, int indexY){
     pSprite->setScale(PANEL_SCALE);
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(size/2 + size * indexX, 96 + size/2 + size * indexY) );
-    pSprite->setUnTouched();
+    pSprite->update();
     return pSprite;
 }
 

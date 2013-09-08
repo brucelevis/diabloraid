@@ -26,6 +26,7 @@ std::string PanelSprite::getPanelName(){
 }
 
 bool PanelSprite::isConnectable(PanelSprite* panel){
+    if(!panel) return false;
     return _connectType == panel->_connectType;
 }
 
@@ -134,6 +135,7 @@ void PanelSprite::switchOff(){
 
 void PanelSprite::update(){
     //overrideする。
+    //this->_switchOn(true);
     this->_switchOn(true);
 }
 
