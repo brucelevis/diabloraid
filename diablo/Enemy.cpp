@@ -53,9 +53,7 @@ void Enemy::actionTouched(Player* player){
 }
 
 void Enemy::actionUntouched(Player* player){
-    if(hp->getCurrentHp() - player->getTotalDamage() > 0){
-        this->switchOn();
-    }
+    this->switchOn();
 }
 
 // override
