@@ -75,6 +75,7 @@ bool MainGameScene::init()
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("panels.plist");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("direction.plist");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("hp.plist");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("iconSprite.plist");
     
     
     _player = new Player();
@@ -109,6 +110,12 @@ bool MainGameScene::init()
         panel = (PanelSprite*) targetObject;
         this->addChild(panel);
     }
+    
+    CCSprite* statusIcon = CCSprite::createWithSpriteFrameName("status.png");
+    statusIcon->setPosition(ccp(32, 448));
+    statusIcon->setScale(0.5);
+    
+    this->addChild(statusIcon, 2);
     
     this->setTouchEnabled(true);
  

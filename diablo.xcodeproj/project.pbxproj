@@ -16,6 +16,8 @@
 		250557B717DC676B00D85441 /* TouchedPanels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557B517DC676900D85441 /* TouchedPanels.cpp */; };
 		2544CF0817D1E5520023929D /* direction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0617D1E5520023929D /* direction.plist */; };
 		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
+		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
+		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
 		259335E217D63D0100D3C419 /* hp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259335E017D63D0100D3C419 /* hp.plist */; };
 		259335E317D63D0100D3C419 /* hp.png in Resources */ = {isa = PBXBuildFile; fileRef = 259335E117D63D0100D3C419 /* hp.png */; };
 		259335E617D7848500D3C419 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335E417D7848500D3C419 /* Player.cpp */; };
@@ -261,6 +263,8 @@
 		250557B617DC676A00D85441 /* TouchedPanels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchedPanels.h; sourceTree = "<group>"; };
 		2544CF0617D1E5520023929D /* direction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = direction.plist; path = Resources/direction.plist; sourceTree = "<group>"; };
 		2544CF0717D1E5520023929D /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = direction.png; path = Resources/direction.png; sourceTree = "<group>"; };
+		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
+		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
 		259335E017D63D0100D3C419 /* hp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hp.plist; path = Resources/hp.plist; sourceTree = "<group>"; };
 		259335E117D63D0100D3C419 /* hp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hp.png; path = Resources/hp.png; sourceTree = "<group>"; };
 		259335E417D7848500D3C419 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -866,6 +870,8 @@
 				25B2FD1E17BF4510008E4D34 /* HelloWorld.png */,
 				25B2FD2017BF4510008E4D34 /* Icon-72.png */,
 				25B2FD2217BF4510008E4D34 /* Icon-Small-50.png */,
+				256C086C17DF74EA007A6D01 /* iconSprite.plist */,
+				256C086D17DF74EA007A6D01 /* iconSprite.png */,
 				25B2FD2417BF4510008E4D34 /* Icon-Small.png */,
 				25B2FD2617BF4510008E4D34 /* Icon-Small@2x.png */,
 				25B2FD2817BF4510008E4D34 /* Icon.png */,
@@ -1787,6 +1793,8 @@
 				2593361D17DB27FC00D3C419 /* yahhoo_02.wav in Resources */,
 				2593361E17DB27FC00D3C419 /* yoroshiku_01.wav in Resources */,
 				250557AD17DC26C600D85441 /* gameover.wav in Resources */,
+				256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */,
+				256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
