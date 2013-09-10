@@ -121,13 +121,16 @@ void MainGameScene::ccTouchesBegan(CCSet* pTouches, CCEvent* event){
     CCSetIterator i;
     CCTouch* touch;
     
+    CCPoint loc;
     for( i = pTouches->begin(); i != pTouches->end(); i++ ){
         touch = (CCTouch*) (*i);
         if(touch) {
+            loc = touch->getLocation();
             _field->onTouchStart(touch);
         }
     }
     if(this->showDamage(_field->getConnectPanel())){
+        DamageLabel->setPosition(ccp(loc.x + 20,loc.y + 40));
         DamageLabel->setVisible(true);
     }
 }

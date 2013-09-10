@@ -9,6 +9,7 @@
 
 Player::Player(){
     hp = new HitPoint();
+    strength = new Strength(5);
     defense = new Defense(10);
     accumDamages = CCArray::create();
     accumDamages->retain();
@@ -43,7 +44,7 @@ void Player::resetDamage(){
 int Player::getTotalDamage(){
     CCInteger* damage      = NULL;
     CCObject* targetObject = NULL;
-    int totalDamage = 0;
+    int totalDamage = strength->getValue();
     CCARRAY_FOREACH(accumDamages, targetObject){
         damage = (CCInteger*) targetObject;
         totalDamage += damage->getValue();

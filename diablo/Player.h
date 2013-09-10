@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 #include "HitPoint.h"
 #include "Defense.h"
+#include "Strength.h"
 using namespace cocos2d;
 
 class Player{
@@ -20,6 +21,7 @@ class Player{
 public:
     HitPoint* hp;
     Defense* defense;
+    Strength* strength;
     void damage(int v);
     void recover(int v);
     bool isAlive();
