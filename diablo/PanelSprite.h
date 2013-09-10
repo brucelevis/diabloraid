@@ -33,6 +33,7 @@ public:
     PanelSprite();
     ~PanelSprite(void);
     
+    void initialize();
     static PanelSprite* createWithSpriteFrameName(const char *pszSpriteFrameName);
     std::string getPanelName();
     void setSize(float size); //サイズをsetする。

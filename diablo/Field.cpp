@@ -145,8 +145,8 @@ void Field::setRemoved(){
     _touchedPanels->setRemoved(_player);
 }
 
-void Field::setUnremoved(){
-    _touchedPanels->setUnremoved();
+void Field::initialize(){
+    _touchedPanels->initialize();
 }
 
 //消えたパネルの座標をセットする。

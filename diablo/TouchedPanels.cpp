@@ -21,13 +21,13 @@ void TouchedPanels::setRemoved(Player* player){
     }
 }
 
-void TouchedPanels::setUnremoved(){
+void TouchedPanels::initialize(){
     PanelSprite* panel = NULL;
     CCObject* targetObject = NULL;
     
     CCARRAY_FOREACH(this, targetObject){
         panel = (PanelSprite*) targetObject;
-        panel->setUnremoved();
+        panel->initialize();
     }
 }
 

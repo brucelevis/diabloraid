@@ -21,6 +21,14 @@ PanelSprite::PanelSprite(){
 PanelSprite::~PanelSprite(void){
 }
 
+//初期化処理
+//何度も呼ばれる想定
+void PanelSprite::initialize(){
+    this->setUnremoved();
+    _alreadyActionTouched = false;
+    _isOn = true;
+}
+
 std::string PanelSprite::getPanelName(){
     return _panelName;
 }
