@@ -9,6 +9,7 @@
 #include "Shield.h"
 Shield::Shield(){
     _connectType = 3;
+    refillNum = 2;
 }
 
 Shield* Shield::createWithSpriteFrameName(const char *pszSpriteFrameName){
@@ -25,5 +26,9 @@ Shield* Shield::createWithSpriteFrameName(const char *pszSpriteFrameName){
 }
 
 Shield::~Shield(){
+}
+
+void Shield::actionRemoved(Player* player){
+    player->defense->increase(refillNum);
 }
 

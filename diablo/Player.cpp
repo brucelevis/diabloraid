@@ -9,6 +9,7 @@
 
 Player::Player(){
     hp = new HitPoint();
+    defense = new Defense(10);
     accumDamages = CCArray::create();
     accumDamages->retain();
 }

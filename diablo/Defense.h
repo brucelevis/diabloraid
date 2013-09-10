@@ -11,11 +11,18 @@
 
 #include <iostream>
 class Defense{
-    int value;
+    int max;
+    int current;
+    int brokenRate; //盾が破壊される確率
 public:
     Defense(int v);
     ~Defense();
-    int getValue();
+    int getMax();
+    int getCurrent();
+    void setCurrent(int v);
+    void reduce(int v);
+    void increase(int v);
+    void damage(int v); //ダメージを受けたときに、defenseを下げるロジック。
 };
 
 #endif /* defined(__diablo__Defense__) */

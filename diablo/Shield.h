@@ -12,9 +12,10 @@
 #include "PanelSprite.h"
 
 class Shield : public PanelSprite{
-    int _recoverNum;
+    int refillNum;
 public:
     static Shield* createWithSpriteFrameName(const char *pszSpriteFrameName);
+    void actionRemoved(Player* player);
     Shield();
     ~Shield(void);
 };

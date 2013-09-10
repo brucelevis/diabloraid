@@ -24,7 +24,7 @@ Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName){
         sprite->currentHpLabel->setPosition(ccp(48, 0));
         sprite->addChild(sprite->currentHpLabel);
         
-        sprite->defenseLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->defense->getValue())->getCString(), "arial", 10);
+        sprite->defenseLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->defense->getMax())->getCString(), "arial", 10);
         sprite->defenseLabel->setPosition(ccp(48, 27));
         sprite->addChild(sprite->defenseLabel);
         sprite->strengthLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->strength->getValue())->getCString(), "arial", 10);
@@ -82,7 +82,13 @@ void Enemy::update(){
 }
 
 void Enemy::attack(Player* player){
-    player->damage(strength->getValue());
+    //攻撃は、軽減される。
+    int damage = strength->getValue() - player->defense->getCurrent();
+    if(damage < 0){
+        damage = 0;
+    }
+    player->defense->damage(strength->getValue());
+    player->damage(damage);
 }
 
 Enemy::~Enemy(){

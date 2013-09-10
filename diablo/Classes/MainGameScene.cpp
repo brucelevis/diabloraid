@@ -93,6 +93,10 @@ bool MainGameScene::init()
     HpLabel->setPosition(ccp(240, 50));
     this->addChild(HpLabel);
     
+    ShieldLabel = CCLabelTTF::create(CCString::createWithFormat("%d/%d", _player->defense->getCurrent(), _player->defense->getMax())->getCString(), "arial", 20);
+    ShieldLabel->setPosition(ccp(140, 70));
+    this->addChild(ShieldLabel);
+    
     DamageLabel = CCLabelTTF::create(CCString::createWithFormat("%d", _player->getTotalDamage())->getCString(), "arial", 20);
     DamageLabel->setPosition(ccp(140, 50));
     this->addChild(DamageLabel);
@@ -155,6 +159,7 @@ void MainGameScene::update(float dt){
     _field->showDirections();
     HpLabel->setString(CCString::createWithFormat("%d/%d", _player->hp->getCurrentHp(), _player->hp->getMaxHp())->getCString());
     DamageLabel->setString(CCString::createWithFormat("%d", _player->getTotalDamage())->getCString());
+    ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->defense->getCurrent(), _player->defense->getMax())->getCString());
 }
 
 void MainGameScene::menuCloseCallback(CCObject* pSender)

@@ -12,12 +12,14 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "HitPoint.h"
+#include "Defense.h"
 using namespace cocos2d;
 
 class Player{
     CCArray* accumDamages; //パネルをタッチしている間の累積ダメージを保存する。push popで簡単に処理するため
 public:
     HitPoint* hp;
+    Defense* defense;
     void damage(int v);
     void recover(int v);
     bool isAlive();
