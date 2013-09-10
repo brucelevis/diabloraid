@@ -141,6 +141,10 @@ CCArray* Field::getRemovedPanels(){
     return _removedPanels;
 }
 
+PanelSprite* Field::getConnectPanel(){
+    return _connectPanel;
+}
+
 void Field::setRemoved(){
     _touchedPanels->setRemoved(_player);
 }

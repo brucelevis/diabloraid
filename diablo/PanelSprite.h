@@ -36,6 +36,7 @@ public:
     void initialize();
     static PanelSprite* createWithSpriteFrameName(const char *pszSpriteFrameName);
     std::string getPanelName();
+    int getConnectType();
     void setSize(float size); //サイズをsetする。
     bool isConnectable(PanelSprite* panel); //自身のconnectTypeと比較して、つながるかどうかチェック
     bool isSamePanel(std::string panelName);

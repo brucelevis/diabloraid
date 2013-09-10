@@ -29,6 +29,10 @@ void PanelSprite::initialize(){
     _isOn = true;
 }
 
+int PanelSprite::getConnectType(){
+    return _connectType;
+}
+
 std::string PanelSprite::getPanelName(){
     return _panelName;
 }

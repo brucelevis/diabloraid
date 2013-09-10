@@ -97,9 +97,11 @@ bool MainGameScene::init()
     ShieldLabel->setPosition(ccp(140, 70));
     this->addChild(ShieldLabel);
     
-    DamageLabel = CCLabelTTF::create(CCString::createWithFormat("%d", _player->getTotalDamage())->getCString(), "arial", 20);
+    DamageLabel = CCLabelTTF::create(CCString::createWithFormat("%d DMG", _player->getTotalDamage())->getCString(), "arial", 20);
+    DamageLabel->setColor(ccc3(0,255,0));
     DamageLabel->setPosition(ccp(140, 50));
-    this->addChild(DamageLabel);
+    DamageLabel->setVisible(false);
+    this->addChild(DamageLabel,1000);
     
     _turnManager = new TurnManager(_field, _player);
     
@@ -118,12 +120,15 @@ void MainGameScene::ccTouchesBegan(CCSet* pTouches, CCEvent* event){
     _touching = true;
     CCSetIterator i;
     CCTouch* touch;
-
+    
     for( i = pTouches->begin(); i != pTouches->end(); i++ ){
         touch = (CCTouch*) (*i);
         if(touch) {
             _field->onTouchStart(touch);
         }
+    }
+    if(this->showDamage(_field->getConnectPanel())){
+        DamageLabel->setVisible(true);
     }
 }
 
@@ -133,10 +138,19 @@ void MainGameScene::ccTouchesMoved(CCSet* pTouches, CCEvent* event){
 
     for( i = pTouches->begin(); i != pTouches->end(); i++ ){
         touch = (CCTouch*) (*i);
+        CCPoint loc = touch->getLocation();
+        DamageLabel->setPosition(ccp(loc.x + 20,loc.y + 40));
+        
         if(touch) {
             _field->onTouchMove(touch);
         }
     }
+}
+bool MainGameScene::showDamage(PanelSprite* panel){
+    if(!panel){
+        return false;
+    }
+    return (panel->getConnectType() == 1);
 }
 
 void MainGameScene::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
@@ -150,6 +164,7 @@ void MainGameScene::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
             _field->onTouchEnd(touch);
         }
     }
+    DamageLabel->setVisible(false);
     _turnManager->start();
 }
 
@@ -158,7 +173,7 @@ void MainGameScene::update(float dt){
     _field->cleanUp();
     _field->showDirections();
     HpLabel->setString(CCString::createWithFormat("%d/%d", _player->hp->getCurrentHp(), _player->hp->getMaxHp())->getCString());
-    DamageLabel->setString(CCString::createWithFormat("%d", _player->getTotalDamage())->getCString());
+    DamageLabel->setString(CCString::createWithFormat("%d DMG", _player->getTotalDamage())->getCString());
     ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->defense->getCurrent(), _player->defense->getMax())->getCString());
 }
 
