@@ -147,3 +147,15 @@ void TouchedPanels::showDirections(){
         count++;
     }
 }
+
+bool TouchedPanels::hasActiveOnlyOnePanel(){
+    PanelSprite* p = NULL;
+    CCObject* targetObject = NULL;
+    CCARRAY_FOREACH(this, targetObject) {
+        p = (PanelSprite*) targetObject;
+        if(p->isActiveOnlyOnePanel()){
+            return true;
+        }
+    }
+    return false;
+}

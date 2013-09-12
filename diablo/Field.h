@@ -35,7 +35,7 @@ public:
     
     CCArray* createInitialField();
     CCArray* getPanels();
-    CCArray* getWillBeRemovedPanel(); //今回消えるパネルを取得する。
+    TouchedPanels* getWillBeRemovedPanel(); //今回消えるパネルを取得する。
     CCArray* getEnemies();
     PanelSprite* getConnectPanel();
     void onTouchMove(CCTouch* touch);

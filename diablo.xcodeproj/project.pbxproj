@@ -18,6 +18,11 @@
 		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
 		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
+		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
+		256C087617E0C68F007A6D01 /* BaseModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087417E0C68F007A6D01 /* BaseModel.cpp */; };
+		256C087917E20E10007A6D01 /* Stair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087717E20E0F007A6D01 /* Stair.cpp */; };
+		256C087C17E21115007A6D01 /* Floor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087A17E21115007A6D01 /* Floor.cpp */; };
+		256C087F17E2114A007A6D01 /* Dungeon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087D17E2114A007A6D01 /* Dungeon.cpp */; };
 		259335E217D63D0100D3C419 /* hp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259335E017D63D0100D3C419 /* hp.plist */; };
 		259335E317D63D0100D3C419 /* hp.png in Resources */ = {isa = PBXBuildFile; fileRef = 259335E117D63D0100D3C419 /* hp.png */; };
 		259335E617D7848500D3C419 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335E417D7848500D3C419 /* Player.cpp */; };
@@ -265,6 +270,16 @@
 		2544CF0717D1E5520023929D /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = direction.png; path = Resources/direction.png; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
 		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
+		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
+		256C087217E0C641007A6D01 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		256C087417E0C68F007A6D01 /* BaseModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseModel.cpp; sourceTree = "<group>"; };
+		256C087517E0C68F007A6D01 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		256C087717E20E0F007A6D01 /* Stair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stair.cpp; sourceTree = "<group>"; };
+		256C087817E20E0F007A6D01 /* Stair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stair.h; sourceTree = "<group>"; };
+		256C087A17E21115007A6D01 /* Floor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Floor.cpp; sourceTree = "<group>"; };
+		256C087B17E21115007A6D01 /* Floor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Floor.h; sourceTree = "<group>"; };
+		256C087D17E2114A007A6D01 /* Dungeon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dungeon.cpp; sourceTree = "<group>"; };
+		256C087E17E2114A007A6D01 /* Dungeon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dungeon.h; sourceTree = "<group>"; };
 		259335E017D63D0100D3C419 /* hp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hp.plist; path = Resources/hp.plist; sourceTree = "<group>"; };
 		259335E117D63D0100D3C419 /* hp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hp.png; path = Resources/hp.png; sourceTree = "<group>"; };
 		259335E417D7848500D3C419 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -769,6 +784,21 @@
 			name = status;
 			sourceTree = "<group>";
 		};
+		256C087017E0C632007A6D01 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				256C087117E0C641007A6D01 /* UserModel.cpp */,
+				256C087217E0C641007A6D01 /* UserModel.h */,
+				256C087417E0C68F007A6D01 /* BaseModel.cpp */,
+				256C087517E0C68F007A6D01 /* BaseModel.h */,
+				256C087A17E21115007A6D01 /* Floor.cpp */,
+				256C087B17E21115007A6D01 /* Floor.h */,
+				256C087D17E2114A007A6D01 /* Dungeon.cpp */,
+				256C087E17E2114A007A6D01 /* Dungeon.h */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		259335F017DAE59F00D3C419 /* panel */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +814,8 @@
 				250557A717DB842700D85441 /* Coin.h */,
 				250557A917DB84A400D85441 /* Sword.cpp */,
 				250557AA17DB84A400D85441 /* Sword.h */,
+				256C087717E20E0F007A6D01 /* Stair.cpp */,
+				256C087817E20E0F007A6D01 /* Stair.h */,
 			);
 			name = panel;
 			sourceTree = "<group>";
@@ -1684,6 +1716,7 @@
 		25B2FFA217BF4517008E4D34 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				256C087017E0C632007A6D01 /* model */,
 				250557AE17DC562100D85441 /* status */,
 				259335F017DAE59F00D3C419 /* panel */,
 				25B2FFA317BF4517008E4D34 /* AppDelegate.h */,
@@ -1993,6 +2026,11 @@
 				250557B117DC565400D85441 /* Strength.cpp in Sources */,
 				250557B417DC58F200D85441 /* Defense.cpp in Sources */,
 				250557B717DC676B00D85441 /* TouchedPanels.cpp in Sources */,
+				256C087317E0C641007A6D01 /* UserModel.cpp in Sources */,
+				256C087617E0C68F007A6D01 /* BaseModel.cpp in Sources */,
+				256C087917E20E10007A6D01 /* Stair.cpp in Sources */,
+				256C087C17E21115007A6D01 /* Floor.cpp in Sources */,
+				256C087F17E2114A007A6D01 /* Dungeon.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

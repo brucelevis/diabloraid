@@ -12,6 +12,7 @@ PanelSprite::PanelSprite(){
     _deltaY = 0;
     _willRemoved = false;
     _isOn = false;
+    _isActiveOnlyOnePanel = false;
     _directionSprites = CCArray::create();
     _displayedDirection = CCDictionary::create();
     _displayedDirection->retain();
@@ -55,6 +56,10 @@ bool PanelSprite::isNextPanel(PanelSprite* panel){
     float maxY = this->getPositionY() + _size/2 + _size;
     
     return (minX <= panel->getPositionX() && maxX > panel->getPositionX() && minY <= panel->getPositionY() && maxY > panel->getPositionY());
+}
+
+bool PanelSprite::isActiveOnlyOnePanel(){
+    return _isActiveOnlyOnePanel;
 }
 
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){

@@ -13,6 +13,7 @@
 #include "Coin.h"
 #include "Sword.h"
 #include "Shield.h"
+#include "Stair.h"
 #include <math.h>
 
 Field::Field(CCLayer* parentLayer, Player* player){
@@ -30,6 +31,7 @@ Field::Field(CCLayer* parentLayer, Player* player){
     this->_panelNames->addObject(new CCString("shield"));
     this->_panelNames->addObject(new CCString("sword"));
     this->_panelNames->addObject(new CCString("potion"));
+    this->_panelNames->addObject(new CCString("kaidan"));
 }
 
 Field::~Field(void){
@@ -70,7 +72,7 @@ CCArray* Field::getPanels(){
     return _panels;
 }
 
-CCArray* Field::getWillBeRemovedPanel(){
+TouchedPanels* Field::getWillBeRemovedPanel(){
     return _touchedPanels;
 }
 
@@ -159,7 +161,7 @@ void Field::setRemovedPanel(CCPoint* point){
 }
 
 PanelSprite* Field::createPanel(int indexX, int indexY){
-    CCString* panelName = (CCString*) _panelNames->objectAtIndex(rand()%5);
+    CCString* panelName = (CCString*) _panelNames->objectAtIndex(rand()%6);
     PanelSprite* pSprite = this->createPanelSprite(panelName->getCString());
     float size = PANEL_SIZE * PANEL_SCALE;
     pSprite->setSize(size);
@@ -183,6 +185,8 @@ PanelSprite* Field::createPanelSprite(std::string panelName){
         pSprite = Coin::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "shield"){
         pSprite = Shield::createWithSpriteFrameName(panelName.c_str());
+    } else if(panelName == "kaidan"){
+        pSprite = Stair::createWithSpriteFrameName(panelName.c_str());
     } else {
         pSprite = PanelSprite::createWithSpriteFrameName(panelName.c_str());
     }

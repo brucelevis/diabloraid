@@ -21,6 +21,7 @@ public:
     void setRemoved(Player* player);
     void initialize();
     void showDirections();
+    bool hasActiveOnlyOnePanel(); //一つでもアクティブになるパネルを持ってるかどうか
     void push(PanelSprite* panel, Player* player);
     void pop(Player* player);
     void popTo(PanelSprite* panel, Player* player);

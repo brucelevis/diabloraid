@@ -7,7 +7,7 @@
             <key>coin.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{68,200},{64,64}}</string>
+                <string>{{2,266},{64,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -18,6 +18,32 @@
                 <string>{64,64}</string>
             </dict>
             <key>coin_off.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{134,200},{64,64}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{64,64}}</string>
+                <key>sourceSize</key>
+                <string>{64,64}</string>
+            </dict>
+            <key>kaidan.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{68,200},{64,64}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{64,64}}</string>
+                <key>sourceSize</key>
+                <string>{64,64}</string>
+            </dict>
+            <key>kaidan_off.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,200},{64,64}}</string>
@@ -157,7 +183,7 @@
             <key>size</key>
             <string>{256,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:97462793648881c54f51801f686ad84d:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:8d97c2dbb78c89117a8480cf993e75d9:1/1$</string>
             <key>textureFileName</key>
             <string>panels.png</string>
         </dict>

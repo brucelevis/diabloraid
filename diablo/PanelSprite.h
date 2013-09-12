@@ -27,6 +27,7 @@ protected:
     bool _alreadyActionTouched;
     int _connectType; //つながるかどうかを保存する。
     float _size;
+    bool _isActiveOnlyOnePanel;
 public:
     std::string _panelName;
     CCRect _touchRect;
@@ -41,6 +42,7 @@ public:
     bool isConnectable(PanelSprite* panel); //自身のconnectTypeと比較して、つながるかどうかチェック
     bool isSamePanel(std::string panelName);
     bool isNextPanel(PanelSprite* panel);
+    bool isActiveOnlyOnePanel();
     int  getDirection(PanelSprite* panel);
     virtual void setRemoved(Player* player);
     void setUnremoved();
