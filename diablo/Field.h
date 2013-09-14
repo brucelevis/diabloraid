@@ -14,6 +14,7 @@
 #include "PanelSprite.h"
 #include "Player.h"
 #include "TouchedPanels.h"
+#include "EnemyFactory.h"
 using namespace cocos2d;
 
 class Field {

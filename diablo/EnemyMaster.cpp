@@ -32,6 +32,19 @@ EnemyMaster* EnemyMaster::getById(int v){
     return enemy;
 }
 
+int EnemyMaster::getDef(){
+    return _def;
+}
+
+int EnemyMaster::getAttack(){
+    return _attack;
+}
+
+int EnemyMaster::getHp(){
+    return _hp;
+}
+
 std::string EnemyMaster::getName(){
     return this->_name;
 }
+

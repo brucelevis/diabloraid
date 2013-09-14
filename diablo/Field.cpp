@@ -28,9 +28,7 @@ Field::Field(CCLayer* parentLayer, Player* player){
     this->_touchedPanels->retain();
     
     this->_panelNames->addObject(new CCString("coin"));
-    this->_panelNames->addObject(new CCString("skelton"));
-    this->_panelNames->addObject(new CCString("miira"));
-    this->_panelNames->addObject(new CCString("tori"));
+    this->_panelNames->addObject(new CCString("enemy"));
     this->_panelNames->addObject(new CCString("shield"));
     this->_panelNames->addObject(new CCString("sword"));
     this->_panelNames->addObject(new CCString("potion"));
@@ -190,7 +188,7 @@ void Field::setRemovedPanel(CCPoint* point){
 }
 
 PanelSprite* Field::createPanel(int indexX, int indexY){
-    CCString* panelName = (CCString*) _panelNames->objectAtIndex(rand()%8);
+    CCString* panelName = (CCString*) _panelNames->objectAtIndex(rand()%6);
     PanelSprite* pSprite = this->createPanelSprite(panelName->getCString());
     float size = PANEL_SIZE * PANEL_SCALE;
     pSprite->setSize(size);
@@ -204,12 +202,8 @@ PanelSprite* Field::createPanel(int indexX, int indexY){
 
 PanelSprite* Field::createPanelSprite(std::string panelName){
     PanelSprite* pSprite;
-    if(panelName == "skelton"){
-        pSprite = Enemy::createWithSpriteFrameName(panelName.c_str(), 10, 2, 1);
-    } else if(panelName == "miira"){
-        pSprite = Enemy::createWithSpriteFrameName(panelName.c_str(), 30, 10, 5);
-    } else if(panelName == "tori"){
-        pSprite = Enemy::createWithSpriteFrameName(panelName.c_str(), 20, 5, 3);
+    if(panelName == "enemy"){
+        pSprite = EnemyFactory::getEnemyPanel();
     } else if(panelName == "potion"){
         pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "sword"){
