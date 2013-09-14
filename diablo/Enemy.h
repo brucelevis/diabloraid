@@ -25,7 +25,7 @@ class Enemy : public PanelSprite
     CCLabelTTF* strengthLabel;  //攻撃力の表示
     CCLabelTTF* defenseLabel;  //攻撃力の表示
 public:
-    static Enemy* createWithSpriteFrameName(const char *pszSpriteFrameName);
+    static Enemy* createWithSpriteFrameName(const char *pszSpriteFrameName, int _hp, int _str, int _def);
     void attack(Player* player); //Playerも攻撃対象とかの抽象クラスにするかもね。
     void setRemoved(Player* player);
     void actionGotoRemoved(Player* player);
@@ -33,7 +33,7 @@ public:
     void actionUntouched(Player* player);
     void setKilledImage();
     void update();
-    Enemy();
+    Enemy(int hp, int str, int def);
     ~Enemy(void);
 };
 

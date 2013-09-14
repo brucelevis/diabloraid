@@ -14,6 +14,7 @@
 #include "Sword.h"
 #include "Shield.h"
 #include "Stair.h"
+#include "EnemyMaster.h"
 #include <math.h>
 
 Field::Field(CCLayer* parentLayer, Player* player){
@@ -204,11 +205,11 @@ PanelSprite* Field::createPanel(int indexX, int indexY){
 PanelSprite* Field::createPanelSprite(std::string panelName){
     PanelSprite* pSprite;
     if(panelName == "skelton"){
-        pSprite = Enemy::createWithSpriteFrameName(panelName.c_str());
+        pSprite = Enemy::createWithSpriteFrameName(panelName.c_str(), 10, 2, 1);
     } else if(panelName == "miira"){
-        pSprite = Enemy::createWithSpriteFrameName(panelName.c_str());
+        pSprite = Enemy::createWithSpriteFrameName(panelName.c_str(), 30, 10, 5);
     } else if(panelName == "tori"){
-        pSprite = Enemy::createWithSpriteFrameName(panelName.c_str());
+        pSprite = Enemy::createWithSpriteFrameName(panelName.c_str(), 20, 5, 3);
     } else if(panelName == "potion"){
         pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "sword"){

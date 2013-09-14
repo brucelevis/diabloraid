@@ -8,7 +8,7 @@
 #include "Player.h"
 
 Player::Player(){
-    hp = new HitPoint();
+    hp = new HitPoint(100);
     strength = new Strength(5);
     defense = new Defense(10);
     accumDamages = CCArray::create();

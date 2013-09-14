@@ -8,15 +8,15 @@
 
 #include "Enemy.h"
 
-Enemy::Enemy(){
-    hp = new HitPoint();
+Enemy::Enemy(int _hp, int str, int def){
     _connectType = 1;
-    strength = new Strength(5);
-    defense = new Defense(5);
+    hp = new HitPoint(_hp);
+    strength = new Strength(str);
+    defense = new Defense(def);
 }
 
-Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName){
-    Enemy* sprite = new Enemy();
+Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName, int _hp, int _str, int _def){
+    Enemy* sprite = new Enemy(_hp, _str, _def);
     
     sprite->_panelName = pszSpriteFrameName;
     if(sprite && sprite->initWithSpriteFrameName((sprite->_panelName + ".png").c_str())){

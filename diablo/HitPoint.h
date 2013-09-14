@@ -20,7 +20,7 @@ public:
     void setCurrentHp(int v);
     void reduce(int v);
     void increase(int v);
-    HitPoint();
+    HitPoint(int v);
     ~HitPoint(void);
 };
 #endif /* defined(__diablo__HitPoint__) */

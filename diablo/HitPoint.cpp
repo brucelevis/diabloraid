@@ -8,9 +8,9 @@
 
 #include "HitPoint.h"
 
-HitPoint::HitPoint(){
-    maxHp = 100;
-    currentHp = 100;
+HitPoint::HitPoint(int v){
+    maxHp = v;
+    currentHp = v;
 }
 HitPoint::~HitPoint(){
     

@@ -251,6 +251,9 @@
 		25B2FFBC17BFDBB1008E4D34 /* Field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFBA17BFDBB0008E4D34 /* Field.cpp */; };
 		25B2FFBF17C09D4D008E4D34 /* TurnManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFBD17C09D4C008E4D34 /* TurnManager.cpp */; };
 		25EF285817E415C5003FBA91 /* kaidan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 25EF285717E415C5003FBA91 /* kaidan.wav */; };
+		25EF285C17E437A4003FBA91 /* master in Resources */ = {isa = PBXBuildFile; fileRef = 25EF285B17E437A4003FBA91 /* master */; };
+		25EF285F17E437BE003FBA91 /* EnemyMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EF285D17E437BE003FBA91 /* EnemyMaster.cpp */; };
+		25EF286817E483BB003FBA91 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EF286617E483BB003FBA91 /* Util.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -751,6 +754,12 @@
 		25B2FFBD17C09D4C008E4D34 /* TurnManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TurnManager.cpp; sourceTree = "<group>"; };
 		25B2FFBE17C09D4C008E4D34 /* TurnManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurnManager.h; sourceTree = "<group>"; };
 		25EF285717E415C5003FBA91 /* kaidan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kaidan.wav; sourceTree = "<group>"; };
+		25EF285B17E437A4003FBA91 /* master */ = {isa = PBXFileReference; lastKnownFileType = folder; name = master; path = Resources/master; sourceTree = "<group>"; };
+		25EF285D17E437BE003FBA91 /* EnemyMaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyMaster.cpp; sourceTree = "<group>"; };
+		25EF285E17E437BE003FBA91 /* EnemyMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyMaster.h; sourceTree = "<group>"; };
+		25EF286217E439F7003FBA91 /* picojson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = picojson.h; path = libs/picojson/picojson.h; sourceTree = "<group>"; };
+		25EF286617E483BB003FBA91 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
+		25EF286717E483BB003FBA91 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -797,6 +806,8 @@
 				256C087B17E21115007A6D01 /* Floor.h */,
 				256C087D17E2114A007A6D01 /* Dungeon.cpp */,
 				256C087E17E2114A007A6D01 /* Dungeon.h */,
+				25EF285D17E437BE003FBA91 /* EnemyMaster.cpp */,
+				25EF285E17E437BE003FBA91 /* EnemyMaster.h */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -898,6 +909,7 @@
 		25B2FD1717BF4510008E4D34 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				25EF285B17E437A4003FBA91 /* master */,
 				25B2FD1817BF4510008E4D34 /* CloseNormal.png */,
 				25B2FD1A17BF4510008E4D34 /* CloseSelected.png */,
 				25B2FD1C17BF4510008E4D34 /* Default.png */,
@@ -1719,6 +1731,7 @@
 		25B2FFA217BF4517008E4D34 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				25EF286117E43839003FBA91 /* libs */,
 				256C087017E0C632007A6D01 /* model */,
 				250557AE17DC562100D85441 /* status */,
 				259335F017DAE59F00D3C419 /* panel */,
@@ -1738,6 +1751,16 @@
 				259335E517D7848500D3C419 /* Player.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		25EF286117E43839003FBA91 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				25EF286217E439F7003FBA91 /* picojson.h */,
+				25EF286617E483BB003FBA91 /* Util.cpp */,
+				25EF286717E483BB003FBA91 /* Util.h */,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1832,6 +1855,7 @@
 				256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */,
 				256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */,
 				25EF285817E415C5003FBA91 /* kaidan.wav in Resources */,
+				25EF285C17E437A4003FBA91 /* master in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2035,6 +2059,8 @@
 				256C087917E20E10007A6D01 /* Stair.cpp in Sources */,
 				256C087C17E21115007A6D01 /* Floor.cpp in Sources */,
 				256C087F17E2114A007A6D01 /* Dungeon.cpp in Sources */,
+				25EF285F17E437BE003FBA91 /* EnemyMaster.cpp in Sources */,
+				25EF286817E483BB003FBA91 /* Util.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

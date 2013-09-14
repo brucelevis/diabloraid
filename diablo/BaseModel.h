@@ -11,6 +11,7 @@
 
 #include <iostream>
 class BaseModel{
+public:
     BaseModel();
     ~BaseModel();
 };
