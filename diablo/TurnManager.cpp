@@ -29,10 +29,7 @@ void TurnManager::start(){
     TouchedPanels* removedPanels = _field->getWillBeRemovedPanel();
     //removedPanelsの数が3以下なら表示をもとに戻す以外は何もしない。
     if(removedPanels->count() < 3 && !removedPanels->hasActiveOnlyOnePanel()){
-        _field->initialize();
-        _field->onTurnEnd();
-        _player->resetDamage();
-        _field->updateAllPanels();
+        this->turnEnd();
         return;
     }
     // 取り除かれそうになっているパネルのアクションを実行する。
@@ -51,14 +48,10 @@ void TurnManager::start(){
     // playerの生死を確認
     if(!_player->isAlive()){
         this->gameOver();
-    } else {
-        _field->onTurnEnd();
-        SimpleAudioEngine::sharedEngine()->playEffect("mouhitoiki_01.wav");
+        return;
     }
-    // playerの攻撃状態を解除する。
-    _player->resetDamage();
-    // 全パネルの表示を更新
-    _field->updateAllPanels();
+    this->turnEnd();
+    SimpleAudioEngine::sharedEngine()->playEffect("mouhitoiki_01.wav");
 }
 
 void TurnManager::gameOver(){
@@ -69,6 +62,14 @@ void TurnManager::gameOver(){
     CCTransitionCrossFade *crossFade = CCTransitionCrossFade::create(0.5f, scene);
     //切り替え
     CCDirector::sharedDirector()->replaceScene(crossFade);
+    
+}
+
+void TurnManager::turnEnd(){
+    _field->initialize();
+    _field->onTurnEnd();
+    // playerの攻撃状態を解除する。
+    _player->resetDamage();
     
 }
 

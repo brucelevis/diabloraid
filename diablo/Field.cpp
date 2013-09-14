@@ -310,6 +310,7 @@ void Field::onTurnEnd(){
     _touchedPanels->removeAllObjects();
     CCLog("_touchedPanelsNum:%d", _touchedPanels->count());
     _removedPanels->removeAllObjects();
+    this->updateAllPanels();
 }
 
 void Field::closeUp(){

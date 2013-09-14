@@ -29,6 +29,7 @@ public:
     void attack(CCArray* enemies);
     void start();
     void gameOver();
+    void turnEnd();
     void end();
 };
 
