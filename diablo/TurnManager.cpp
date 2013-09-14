@@ -32,6 +32,14 @@ void TurnManager::start(){
         this->turnEnd();
         return;
     }
+    if(removedPanels->hasActiveOnlyOnePanel()){
+        _field->removeAllPanels();
+        _field->restockPanels();
+        _field->setMoves();
+        this->turnEnd();
+        SimpleAudioEngine::sharedEngine()->playEffect("kaidan.wav");
+        return;
+    }
     // 取り除かれそうになっているパネルのアクションを実行する。
     this->actionGotoRemoved(removedPanels);
     // 取り除かれたパネルのアクションを実行する。
@@ -51,6 +59,7 @@ void TurnManager::start(){
         return;
     }
     this->turnEnd();
+    
     SimpleAudioEngine::sharedEngine()->playEffect("mouhitoiki_01.wav");
 }
 

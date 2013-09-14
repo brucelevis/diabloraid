@@ -250,6 +250,7 @@
 		25B2FFB917BFBFC7008E4D34 /* PanelSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFB717BFBFC6008E4D34 /* PanelSprite.cpp */; };
 		25B2FFBC17BFDBB1008E4D34 /* Field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFBA17BFDBB0008E4D34 /* Field.cpp */; };
 		25B2FFBF17C09D4D008E4D34 /* TurnManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B2FFBD17C09D4C008E4D34 /* TurnManager.cpp */; };
+		25EF285817E415C5003FBA91 /* kaidan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 25EF285717E415C5003FBA91 /* kaidan.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -749,6 +750,7 @@
 		25B2FFBB17BFDBB0008E4D34 /* Field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Field.h; sourceTree = "<group>"; };
 		25B2FFBD17C09D4C008E4D34 /* TurnManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TurnManager.cpp; sourceTree = "<group>"; };
 		25B2FFBE17C09D4C008E4D34 /* TurnManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurnManager.h; sourceTree = "<group>"; };
+		25EF285717E415C5003FBA91 /* kaidan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kaidan.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -831,6 +833,7 @@
 				259335FB17DB27FB00D3C419 /* mouhitoiki_01.wav */,
 				259335FC17DB27FB00D3C419 /* ohayo_01.wav */,
 				259335FD17DB27FB00D3C419 /* ohayougozaimasu_02.wav */,
+				25EF285717E415C5003FBA91 /* kaidan.wav */,
 				259335FE17DB27FB00D3C419 /* ohayougozaimasu_03.wav */,
 				259335FF17DB27FB00D3C419 /* ohhaa_01.wav */,
 				2593360017DB27FB00D3C419 /* ohhaa_02.wav */,
@@ -1828,6 +1831,7 @@
 				250557AD17DC26C600D85441 /* gameover.wav in Resources */,
 				256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */,
 				256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */,
+				25EF285817E415C5003FBA91 /* kaidan.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

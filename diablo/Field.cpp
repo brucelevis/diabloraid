@@ -54,6 +54,32 @@ CCArray* Field::createInitialField(){
     return _panels;
 }
 
+void Field::removeAllPanels(){
+    CCArray* removedIndexes = CCArray::create();
+   
+    PanelSprite *panel = NULL;
+    CCObject* targetObject = NULL;
+    
+    int count = 0;
+    CCARRAY_FOREACH(this->_panels, targetObject){
+        panel = (PanelSprite*) targetObject;
+        
+        //消えるパネルなら消す。
+        panel->removeFromParentAndCleanup(true);
+        this->setRemovedPanel(new CCPoint(panel->getPositionX(), panel->getPositionY()));
+        removedIndexes->addObject(CCInteger::create(count));
+        count++;
+    }
+    
+    
+    int maxIndex = removedIndexes->count();
+    //上から順に消す
+    for(int i = (maxIndex - 1); i >= 0; i--){
+        CCInteger* index = (CCInteger*) removedIndexes->objectAtIndex(i);
+        this->_panels->removeObjectAtIndex(index->getValue());
+    }
+}
+
 CCArray* Field::getEnemies(){
     CCArray* enemies = CCArray::create();
     
@@ -257,9 +283,11 @@ void Field::showDirections(){
 //移動量をパネル達にセットする。
 //消えたパネルよりも上にあるパネルを取得して、セットする。
 void Field::setMoves(){
+    CCLog("setMoves1");
     if(_moveState){
         return;
     }
+    CCLog("setMoves2");
     CCArray* removedPanels = this->getRemovedPanels();
     CCPoint *removedPoint = NULL;
     CCObject* targetObject1 = NULL;
@@ -278,6 +306,7 @@ void Field::setMoves(){
             }
         }
     }
+    CCLog("setMoves3");
 }
 
 //パネルを移動させる。

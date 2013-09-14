@@ -34,6 +34,7 @@ public:
     ~Field(void);
     
     CCArray* createInitialField();
+    void removeAllPanels();
     CCArray* getPanels();
     TouchedPanels* getWillBeRemovedPanel(); //今回消えるパネルを取得する。
     CCArray* getEnemies();
