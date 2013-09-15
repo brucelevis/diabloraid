@@ -21,6 +21,7 @@ class PanelSprite : public cocos2d::CCSprite
     bool _isOn; //on状態か
     bool _isEnemy;
     void _switchOn(bool isOn);
+    int _canExistNum;
     CCDictionary* _displayedDirection;
     CCArray* _directionSprites; //方向の絵を保持する。
 protected:
@@ -44,6 +45,7 @@ public:
     bool isSamePanel(std::string panelName);
     bool isNextPanel(PanelSprite* panel);
     bool isActiveOnlyOnePanel();
+    virtual bool canBeAdded(int num); //現在の数を渡して存在出来るかチェックする。
     virtual bool isEnemy();
     virtual void setRemoved(Player* player);
     int  getDirection(PanelSprite* panel);

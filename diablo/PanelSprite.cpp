@@ -14,10 +14,11 @@ PanelSprite::PanelSprite(){
     _isOn = false;
     _isActiveOnlyOnePanel = false;
     _isEnemy = false;
+    _canExistNum = -1;// -1:いくらでも存在出来る。
     _directionSprites = CCArray::create();
+    _directionSprites->retain();
     _displayedDirection = CCDictionary::create();
     _displayedDirection->retain();
-    _directionSprites->retain();
 }
 
 PanelSprite::~PanelSprite(void){
@@ -65,6 +66,16 @@ bool PanelSprite::isActiveOnlyOnePanel(){
 
 bool PanelSprite::isEnemy(){
     return _isEnemy;
+}
+
+bool PanelSprite::canBeAdded(int num){
+    if(_canExistNum == -1){
+        return true;
+    }
+    if(num + 1 > _canExistNum){
+        return false;
+    }
+    return true;
 }
 
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){

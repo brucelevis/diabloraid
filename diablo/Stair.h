@@ -13,8 +13,10 @@
 #include "PanelSprite.h"
 
 class Stair : public PanelSprite{
+    int _canExistNum;
 public:
     static Stair* createWithSpriteFrameName(const char *pszSpriteFrameName);
+    bool canBeAdded(int num);
     Stair();
     ~Stair(void);
 };

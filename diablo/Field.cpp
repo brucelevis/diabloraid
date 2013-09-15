@@ -8,12 +8,6 @@
 
 #include "Field.h"
 #include "PanelSprite.h"
-#include "Enemy.h"
-#include "Potion.h"
-#include "Coin.h"
-#include "Sword.h"
-#include "Shield.h"
-#include "Stair.h"
 #include "EnemyMaster.h"
 #include <math.h>
 
@@ -21,18 +15,9 @@ Field::Field(CCLayer* parentLayer, Player* player){
     this->_player = player;
     this->_parentLayer = parentLayer;
     this->_connectPanel = NULL; //初期化
-    
-    this->_panelNames = CCArray::create();
-    this->_panelNames->retain();
     this->_touchedPanels = (TouchedPanels*) TouchedPanels::create();
     this->_touchedPanels->retain();
     
-    this->_panelNames->addObject(new CCString("coin"));
-    this->_panelNames->addObject(new CCString("enemy"));
-    this->_panelNames->addObject(new CCString("shield"));
-    this->_panelNames->addObject(new CCString("sword"));
-    this->_panelNames->addObject(new CCString("potion"));
-    this->_panelNames->addObject(new CCString("kaidan"));
 }
 
 Field::~Field(void){
@@ -40,15 +25,16 @@ Field::~Field(void){
 
 
 CCArray* Field::createInitialField(){
-    _panels = CCArray::create();
+    _panels = (FieldPanels*) FieldPanels::create();
+    _panels->initialize();
     _panels->retain();
     _removedPanels = CCArray::create();
     _removedPanels->retain();
     for(int i = 0; i <= 5; i++){
         for( int j = 0; j <= 5; j++){
-            PanelSprite* pSprite = this->createPanel(i, j);
+            PanelSprite* pSprite = _panels->createPanel(i, j, PANEL_SIZE * PANEL_SCALE, PANEL_SCALE);
             // add the sprite as a child to this layer
-             _panels->addObject(pSprite);
+            _panels->add(pSprite);
         }
     }
     
@@ -77,7 +63,7 @@ void Field::removeAllPanels(){
     //上から順に消す
     for(int i = (maxIndex - 1); i >= 0; i--){
         CCInteger* index = (CCInteger*) removedIndexes->objectAtIndex(i);
-        this->_panels->removeObjectAtIndex(index->getValue());
+        this->_panels->remove(index->getValue());
     }
 }
 
@@ -187,38 +173,6 @@ void Field::setRemovedPanel(CCPoint* point){
     _removedPanels->addObject(point);
 }
 
-PanelSprite* Field::createPanel(int indexX, int indexY){
-    CCString* panelName = (CCString*) _panelNames->objectAtIndex(rand()%6);
-    PanelSprite* pSprite = this->createPanelSprite(panelName->getCString());
-    float size = PANEL_SIZE * PANEL_SCALE;
-    pSprite->setSize(size);
-    pSprite->setContentSize(CCSize(size,size));
-    pSprite->setScale(PANEL_SCALE);
-    // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(size/2 + size * indexX, 96 + size/2 + size * indexY) );
-    pSprite->update();
-    return pSprite;
-}
-
-PanelSprite* Field::createPanelSprite(std::string panelName){
-    PanelSprite* pSprite;
-    if(panelName == "enemy"){
-        pSprite = EnemyFactory::getEnemyPanel();
-    } else if(panelName == "potion"){
-        pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
-    } else if(panelName == "sword"){
-        pSprite = Sword::createWithSpriteFrameName(panelName.c_str());
-    } else if(panelName == "coin"){
-        pSprite = Coin::createWithSpriteFrameName(panelName.c_str());
-    } else if(panelName == "shield"){
-        pSprite = Shield::createWithSpriteFrameName(panelName.c_str());
-    } else if(panelName == "kaidan"){
-        pSprite = Stair::createWithSpriteFrameName(panelName.c_str());
-    } else {
-        pSprite = PanelSprite::createWithSpriteFrameName(panelName.c_str());
-    }
-    return pSprite;
-}
 
 //消えたパネルの上に追加する。
 void Field::restockPanels(){
@@ -242,8 +196,9 @@ void Field::restockPanels(){
             removedCount->setObject(CCInteger::create(1),removedPoint->x);
         }
         
-        PanelSprite* pSprite = this->createPanel(int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), y);
-        _panels->addObject(pSprite);
+        float size = PANEL_SIZE * PANEL_SCALE;
+        PanelSprite* pSprite = _panels->createPanel(int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), y, size, PANEL_SCALE);
+        _panels->add(pSprite);
         this->_parentLayer->addChild(pSprite);
     }
 }
@@ -273,7 +228,7 @@ void Field::removePanels(){
     //上から順に消す
     for(int i = (maxIndex - 1); i >= 0; i--){
         CCInteger* index = (CCInteger*) removedIndexes->objectAtIndex(i);
-        this->_panels->removeObjectAtIndex(index->getValue());
+        this->_panels->remove(index->getValue());
     }
 }
 

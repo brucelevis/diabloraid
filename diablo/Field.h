@@ -14,7 +14,7 @@
 #include "PanelSprite.h"
 #include "Player.h"
 #include "TouchedPanels.h"
-#include "EnemyFactory.h"
+#include "FieldPanels.h"
 using namespace cocos2d;
 
 class Field {
@@ -22,8 +22,7 @@ class Field {
     const float PANEL_SCALE = 0.8;
     CCLayer* _parentLayer;
     Player* _player;
-    CCArray* _panelNames;
-    CCArray* _panels;
+    FieldPanels* _panels;
     CCArray* _removedPanels;
     TouchedPanels* _touchedPanels; //タッチされたパネルを順に格納する。
     PanelSprite* _currentPanel;
@@ -53,8 +52,6 @@ public:
     void initialize();
     void setRemovedPanel(CCPoint* point);
     void setMoves();
-    PanelSprite* createPanel(int indexX, int indexY);
-    PanelSprite* createPanelSprite(std::string panelName);
     void removePanels();
     void restockPanels();
     void movePanels();

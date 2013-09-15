@@ -10,6 +10,7 @@
 Stair::Stair(){
     _connectType = 5;
     _isActiveOnlyOnePanel = true;
+    _canExistNum = 1;
 }
 
 Stair* Stair::createWithSpriteFrameName(const char *pszSpriteFrameName){
@@ -26,4 +27,14 @@ Stair* Stair::createWithSpriteFrameName(const char *pszSpriteFrameName){
 }
 
 Stair::~Stair(){
+}
+
+bool Stair::canBeAdded(int num){
+    if(_canExistNum == -1){
+        return true;
+    }
+    if(num + 1 > _canExistNum){
+        return false;
+    }
+    return true;
 }
