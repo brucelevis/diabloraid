@@ -18,6 +18,7 @@
 #include "Sword.h"
 #include "Shield.h"
 #include "Stair.h"
+#include "Floor.h"
 
 class FieldPanels : public CCArray{
     CCArray* _panelNames;
@@ -29,7 +30,7 @@ public:
     void addCount(PanelSprite* panel);
     void decreaseCount(PanelSprite* panel);
     int getCurrentPanelNum(PanelSprite* panel);
-    PanelSprite* createPanel(int indexX, int indexY, float size, float scale);
+    PanelSprite* createPanel(Floor* floor, int indexX, int indexY, float size, float scale);
     PanelSprite* createPanelSprite(std::string panelName);
     FieldPanels();
     ~FieldPanels();

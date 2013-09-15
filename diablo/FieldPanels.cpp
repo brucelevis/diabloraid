@@ -60,23 +60,13 @@ void FieldPanels::decreaseCount(PanelSprite* panel){
     }
 }
 
-PanelSprite* FieldPanels::createPanel(int indexX, int indexY, float size,float scale){
-    this->_panelNames = CCArray::create();
-    this->_panelNames->retain();
-    
-    this->_panelNames->addObject(new CCString("coin"));
-    this->_panelNames->addObject(new CCString("enemy"));
-    this->_panelNames->addObject(new CCString("shield"));
-    this->_panelNames->addObject(new CCString("sword"));
-    this->_panelNames->addObject(new CCString("potion"));
-    this->_panelNames->addObject(new CCString("kaidan"));
-    
-    CCString* panelName = (CCString*) _panelNames->objectAtIndex(rand()%6);
+PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY, float size,float scale){
+    CCString* panelName = floor->createPanelName();
     PanelSprite* pSprite = this->createPanelSprite(panelName->getCString());
     //追加出来ないパネルだったら。
     if(!pSprite->canBeAdded(this->getCurrentPanelNum(pSprite))){
         pSprite->release();
-        return this->createPanel(indexX, indexY, size, scale);
+        return this->createPanel(floor, indexX, indexY, size, scale);
     }
     
     pSprite->setSize(size);

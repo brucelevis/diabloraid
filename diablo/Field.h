@@ -15,6 +15,7 @@
 #include "Player.h"
 #include "TouchedPanels.h"
 #include "FieldPanels.h"
+#include "Floor.h"
 using namespace cocos2d;
 
 class Field {
@@ -23,6 +24,7 @@ class Field {
     CCLayer* _parentLayer;
     Player* _player;
     FieldPanels* _panels;
+    Floor* _floor;
     CCArray* _removedPanels;
     TouchedPanels* _touchedPanels; //タッチされたパネルを順に格納する。
     PanelSprite* _currentPanel;
@@ -39,6 +41,7 @@ public:
     TouchedPanels* getWillBeRemovedPanel(); //今回消えるパネルを取得する。
     CCArray* getEnemies();
     PanelSprite* getConnectPanel();
+    int getTurn();
     void onTouchMove(CCTouch* touch);
     void onTouchStart(CCTouch* touch);
     void onTouchEnd(CCTouch* touch);
@@ -47,6 +50,7 @@ public:
     void onTurnStart();
     void updateAllPanels();
     void onTurnEnd();
+    void countUpTurn();
     CCArray* getRemovedPanels();
     void setRemoved();
     void initialize();

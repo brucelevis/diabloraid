@@ -9,12 +9,39 @@
 #include "Floor.h"
 
 Floor::Floor(int v){
-    current = v;
+    floor = v;
+    turn = 1;
 }
 
 Floor::~Floor(){
 }
 
-void Floor::up(int v){
-    current += v;
+int Floor::getTurn(){
+    return turn;
+}
+
+void Floor::countupTurn(int v){
+    turn += v;
+}
+
+CCString* Floor::createPanelName(){
+    CCArray* _panelNames = CCArray::create();
+    _panelNames->retain();
+    
+    _panelNames->addObject(new CCString("coin"));
+    _panelNames->addObject(new CCString("enemy"));
+    _panelNames->addObject(new CCString("shield"));
+    _panelNames->addObject(new CCString("sword"));
+    _panelNames->addObject(new CCString("potion"));
+    _panelNames->addObject(new CCString("kaidan"));
+    
+    //5％ずつ階段が出る確率が上がる仮実装
+    int panelNum = 5;
+    if(rand() % 100 < turn * 3 / 20) {
+        panelNum = 6;
+    }
+    CCLog("panelNum:%d", panelNum);
+    
+    CCString* panelName = (CCString*) _panelNames->objectAtIndex(rand() % panelNum);
+    return panelName;
 }

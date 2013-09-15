@@ -30,9 +30,10 @@ CCArray* Field::createInitialField(){
     _panels->retain();
     _removedPanels = CCArray::create();
     _removedPanels->retain();
+    _floor = new Floor(1); //スタートは1から。　
     for(int i = 0; i <= 5; i++){
         for( int j = 0; j <= 5; j++){
-            PanelSprite* pSprite = _panels->createPanel(i, j, PANEL_SIZE * PANEL_SCALE, PANEL_SCALE);
+            PanelSprite* pSprite = _panels->createPanel(_floor, i, j, PANEL_SIZE * PANEL_SCALE, PANEL_SCALE);
             // add the sprite as a child to this layer
             _panels->add(pSprite);
         }
@@ -83,6 +84,10 @@ CCArray* Field::getEnemies(){
 
 CCArray* Field::getPanels(){
     return _panels;
+}
+
+int Field::getTurn(){
+    return _floor->getTurn();
 }
 
 TouchedPanels* Field::getWillBeRemovedPanel(){
@@ -197,7 +202,7 @@ void Field::restockPanels(){
         }
         
         float size = PANEL_SIZE * PANEL_SCALE;
-        PanelSprite* pSprite = _panels->createPanel(int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), y, size, PANEL_SCALE);
+        PanelSprite* pSprite = _panels->createPanel(_floor, int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), y, size, PANEL_SCALE);
         _panels->add(pSprite);
         this->_parentLayer->addChild(pSprite);
     }
@@ -239,11 +244,9 @@ void Field::showDirections(){
 //移動量をパネル達にセットする。
 //消えたパネルよりも上にあるパネルを取得して、セットする。
 void Field::setMoves(){
-    CCLog("setMoves1");
     if(_moveState){
         return;
     }
-    CCLog("setMoves2");
     CCArray* removedPanels = this->getRemovedPanels();
     CCPoint *removedPoint = NULL;
     CCObject* targetObject1 = NULL;
@@ -262,7 +265,6 @@ void Field::setMoves(){
             }
         }
     }
-    CCLog("setMoves3");
 }
 
 //パネルを移動させる。
@@ -309,5 +311,9 @@ void Field::cleanUp(){
         panel->removeAllDirectionSprite();
     }
     
+}
+
+void Field::countUpTurn(){
+    _floor->countupTurn(1); //ターンを進める。
 }
 
