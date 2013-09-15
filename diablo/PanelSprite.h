@@ -19,6 +19,7 @@ class PanelSprite : public cocos2d::CCSprite
     float _deltaY;
     float _velocity;
     bool _isOn; //on状態か
+    bool _isEnemy;
     void _switchOn(bool isOn);
     CCDictionary* _displayedDirection;
     CCArray* _directionSprites; //方向の絵を保持する。
@@ -43,8 +44,9 @@ public:
     bool isSamePanel(std::string panelName);
     bool isNextPanel(PanelSprite* panel);
     bool isActiveOnlyOnePanel();
-    int  getDirection(PanelSprite* panel);
+    virtual bool isEnemy();
     virtual void setRemoved(Player* player);
+    int  getDirection(PanelSprite* panel);
     void setUnremoved();
     void setTouched();
     void setUnTouched();

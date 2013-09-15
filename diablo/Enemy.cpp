@@ -10,6 +10,7 @@
 
 Enemy::Enemy(int _hp, int str, int def){
     _connectType = 1;
+    _isEnemy = true;
     hp = new HitPoint(_hp);
     strength = new Strength(str);
     defense = new Defense(def);
@@ -74,6 +75,10 @@ void Enemy::setKilledImage(){
     _frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName.c_str());
     this->setTexture(_frame->getTexture());
     this->setTextureRect(_frame->getRect(), false, CCSize(_size, _size));
+}
+
+bool Enemy::isEnemy(){
+    return _isEnemy;
 }
 
 void Enemy::update(){

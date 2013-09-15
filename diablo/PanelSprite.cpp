@@ -13,6 +13,7 @@ PanelSprite::PanelSprite(){
     _willRemoved = false;
     _isOn = false;
     _isActiveOnlyOnePanel = false;
+    _isEnemy = false;
     _directionSprites = CCArray::create();
     _displayedDirection = CCDictionary::create();
     _displayedDirection->retain();
@@ -60,6 +61,10 @@ bool PanelSprite::isNextPanel(PanelSprite* panel){
 
 bool PanelSprite::isActiveOnlyOnePanel(){
     return _isActiveOnlyOnePanel;
+}
+
+bool PanelSprite::isEnemy(){
+    return _isEnemy;
 }
 
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){

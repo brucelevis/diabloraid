@@ -88,7 +88,7 @@ CCArray* Field::getEnemies(){
     CCObject* targetObject;
     CCARRAY_FOREACH(_panels, targetObject){
         panel = (PanelSprite*) targetObject;
-        if(panel->getPanelName() == "skelton"){
+        if(panel->isEnemy()){
             enemies->addObject((CCObject*) panel);
         }
     }
