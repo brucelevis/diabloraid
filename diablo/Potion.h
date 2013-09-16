@@ -14,7 +14,6 @@
 #include "Player.h"
 
 class Potion : public PanelSprite{
-    int _recoverNum;
 public:
     static Potion* createWithSpriteFrameName(const char *pszSpriteFrameName);
     void recover(Player* player); //Playerも攻撃対象とかの抽象クラスにするかもね。

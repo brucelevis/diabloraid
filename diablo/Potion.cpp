@@ -9,7 +9,6 @@
 #include "Potion.h"
 Potion::Potion(){
     _connectType = 2;
-    _recoverNum  = 3;
 }
 
 Potion* Potion::createWithSpriteFrameName(const char *pszSpriteFrameName){
@@ -31,7 +30,7 @@ Potion::~Potion(){
 //Playerのhpを回復する
 void Potion::recover(Player *player){
     CCLog("recover");
-    player->recover(_recoverNum);
+    player->recover(player->getPotionRecover()->getValue());
 }
 
 void Potion::actionRemoved(Player* player){

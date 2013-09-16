@@ -14,6 +14,9 @@
 #include "HitPoint.h"
 #include "Defense.h"
 #include "Strength.h"
+#include "SwordDamage.h"
+#include "PotionRecover.h"
+#include "ShieldRefill.h"
 using namespace cocos2d;
 
 class Player{
@@ -22,6 +25,12 @@ public:
     HitPoint* hp;
     Defense* defense;
     Strength* strength;
+    SwordDamage* swordDamage;
+    SwordDamage* getSwordDamage();
+    PotionRecover* potionRecover;
+    PotionRecover* getPotionRecover();
+    ShieldRefill* shieldRefill;
+    ShieldRefill* getShieldRefill();
     void damage(int v);
     void recover(int v);
     bool isAlive();

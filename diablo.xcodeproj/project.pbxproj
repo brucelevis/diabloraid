@@ -16,6 +16,9 @@
 		250557B717DC676B00D85441 /* TouchedPanels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557B517DC676900D85441 /* TouchedPanels.cpp */; };
 		251C371E17E49E3800990EAA /* EnemyFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C371C17E49E3800990EAA /* EnemyFactory.cpp */; };
 		251C372B17E580DA00990EAA /* FieldPanels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C372917E580DA00990EAA /* FieldPanels.cpp */; };
+		251C373017E729F100990EAA /* SwordDamage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C372E17E729F100990EAA /* SwordDamage.cpp */; };
+		251C373317E7605D00990EAA /* PotionRecover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C373117E7605C00990EAA /* PotionRecover.cpp */; };
+		251C373617E7627400990EAA /* ShieldRefill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C373417E7627200990EAA /* ShieldRefill.cpp */; };
 		2544CF0817D1E5520023929D /* direction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0617D1E5520023929D /* direction.plist */; };
 		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
@@ -276,6 +279,12 @@
 		251C371D17E49E3800990EAA /* EnemyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyFactory.h; sourceTree = "<group>"; };
 		251C372917E580DA00990EAA /* FieldPanels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FieldPanels.cpp; sourceTree = "<group>"; };
 		251C372A17E580DA00990EAA /* FieldPanels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldPanels.h; sourceTree = "<group>"; };
+		251C372E17E729F100990EAA /* SwordDamage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SwordDamage.cpp; sourceTree = "<group>"; };
+		251C372F17E729F100990EAA /* SwordDamage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwordDamage.h; sourceTree = "<group>"; };
+		251C373117E7605C00990EAA /* PotionRecover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PotionRecover.cpp; sourceTree = "<group>"; };
+		251C373217E7605C00990EAA /* PotionRecover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PotionRecover.h; sourceTree = "<group>"; };
+		251C373417E7627200990EAA /* ShieldRefill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShieldRefill.cpp; sourceTree = "<group>"; };
+		251C373517E7627300990EAA /* ShieldRefill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldRefill.h; sourceTree = "<group>"; };
 		2544CF0617D1E5520023929D /* direction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = direction.plist; path = Resources/direction.plist; sourceTree = "<group>"; };
 		2544CF0717D1E5520023929D /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = direction.png; path = Resources/direction.png; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
@@ -797,6 +806,12 @@
 				250557B017DC565400D85441 /* Strength.h */,
 				250557B217DC58F200D85441 /* Defense.cpp */,
 				250557B317DC58F200D85441 /* Defense.h */,
+				251C372E17E729F100990EAA /* SwordDamage.cpp */,
+				251C372F17E729F100990EAA /* SwordDamage.h */,
+				251C373117E7605C00990EAA /* PotionRecover.cpp */,
+				251C373217E7605C00990EAA /* PotionRecover.h */,
+				251C373417E7627200990EAA /* ShieldRefill.cpp */,
+				251C373517E7627300990EAA /* ShieldRefill.h */,
 			);
 			name = status;
 			sourceTree = "<group>";
@@ -2081,6 +2096,9 @@
 				25EF286817E483BB003FBA91 /* Util.cpp in Sources */,
 				251C371E17E49E3800990EAA /* EnemyFactory.cpp in Sources */,
 				251C372B17E580DA00990EAA /* FieldPanels.cpp in Sources */,
+				251C373017E729F100990EAA /* SwordDamage.cpp in Sources */,
+				251C373317E7605D00990EAA /* PotionRecover.cpp in Sources */,
+				251C373617E7627400990EAA /* ShieldRefill.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

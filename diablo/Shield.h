@@ -12,7 +12,6 @@
 #include "PanelSprite.h"
 
 class Shield : public PanelSprite{
-    int refillNum;
 public:
     static Shield* createWithSpriteFrameName(const char *pszSpriteFrameName);
     void actionRemoved(Player* player);

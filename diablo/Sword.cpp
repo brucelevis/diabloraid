@@ -10,7 +10,6 @@
 
 
 Sword::Sword(){
-    damageValue = 20;
     _connectType = 1;
     _alreadyActionTouched = false;
 }
@@ -34,7 +33,7 @@ void Sword::actionTouched(Player* player){
     if(_alreadyActionTouched){
         return;
     }
-    player->pushDamage(damageValue);
+    player->pushDamage(player->getSwordDamage()->getDamage());
     _alreadyActionTouched = true;
 }
 

@@ -8,11 +8,26 @@
 #include "Player.h"
 
 Player::Player(){
-    hp = new HitPoint(100);
-    strength = new Strength(5);
-    defense = new Defense(10);
-    accumDamages = CCArray::create();
+    hp            = new HitPoint(100); //base hp
+    strength      = new Strength(5); //base damage
+    swordDamage   = new SwordDamage(20);
+    potionRecover = new PotionRecover(3);
+    defense       = new Defense(10);  //defense
+    shieldRefill  = new ShieldRefill(2);
+    accumDamages  = CCArray::create();
     accumDamages->retain();
+}
+
+SwordDamage* Player::getSwordDamage(){
+    return swordDamage;
+}
+
+PotionRecover* Player::getPotionRecover(){
+    return potionRecover;
+}
+
+ShieldRefill* Player::getShieldRefill(){
+    return shieldRefill;
 }
 
 //ダメージを受けたらhpを減らす。
