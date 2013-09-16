@@ -16,9 +16,12 @@ using namespace cocos2d;
 class Floor{
     int floor;
     int turn;
+    int totalTurn;
 public:
     int getTurn();
-    void countupTurn(int v);// vだけ、ターンを経過させる。
+    int getFloor();
+    void countupTurn(int v);  // vだけ、ターンを経過させる。
+    void countupFloor(int v); //vだけフロアを進ませる。
     CCString* createPanelName();//どのパネルが出るのかをフロアのマスタ−情報、経過情報などから取得する。
     Floor(int v);
     ~Floor();

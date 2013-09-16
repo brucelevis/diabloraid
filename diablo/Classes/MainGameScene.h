@@ -18,6 +18,7 @@ class MainGameScene : public cocos2d::CCLayer
     CCLabelTTF* HpLabel;
     CCLabelTTF* ShieldLabel;
     CCLabelTTF* TurnLabel;
+    CCLabelTTF* FloorLabel;
     CCLabelTTF* DamageLabel;
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)

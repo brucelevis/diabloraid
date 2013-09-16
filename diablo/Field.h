@@ -42,6 +42,8 @@ public:
     CCArray* getEnemies();
     PanelSprite* getConnectPanel();
     int getTurn();
+    int getFloor();
+    void gotoNextFloor(); //次のフロアに移動する。
     void onTouchMove(CCTouch* touch);
     void onTouchStart(CCTouch* touch);
     void onTouchEnd(CCTouch* touch);

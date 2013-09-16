@@ -90,6 +90,14 @@ int Field::getTurn(){
     return _floor->getTurn();
 }
 
+int Field::getFloor(){
+    return _floor->getFloor();
+}
+
+void Field::gotoNextFloor(){
+    _floor->countupFloor(1);
+}
+
 TouchedPanels* Field::getWillBeRemovedPanel(){
     return _touchedPanels;
 }

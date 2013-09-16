@@ -36,6 +36,7 @@ void TurnManager::start(){
         _field->removeAllPanels();
         _field->restockPanels();
         _field->setMoves();
+        _field->gotoNextFloor();
         this->turnEnd();
         SimpleAudioEngine::sharedEngine()->playEffect("kaidan.wav");
         return;

@@ -102,6 +102,10 @@ bool MainGameScene::init()
     TurnLabel->setPosition(ccp(size.width / 2, size.height - 43) );
     this->addChild(TurnLabel);
     
+    FloorLabel = CCLabelTTF::create(CCString::createWithFormat("%d F", _field->getFloor())->getCString(), "arial", 20);
+    FloorLabel->setPosition(ccp(size.width - 50, size.height - 63) );
+    this->addChild(FloorLabel);
+    
     DamageLabel = CCLabelTTF::create(CCString::createWithFormat("%d DMG", _player->getTotalDamage())->getCString(), "arial", 20);
     DamageLabel->setColor(ccc3(0,255,0));
     DamageLabel->setPosition(ccp(140, 50));
@@ -190,6 +194,7 @@ void MainGameScene::update(float dt){
     DamageLabel->setString(CCString::createWithFormat("%d DMG", _player->getTotalDamage())->getCString());
     ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->defense->getCurrent(), _player->defense->getMax())->getCString());
     TurnLabel->setString(CCString::createWithFormat("Turn:%d", _field->getTurn())->getCString());
+    FloorLabel->setString(CCString::createWithFormat("%d F", _field->getFloor())->getCString());
 }
 
 void MainGameScene::menuCloseCallback(CCObject* pSender)

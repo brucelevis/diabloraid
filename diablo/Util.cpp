@@ -13,7 +13,7 @@ using namespace cocos2d;
 
 picojson::value Util::JsonParser::parse(const char* path){
     std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath(path);
-    unsigned long* pFileSize = (unsigned long*) malloc(sizeof(unsigned long));
+    unsigned long* pFileSize;
     unsigned char* pData = CCFileUtils::sharedFileUtils()->getFileData(fullPath.c_str(), "r", pFileSize);
     picojson::value v;
     
