@@ -9,8 +9,13 @@
 #include "AppDelegate.h"
 
 #include "cocos2d.h"
+#include "cocos-ext.h"
 #include "MainGameScene.h"
 #include "MenuScene.h"
+#include "LevelUpLayer.h"
+#include "CCBReader.h"
+
+using namespace cocos2d::extension;
 
 USING_NS_CC;
 
@@ -37,9 +42,18 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
 
-    // create a scene. it's an autorelease object
-    //CCScene *pScene = MainGameScene::scene();
-    CCScene* pScene = MenuScene::scene();
+    //create a scene. it's an autorelease object
+    //CCScene*pScene = MainGameScene::scene();
+    //CCScene* pScene = MenuScene::scene();
+    CCScene* pScene = LevelUpLayer::scene();
+//    CCNodeLoaderLibrary* ccNodeLoaderLibrary = CCNodeLoaderLibrary::sharedCCNodeLoaderLibrary();
+//    CCBReader* ccbReader = new CCBReader(ccNodeLoaderLibrary);
+//    CCNode* node = ccbReader->readNodeGraphFromFile("ui/levelup.ccbi");
+//    CCScene* pScene = CCScene::create();
+//    if(node != NULL){
+//        pScene->addChild(node);
+//    }
+//    ccbReader->release();
 
     // run
     pDirector->runWithScene(pScene);

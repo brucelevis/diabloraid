@@ -53,9 +53,6 @@ bool MenuScene::init()
     
     // ask director the window size
     CCSize size = CCDirector::sharedDirector()->getWinSize();
-    //gameMainLabel = CCLabelTTF::create("GameMain", "Arial", 20);
-    //gameMainLabel->setPosition(ccp(size.width/2, size.height/2));
-    //this->addChild(gameMainLabel, 1);
     
     CCMenuItemFont *backButton = CCMenuItemFont::itemWithString("GameMain", this, menu_selector(MenuScene::gameMainAction));
     
@@ -63,28 +60,6 @@ bool MenuScene::init()
     menu->setPosition(ccp(size.width/2, size.height/2));
     
     this->addChild(menu, 2);
-    
-    return true;
-    
-    /////////////////////////////
-    // 3. add your codes below...
-    
-    // add a label shows "Hello World"
-    // create and initialize a label
-    CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Thonburi", 34);
-    
-    
-    // position the label on the center of the screen
-    pLabel->setPosition( ccp(size.width / 2, size.height - 20) );
-    
-    // add the label as a child to this layer
-    this->addChild(pLabel, 1);
-    // add "MenuScene" splash screen"
-    //CCSprite* pSprite = CCSprite::create("panels.png");
-    
-    
-    this->setTouchEnabled(true);
-    
     this->schedule(schedule_selector(MenuScene::update));
     return true;
 }

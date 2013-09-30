@@ -19,8 +19,12 @@
 		251C373017E729F100990EAA /* SwordDamage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C372E17E729F100990EAA /* SwordDamage.cpp */; };
 		251C373317E7605D00990EAA /* PotionRecover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C373117E7605C00990EAA /* PotionRecover.cpp */; };
 		251C373617E7627400990EAA /* ShieldRefill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C373417E7627200990EAA /* ShieldRefill.cpp */; };
+		253D0B9717EC493F003A62C2 /* LevelUpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253D0B9517EC493F003A62C2 /* LevelUpLayer.cpp */; };
 		2544CF0817D1E5520023929D /* direction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0617D1E5520023929D /* direction.plist */; };
 		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
+		256AFE4317F9186300261B7B /* ui.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE4117F9186300261B7B /* ui.plist */; };
+		256AFE4417F9186300261B7B /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE4217F9186300261B7B /* ui.png */; };
+		256AFE4817F9240A00261B7B /* StatusUpgrade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE4617F9240A00261B7B /* StatusUpgrade.cpp */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
 		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
 		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
@@ -285,8 +289,14 @@
 		251C373217E7605C00990EAA /* PotionRecover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PotionRecover.h; sourceTree = "<group>"; };
 		251C373417E7627200990EAA /* ShieldRefill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShieldRefill.cpp; sourceTree = "<group>"; };
 		251C373517E7627300990EAA /* ShieldRefill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldRefill.h; sourceTree = "<group>"; };
+		253D0B9517EC493F003A62C2 /* LevelUpLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelUpLayer.cpp; sourceTree = "<group>"; };
+		253D0B9617EC493F003A62C2 /* LevelUpLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUpLayer.h; sourceTree = "<group>"; };
 		2544CF0617D1E5520023929D /* direction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = direction.plist; path = Resources/direction.plist; sourceTree = "<group>"; };
 		2544CF0717D1E5520023929D /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = direction.png; path = Resources/direction.png; sourceTree = "<group>"; };
+		256AFE4117F9186300261B7B /* ui.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ui.plist; path = images/ui/ui.plist; sourceTree = SOURCE_ROOT; };
+		256AFE4217F9186300261B7B /* ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ui.png; path = images/ui/ui.png; sourceTree = SOURCE_ROOT; };
+		256AFE4617F9240A00261B7B /* StatusUpgrade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StatusUpgrade.cpp; sourceTree = "<group>"; };
+		256AFE4717F9240A00261B7B /* StatusUpgrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusUpgrade.h; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
 		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
 		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
@@ -825,6 +835,28 @@
 			name = factory;
 			sourceTree = "<group>";
 		};
+		253D0B9417EC491E003A62C2 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				25B2FFA717BF4517008E4D34 /* MainGameScene.cpp */,
+				25B2FFA617BF4517008E4D34 /* MainGameScene.h */,
+				259335F117DAE6DB00D3C419 /* MenuScene.cpp */,
+				259335F217DAE6DC00D3C419 /* MenuScene.h */,
+				253D0B9517EC493F003A62C2 /* LevelUpLayer.cpp */,
+				253D0B9617EC493F003A62C2 /* LevelUpLayer.h */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
+		256AFE4517F923E000261B7B /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				256AFE4617F9240A00261B7B /* StatusUpgrade.cpp */,
+				256AFE4717F9240A00261B7B /* StatusUpgrade.h */,
+			);
+			name = UIComponent;
+			sourceTree = "<group>";
+		};
 		256C087017E0C632007A6D01 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -945,6 +977,8 @@
 				25B2FD1C17BF4510008E4D34 /* Default.png */,
 				259335F617DAFD9A00D3C419 /* sound */,
 				25B2FD1E17BF4510008E4D34 /* HelloWorld.png */,
+				256AFE4117F9186300261B7B /* ui.plist */,
+				256AFE4217F9186300261B7B /* ui.png */,
 				25B2FD2017BF4510008E4D34 /* Icon-72.png */,
 				25B2FD2217BF4510008E4D34 /* Icon-Small-50.png */,
 				256C086C17DF74EA007A6D01 /* iconSprite.plist */,
@@ -1761,6 +1795,8 @@
 		25B2FFA217BF4517008E4D34 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				256AFE4517F923E000261B7B /* UIComponent */,
+				253D0B9417EC491E003A62C2 /* Layers */,
 				251C371B17E49E2700990EAA /* factory */,
 				25EF286117E43839003FBA91 /* libs */,
 				256C087017E0C632007A6D01 /* model */,
@@ -1768,10 +1804,6 @@
 				259335F017DAE59F00D3C419 /* panel */,
 				25B2FFA317BF4517008E4D34 /* AppDelegate.h */,
 				25B2FFA417BF4517008E4D34 /* AppDelegate.cpp */,
-				25B2FFA717BF4517008E4D34 /* MainGameScene.cpp */,
-				25B2FFA617BF4517008E4D34 /* MainGameScene.h */,
-				259335F117DAE6DB00D3C419 /* MenuScene.cpp */,
-				259335F217DAE6DC00D3C419 /* MenuScene.h */,
 				251C372917E580DA00990EAA /* FieldPanels.cpp */,
 				251C372A17E580DA00990EAA /* FieldPanels.h */,
 				25B2FFBA17BFDBB0008E4D34 /* Field.cpp */,
@@ -1823,6 +1855,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
+				TargetAttributes = {
+					25B2FD0217BF4510008E4D34 = {
+						DevelopmentTeam = BW226VS6RT;
+					};
+				};
 			};
 			buildConfigurationList = 25B2FCFE17BF4510008E4D34 /* Build configuration list for PBXProject "diablo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1850,6 +1887,7 @@
 				25B2FD1B17BF4510008E4D34 /* CloseSelected.png in Resources */,
 				25B2FD1D17BF4510008E4D34 /* Default.png in Resources */,
 				25B2FD1F17BF4510008E4D34 /* HelloWorld.png in Resources */,
+				256AFE4317F9186300261B7B /* ui.plist in Resources */,
 				25B2FD2117BF4510008E4D34 /* Icon-72.png in Resources */,
 				25B2FD2317BF4510008E4D34 /* Icon-Small-50.png in Resources */,
 				25B2FD2517BF4510008E4D34 /* Icon-Small.png in Resources */,
@@ -1885,6 +1923,7 @@
 				2593361D17DB27FC00D3C419 /* yahhoo_02.wav in Resources */,
 				2593361E17DB27FC00D3C419 /* yoroshiku_01.wav in Resources */,
 				250557AD17DC26C600D85441 /* gameover.wav in Resources */,
+				256AFE4417F9186300261B7B /* ui.png in Resources */,
 				256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */,
 				256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */,
 				25EF285817E415C5003FBA91 /* kaidan.wav in Resources */,
@@ -1993,6 +2032,7 @@
 				25B2FE8C17BF4514008E4D34 /* CCSprite.cpp in Sources */,
 				25B2FE8F17BF4514008E4D34 /* CCSpriteBatchNode.cpp in Sources */,
 				25B2FE9217BF4514008E4D34 /* CCSpriteFrame.cpp in Sources */,
+				256AFE4817F9240A00261B7B /* StatusUpgrade.cpp in Sources */,
 				25B2FE9517BF4514008E4D34 /* CCSpriteFrameCache.cpp in Sources */,
 				25B2FE9917BF4514008E4D34 /* base64.cpp in Sources */,
 				25B2FE9C17BF4514008E4D34 /* CCNotificationCenter.cpp in Sources */,
@@ -2099,6 +2139,7 @@
 				251C373017E729F100990EAA /* SwordDamage.cpp in Sources */,
 				251C373317E7605D00990EAA /* PotionRecover.cpp in Sources */,
 				251C373617E7627400990EAA /* ShieldRefill.cpp in Sources */,
+				253D0B9717EC493F003A62C2 /* LevelUpLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2174,6 +2215,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2189,6 +2232,7 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2197,6 +2241,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = diablo/Prefix.pch;
@@ -2211,6 +2257,7 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
