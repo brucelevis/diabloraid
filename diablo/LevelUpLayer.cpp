@@ -8,7 +8,6 @@
 
 #include "LevelUpLayer.h"
 
-
 CCScene* LevelUpLayer::scene(){
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
@@ -31,6 +30,10 @@ bool LevelUpLayer::init(){
     {
         return false;
     }
+    //this->setTouchPriority(kLevelUpLayerPriority);
+    this->setTouchPriority(kCCMenuHandlerPriority);
+    this->setTouchEnabled(true);
+    this->setTouchMode(kCCTouchesOneByOne);
     
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
@@ -46,8 +49,17 @@ bool LevelUpLayer::init(){
     this->addChild(base);
     
     CCSprite* ok = CCSprite::createWithSpriteFrameName("ok.png");
-    ok->setPosition(ccp(base->getContentSize().width - 60, base->getContentSize().height - 250));
-    base->addChild(ok);
+    CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");
+    okOff->setColor(ccc3(102,102,102));
+    CCMenuItemSprite* pOkButton =
+        CCMenuItemSprite::create(ok, okOff, this, menu_selector(LevelUpLayer::close));
+    
+    pOkButton->setPosition(ccp(base->getContentSize().width - 60, base->getContentSize().height - 250));
+    CCMenu* pMenu = CCMenu::create(pOkButton, NULL);
+    //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, kLevelUpLayerPriority, true);
+    pMenu->setPosition(CCPointZero);
+    
+    base->addChild(pMenu);
     
     CCLabelTTF* title = CCLabelTTF::create("Level Up!!!", "Thonburi", 20);
     title->setPosition(ccp(base->getContentSize().width/2, base->getContentSize().height - 40));
@@ -78,7 +90,6 @@ bool LevelUpLayer::init(){
     status->addObject(vitality);
     
     
-    this->setTouchEnabled(true);
     
     this->schedule(schedule_selector(LevelUpLayer::update));
     return true;
@@ -100,4 +111,12 @@ void LevelUpLayer::update(){
     }
     
     this->remainings->setString(CCString::createWithFormat("remain: %d", this->remain - currentTotal)->getCString());
+}
+
+bool LevelUpLayer::ccTouchBegan(CCTouch *touch, CCEvent* event){
+    return true;
+}
+
+void LevelUpLayer::close(){
+    this->removeFromParentAndCleanup(true);
 }

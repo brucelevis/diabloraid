@@ -25,6 +25,8 @@ public:
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static cocos2d::CCScene* scene();
     void update();
+    void close();
+    virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
     CREATE_FUNC(LevelUpLayer);
 };
 

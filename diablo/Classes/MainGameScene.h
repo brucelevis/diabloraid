@@ -6,6 +6,7 @@
 #include "Field.h"
 #include "Player.h"
 #include "TurnManager.h"
+#include "LevelUpLayer.h"
 using namespace cocos2d;
 
 class MainGameScene : public cocos2d::CCLayer
@@ -35,6 +36,7 @@ public:
     void ccTouchesMoved(cocos2d::CCSet* pTouches, cocos2d::CCEvent* event);
     void ccTouchesEnded(cocos2d::CCSet* pTouches, cocos2d::CCEvent* event);
     // preprocessor macro for "static create()" constructor ( node() deprecated )
+    void pushLevelUp();
     CREATE_FUNC(MainGameScene);
     void update(float dt);
 };

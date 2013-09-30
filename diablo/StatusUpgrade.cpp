@@ -7,6 +7,7 @@
 //
 
 #include "StatusUpgrade.h"
+//#define kLevelUpLayerMenuPriority kCCMenuHandlerPriority-2
 
 StatusUpgrade::~StatusUpgrade(){
 }
@@ -68,6 +69,7 @@ void StatusUpgrade::addElements(std::string name, CCPoint position){
     pPlusButton->setPosition(ccp(position.x - 90, position.y));
     pMinusButton->setPosition(ccp(position.x - 50, position.y));
     CCMenu* pMenu = CCMenu::create(pPlusButton, pMinusButton, NULL);
+ //   pMenu->setTouchPriority(kLevelUpLayerMenuPriority);
     pMenu->setPosition(CCPointZero);
     
     this->addChild(pMenu);

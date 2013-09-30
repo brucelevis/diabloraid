@@ -37,6 +37,10 @@ bool MainGameScene::init()
         return false;
     }
 
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("panels.plist");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("direction.plist");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("hp.plist");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("iconSprite.plist");
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
     //    you may modify it.
@@ -53,6 +57,19 @@ bool MainGameScene::init()
     CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 1);
+       
+    CCSprite* statusIcon = CCSprite::createWithSpriteFrameName("status.png");
+    CCSprite* statusIconOff = CCSprite::createWithSpriteFrameName("status.png");
+    statusIconOff->setColor(ccc3(102,102,102));
+    
+    CCMenuItemSprite* pStatusButton =
+        CCMenuItemSprite::create(statusIcon, statusIconOff, this, menu_selector(MainGameScene::pushLevelUp));
+    pStatusButton->setPosition(ccp(40, 440));
+    pStatusButton->setScale(0.5);
+    
+    CCMenu* pStatus = CCMenu::create(pStatusButton, NULL);
+    pStatus->setPosition(CCPointZero);
+    this->addChild(pStatus,1);
 
     /////////////////////////////
     // 3. add your codes below...
@@ -72,10 +89,6 @@ bool MainGameScene::init()
     // add "MainGameScene" splash screen"
     //CCSprite* pSprite = CCSprite::create("panels.png");
     
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("panels.plist");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("direction.plist");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("hp.plist");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("iconSprite.plist");
     
     
     _player = new Player();
@@ -118,12 +131,6 @@ bool MainGameScene::init()
         panel = (PanelSprite*) targetObject;
         this->addChild(panel);
     }
-    
-    CCSprite* statusIcon = CCSprite::createWithSpriteFrameName("status.png");
-    statusIcon->setPosition(ccp(32, 448));
-    statusIcon->setScale(0.5);
-    
-    this->addChild(statusIcon, 2);
     
     this->setTouchEnabled(true);
  
@@ -195,6 +202,14 @@ void MainGameScene::update(float dt){
     ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->defense->getCurrent(), _player->defense->getMax())->getCString());
     TurnLabel->setString(CCString::createWithFormat("Turn:%d", _field->getTurn())->getCString());
     FloorLabel->setString(CCString::createWithFormat("%d F", _field->getFloor())->getCString());
+}
+
+void MainGameScene::pushLevelUp(){
+    CCLOG("pushLevelUp");
+    CCScene *scene = LevelUpLayer::scene();
+    //push
+    //CCDirector::sharedDirector()->pushScene(scene);
+    this->addChild(scene);
 }
 
 void MainGameScene::menuCloseCallback(CCObject* pSender)
