@@ -210,11 +210,12 @@ void MainGameScene::update(float dt){
 }
 
 void MainGameScene::pushLevelUp(){
-    CCLOG("pushLevelUp");
-    CCScene *scene = LevelUpLayer::scene();
-    //push
-    //CCDirector::sharedDirector()->pushScene(scene);
-    this->addChild(scene);
+    Events* events = (Events*) Events::create();
+    events->retain();
+    events->addObject((CCObject*) EventFactory::create(1));
+    events->addObject((CCObject*) EventFactory::create(1));
+    events->addObject((CCObject*) EventFactory::create(1));
+    events->handle(this);
 }
 
 void MainGameScene::menuCloseCallback(CCObject* pSender)

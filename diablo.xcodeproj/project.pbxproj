@@ -27,6 +27,10 @@
 		256AFE4817F9240A00261B7B /* StatusUpgrade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE4617F9240A00261B7B /* StatusUpgrade.cpp */; };
 		256AFE4D17F99D7500261B7B /* LevelMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE4B17F99D7500261B7B /* LevelMaster.cpp */; };
 		256AFE5017F9A66500261B7B /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE4E17F9A66500261B7B /* Level.cpp */; };
+		256AFE5417F9BBCA00261B7B /* LevelUpEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE5217F9BBCA00261B7B /* LevelUpEvent.cpp */; };
+		256AFE5717F9BBD500261B7B /* EventBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE5517F9BBD500261B7B /* EventBase.cpp */; };
+		256AFE5A17F9BCD900261B7B /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE5817F9BCD900261B7B /* Events.cpp */; };
+		256AFE5D17F9DB4000261B7B /* EventFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE5B17F9DB4000261B7B /* EventFactory.cpp */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
 		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
 		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
@@ -303,6 +307,14 @@
 		256AFE4C17F99D7500261B7B /* LevelMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMaster.h; sourceTree = "<group>"; };
 		256AFE4E17F9A66500261B7B /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
 		256AFE4F17F9A66500261B7B /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		256AFE5217F9BBCA00261B7B /* LevelUpEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelUpEvent.cpp; sourceTree = "<group>"; };
+		256AFE5317F9BBCA00261B7B /* LevelUpEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUpEvent.h; sourceTree = "<group>"; };
+		256AFE5517F9BBD500261B7B /* EventBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventBase.cpp; sourceTree = "<group>"; };
+		256AFE5617F9BBD500261B7B /* EventBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBase.h; sourceTree = "<group>"; };
+		256AFE5817F9BCD900261B7B /* Events.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Events.cpp; sourceTree = "<group>"; };
+		256AFE5917F9BCD900261B7B /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		256AFE5B17F9DB4000261B7B /* EventFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventFactory.cpp; sourceTree = "<group>"; };
+		256AFE5C17F9DB4000261B7B /* EventFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventFactory.h; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
 		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
 		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
@@ -863,6 +875,21 @@
 				256AFE4717F9240A00261B7B /* StatusUpgrade.h */,
 			);
 			name = UIComponent;
+			sourceTree = "<group>";
+		};
+		256AFE5117F9BB2200261B7B /* event */ = {
+			isa = PBXGroup;
+			children = (
+				256AFE5217F9BBCA00261B7B /* LevelUpEvent.cpp */,
+				256AFE5317F9BBCA00261B7B /* LevelUpEvent.h */,
+				256AFE5517F9BBD500261B7B /* EventBase.cpp */,
+				256AFE5617F9BBD500261B7B /* EventBase.h */,
+				256AFE5817F9BCD900261B7B /* Events.cpp */,
+				256AFE5917F9BCD900261B7B /* Events.h */,
+				256AFE5B17F9DB4000261B7B /* EventFactory.cpp */,
+				256AFE5C17F9DB4000261B7B /* EventFactory.h */,
+			);
+			name = event;
 			sourceTree = "<group>";
 		};
 		256C087017E0C632007A6D01 /* model */ = {
@@ -1805,6 +1832,7 @@
 		25B2FFA217BF4517008E4D34 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				256AFE5117F9BB2200261B7B /* event */,
 				256AFE4517F923E000261B7B /* UIComponent */,
 				253D0B9417EC491E003A62C2 /* Layers */,
 				251C371B17E49E2700990EAA /* factory */,
@@ -1979,6 +2007,7 @@
 				25B2FD8A17BF4511008E4D34 /* CCNS.cpp in Sources */,
 				25B2FD8D17BF4511008E4D34 /* CCObject.cpp in Sources */,
 				25B2FD9017BF4511008E4D34 /* CCSet.cpp in Sources */,
+				256AFE5717F9BBD500261B7B /* EventBase.cpp in Sources */,
 				25B2FD9317BF4511008E4D34 /* CCString.cpp in Sources */,
 				25B2FD9617BF4511008E4D34 /* CCZone.cpp in Sources */,
 				25B2FD9917BF4511008E4D34 /* cocos2d.cpp in Sources */,
@@ -2054,6 +2083,7 @@
 				25B2FEAF17BF4514008E4D34 /* ccCArray.cpp in Sources */,
 				25B2FEB517BF4514008E4D34 /* TGAlib.cpp in Sources */,
 				25B2FEB817BF4514008E4D34 /* TransformUtils.cpp in Sources */,
+				256AFE5D17F9DB4000261B7B /* EventFactory.cpp in Sources */,
 				25B2FEBC17BF4514008E4D34 /* ioapi.cpp in Sources */,
 				25B2FEBF17BF4514008E4D34 /* unzip.cpp in Sources */,
 				25B2FEC217BF4514008E4D34 /* ZipUtils.cpp in Sources */,
@@ -2085,6 +2115,7 @@
 				25B2FF1C17BF4515008E4D34 /* CCBSequence.cpp in Sources */,
 				25B2FF1F17BF4515008E4D34 /* CCBSequenceProperty.cpp in Sources */,
 				25B2FF2217BF4515008E4D34 /* CCBValue.cpp in Sources */,
+				256AFE5417F9BBCA00261B7B /* LevelUpEvent.cpp in Sources */,
 				25B2FF2517BF4515008E4D34 /* CCControlButtonLoader.cpp in Sources */,
 				25B2FF2817BF4515008E4D34 /* CCControlLoader.cpp in Sources */,
 				25B2FF2B17BF4516008E4D34 /* CCData.cpp in Sources */,
@@ -2111,6 +2142,7 @@
 				25B2FF7117BF4516008E4D34 /* CCControlSlider.cpp in Sources */,
 				25B2FF7417BF4516008E4D34 /* CCControlStepper.cpp in Sources */,
 				256AFE5017F9A66500261B7B /* Level.cpp in Sources */,
+				256AFE5A17F9BCD900261B7B /* Events.cpp in Sources */,
 				25B2FF7717BF4516008E4D34 /* CCControlSwitch.cpp in Sources */,
 				25B2FF7A17BF4516008E4D34 /* CCControlUtils.cpp in Sources */,
 				25B2FF7D17BF4516008E4D34 /* CCInvocation.cpp in Sources */,

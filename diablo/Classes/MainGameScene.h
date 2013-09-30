@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "TurnManager.h"
 #include "LevelUpLayer.h"
+#include "EventFactory.h"
 using namespace cocos2d;
 
 class MainGameScene : public cocos2d::CCLayer

@@ -18,6 +18,7 @@
 #include "PotionRecover.h"
 #include "ShieldRefill.h"
 #include "Level.h"
+#include "Events.h"
 using namespace cocos2d;
 
 class Player{
@@ -41,6 +42,7 @@ public:
     void resetDamage();
     int getTotalDamage(); //今回の累積ダメージを取得する。
     void addExp(int addedExp);
+    Events* getEvent();
     Player();
     ~Player(void);
 };

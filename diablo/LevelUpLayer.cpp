@@ -22,6 +22,34 @@ CCScene* LevelUpLayer::scene(){
     return scene;
 }
 
+LevelUpLayer* LevelUpLayer::layer(){
+    // 'scene' is an autorelease object
+    CCScene *scene = CCScene::create();
+    
+    // 'layer' is an autorelease object
+    LevelUpLayer *layer = (LevelUpLayer*) LevelUpLayer::create();
+    
+    // add layer as a child to scene
+    scene->addChild(layer);
+    
+    // return the scene
+    layer->setScene(scene);
+    return layer;
+}
+
+void LevelUpLayer::setScene(CCScene* scene) {
+    this->_scene = scene;
+}
+
+void LevelUpLayer::setCallback(Events *events, cocos2d::CCLayer *layer){
+    this->_events = events;
+    this->_parentLayer = layer;
+}
+
+CCScene* LevelUpLayer::getScene(){
+    return this->_scene;
+}
+
 bool LevelUpLayer::init(){
     CCLog("LevelUpLayer init");
     //////////////////////////////
@@ -126,4 +154,5 @@ bool LevelUpLayer::ccTouchBegan(CCTouch *touch, CCEvent* event){
 
 void LevelUpLayer::close(){
     this->removeFromParentAndCleanup(true);
+    this->_events->handle(this->_parentLayer);
 }
