@@ -207,15 +207,10 @@ void MainGameScene::update(float dt){
     TurnLabel->setString(CCString::createWithFormat("Turn:%d", _field->getTurn())->getCString());
     FloorLabel->setString(CCString::createWithFormat("%d F", _field->getFloor())->getCString());
     levelLabel->setString(CCString::createWithFormat("level: %d(%d)", _player->level->getCurrentLevel(), _player->level->getCurrentExp())->getCString());
+    _player->getEvent()->handle(this);
 }
 
 void MainGameScene::pushLevelUp(){
-    Events* events = (Events*) Events::create();
-    events->retain();
-    events->addObject((CCObject*) EventFactory::create(1));
-    events->addObject((CCObject*) EventFactory::create(1));
-    events->addObject((CCObject*) EventFactory::create(1));
-    events->handle(this);
 }
 
 void MainGameScene::menuCloseCallback(CCObject* pSender)

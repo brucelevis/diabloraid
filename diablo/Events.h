@@ -16,8 +16,10 @@ using namespace cocos2d;
 
 class EventBase;
 class Events : public CCArray{
+    bool _handling;
 public:
     void handle(CCLayer* layer);
+    void setHandling(bool handling);
 };
 
 #endif /* defined(__diablo__Events__) */

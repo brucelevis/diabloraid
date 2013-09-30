@@ -19,9 +19,10 @@ Level::~Level(){
 int Level::addExp(int addedExp) {
     this->exp += addedExp;
     int nextLevel = LevelMaster::getLevel(this->currentLevel, this->exp);
+    int leveldiff = nextLevel - this->currentLevel;
     this->currentLevel = nextLevel;
     
-    return nextLevel - this->currentLevel;
+    return leveldiff;
 }
 
 int Level::getCurrentLevel(){

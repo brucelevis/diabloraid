@@ -9,13 +9,22 @@
 #include "Events.h"
 
 void Events::handle(CCLayer* layer){
-    EventBase* event;
+       EventBase* event;
     // 0になったら何もしない。
     if (!this || !this->count()){
         return;
     }
+    if( _handling ) {
+        //処理中の時は何もしない。
+        return;
+    }
+    this->setHandling(true);
     CCLOG("Events::handle : remainings: %d", this->count());
     event = (EventBase*) this->objectAtIndex(0);
     this->removeObjectAtIndex(0);
     event->action(this, layer);
+}
+
+void Events::setHandling(bool handling){
+    this->_handling = handling;
 }

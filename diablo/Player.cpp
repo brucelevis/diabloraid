@@ -17,6 +17,8 @@ Player::Player(){
     level         = new Level();
     accumDamages  = CCArray::create();
     accumDamages->retain();
+    events = (Events*) Events::create();
+    events->retain();
 }
 
 SwordDamage* Player::getSwordDamage(){
@@ -68,6 +70,20 @@ int Player::getTotalDamage(){
     return totalDamage;
 }
 
+void Player::pushLevelUpEvent(){
+    events->addObject((CCObject*) EventFactory::create(1));
+}
+
 void Player::addExp(int addedExp){
-    this->level->addExp(addedExp);
+    int levelUpCount = this->level->addExp(addedExp);
+    int i;
+    CCLOG("levelUpCount%d",levelUpCount);
+    for(i = 0; i < levelUpCount; i++){
+        CCLOG("levelup");
+        this->pushLevelUpEvent();
+    }
+}
+
+Events* Player::getEvent(){
+    return this->events;
 }

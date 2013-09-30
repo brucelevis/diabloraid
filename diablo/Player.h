@@ -19,10 +19,12 @@
 #include "ShieldRefill.h"
 #include "Level.h"
 #include "Events.h"
+#include "EventFactory.h"
 using namespace cocos2d;
 
 class Player{
     CCArray* accumDamages; //パネルをタッチしている間の累積ダメージを保存する。push popで簡単に処理するため
+    Events* events;
 public:
     HitPoint* hp;
     Defense* defense;
@@ -42,6 +44,7 @@ public:
     void resetDamage();
     int getTotalDamage(); //今回の累積ダメージを取得する。
     void addExp(int addedExp);
+    void pushLevelUpEvent();
     Events* getEvent();
     Player();
     ~Player(void);
