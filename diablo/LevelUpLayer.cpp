@@ -65,10 +65,12 @@ bool LevelUpLayer::init(){
     
     CCLabelTTF* title = CCLabelTTF::create("Level Up!!!", "Thonburi", 20);
     title->setPosition(ccp(base->getContentSize().width/2, base->getContentSize().height - 40));
+    title->setColor(ccc3(0,0,0));
     base->addChild(title, 1);
     
     remainings = CCLabelTTF::create(CCString::createWithFormat("remain: %d", this->remain)->getCString(), "arial", 20);
     remainings->setPosition(ccp(80, 60));
+    remainings->setColor(ccc3(0,0,0));
     base->addChild(remainings);
     
     this->remain = 5;

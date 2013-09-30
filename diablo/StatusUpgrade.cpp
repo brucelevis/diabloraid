@@ -36,22 +36,26 @@ void StatusUpgrade::addElements(std::string name, CCPoint position){
     CCLabelTTF* strength = CCLabelTTF::create(name.c_str(), "Thonburi", 10);
     strength->setAnchorPoint(ccp(0,0.5));
     strength->setPosition(ccp(30, position.y));
+    strength->setColor(ccc3(0,0,0));
     this->addChild(strength, 1);
     
     CCLabelTTF* currentLabel = CCLabelTTF::create(CCString::createWithFormat("%d", this->_current)->getCString(), "arial", 10);
     currentLabel->setAnchorPoint(ccp(0,0.5));
     currentLabel->setPosition(ccp(90, position.y));
+    currentLabel->setColor(ccc3(0,0,0));
     this->addChild(currentLabel);
     
     char* desc = this->getDescription(name);
     CCLabelTTF* description = CCLabelTTF::create(desc, "Thonburi", 8);
     description->setAnchorPoint(ccp(0,0.5));
     description->setPosition(ccp(35, position.y - 20));
+    description->setColor(ccc3(0,0,0));
     this->addChild(description);
     
     afterLabel   = CCLabelTTF::create(CCString::createWithFormat("-> %d", this->_current + this->_currentAddition)->getCString(), "arial", 10);
     afterLabel->setAnchorPoint(ccp(0, 0.5));
     afterLabel->setPosition(ccp(120, position.y));
+    afterLabel->setColor(ccc3(0,0,0));
     this->addChild(afterLabel);
     
     CCSprite* plus = CCSprite::createWithSpriteFrameName("plus.png");
