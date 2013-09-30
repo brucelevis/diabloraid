@@ -18,6 +18,7 @@ class LevelUpLayer : public CCLayer{
     CCArray* status;
     CCLabelTTF* remainings;
     StatusUpgrade *strength, *defense, *dexterity, *vitality;
+    CCMenuItemSprite* pOkButton;
     int remain;
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)

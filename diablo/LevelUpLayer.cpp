@@ -51,10 +51,12 @@ bool LevelUpLayer::init(){
     CCSprite* ok = CCSprite::createWithSpriteFrameName("ok.png");
     CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");
     okOff->setColor(ccc3(102,102,102));
-    CCMenuItemSprite* pOkButton =
+    pOkButton =
         CCMenuItemSprite::create(ok, okOff, this, menu_selector(LevelUpLayer::close));
     
     pOkButton->setPosition(ccp(base->getContentSize().width - 60, base->getContentSize().height - 250));
+    pOkButton->setVisible(false);
+    
     CCMenu* pMenu = CCMenu::create(pOkButton, NULL);
     //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, kLevelUpLayerPriority, true);
     pMenu->setPosition(CCPointZero);
@@ -89,8 +91,6 @@ bool LevelUpLayer::init(){
     base->addChild(vitality);
     status->addObject(vitality);
     
-    
-    
     this->schedule(schedule_selector(LevelUpLayer::update));
     return true;
 }
@@ -111,6 +111,11 @@ void LevelUpLayer::update(){
     }
     
     this->remainings->setString(CCString::createWithFormat("remain: %d", this->remain - currentTotal)->getCString());
+    if((this->remain - currentTotal) == 0 ){
+        pOkButton->setVisible(true);
+    } else {
+        pOkButton->setVisible(false);
+    }
 }
 
 bool LevelUpLayer::ccTouchBegan(CCTouch *touch, CCEvent* event){
