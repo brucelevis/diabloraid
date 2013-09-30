@@ -8,16 +8,16 @@
 
 #include "Enemy.h"
 
-Enemy::Enemy(int _hp, int str, int def){
+Enemy::Enemy(EnemyMaster* enemy){
     _connectType = 1;
     _isEnemy = true;
-    hp = new HitPoint(_hp);
-    strength = new Strength(str);
-    defense = new Defense(def);
+    hp = new HitPoint(enemy->getHp());
+    strength = new Strength(enemy->getAttack());
+    defense = new Defense(enemy->getDef());
 }
 
-Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName, int _hp, int _str, int _def){
-    Enemy* sprite = new Enemy(_hp, _str, _def);
+Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName, EnemyMaster* enemy){
+    Enemy* sprite = new Enemy(enemy);
     
     sprite->_panelName = pszSpriteFrameName;
     if(sprite && sprite->initWithSpriteFrameName((sprite->_panelName + ".png").c_str())){
@@ -60,7 +60,6 @@ void Enemy::actionUntouched(Player* player){
 // override
 void Enemy::setRemoved(Player* player){
     // hpが今回の攻撃で0を下回る時だけ_willRemovedをたてる。
-    // プレイヤーからのダメージをどう知るか。// Enemyがplayerを知っている？
     if(hp->getCurrentHp() - player->getTotalDamage() <= 0){
         _willRemoved = true;
     }

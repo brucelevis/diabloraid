@@ -22,6 +22,7 @@ EnemyMaster::EnemyMaster(int v){
     _id = rec["id"].get<double>();
     _attack = rec["attack"].get<double>();
     _def = rec["def"].get<double>();
+    _exp = rec["exp"].get<double>();
 }
 
 EnemyMaster::~EnemyMaster(){
@@ -48,3 +49,6 @@ std::string EnemyMaster::getName(){
     return this->_name;
 }
 
+int EnemyMaster::getExp(){
+    return _exp;
+}

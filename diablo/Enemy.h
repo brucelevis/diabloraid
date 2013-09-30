@@ -15,6 +15,7 @@
 #include "Player.h"
 #include "Strength.h"
 #include "Defense.h"
+#include "EnemyMaster.h"
 
 class Enemy : public PanelSprite
 {
@@ -26,7 +27,7 @@ class Enemy : public PanelSprite
     CCLabelTTF* defenseLabel;  //攻撃力の表示
     bool _isEnemy;
 public:
-    static Enemy* createWithSpriteFrameName(const char *pszSpriteFrameName, int _hp, int _str, int _def);
+    static Enemy* createWithSpriteFrameName(const char *pszSpriteFrameName, EnemyMaster* enemy);
     bool isEnemy();
     void attack(Player* player); //Playerも攻撃対象とかの抽象クラスにするかもね。
     void setRemoved(Player* player);
@@ -35,7 +36,7 @@ public:
     void actionUntouched(Player* player);
     void setKilledImage();
     void update();
-    Enemy(int hp, int str, int def);
+    Enemy(EnemyMaster* enemy);
     ~Enemy(void);
 };
 

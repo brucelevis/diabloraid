@@ -19,6 +19,7 @@ class EnemyMaster{
     int _hp;
     int _attack;
     int _def;
+    int _exp;
 public:
     static EnemyMaster* getById(int v);
     std::string getName();
@@ -26,6 +27,7 @@ public:
     int getHp();
     int getAttack();
     int getDef();
+    int getExp();
     EnemyMaster(int v);
     ~EnemyMaster();
 };
