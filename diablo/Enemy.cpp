@@ -14,6 +14,7 @@ Enemy::Enemy(EnemyMaster* enemy){
     hp = new HitPoint(enemy->getHp());
     strength = new Strength(enemy->getAttack());
     defense = new Defense(enemy->getDef());
+    exp = enemy->getExp();
 }
 
 Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName, EnemyMaster* enemy){
@@ -63,6 +64,7 @@ void Enemy::setRemoved(Player* player){
     if(hp->getCurrentHp() - player->getTotalDamage() <= 0){
         _willRemoved = true;
     }
+    player->addExp(exp);
 }
 
 

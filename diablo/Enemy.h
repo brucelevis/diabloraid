@@ -22,6 +22,7 @@ class Enemy : public PanelSprite
     HitPoint* hp;
     Strength* strength; //Strengthクラスを一応使う
     Defense*  defense;  //Defenseクラスを一応使う
+    int exp;
     CCLabelTTF* currentHpLabel; //今のhpの表示
     CCLabelTTF* strengthLabel;  //攻撃力の表示
     CCLabelTTF* defenseLabel;  //攻撃力の表示

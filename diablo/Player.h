@@ -17,6 +17,7 @@
 #include "SwordDamage.h"
 #include "PotionRecover.h"
 #include "ShieldRefill.h"
+#include "Level.h"
 using namespace cocos2d;
 
 class Player{
@@ -31,6 +32,7 @@ public:
     PotionRecover* getPotionRecover();
     ShieldRefill* shieldRefill;
     ShieldRefill* getShieldRefill();
+    Level* level;
     void damage(int v);
     void recover(int v);
     bool isAlive();
@@ -38,6 +40,7 @@ public:
     void popDamage();
     void resetDamage();
     int getTotalDamage(); //今回の累積ダメージを取得する。
+    void addExp(int addedExp);
     Player();
     ~Player(void);
 };

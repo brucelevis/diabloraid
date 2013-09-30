@@ -25,6 +25,8 @@
 		256AFE4317F9186300261B7B /* ui.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE4117F9186300261B7B /* ui.plist */; };
 		256AFE4417F9186300261B7B /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE4217F9186300261B7B /* ui.png */; };
 		256AFE4817F9240A00261B7B /* StatusUpgrade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE4617F9240A00261B7B /* StatusUpgrade.cpp */; };
+		256AFE4D17F99D7500261B7B /* LevelMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE4B17F99D7500261B7B /* LevelMaster.cpp */; };
+		256AFE5017F9A66500261B7B /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE4E17F9A66500261B7B /* Level.cpp */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
 		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
 		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
@@ -297,6 +299,10 @@
 		256AFE4217F9186300261B7B /* ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ui.png; path = images/ui/ui.png; sourceTree = SOURCE_ROOT; };
 		256AFE4617F9240A00261B7B /* StatusUpgrade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StatusUpgrade.cpp; sourceTree = "<group>"; };
 		256AFE4717F9240A00261B7B /* StatusUpgrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusUpgrade.h; sourceTree = "<group>"; };
+		256AFE4B17F99D7500261B7B /* LevelMaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelMaster.cpp; sourceTree = "<group>"; };
+		256AFE4C17F99D7500261B7B /* LevelMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMaster.h; sourceTree = "<group>"; };
+		256AFE4E17F9A66500261B7B /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
+		256AFE4F17F9A66500261B7B /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
 		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
 		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
@@ -822,6 +828,8 @@
 				251C373217E7605C00990EAA /* PotionRecover.h */,
 				251C373417E7627200990EAA /* ShieldRefill.cpp */,
 				251C373517E7627300990EAA /* ShieldRefill.h */,
+				256AFE4E17F9A66500261B7B /* Level.cpp */,
+				256AFE4F17F9A66500261B7B /* Level.h */,
 			);
 			name = status;
 			sourceTree = "<group>";
@@ -870,6 +878,8 @@
 				256C087E17E2114A007A6D01 /* Dungeon.h */,
 				25EF285D17E437BE003FBA91 /* EnemyMaster.cpp */,
 				25EF285E17E437BE003FBA91 /* EnemyMaster.h */,
+				256AFE4B17F99D7500261B7B /* LevelMaster.cpp */,
+				256AFE4C17F99D7500261B7B /* LevelMaster.h */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -2055,6 +2065,7 @@
 				25B2FED717BF4515008E4D34 /* CCTexturePVR.cpp in Sources */,
 				25B2FEDB17BF4515008E4D34 /* CCParallaxNode.cpp in Sources */,
 				25B2FEDE17BF4515008E4D34 /* CCTileMapAtlas.cpp in Sources */,
+				256AFE4D17F99D7500261B7B /* LevelMaster.cpp in Sources */,
 				25B2FEE117BF4515008E4D34 /* CCTMXLayer.cpp in Sources */,
 				25B2FEE417BF4515008E4D34 /* CCTMXObjectGroup.cpp in Sources */,
 				25B2FEE717BF4515008E4D34 /* CCTMXTiledMap.cpp in Sources */,
@@ -2099,6 +2110,7 @@
 				25B2FF6E17BF4516008E4D34 /* CCControlSaturationBrightnessPicker.cpp in Sources */,
 				25B2FF7117BF4516008E4D34 /* CCControlSlider.cpp in Sources */,
 				25B2FF7417BF4516008E4D34 /* CCControlStepper.cpp in Sources */,
+				256AFE5017F9A66500261B7B /* Level.cpp in Sources */,
 				25B2FF7717BF4516008E4D34 /* CCControlSwitch.cpp in Sources */,
 				25B2FF7A17BF4516008E4D34 /* CCControlUtils.cpp in Sources */,
 				25B2FF7D17BF4516008E4D34 /* CCInvocation.cpp in Sources */,

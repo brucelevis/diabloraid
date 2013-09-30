@@ -119,6 +119,10 @@ bool MainGameScene::init()
     FloorLabel->setPosition(ccp(size.width - 50, size.height - 63) );
     this->addChild(FloorLabel);
     
+    levelLabel = CCLabelTTF::create(CCString::createWithFormat("level: %d(%d)", _player->level->getCurrentLevel(), _player->level->getCurrentExp())->getCString(), "arial", 20);
+    levelLabel->setPosition(ccp(size.width / 2, size.height - 63) );
+    this->addChild(levelLabel);
+    
     DamageLabel = CCLabelTTF::create(CCString::createWithFormat("%d DMG", _player->getTotalDamage())->getCString(), "arial", 20);
     DamageLabel->setColor(ccc3(0,255,0));
     DamageLabel->setPosition(ccp(140, 50));
@@ -202,6 +206,7 @@ void MainGameScene::update(float dt){
     ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->defense->getCurrent(), _player->defense->getMax())->getCString());
     TurnLabel->setString(CCString::createWithFormat("Turn:%d", _field->getTurn())->getCString());
     FloorLabel->setString(CCString::createWithFormat("%d F", _field->getFloor())->getCString());
+    levelLabel->setString(CCString::createWithFormat("level: %d(%d)", _player->level->getCurrentLevel(), _player->level->getCurrentExp())->getCString());
 }
 
 void MainGameScene::pushLevelUp(){

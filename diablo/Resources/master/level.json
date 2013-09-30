@@ -1,0 +1,422 @@
+{
+    "1": {
+        "id": 1,
+        "level": 1,
+        "current_level_exp": 0,
+        "required_exp": 10
+    },
+    "2": {
+        "id": 2,
+        "level": 2,
+        "current_level_exp": 10,
+        "required_exp": 20
+    },
+    "3": {
+        "id": 3,
+        "level": 3,
+        "current_level_exp": 30,
+        "required_exp": 30
+    },
+    "4": {
+        "id": 4,
+        "level": 4,
+        "current_level_exp": 60,
+        "required_exp": 40
+    },
+    "5": {
+        "id": 5,
+        "level": 5,
+        "current_level_exp": 100,
+        "required_exp": 50
+    },
+    "6": {
+        "id": 6,
+        "level": 6,
+        "current_level_exp": 150,
+        "required_exp": 80
+    },
+    "7": {
+        "id": 7,
+        "level": 7,
+        "current_level_exp": 230,
+        "required_exp": 120
+    },
+    "8": {
+        "id": 8,
+        "level": 8,
+        "current_level_exp": 350,
+        "required_exp": 150
+    },
+    "9": {
+        "id": 9,
+        "level": 9,
+        "current_level_exp": 500,
+        "required_exp": 200
+    },
+    "10": {
+        "id": 10,
+        "level": 10,
+        "current_level_exp": 700,
+        "required_exp": 250
+    },
+    "11": {
+        "id": 11,
+        "level": 11,
+        "current_level_exp": 950,
+        "required_exp": 250
+    },
+    "12": {
+        "id": 12,
+        "level": 12,
+        "current_level_exp": 1200,
+        "required_exp": 300
+    },
+    "13": {
+        "id": 13,
+        "level": 13,
+        "current_level_exp": 1500,
+        "required_exp": 300
+    },
+    "14": {
+        "id": 14,
+        "level": 14,
+        "current_level_exp": 1800,
+        "required_exp": 500
+    },
+    "15": {
+        "id": 15,
+        "level": 15,
+        "current_level_exp": 2300,
+        "required_exp": 500
+    },
+    "16": {
+        "id": 16,
+        "level": 16,
+        "current_level_exp": 2800,
+        "required_exp": 700
+    },
+    "17": {
+        "id": 17,
+        "level": 17,
+        "current_level_exp": 3500,
+        "required_exp": 700
+    },
+    "18": {
+        "id": 18,
+        "level": 18,
+        "current_level_exp": 4200,
+        "required_exp": 800
+    },
+    "19": {
+        "id": 19,
+        "level": 19,
+        "current_level_exp": 5000,
+        "required_exp": 1000
+    },
+    "20": {
+        "id": 20,
+        "level": 20,
+        "current_level_exp": 6000,
+        "required_exp": 1000
+    },
+    "21": {
+        "id": 21,
+        "level": 21,
+        "current_level_exp": 7000,
+        "required_exp": 1000
+    },
+    "22": {
+        "id": 22,
+        "level": 22,
+        "current_level_exp": 8000,
+        "required_exp": 2000
+    },
+    "23": {
+        "id": 23,
+        "level": 23,
+        "current_level_exp": 10000,
+        "required_exp": 3000
+    },
+    "24": {
+        "id": 24,
+        "level": 24,
+        "current_level_exp": 13000,
+        "required_exp": 3000
+    },
+    "25": {
+        "id": 25,
+        "level": 25,
+        "current_level_exp": 16000,
+        "required_exp": 4000
+    },
+    "26": {
+        "id": 26,
+        "level": 26,
+        "current_level_exp": 20000,
+        "required_exp": 5000
+    },
+    "27": {
+        "id": 27,
+        "level": 27,
+        "current_level_exp": 25000,
+        "required_exp": 5000
+    },
+    "28": {
+        "id": 28,
+        "level": 28,
+        "current_level_exp": 30000,
+        "required_exp": 6000
+    },
+    "29": {
+        "id": 29,
+        "level": 29,
+        "current_level_exp": 36000,
+        "required_exp": 6000
+    },
+    "30": {
+        "id": 30,
+        "level": 30,
+        "current_level_exp": 42000,
+        "required_exp": 6000
+    },
+    "31": {
+        "id": 31,
+        "level": 31,
+        "current_level_exp": 48000,
+        "required_exp": 6000
+    },
+    "32": {
+        "id": 32,
+        "level": 32,
+        "current_level_exp": 54000,
+        "required_exp": 6000
+    },
+    "33": {
+        "id": 33,
+        "level": 33,
+        "current_level_exp": 60000,
+        "required_exp": 10000
+    },
+    "34": {
+        "id": 34,
+        "level": 34,
+        "current_level_exp": 70000,
+        "required_exp": 10000
+    },
+    "35": {
+        "id": 35,
+        "level": 35,
+        "current_level_exp": 80000,
+        "required_exp": 10000
+    },
+    "36": {
+        "id": 36,
+        "level": 36,
+        "current_level_exp": 90000,
+        "required_exp": 10000
+    },
+    "37": {
+        "id": 37,
+        "level": 37,
+        "current_level_exp": 100000,
+        "required_exp": 15000
+    },
+    "38": {
+        "id": 38,
+        "level": 38,
+        "current_level_exp": 115000,
+        "required_exp": 15000
+    },
+    "39": {
+        "id": 39,
+        "level": 39,
+        "current_level_exp": 130000,
+        "required_exp": 15000
+    },
+    "40": {
+        "id": 40,
+        "level": 40,
+        "current_level_exp": 145000,
+        "required_exp": 15000
+    },
+    "41": {
+        "id": 41,
+        "level": 41,
+        "current_level_exp": 160000,
+        "required_exp": 15000
+    },
+    "42": {
+        "id": 42,
+        "level": 42,
+        "current_level_exp": 175000,
+        "required_exp": 25000
+    },
+    "43": {
+        "id": 43,
+        "level": 43,
+        "current_level_exp": 200000,
+        "required_exp": 30000
+    },
+    "44": {
+        "id": 44,
+        "level": 44,
+        "current_level_exp": 230000,
+        "required_exp": 30000
+    },
+    "45": {
+        "id": 45,
+        "level": 45,
+        "current_level_exp": 260000,
+        "required_exp": 30000
+    },
+    "46": {
+        "id": 46,
+        "level": 46,
+        "current_level_exp": 290000,
+        "required_exp": 30000
+    },
+    "47": {
+        "id": 47,
+        "level": 47,
+        "current_level_exp": 320000,
+        "required_exp": 30000
+    },
+    "48": {
+        "id": 48,
+        "level": 48,
+        "current_level_exp": 350000,
+        "required_exp": 30000
+    },
+    "49": {
+        "id": 49,
+        "level": 49,
+        "current_level_exp": 380000,
+        "required_exp": 30000
+    },
+    "50": {
+        "id": 50,
+        "level": 50,
+        "current_level_exp": 410000,
+        "required_exp": 30000
+    },
+    "51": {
+        "id": 51,
+        "level": 51,
+        "current_level_exp": 440000,
+        "required_exp": 30000
+    },
+    "52": {
+        "id": 52,
+        "level": 52,
+        "current_level_exp": 470000,
+        "required_exp": 30000
+    },
+    "53": {
+        "id": 53,
+        "level": 53,
+        "current_level_exp": 500000,
+        "required_exp": 30000
+    },
+    "54": {
+        "id": 54,
+        "level": 54,
+        "current_level_exp": 530000,
+        "required_exp": 30000
+    },
+    "55": {
+        "id": 55,
+        "level": 55,
+        "current_level_exp": 560000,
+        "required_exp": 30000
+    },
+    "56": {
+        "id": 56,
+        "level": 56,
+        "current_level_exp": 590000,
+        "required_exp": 30000
+    },
+    "57": {
+        "id": 57,
+        "level": 57,
+        "current_level_exp": 620000,
+        "required_exp": 30000
+    },
+    "58": {
+        "id": 58,
+        "level": 58,
+        "current_level_exp": 650000,
+        "required_exp": 30000
+    },
+    "59": {
+        "id": 59,
+        "level": 59,
+        "current_level_exp": 680000,
+        "required_exp": 30000
+    },
+    "60": {
+        "id": 60,
+        "level": 60,
+        "current_level_exp": 710000,
+        "required_exp": 30000
+    },
+    "61": {
+        "id": 61,
+        "level": 61,
+        "current_level_exp": 740000,
+        "required_exp": 30000
+    },
+    "62": {
+        "id": 62,
+        "level": 62,
+        "current_level_exp": 770000,
+        "required_exp": 30000
+    },
+    "63": {
+        "id": 63,
+        "level": 63,
+        "current_level_exp": 800000,
+        "required_exp": 30000
+    },
+    "64": {
+        "id": 64,
+        "level": 64,
+        "current_level_exp": 830000,
+        "required_exp": 30000
+    },
+    "65": {
+        "id": 65,
+        "level": 65,
+        "current_level_exp": 860000,
+        "required_exp": 30000
+    },
+    "66": {
+        "id": 66,
+        "level": 66,
+        "current_level_exp": 890000,
+        "required_exp": 30000
+    },
+    "67": {
+        "id": 67,
+        "level": 67,
+        "current_level_exp": 920000,
+        "required_exp": 30000
+    },
+    "68": {
+        "id": 68,
+        "level": 68,
+        "current_level_exp": 950000,
+        "required_exp": 30000
+    },
+    "69": {
+        "id": 69,
+        "level": 69,
+        "current_level_exp": 980000,
+        "required_exp": 30000
+    },
+    "70": {
+        "id": 70,
+        "level": 70,
+        "current_level_exp": 1010000,
+        "required_exp": 30000
+    }
+}

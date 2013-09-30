@@ -14,6 +14,7 @@ Player::Player(){
     potionRecover = new PotionRecover(3);
     defense       = new Defense(10);  //defense
     shieldRefill  = new ShieldRefill(2);
+    level         = new Level();
     accumDamages  = CCArray::create();
     accumDamages->retain();
 }
@@ -65,4 +66,8 @@ int Player::getTotalDamage(){
         totalDamage += damage->getValue();
     }
     return totalDamage;
+}
+
+void Player::addExp(int addedExp){
+    this->level->addExp(addedExp);
 }
