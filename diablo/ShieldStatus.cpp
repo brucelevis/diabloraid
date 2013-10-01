@@ -1,35 +1,35 @@
 //
-//  Defense.cpp
+//  ShieldStatus.cpp
 //  diablo
 //
 //  Created by Kosuke Takami on 13/09/08.
 //
 //
 
-#include "Defense.h"
+#include "ShieldStatus.h"
 
-Defense::Defense(int v){
+ShieldStatus::ShieldStatus(int v){
     max = v;
     current = 0; //盾を取ると増えていく。
     brokenRate = 20; //とりあえず20%に置く
 }
 
-Defense::~Defense(){
+ShieldStatus::~ShieldStatus(){
 }
 
-int Defense::getMax(){
+int ShieldStatus::getMax(){
     return max;
 }
 
-int Defense::getCurrent(){
+int ShieldStatus::getCurrent(){
     return current;
 }
 
-void Defense::setCurrent(int v){
+void ShieldStatus::setCurrent(int v){
     current = v;
 }
 
-void Defense::increase(int v){
+void ShieldStatus::increase(int v){
     int increased = current + v;
     if(increased > max){
         this->setCurrent(max);
@@ -38,7 +38,7 @@ void Defense::increase(int v){
     }
 }
 
-void Defense::reduce(int v){
+void ShieldStatus::reduce(int v){
     int reduced = current - v;
     if(reduced < 0){
         this->setCurrent(0);
@@ -48,7 +48,7 @@ void Defense::reduce(int v){
 }
 
 // vのダメージを受けたときに、シールドがいくらすり減るか
-void Defense::damage(int v){
+void ShieldStatus::damage(int v){
     int i;
     int damaged = 0;
     // v回抽選

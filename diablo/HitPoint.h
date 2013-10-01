@@ -20,6 +20,7 @@ public:
     void setCurrentHp(int v);
     void reduce(int v);
     void increase(int v);
+    void recoverAll(); //hpを全回復する。
     HitPoint(int v);
     ~HitPoint(void);
 };

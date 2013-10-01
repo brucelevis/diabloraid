@@ -46,3 +46,7 @@ void HitPoint::reduce(int v){
     }
 }
 
+void HitPoint::recoverAll(){
+    this->setCurrentHp(this->getMaxHp());
+}
+

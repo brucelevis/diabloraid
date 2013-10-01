@@ -12,7 +12,7 @@
 		250557AB17DB84A400D85441 /* Sword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A917DB84A400D85441 /* Sword.cpp */; };
 		250557AD17DC26C600D85441 /* gameover.wav in Resources */ = {isa = PBXBuildFile; fileRef = 250557AC17DC26C600D85441 /* gameover.wav */; };
 		250557B117DC565400D85441 /* Strength.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557AF17DC565300D85441 /* Strength.cpp */; };
-		250557B417DC58F200D85441 /* Defense.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557B217DC58F200D85441 /* Defense.cpp */; };
+		250557B417DC58F200D85441 /* ShieldStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557B217DC58F200D85441 /* ShieldStatus.cpp */; };
 		250557B717DC676B00D85441 /* TouchedPanels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557B517DC676900D85441 /* TouchedPanels.cpp */; };
 		251C371E17E49E3800990EAA /* EnemyFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C371C17E49E3800990EAA /* EnemyFactory.cpp */; };
 		251C372B17E580DA00990EAA /* FieldPanels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C372917E580DA00990EAA /* FieldPanels.cpp */; };
@@ -32,6 +32,8 @@
 		256AFE5A17F9BCD900261B7B /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE5817F9BCD900261B7B /* Events.cpp */; };
 		256AFE5D17F9DB4000261B7B /* EventFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE5B17F9DB4000261B7B /* EventFactory.cpp */; };
 		256AFE5F17FA63B800261B7B /* levelup.wav in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE5E17FA63B800261B7B /* levelup.wav */; };
+		256AFE6517FA6ACC00261B7B /* Attributes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6317FA6ACC00261B7B /* Attributes.cpp */; };
+		256AFE6817FA6B7100261B7B /* AttributeBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6617FA6B7100261B7B /* AttributeBase.cpp */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
 		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
 		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
@@ -282,8 +284,8 @@
 		250557AC17DC26C600D85441 /* gameover.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = gameover.wav; path = Resources/gameover.wav; sourceTree = "<group>"; };
 		250557AF17DC565300D85441 /* Strength.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Strength.cpp; sourceTree = "<group>"; };
 		250557B017DC565400D85441 /* Strength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Strength.h; sourceTree = "<group>"; };
-		250557B217DC58F200D85441 /* Defense.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Defense.cpp; sourceTree = "<group>"; };
-		250557B317DC58F200D85441 /* Defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defense.h; sourceTree = "<group>"; };
+		250557B217DC58F200D85441 /* ShieldStatus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShieldStatus.cpp; sourceTree = "<group>"; };
+		250557B317DC58F200D85441 /* ShieldStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldStatus.h; sourceTree = "<group>"; };
 		250557B517DC676900D85441 /* TouchedPanels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchedPanels.cpp; sourceTree = "<group>"; };
 		250557B617DC676A00D85441 /* TouchedPanels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchedPanels.h; sourceTree = "<group>"; };
 		251C371C17E49E3800990EAA /* EnemyFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyFactory.cpp; sourceTree = "<group>"; };
@@ -317,6 +319,10 @@
 		256AFE5B17F9DB4000261B7B /* EventFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventFactory.cpp; sourceTree = "<group>"; };
 		256AFE5C17F9DB4000261B7B /* EventFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventFactory.h; sourceTree = "<group>"; };
 		256AFE5E17FA63B800261B7B /* levelup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = levelup.wav; sourceTree = "<group>"; };
+		256AFE6317FA6ACC00261B7B /* Attributes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Attributes.cpp; sourceTree = "<group>"; };
+		256AFE6417FA6ACC00261B7B /* Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attributes.h; sourceTree = "<group>"; };
+		256AFE6617FA6B7100261B7B /* AttributeBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AttributeBase.cpp; sourceTree = "<group>"; };
+		256AFE6717FA6B7100261B7B /* AttributeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeBase.h; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
 		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
 		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
@@ -834,8 +840,8 @@
 				259335E817D786C500D3C419 /* HitPoint.h */,
 				250557AF17DC565300D85441 /* Strength.cpp */,
 				250557B017DC565400D85441 /* Strength.h */,
-				250557B217DC58F200D85441 /* Defense.cpp */,
-				250557B317DC58F200D85441 /* Defense.h */,
+				250557B217DC58F200D85441 /* ShieldStatus.cpp */,
+				250557B317DC58F200D85441 /* ShieldStatus.h */,
 				251C372E17E729F100990EAA /* SwordDamage.cpp */,
 				251C372F17E729F100990EAA /* SwordDamage.h */,
 				251C373117E7605C00990EAA /* PotionRecover.cpp */,
@@ -844,6 +850,10 @@
 				251C373517E7627300990EAA /* ShieldRefill.h */,
 				256AFE4E17F9A66500261B7B /* Level.cpp */,
 				256AFE4F17F9A66500261B7B /* Level.h */,
+				256AFE6317FA6ACC00261B7B /* Attributes.cpp */,
+				256AFE6417FA6ACC00261B7B /* Attributes.h */,
+				256AFE6617FA6B7100261B7B /* AttributeBase.cpp */,
+				256AFE6717FA6B7100261B7B /* AttributeBase.h */,
 			);
 			name = status;
 			sourceTree = "<group>";
@@ -2029,6 +2039,7 @@
 				25B2FDD317BF4512008E4D34 /* utility.c in Sources */,
 				25B2FDD517BF4512008E4D34 /* vec2.c in Sources */,
 				25B2FDD717BF4512008E4D34 /* vec3.c in Sources */,
+				256AFE6817FA6B7100261B7B /* AttributeBase.cpp in Sources */,
 				25B2FDD917BF4512008E4D34 /* vec4.c in Sources */,
 				25B2FDDC17BF4512008E4D34 /* CCKeypadDelegate.cpp in Sources */,
 				25B2FDDF17BF4512008E4D34 /* CCKeypadDispatcher.cpp in Sources */,
@@ -2156,6 +2167,7 @@
 				25B2FF8C17BF4516008E4D34 /* EditBoxImplIOS.mm in Sources */,
 				25B2FF8F17BF4516008E4D34 /* CCScrollView.cpp in Sources */,
 				25B2FF9217BF4516008E4D34 /* CCSorting.cpp in Sources */,
+				256AFE6517FA6ACC00261B7B /* Attributes.cpp in Sources */,
 				25B2FF9517BF4516008E4D34 /* CCTableView.cpp in Sources */,
 				25B2FF9817BF4516008E4D34 /* CCTableViewCell.cpp in Sources */,
 				25B2FF9C17BF4517008E4D34 /* HttpClient.cpp in Sources */,
@@ -2173,7 +2185,7 @@
 				250557A817DB842700D85441 /* Coin.cpp in Sources */,
 				250557AB17DB84A400D85441 /* Sword.cpp in Sources */,
 				250557B117DC565400D85441 /* Strength.cpp in Sources */,
-				250557B417DC58F200D85441 /* Defense.cpp in Sources */,
+				250557B417DC58F200D85441 /* ShieldStatus.cpp in Sources */,
 				250557B717DC676B00D85441 /* TouchedPanels.cpp in Sources */,
 				256C087317E0C641007A6D01 /* UserModel.cpp in Sources */,
 				256C087617E0C68F007A6D01 /* BaseModel.cpp in Sources */,

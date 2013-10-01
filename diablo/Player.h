@@ -12,7 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "HitPoint.h"
-#include "Defense.h"
+#include "ShieldStatus.h"
 #include "Strength.h"
 #include "SwordDamage.h"
 #include "PotionRecover.h"
@@ -27,7 +27,7 @@ class Player{
     Events* events;
 public:
     HitPoint* hp;
-    Defense* defense;
+    ShieldStatus* shieldStatus;
     Strength* strength;
     SwordDamage* swordDamage;
     SwordDamage* getSwordDamage();

@@ -12,7 +12,7 @@ Player::Player(){
     strength      = new Strength(5); //base damage
     swordDamage   = new SwordDamage(20);
     potionRecover = new PotionRecover(3);
-    defense       = new Defense(10);  //defense
+    shieldStatus  = new ShieldStatus(10);  //shieldStatus
     shieldRefill  = new ShieldRefill(2);
     level         = new Level();
     accumDamages  = CCArray::create();

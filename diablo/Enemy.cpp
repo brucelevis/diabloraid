@@ -13,7 +13,7 @@ Enemy::Enemy(EnemyMaster* enemy){
     _isEnemy = true;
     hp = new HitPoint(enemy->getHp());
     strength = new Strength(enemy->getAttack());
-    defense = new Defense(enemy->getDef());
+    shieldStatus = new ShieldStatus(enemy->getDef());
     exp = enemy->getExp();
 }
 
@@ -26,9 +26,9 @@ Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName, EnemyMas
         sprite->currentHpLabel->setPosition(ccp(48, 0));
         sprite->addChild(sprite->currentHpLabel);
         
-        sprite->defenseLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->defense->getMax())->getCString(), "arial", 10);
-        sprite->defenseLabel->setPosition(ccp(48, 27));
-        sprite->addChild(sprite->defenseLabel);
+        sprite->shieldStatusLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->shieldStatus->getMax())->getCString(), "arial", 10);
+        sprite->shieldStatusLabel->setPosition(ccp(48, 27));
+        sprite->addChild(sprite->shieldStatusLabel);
         sprite->strengthLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->strength->getValue())->getCString(), "arial", 10);
         sprite->strengthLabel->setPosition(ccp(48, 54));
         sprite->addChild(sprite->strengthLabel);
@@ -92,17 +92,17 @@ void Enemy::update(){
 
 void Enemy::attack(Player* player){
     //攻撃は、軽減される。
-    int damage = strength->getValue() - player->defense->getCurrent();
+    int damage = strength->getValue() - player->shieldStatus->getCurrent();
     if(damage < 0){
         damage = 0;
     }
-    player->defense->damage(strength->getValue());
+    player->shieldStatus->damage(strength->getValue());
     player->damage(damage);
 }
 
 Enemy::~Enemy(){
     delete strength;
-    delete defense;
+    delete shieldStatus;
     delete hp;
 }
 
