@@ -88,6 +88,9 @@ void Attributes::recover(int v){
     hp->increase(v);
 }
 
+void Attributes::recoverAllHp(){
+    hp->recoverAll();
+}
 
 //シールドのhpを回復する。
 void Attributes::recoverShield(int v){

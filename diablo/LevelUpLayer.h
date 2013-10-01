@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 #include "StatusUpgrade.h"
 #include "Events.h"
+#include "Player.h"
 #include "Attributes.h"
 
 using namespace cocos2d;
@@ -27,13 +28,14 @@ class LevelUpLayer : public CCLayer{
     CCScene* _scene;
     Events* _events;
     CCLayer* _parentLayer;
-    Attributes* _attributes;
+    Player* _player;
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
     virtual bool init();
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static LevelUpLayer* layer();
     static LevelUpLayer* layerWithAttributes(Attributes* attributes);
+    static LevelUpLayer* layerWithPlayer(Player* player);
     static CCScene* scene();
     void addWidowObjects();//表示系のものは後で追加する。
     void setScene(CCScene* scene);

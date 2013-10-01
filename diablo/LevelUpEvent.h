@@ -23,6 +23,7 @@ using namespace cocos2d;
 class LevelUpEvent : public EventBase {
 public:
     virtual void action(Events* events, CCLayer* layer);
+    void onEnd(); //callbackが呼ばれる直前に呼ばれる。
     LevelUpEvent(Player* player);
     ~LevelUpEvent();
 };

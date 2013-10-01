@@ -37,10 +37,16 @@ public:
     
     int getSwordDamage();
     
+    int getStrength();
+    int getDefense();
+    int getDexterity();
+    int getVitality();
+    
     void damage(int v);
     void damageToShield(int v);
     
     void recover(int v);
+    void recoverAllHp();
     void recoverShield(int v);
     
     bool isAlive();
@@ -53,6 +59,10 @@ public:
     
     int getLevelUpCount(); //レベルアップしたときに、そのレベルアップした数が返る。
     void resetLevelUpCount(); //状態を取得し終わったら、レベルアップのカウントをリセットする。
+    
+    // for debug
+    static Player* getPlayerMock();
+    void setAttributes(Attributes* attributes);
     
     Player();
     ~Player(void);

@@ -55,6 +55,22 @@ int Player::getCurrentExp(){
     return this->level->getCurrentExp();
 }
 
+int Player::getStrength(){
+    return this->attributes->getStrength();
+}
+
+int Player::getDefense(){
+    return this->attributes->getDefense();
+}
+
+int Player::getDexterity(){
+    return this->attributes->getDexterity();
+}
+
+int Player::getVitality(){
+    return this->attributes->getVitality();
+}
+
 // ダメージを受けたらhpを減らす。
 void Player::damage(int v){
     attributes->damage(v);
@@ -67,6 +83,10 @@ void Player::damageToShield(int v){
 //回復したらhpを増やす。
 void Player::recover(int v){
     attributes->recover(v);
+}
+
+void Player::recoverAllHp(){
+    attributes->recoverAllHp();
 }
 
 
@@ -117,3 +137,10 @@ void Player::resetLevelUpCount(){
     levelUpCount = 0;
 }
 
+Player* Player::getPlayerMock(){
+    return new Player();
+}
+
+void Player::setAttributes(Attributes* attributes){
+    this->attributes = attributes;
+}

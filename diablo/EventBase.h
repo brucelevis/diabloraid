@@ -22,6 +22,7 @@ protected:
 public:
     //actionは、次のイベント発行のタイミングでevents->handle();を呼ぶように実装するべし。
     virtual void action(Events* events, CCLayer* layer);
+    virtual void onEnd();
     EventBase(Player* player);
     ~EventBase();
 };

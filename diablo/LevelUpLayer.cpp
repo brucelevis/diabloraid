@@ -28,7 +28,7 @@ LevelUpLayer* LevelUpLayer::layer(){
     
     // 'layer' is an autorelease object
     LevelUpLayer *layer = (LevelUpLayer*) LevelUpLayer::create();
-    layer->_attributes = Attributes::getAttributesMock();
+    layer->_player = Player::getPlayerMock();
     layer->addWidowObjects();
     
     // add layer as a child to scene
@@ -47,7 +47,25 @@ LevelUpLayer* LevelUpLayer::layerWithAttributes(Attributes* attributes){
     
     // 'layer' is an autorelease object
     LevelUpLayer *layer = (LevelUpLayer*) LevelUpLayer::create();
-    layer->_attributes = attributes;
+    layer->_player = Player::getPlayerMock();
+    layer->_player->setAttributes(attributes);
+    layer->addWidowObjects();
+    
+    // add layer as a child to scene
+    scene->addChild(layer);
+    
+    // return the scene
+    layer->setScene(scene);
+    return layer;
+}
+
+LevelUpLayer* LevelUpLayer::layerWithPlayer(Player* player){
+    // 'scene' is an autorelease object
+    CCScene *scene = CCScene::create();
+    
+    // 'layer' is an autorelease object
+    LevelUpLayer *layer = (LevelUpLayer*) LevelUpLayer::create();
+    layer->_player = player;
     layer->addWidowObjects();
     
     // add layer as a child to scene
@@ -127,26 +145,25 @@ void LevelUpLayer::addWidowObjects(){
     remainings->setColor(ccc3(0,0,0));
     base->addChild(remainings);
     
-    this->remain = 5;
+    this->remain = 1;
     status = CCArray::create();
     status->retain();
     
-    strength = StatusUpgrade::createStatusLine("Strength", _attributes->getStrength(), ccp(base->getContentSize().width, base->getContentSize().height - 80), this->remain);
+    strength = StatusUpgrade::createStatusLine("Strength", _player->getStrength(), ccp(base->getContentSize().width, base->getContentSize().height - 80), this->remain);
     base->addChild(strength);
     status->addObject(strength);
     
-    defense  = StatusUpgrade::createStatusLine("Defense", _attributes->getDefense(), ccp(base->getContentSize().width, base->getContentSize().height - 120), this->remain);
+    defense  = StatusUpgrade::createStatusLine("Defense", _player->getDefense(), ccp(base->getContentSize().width, base->getContentSize().height - 120), this->remain);
     base->addChild(defense);
     status->addObject(defense);
     
-    dexterity  = StatusUpgrade::createStatusLine("Dexterity", _attributes->getDexterity(), ccp(base->getContentSize().width, base->getContentSize().height - 160), this->remain);
+    dexterity  = StatusUpgrade::createStatusLine("Dexterity", _player->getDexterity(), ccp(base->getContentSize().width, base->getContentSize().height - 160), this->remain);
     base->addChild(dexterity);
     status->addObject(dexterity);
     
-    vitality  = StatusUpgrade::createStatusLine("Vitality", _attributes->getVitality(), ccp(base->getContentSize().width, base->getContentSize().height - 200), this->remain);
+    vitality  = StatusUpgrade::createStatusLine("Vitality", _player->getVitality(), ccp(base->getContentSize().width, base->getContentSize().height - 200), this->remain);
     base->addChild(vitality);
     status->addObject(vitality);
-    
 }
 
 void LevelUpLayer::update(){
@@ -179,9 +196,10 @@ bool LevelUpLayer::ccTouchBegan(CCTouch *touch, CCEvent* event){
 void LevelUpLayer::close(){
     this->removeFromParentAndCleanup(true);
     this->_events->setHandling(false);
-    this->_attributes->addStrength(strength->getCurrentAddition());
-    this->_attributes->addDefense(defense->getCurrentAddition());
-    this->_attributes->addDexterity(dexterity->getCurrentAddition());
-    this->_attributes->addVitality(vitality->getCurrentAddition());
+    this->_player->getAttributes()->addStrength(strength->getCurrentAddition());
+    this->_player->getAttributes()->addDefense(defense->getCurrentAddition());
+    this->_player->getAttributes()->addDexterity(dexterity->getCurrentAddition());
+    this->_player->getAttributes()->addVitality(vitality->getCurrentAddition());
+    this->_player->recoverAllHp();
     this->_events->handle(this->_parentLayer);
 }

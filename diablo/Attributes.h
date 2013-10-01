@@ -61,6 +61,7 @@ public:
     void damageToShield(int v);
     
     void recover(int v);
+    void recoverAllHp();
     void recoverShield(int v);
     
     bool isAlive();
