@@ -33,7 +33,7 @@ void Sword::actionTouched(Player* player){
     if(_alreadyActionTouched){
         return;
     }
-    player->pushDamage(player->getSwordDamage()->getDamage());
+    player->pushDamage(player->getSwordDamage());
     _alreadyActionTouched = true;
 }
 

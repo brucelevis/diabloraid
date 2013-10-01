@@ -21,16 +21,16 @@ Player::Player(){
     events->retain();
 }
 
-SwordDamage* Player::getSwordDamage(){
-    return swordDamage;
+int Player::getSwordDamage(){
+    return swordDamage->getDamage();
 }
 
-PotionRecover* Player::getPotionRecover(){
-    return potionRecover;
+int Player::getPotionRecover(){
+    return potionRecover->getValue();
 }
 
-ShieldRefill* Player::getShieldRefill(){
-    return shieldRefill;
+int Player::getShieldRefill(){
+    return shieldRefill->getValue();
 }
 
 // ダメージを受けたらhpを減らす。

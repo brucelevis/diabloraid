@@ -29,13 +29,10 @@ class Player{
     ShieldStatus* shieldStatus;
     BaseDamage* baseDamage;
     SwordDamage* swordDamage;
+    PotionRecover* potionRecover;
+    ShieldRefill* shieldRefill;
     Level* level;
 public:
-    SwordDamage* getSwordDamage();
-    PotionRecover* potionRecover;
-    PotionRecover* getPotionRecover();
-    ShieldRefill* shieldRefill;
-    ShieldRefill* getShieldRefill();
     int getCurrentHp();
     int getMaxHp();
     
@@ -44,6 +41,12 @@ public:
     
     int getCurrentLevel();
     int getCurrentExp();
+    
+    int getPotionRecover();
+    
+    int getShieldRefill();
+    
+    int getSwordDamage();
     
     void damage(int v);
     void damageToShield(int v);
@@ -55,6 +58,7 @@ public:
     void pushDamage(int v);
     void popDamage();
     void resetDamage();
+    
     int getTotalDamage(); //今回の累積ダメージを取得する。
     void addExp(int addedExp);
     void pushLevelUpEvent();

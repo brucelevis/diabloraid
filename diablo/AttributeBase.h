@@ -11,4 +11,13 @@
 
 #include <iostream>
 
+class AttributeBase {
+    int current;//状態異常などで、一時的にcurrent != maxになるとき用
+    int max;
+public:
+    void add(int v);
+    int getCurrent();
+    AttributeBase(int v);
+    ~AttributeBase();
+};
 #endif /* defined(__diablo__AttributeBase__) */

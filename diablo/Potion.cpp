@@ -30,7 +30,7 @@ Potion::~Potion(){
 //Playerのhpを回復する
 void Potion::recover(Player *player){
     CCLog("recover");
-    player->recover(player->getPotionRecover()->getValue());
+    player->recover(player->getPotionRecover());
 }
 
 void Potion::actionRemoved(Player* player){
