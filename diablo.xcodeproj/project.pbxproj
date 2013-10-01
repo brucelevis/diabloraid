@@ -31,6 +31,7 @@
 		256AFE5717F9BBD500261B7B /* EventBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE5517F9BBD500261B7B /* EventBase.cpp */; };
 		256AFE5A17F9BCD900261B7B /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE5817F9BCD900261B7B /* Events.cpp */; };
 		256AFE5D17F9DB4000261B7B /* EventFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE5B17F9DB4000261B7B /* EventFactory.cpp */; };
+		256AFE5F17FA63B800261B7B /* levelup.wav in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE5E17FA63B800261B7B /* levelup.wav */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
 		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
 		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
@@ -315,6 +316,7 @@
 		256AFE5917F9BCD900261B7B /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
 		256AFE5B17F9DB4000261B7B /* EventFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventFactory.cpp; sourceTree = "<group>"; };
 		256AFE5C17F9DB4000261B7B /* EventFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventFactory.h; sourceTree = "<group>"; };
+		256AFE5E17FA63B800261B7B /* levelup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = levelup.wav; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
 		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
 		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
@@ -954,6 +956,7 @@
 				2593360517DB27FC00D3C419 /* onegaishimasu_01.wav */,
 				2593360617DB27FC00D3C419 /* oyasuminasai_03.wav */,
 				2593360717DB27FC00D3C419 /* ya_01.wav */,
+				256AFE5E17FA63B800261B7B /* levelup.wav */,
 				2593360817DB27FC00D3C419 /* yahhoo_01.wav */,
 				2593360917DB27FC00D3C419 /* yahhoo_02.wav */,
 				2593360A17DB27FC00D3C419 /* yoroshiku_01.wav */,
@@ -1938,6 +1941,7 @@
 				25B2FFB317BF4EFA008E4D34 /* panels.png in Resources */,
 				2544CF0817D1E5520023929D /* direction.plist in Resources */,
 				2544CF0917D1E5520023929D /* direction.png in Resources */,
+				256AFE5F17FA63B800261B7B /* levelup.wav in Resources */,
 				259335E217D63D0100D3C419 /* hp.plist in Resources */,
 				259335E317D63D0100D3C419 /* hp.png in Resources */,
 				2593360B17DB27FC00D3C419 /* konbanwa_02.wav in Resources */,

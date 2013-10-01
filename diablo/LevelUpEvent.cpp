@@ -10,6 +10,7 @@
 
 void LevelUpEvent::action(Events* events, CCLayer* layer){
     CCLOG("LevelUpEvent::action");
+    SimpleAudioEngine::sharedEngine()->playEffect("levelup.wav");
     LevelUpLayer *levelUpLayer = LevelUpLayer::layer();
     //push
     levelUpLayer->setCallback(events, layer);

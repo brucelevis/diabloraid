@@ -14,6 +14,8 @@
 #include "Events.h"
 #include "LevelUpLayer.h"
 #include "cocos2d.h"
+#include "SimpleAudioEngine.h"
+using namespace CocosDenshion;
 using namespace cocos2d;
 
 class LevelUpEvent : public EventBase {

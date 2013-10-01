@@ -43,6 +43,7 @@ bool MenuScene::init()
     SimpleAudioEngine::sharedEngine()->preloadEffect("mouhitoiki_01.wav");
     SimpleAudioEngine::sharedEngine()->preloadEffect("oyasuminasai_03.wav");
     SimpleAudioEngine::sharedEngine()->preloadEffect("kaidan.wav");
+    SimpleAudioEngine::sharedEngine()->preloadEffect("levelup.wav");
     srand(time(NULL));
     
     
