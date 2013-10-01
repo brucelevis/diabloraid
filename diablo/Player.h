@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 #include "HitPoint.h"
 #include "ShieldStatus.h"
-#include "Strength.h"
+#include "BaseDamage.h"
 #include "SwordDamage.h"
 #include "PotionRecover.h"
 #include "ShieldRefill.h"
@@ -28,7 +28,7 @@ class Player{
 public:
     HitPoint* hp;
     ShieldStatus* shieldStatus;
-    Strength* strength;
+    BaseDamage* baseDamage;
     SwordDamage* swordDamage;
     SwordDamage* getSwordDamage();
     PotionRecover* potionRecover;

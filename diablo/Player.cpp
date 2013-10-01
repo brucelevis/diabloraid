@@ -9,7 +9,7 @@
 
 Player::Player(){
     hp            = new HitPoint(100); //base hp
-    strength      = new Strength(5); //base damage
+    baseDamage    = new BaseDamage(5); //base damage
     swordDamage   = new SwordDamage(20);
     potionRecover = new PotionRecover(3);
     shieldStatus  = new ShieldStatus(10);  //shieldStatus
@@ -62,7 +62,7 @@ void Player::resetDamage(){
 int Player::getTotalDamage(){
     CCInteger* damage      = NULL;
     CCObject* targetObject = NULL;
-    int totalDamage = strength->getValue();
+    int totalDamage = baseDamage->getValue();
     CCARRAY_FOREACH(accumDamages, targetObject){
         damage = (CCInteger*) targetObject;
         totalDamage += damage->getValue();

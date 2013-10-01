@@ -11,7 +11,7 @@
 		250557A817DB842700D85441 /* Coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A617DB842700D85441 /* Coin.cpp */; };
 		250557AB17DB84A400D85441 /* Sword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A917DB84A400D85441 /* Sword.cpp */; };
 		250557AD17DC26C600D85441 /* gameover.wav in Resources */ = {isa = PBXBuildFile; fileRef = 250557AC17DC26C600D85441 /* gameover.wav */; };
-		250557B117DC565400D85441 /* Strength.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557AF17DC565300D85441 /* Strength.cpp */; };
+		250557B117DC565400D85441 /* BaseDamage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557AF17DC565300D85441 /* BaseDamage.cpp */; };
 		250557B417DC58F200D85441 /* ShieldStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557B217DC58F200D85441 /* ShieldStatus.cpp */; };
 		250557B717DC676B00D85441 /* TouchedPanels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557B517DC676900D85441 /* TouchedPanels.cpp */; };
 		251C371E17E49E3800990EAA /* EnemyFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251C371C17E49E3800990EAA /* EnemyFactory.cpp */; };
@@ -282,8 +282,8 @@
 		250557A917DB84A400D85441 /* Sword.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sword.cpp; sourceTree = "<group>"; };
 		250557AA17DB84A400D85441 /* Sword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sword.h; sourceTree = "<group>"; };
 		250557AC17DC26C600D85441 /* gameover.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = gameover.wav; path = Resources/gameover.wav; sourceTree = "<group>"; };
-		250557AF17DC565300D85441 /* Strength.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Strength.cpp; sourceTree = "<group>"; };
-		250557B017DC565400D85441 /* Strength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Strength.h; sourceTree = "<group>"; };
+		250557AF17DC565300D85441 /* BaseDamage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseDamage.cpp; sourceTree = "<group>"; };
+		250557B017DC565400D85441 /* BaseDamage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDamage.h; sourceTree = "<group>"; };
 		250557B217DC58F200D85441 /* ShieldStatus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShieldStatus.cpp; sourceTree = "<group>"; };
 		250557B317DC58F200D85441 /* ShieldStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldStatus.h; sourceTree = "<group>"; };
 		250557B517DC676900D85441 /* TouchedPanels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchedPanels.cpp; sourceTree = "<group>"; };
@@ -838,8 +838,8 @@
 			children = (
 				259335E717D786C500D3C419 /* HitPoint.cpp */,
 				259335E817D786C500D3C419 /* HitPoint.h */,
-				250557AF17DC565300D85441 /* Strength.cpp */,
-				250557B017DC565400D85441 /* Strength.h */,
+				250557AF17DC565300D85441 /* BaseDamage.cpp */,
+				250557B017DC565400D85441 /* BaseDamage.h */,
 				250557B217DC58F200D85441 /* ShieldStatus.cpp */,
 				250557B317DC58F200D85441 /* ShieldStatus.h */,
 				251C372E17E729F100990EAA /* SwordDamage.cpp */,
@@ -2184,7 +2184,7 @@
 				250557A517DB837400D85441 /* Shield.cpp in Sources */,
 				250557A817DB842700D85441 /* Coin.cpp in Sources */,
 				250557AB17DB84A400D85441 /* Sword.cpp in Sources */,
-				250557B117DC565400D85441 /* Strength.cpp in Sources */,
+				250557B117DC565400D85441 /* BaseDamage.cpp in Sources */,
 				250557B417DC58F200D85441 /* ShieldStatus.cpp in Sources */,
 				250557B717DC676B00D85441 /* TouchedPanels.cpp in Sources */,
 				256C087317E0C641007A6D01 /* UserModel.cpp in Sources */,

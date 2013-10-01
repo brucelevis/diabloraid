@@ -12,7 +12,7 @@ Enemy::Enemy(EnemyMaster* enemy){
     _connectType = 1;
     _isEnemy = true;
     hp = new HitPoint(enemy->getHp());
-    strength = new Strength(enemy->getAttack());
+    baseDamage = new BaseDamage(enemy->getAttack());
     shieldStatus = new ShieldStatus(enemy->getDef());
     exp = enemy->getExp();
 }
@@ -29,9 +29,9 @@ Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName, EnemyMas
         sprite->shieldStatusLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->shieldStatus->getMax())->getCString(), "arial", 10);
         sprite->shieldStatusLabel->setPosition(ccp(48, 27));
         sprite->addChild(sprite->shieldStatusLabel);
-        sprite->strengthLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->strength->getValue())->getCString(), "arial", 10);
-        sprite->strengthLabel->setPosition(ccp(48, 54));
-        sprite->addChild(sprite->strengthLabel);
+        sprite->baseDamageLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->baseDamage->getValue())->getCString(), "arial", 10);
+        sprite->baseDamageLabel->setPosition(ccp(48, 54));
+        sprite->addChild(sprite->baseDamageLabel);
         
         sprite->_touchRect = *new CCRect();
         sprite->autorelease();
@@ -92,16 +92,16 @@ void Enemy::update(){
 
 void Enemy::attack(Player* player){
     //攻撃は、軽減される。
-    int damage = strength->getValue() - player->shieldStatus->getCurrent();
+    int damage = baseDamage->getValue() - player->shieldStatus->getCurrent();
     if(damage < 0){
         damage = 0;
     }
-    player->shieldStatus->damage(strength->getValue());
+    player->shieldStatus->damage(baseDamage->getValue());
     player->damage(damage);
 }
 
 Enemy::~Enemy(){
-    delete strength;
+    delete baseDamage;
     delete shieldStatus;
     delete hp;
 }
