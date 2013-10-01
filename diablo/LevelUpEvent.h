@@ -15,6 +15,7 @@
 #include "LevelUpLayer.h"
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
+#include "Attributes.h"
 using namespace CocosDenshion;
 using namespace cocos2d;
 

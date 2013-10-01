@@ -90,9 +90,10 @@ bool MainGameScene::init()
     //CCSprite* pSprite = CCSprite::create("panels.png");
     
     
-    
     _player = new Player();
     _field = new Field((CCLayer*) this, _player);
+    _events = (Events*) Events::create();
+    _events->retain();
     CCArray *panels = _field->createInitialField();
     
     PanelSprite *panel = NULL;
@@ -129,7 +130,7 @@ bool MainGameScene::init()
     DamageLabel->setVisible(false);
     this->addChild(DamageLabel,1000);
     
-    _turnManager = new TurnManager(_field, _player);
+    _turnManager = new TurnManager(this, _field, _player);
     
     CCARRAY_FOREACH(panels,targetObject){
         panel = (PanelSprite*) targetObject;
@@ -207,10 +208,32 @@ void MainGameScene::update(float dt){
     TurnLabel->setString(CCString::createWithFormat("Turn:%d", _field->getTurn())->getCString());
     FloorLabel->setString(CCString::createWithFormat("%d F", _field->getFloor())->getCString());
     levelLabel->setString(CCString::createWithFormat("level: %d(%d)", _player->getCurrentLevel(), _player->getCurrentExp())->getCString());
-    _player->getEvent()->handle(this);
+}
+
+void MainGameScene::watchPlayerLevelUp(){
+    if(this->_player->getLevelUpCount() == 0){
+        return;
+    }
+    int i;
+    int levelUpCount = this->_player->getLevelUpCount();
+    CCLOG("levelUpCount%d", levelUpCount);
+    for(i = 0; i < levelUpCount; i++){
+        CCLOG("levelup");
+        this->pushLevelUpEvent();
+    }
+    this->_player->resetLevelUpCount();
 }
 
 void MainGameScene::pushLevelUp(){
+}
+   
+void MainGameScene::pushLevelUpEvent(){
+    _events->addObject((CCObject*) EventFactory::create(1));
+}
+
+void MainGameScene::handleEvents(){
+    CCLOG("MainGameScene::handleEvents:%d", _events->count());
+    _events->handle(this);
 }
 
 void MainGameScene::menuCloseCallback(CCObject* pSender)

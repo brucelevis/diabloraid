@@ -8,7 +8,9 @@
 #include "TurnManager.h"
 #include "LevelUpLayer.h"
 #include "EventFactory.h"
+#include "Events.h"
 using namespace cocos2d;
+class TurnManager;
 
 class MainGameScene : public cocos2d::CCLayer
 {
@@ -23,6 +25,7 @@ class MainGameScene : public cocos2d::CCLayer
     CCLabelTTF* FloorLabel;
     CCLabelTTF* DamageLabel;
     CCLabelTTF* levelLabel;
+    Events* _events;
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
     virtual bool init();
@@ -41,6 +44,9 @@ public:
     void pushLevelUp();
     CREATE_FUNC(MainGameScene);
     void update(float dt);
+    void watchPlayerLevelUp();
+    void pushLevelUpEvent();
+    void handleEvents();
 };
 
 #endif // __HELLOWORLD_SCENE_H__

@@ -12,7 +12,8 @@
 #include "SimpleAudioEngine.h"
 using namespace CocosDenshion;
 
-TurnManager::TurnManager(Field *field, Player* player){
+TurnManager::TurnManager(MainGameScene* layer, Field *field, Player* player){
+    _layer = layer;
     _field = field;
     _player = player;
     _turn = 0;
@@ -59,6 +60,8 @@ void TurnManager::start(){
         this->gameOver();
         return;
     }
+    _layer->watchPlayerLevelUp();
+    _layer->handleEvents();
     this->turnEnd();
     // ターンを経過させる
     _field->countUpTurn();

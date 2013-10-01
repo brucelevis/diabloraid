@@ -11,7 +11,7 @@
 void LevelUpEvent::action(Events* events, CCLayer* layer){
     CCLOG("LevelUpEvent::action");
     SimpleAudioEngine::sharedEngine()->playEffect("levelup.wav");
-    LevelUpLayer *levelUpLayer = LevelUpLayer::layer();
+    LevelUpLayer *levelUpLayer = LevelUpLayer::layerWithAttributes(Attributes::getAttributesMock());
     //push
     levelUpLayer->setCallback(events, layer);
     layer->addChild(levelUpLayer->getScene());

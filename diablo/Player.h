@@ -22,6 +22,7 @@ class Player{
     Attributes* attributes;
     Events* events;
     Level* level;
+    int levelUpCount;
 public:
     int getCurrentHp();
     int getMaxHp();
@@ -51,8 +52,10 @@ public:
     
     int getTotalDamage(); //今回の累積ダメージを取得する。
     void addExp(int addedExp);
-    void pushLevelUpEvent();
-    Events* getEvent();
+    
+    int getLevelUpCount(); //レベルアップしたときに、そのレベルアップした数が返る。
+    void resetLevelUpCount(); //状態を取得し終わったら、レベルアップのカウントをリセットする。
+    
     Player();
     ~Player(void);
 };
