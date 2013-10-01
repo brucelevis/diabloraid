@@ -119,7 +119,7 @@ bool MainGameScene::init()
     FloorLabel->setPosition(ccp(size.width - 50, size.height - 63) );
     this->addChild(FloorLabel);
     
-    levelLabel = CCLabelTTF::create(CCString::createWithFormat("level: %d(%d)", _player->level->getCurrentLevel(), _player->level->getCurrentExp())->getCString(), "arial", 20);
+    levelLabel = CCLabelTTF::create(CCString::createWithFormat("level: %d(%d)", _player->getCurrentLevel(), _player->getCurrentExp())->getCString(), "arial", 20);
     levelLabel->setPosition(ccp(size.width / 2, size.height - 63) );
     this->addChild(levelLabel);
     
@@ -206,7 +206,7 @@ void MainGameScene::update(float dt){
     ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->getShieldCurrentHp(), _player->getShieldMaxHp())->getCString());
     TurnLabel->setString(CCString::createWithFormat("Turn:%d", _field->getTurn())->getCString());
     FloorLabel->setString(CCString::createWithFormat("%d F", _field->getFloor())->getCString());
-    levelLabel->setString(CCString::createWithFormat("level: %d(%d)", _player->level->getCurrentLevel(), _player->level->getCurrentExp())->getCString());
+    levelLabel->setString(CCString::createWithFormat("level: %d(%d)", _player->getCurrentLevel(), _player->getCurrentExp())->getCString());
     _player->getEvent()->handle(this);
 }
 

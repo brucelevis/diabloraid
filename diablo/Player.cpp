@@ -113,3 +113,11 @@ int Player::getShieldCurrentHp(){
 int Player::getShieldMaxHp(){
     return this->shieldStatus->getMax();
 }
+
+int Player::getCurrentLevel(){
+    return this->level->getCurrentLevel();
+}
+
+int Player::getCurrentExp(){
+    return this->level->getCurrentExp();
+}

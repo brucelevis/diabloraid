@@ -29,18 +29,21 @@ class Player{
     ShieldStatus* shieldStatus;
     BaseDamage* baseDamage;
     SwordDamage* swordDamage;
+    Level* level;
 public:
     SwordDamage* getSwordDamage();
     PotionRecover* potionRecover;
     PotionRecover* getPotionRecover();
     ShieldRefill* shieldRefill;
     ShieldRefill* getShieldRefill();
-    Level* level;
     int getCurrentHp();
     int getMaxHp();
     
     int getShieldCurrentHp();
     int getShieldMaxHp();
+    
+    int getCurrentLevel();
+    int getCurrentExp();
     
     void damage(int v);
     void damageToShield(int v);
