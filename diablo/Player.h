@@ -13,12 +13,14 @@
 #include "cocos2d.h"
 #include "Level.h"
 #include "Attributes.h"
+#include "Budget.h"
 using namespace cocos2d;
 
 class Player{
     CCArray* accumDamages; //パネルをタッチしている間の累積ダメージを保存する。push popで簡単に処理するため
     Attributes* attributes;
     Level* level;
+    Budget* budget;
     int levelUpCount;
 public:
     Attributes* getAttributes();
@@ -41,6 +43,9 @@ public:
     int getDefense();
     int getDexterity();
     int getVitality();
+    int getBudget();
+    
+    void addCoin();
     
     void damage(int v);
     void damageToShield(int v);

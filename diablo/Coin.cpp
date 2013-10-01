@@ -28,3 +28,6 @@ Coin* Coin::createWithSpriteFrameName(const char *pszSpriteFrameName){
 Coin::~Coin(){
 }
 
+void Coin::actionRemoved(Player* player){
+    player->addCoin();
+}

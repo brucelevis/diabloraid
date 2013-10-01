@@ -9,6 +9,7 @@
 
 Player::Player(){
     level         = new Level();
+    budget        = new Budget();
     levelUpCount  = 0;
     attributes    = new Attributes();
     accumDamages  = CCArray::create();
@@ -99,6 +100,10 @@ bool Player::isAlive(){
     return attributes->isAlive();
 }
 
+void Player::addCoin(){
+    this->budget->add(this->attributes->getCoinAddition());
+}
+
 void Player::pushDamage(int v){
     accumDamages->addObject(CCInteger::create(v));
 }
@@ -109,6 +114,10 @@ void Player::popDamage(){
 
 void Player::resetDamage(){
     accumDamages->removeAllObjects();
+}
+
+int Player::getBudget(){
+    return this->budget->getCurrent();
 }
 
 int Player::getTotalDamage(){

@@ -124,6 +124,10 @@ bool MainGameScene::init()
     levelLabel->setPosition(ccp(size.width / 2, size.height - 63) );
     this->addChild(levelLabel);
     
+    budgetLabel = CCLabelTTF::create(CCString::createWithFormat("coin: %d", _player->getBudget())->getCString(), "arial", 20);
+    budgetLabel->setPosition(ccp(size.width -50, size.height - 43));
+    this->addChild(budgetLabel);
+    
     DamageLabel = CCLabelTTF::create(CCString::createWithFormat("%d DMG", _player->getTotalDamage())->getCString(), "arial", 20);
     DamageLabel->setColor(ccc3(0,255,0));
     DamageLabel->setPosition(ccp(140, 50));
@@ -208,6 +212,7 @@ void MainGameScene::update(float dt){
     TurnLabel->setString(CCString::createWithFormat("Turn:%d", _field->getTurn())->getCString());
     FloorLabel->setString(CCString::createWithFormat("%d F", _field->getFloor())->getCString());
     levelLabel->setString(CCString::createWithFormat("level: %d(%d)", _player->getCurrentLevel(), _player->getCurrentExp())->getCString());
+    budgetLabel->setString(CCString::createWithFormat("coin: %d", _player->getBudget())->getCString());
 }
 
 void MainGameScene::watchPlayerLevelUp(){

@@ -74,6 +74,10 @@ int Attributes::getBaseDamage(){
     return this->strength->getCurrent();
 }
 
+int Attributes::getCoinAddition(){
+    return this->dexterity->getCurrent();
+}
+
 // ダメージを受けたらhpを減らす。
 void Attributes::damage(int v){
     hp->reduce(v);

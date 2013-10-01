@@ -16,6 +16,7 @@ class Coin : public PanelSprite{
     int _recoverNum;
 public:
     static Coin* createWithSpriteFrameName(const char *pszSpriteFrameName);
+    void actionRemoved(Player* player);
     Coin();
     ~Coin(void);
 };

@@ -30,7 +30,6 @@ class Attributes {
     AttributeBase* defense;
     Vitality* vitality;
     AttributeBase* dexterity;
-    
 public:
     Attributes();
     ~Attributes();
@@ -51,6 +50,8 @@ public:
     int getSwordDamage();
     
     int getBaseDamage();
+    
+    int getCoinAddition();
     
     int getStrength();
     int getDefense();
