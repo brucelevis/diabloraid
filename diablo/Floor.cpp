@@ -48,7 +48,7 @@ CCString* Floor::createPanelName(){
     
     //5％ずつ階段が出る確率が上がる仮実装
     int panelNum = 5;
-    if(rand() % 100 < turn * 3 / 20) {
+    if(rand() % 100 < turn * 3 / 10) {
         panelNum = 6;
     }
     CCLog("panelNum:%d", panelNum);

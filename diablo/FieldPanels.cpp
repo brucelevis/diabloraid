@@ -62,7 +62,7 @@ void FieldPanels::decreaseCount(PanelSprite* panel){
 
 PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY, float size,float scale){
     CCString* panelName = floor->createPanelName();
-    PanelSprite* pSprite = this->createPanelSprite(panelName->getCString());
+    PanelSprite* pSprite = this->createPanelSprite(panelName->getCString(), floor);
     //追加出来ないパネルだったら。
     if(!pSprite->canBeAdded(this->getCurrentPanelNum(pSprite))){
         pSprite->release();
@@ -78,10 +78,10 @@ PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY, floa
     return pSprite;
 }
 
-PanelSprite* FieldPanels::createPanelSprite(std::string panelName){
+PanelSprite* FieldPanels::createPanelSprite(std::string panelName, Floor* floor){
     PanelSprite* pSprite;
     if(panelName == "enemy"){
-        pSprite = EnemyFactory::getEnemyPanel();
+        pSprite = EnemyFactory::getEnemyPanel(floor);
     } else if(panelName == "potion"){
         pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "sword"){

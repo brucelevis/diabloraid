@@ -35,6 +35,7 @@
 		256AFE6517FA6ACC00261B7B /* Attributes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6317FA6ACC00261B7B /* Attributes.cpp */; };
 		256AFE6817FA6B7100261B7B /* AttributeBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6617FA6B7100261B7B /* AttributeBase.cpp */; };
 		256AFE6B17FA944100261B7B /* Vitality.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6917FA944100261B7B /* Vitality.cpp */; };
+		256AFE6E17FAFCD400261B7B /* FloorEnemyMapMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6C17FAFCD400261B7B /* FloorEnemyMapMaster.cpp */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
 		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
 		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
@@ -326,6 +327,8 @@
 		256AFE6717FA6B7100261B7B /* AttributeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeBase.h; sourceTree = "<group>"; };
 		256AFE6917FA944100261B7B /* Vitality.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vitality.cpp; sourceTree = "<group>"; };
 		256AFE6A17FA944100261B7B /* Vitality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vitality.h; sourceTree = "<group>"; };
+		256AFE6C17FAFCD400261B7B /* FloorEnemyMapMaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FloorEnemyMapMaster.cpp; sourceTree = "<group>"; };
+		256AFE6D17FAFCD400261B7B /* FloorEnemyMapMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorEnemyMapMaster.h; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
 		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
 		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
@@ -924,6 +927,8 @@
 				25EF285E17E437BE003FBA91 /* EnemyMaster.h */,
 				256AFE4B17F99D7500261B7B /* LevelMaster.cpp */,
 				256AFE4C17F99D7500261B7B /* LevelMaster.h */,
+				256AFE6C17FAFCD400261B7B /* FloorEnemyMapMaster.cpp */,
+				256AFE6D17FAFCD400261B7B /* FloorEnemyMapMaster.h */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -2161,6 +2166,7 @@
 				25B2FF6E17BF4516008E4D34 /* CCControlSaturationBrightnessPicker.cpp in Sources */,
 				25B2FF7117BF4516008E4D34 /* CCControlSlider.cpp in Sources */,
 				25B2FF7417BF4516008E4D34 /* CCControlStepper.cpp in Sources */,
+				256AFE6E17FAFCD400261B7B /* FloorEnemyMapMaster.cpp in Sources */,
 				256AFE5017F9A66500261B7B /* Level.cpp in Sources */,
 				256AFE5A17F9BCD900261B7B /* Events.cpp in Sources */,
 				25B2FF7717BF4516008E4D34 /* CCControlSwitch.cpp in Sources */,

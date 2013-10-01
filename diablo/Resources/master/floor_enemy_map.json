@@ -1,0 +1,144 @@
+{
+    "6" : [
+           {
+           "enemy_id" : 2,
+           "max_num" : 1,
+           "probability" : 30,
+           "floor_id" : 6
+           },
+           {
+           "enemy_id" : 3,
+           "max_num" : 1,
+           "probability" : 40,
+           "floor_id" : 6
+           },
+           {
+           "enemy_id" : 4,
+           "max_num" : 1,
+           "probability" : 30,
+           "floor_id" : 6
+           }
+           ],
+    "3" : [
+           {
+           "enemy_id" : 1,
+           "max_num" : 5,
+           "probability" : 20,
+           "floor_id" : 3
+           },
+           {
+           "enemy_id" : 2,
+           "max_num" : 3,
+           "probability" : 50,
+           "floor_id" : 3
+           },
+           {
+           "enemy_id" : 3,
+           "max_num" : 1,
+           "probability" : 30,
+           "floor_id" : 3
+           }
+           ],
+    "7" : [
+           {
+           "enemy_id" : 2,
+           "max_num" : 1,
+           "probability" : 30,
+           "floor_id" : 7
+           },
+           {
+           "enemy_id" : 3,
+           "max_num" : 1,
+           "probability" : 40,
+           "floor_id" : 7
+           },
+           {
+           "enemy_id" : 4,
+           "max_num" : 1,
+           "probability" : 30,
+           "floor_id" : 7
+           }
+           ],
+    "2" : [
+           {
+           "enemy_id" : 1,
+           "max_num" : 3,
+           "probability" : 50,
+           "floor_id" : 2
+           },
+           {
+           "enemy_id" : 2,
+           "max_num" : 1,
+           "probability" : 50,
+           "floor_id" : 2
+           }
+           ],
+    "8" : [
+           {
+           "enemy_id" : 2,
+           "max_num" : 1,
+           "probability" : 30,
+           "floor_id" : 8
+           },
+           {
+           "enemy_id" : 3,
+           "max_num" : 1,
+           "probability" : 40,
+           "floor_id" : 8
+           },
+           {
+           "enemy_id" : 4,
+           "max_num" : 1,
+           "probability" : 30,
+           "floor_id" : 8
+           }
+           ],
+    "1" : [
+           {
+           "enemy_id" : 1,
+           "max_num" : 3,
+           "probability" : 100,
+           "floor_id" : 1
+           }
+           ],
+    "4" : [
+           {
+           "enemy_id" : 2,
+           "max_num" : 1,
+           "probability" : 30,
+           "floor_id" : 4
+           },
+           {
+           "enemy_id" : 3,
+           "max_num" : 1,
+           "probability" : 50,
+           "floor_id" : 4
+           },
+           {
+           "enemy_id" : 4,
+           "max_num" : 1,
+           "probability" : 20,
+           "floor_id" : 4
+           }
+           ],
+    "5" : [
+           {
+           "enemy_id" : 2,
+           "max_num" : 1,
+           "probability" : 30,
+           "floor_id" : 5
+           },
+           {
+           "enemy_id" : 3,
+           "max_num" : 1,
+           "probability" : 40,
+           "floor_id" : 5
+           },
+           {
+           "enemy_id" : 4,
+           "max_num" : 1,
+           "probability" : 30,
+           "floor_id" : 5
+           }
+           ]
+}

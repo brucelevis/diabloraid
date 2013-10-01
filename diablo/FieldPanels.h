@@ -31,7 +31,7 @@ public:
     void decreaseCount(PanelSprite* panel);
     int getCurrentPanelNum(PanelSprite* panel);
     PanelSprite* createPanel(Floor* floor, int indexX, int indexY, float size, float scale);
-    PanelSprite* createPanelSprite(std::string panelName);
+    PanelSprite* createPanelSprite(std::string panelName, Floor* floor);
     FieldPanels();
     ~FieldPanels();
 };
