@@ -34,6 +34,7 @@
 		256AFE5F17FA63B800261B7B /* levelup.wav in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE5E17FA63B800261B7B /* levelup.wav */; };
 		256AFE6517FA6ACC00261B7B /* Attributes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6317FA6ACC00261B7B /* Attributes.cpp */; };
 		256AFE6817FA6B7100261B7B /* AttributeBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6617FA6B7100261B7B /* AttributeBase.cpp */; };
+		256AFE6B17FA944100261B7B /* Vitality.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6917FA944100261B7B /* Vitality.cpp */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
 		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
 		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
@@ -323,6 +324,8 @@
 		256AFE6417FA6ACC00261B7B /* Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attributes.h; sourceTree = "<group>"; };
 		256AFE6617FA6B7100261B7B /* AttributeBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AttributeBase.cpp; sourceTree = "<group>"; };
 		256AFE6717FA6B7100261B7B /* AttributeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeBase.h; sourceTree = "<group>"; };
+		256AFE6917FA944100261B7B /* Vitality.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vitality.cpp; sourceTree = "<group>"; };
+		256AFE6A17FA944100261B7B /* Vitality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vitality.h; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
 		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
 		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
@@ -854,6 +857,8 @@
 				256AFE6417FA6ACC00261B7B /* Attributes.h */,
 				256AFE6617FA6B7100261B7B /* AttributeBase.cpp */,
 				256AFE6717FA6B7100261B7B /* AttributeBase.h */,
+				256AFE6917FA944100261B7B /* Vitality.cpp */,
+				256AFE6A17FA944100261B7B /* Vitality.h */,
 			);
 			name = status;
 			sourceTree = "<group>";
@@ -2174,6 +2179,7 @@
 				25B2FFA517BF4517008E4D34 /* AppDelegate.cpp in Sources */,
 				25B2FFA817BF4517008E4D34 /* MainGameScene.cpp in Sources */,
 				25B2FFB917BFBFC7008E4D34 /* PanelSprite.cpp in Sources */,
+				256AFE6B17FA944100261B7B /* Vitality.cpp in Sources */,
 				25B2FFBC17BFDBB1008E4D34 /* Field.cpp in Sources */,
 				25B2FFBF17C09D4D008E4D34 /* TurnManager.cpp in Sources */,
 				259335E617D7848500D3C419 /* Player.cpp in Sources */,

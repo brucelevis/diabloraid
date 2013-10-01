@@ -17,6 +17,10 @@ class HitPoint{
 public:
     int getMaxHp();
     int getCurrentHp();
+    
+    void increaseMaxHp(int v);
+    void decreaseMaxHp(int v);
+    void setMaxHp(int v);
     void setCurrentHp(int v);
     void reduce(int v);
     void increase(int v);

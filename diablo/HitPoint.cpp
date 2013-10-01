@@ -12,12 +12,31 @@ HitPoint::HitPoint(int v){
     maxHp = v;
     currentHp = v;
 }
+
 HitPoint::~HitPoint(){
-    
 }
 
 int HitPoint::getMaxHp(){
     return maxHp;
+}
+
+void HitPoint::increaseMaxHp(int v){
+    this->setMaxHp(this->maxHp + v);
+}
+
+void HitPoint::decreaseMaxHp(int v){
+    if((this->maxHp - v) < 0){
+        this->setMaxHp(1);
+        return;
+    }
+    this->setMaxHp(this->maxHp - v);
+}
+
+void HitPoint::setMaxHp(int v){
+    maxHp = v;
+    if(currentHp > v){
+        currentHp = v; //maxHpが下がったときは、currentHpも合わせて下げる。
+    }
 }
 
 int HitPoint::getCurrentHp(){

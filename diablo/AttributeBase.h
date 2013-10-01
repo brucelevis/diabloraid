@@ -12,6 +12,7 @@
 #include <iostream>
 
 class AttributeBase {
+protected:
     int current;//状態異常などで、一時的にcurrent != maxになるとき用
     int max;
 public:

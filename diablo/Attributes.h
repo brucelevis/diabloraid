@@ -16,6 +16,8 @@
 #include "SwordDamage.h"
 #include "PotionRecover.h"
 #include "ShieldRefill.h"
+#include "AttributeBase.h"
+#include "Vitality.h"
 
 class Attributes {
     HitPoint* hp;
@@ -24,6 +26,11 @@ class Attributes {
     SwordDamage* swordDamage;
     PotionRecover* potionRecover;
     ShieldRefill* shieldRefill;
+    AttributeBase* strength;
+    AttributeBase* defense;
+    Vitality* vitality;
+    AttributeBase* dexterity;
+    
 public:
     Attributes();
     ~Attributes();

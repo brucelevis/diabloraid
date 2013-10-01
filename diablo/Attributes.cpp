@@ -9,12 +9,17 @@
 #include "Attributes.h"
 
 Attributes::Attributes(){
-    hp            = new HitPoint(100); //base hp
-    baseDamage    = new BaseDamage(5); //base damage
+    hp            = new HitPoint(50); //base hp
+    vitality      = new Vitality(5);
+    hp->increaseMaxHp(vitality->getCalculatedHp());
+    hp->recoverAll();
+    
     swordDamage   = new SwordDamage(20);
     potionRecover = new PotionRecover(3);
     shieldStatus  = new ShieldStatus(10);  //shieldStatus
-    shieldRefill  = new ShieldRefill(2);
+    strength      = new AttributeBase(5);
+    defense       = new AttributeBase(2);
+    dexterity     = new AttributeBase(5);
 }
 
 Attributes::~Attributes(){
@@ -29,7 +34,7 @@ int Attributes::getPotionRecover(){
 }
 
 int Attributes::getShieldRefill(){
-    return this->shieldRefill->getValue();
+    return this->defense->getCurrent();
 }
 
 int Attributes::getCurrentHp(){
@@ -49,7 +54,7 @@ int Attributes::getShieldMaxHp(){
 }
 
 int Attributes::getBaseDamage(){
-    return this->baseDamage->getValue();
+    return this->strength->getCurrent();
 }
 
 // ダメージを受けたらhpを減らす。
