@@ -179,5 +179,9 @@ bool LevelUpLayer::ccTouchBegan(CCTouch *touch, CCEvent* event){
 void LevelUpLayer::close(){
     this->removeFromParentAndCleanup(true);
     this->_events->setHandling(false);
+    this->_attributes->addStrength(strength->getCurrentAddition());
+    this->_attributes->addDefense(defense->getCurrentAddition());
+    this->_attributes->addDexterity(dexterity->getCurrentAddition());
+    this->_attributes->addVitality(vitality->getCurrentAddition());
     this->_events->handle(this->_parentLayer);
 }

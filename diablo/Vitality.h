@@ -14,7 +14,7 @@
 
 class Vitality : public AttributeBase {
 public :
-    int getCalculatedHp();
+    int getCalculatedHp(int v);
     
     Vitality(int v);
     ~Vitality();

@@ -8,8 +8,8 @@
 
 #include "Vitality.h"
 
-int Vitality::getCalculatedHp(){
-    return this->current * 10;
+int Vitality::getCalculatedHp(int v){
+    return v * 10;
 }
 
 Vitality::Vitality(int v) : AttributeBase(v){

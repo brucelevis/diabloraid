@@ -67,6 +67,12 @@ public:
     void pushDamage(int v);
     void popDamage();
     void resetDamage();
+    
+    void addStrength(int v);
+    void addDefense(int v);
+    void addDexterity(int v);
+    void addVitality(int v);
+    
     // for debug
     static Attributes* getAttributesMock();
 };

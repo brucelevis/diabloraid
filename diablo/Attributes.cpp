@@ -11,7 +11,7 @@
 Attributes::Attributes(){
     hp            = new HitPoint(50); //base hp
     vitality      = new Vitality(5);
-    hp->increaseMaxHp(vitality->getCalculatedHp());
+    hp->increaseMaxHp(vitality->getCalculatedHp(vitality->getCurrent()));
     hp->recoverAll();
     
     swordDamage   = new SwordDamage(20);
@@ -96,6 +96,23 @@ void Attributes::recoverShield(int v){
 
 bool Attributes::isAlive(){
     return hp->getCurrentHp() > 0;
+}
+
+void Attributes::addStrength(int v){
+    strength->add(v);
+}
+
+void Attributes::addDefense(int v){
+    defense->add(v);
+}
+
+void Attributes::addDexterity(int v){
+    dexterity->add(v);
+}
+
+void Attributes::addVitality(int v){
+    vitality->add(v);
+    hp->increaseMaxHp(vitality->getCalculatedHp(v)); //上昇させる。
 }
 
 Attributes* Attributes::getAttributesMock(){
