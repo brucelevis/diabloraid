@@ -11,26 +11,16 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "HitPoint.h"
-#include "ShieldStatus.h"
-#include "BaseDamage.h"
-#include "SwordDamage.h"
-#include "PotionRecover.h"
-#include "ShieldRefill.h"
 #include "Level.h"
+#include "Attributes.h"
 #include "Events.h"
 #include "EventFactory.h"
 using namespace cocos2d;
 
 class Player{
     CCArray* accumDamages; //パネルをタッチしている間の累積ダメージを保存する。push popで簡単に処理するため
+    Attributes* attributes;
     Events* events;
-    HitPoint* hp;
-    ShieldStatus* shieldStatus;
-    BaseDamage* baseDamage;
-    SwordDamage* swordDamage;
-    PotionRecover* potionRecover;
-    ShieldRefill* shieldRefill;
     Level* level;
 public:
     int getCurrentHp();

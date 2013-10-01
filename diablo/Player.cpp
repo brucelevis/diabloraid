@@ -8,13 +8,8 @@
 #include "Player.h"
 
 Player::Player(){
-    hp            = new HitPoint(100); //base hp
-    baseDamage    = new BaseDamage(5); //base damage
-    swordDamage   = new SwordDamage(20);
-    potionRecover = new PotionRecover(3);
-    shieldStatus  = new ShieldStatus(10);  //shieldStatus
-    shieldRefill  = new ShieldRefill(2);
     level         = new Level();
+    attributes    = new Attributes();
     accumDamages  = CCArray::create();
     accumDamages->retain();
     events = (Events*) Events::create();
@@ -22,39 +17,63 @@ Player::Player(){
 }
 
 int Player::getSwordDamage(){
-    return swordDamage->getDamage();
+    return attributes->getSwordDamage();
 }
 
 int Player::getPotionRecover(){
-    return potionRecover->getValue();
+    return attributes->getPotionRecover();
 }
 
 int Player::getShieldRefill(){
-    return shieldRefill->getValue();
+    return attributes->getShieldRefill();
+}
+
+int Player::getCurrentHp(){
+    return attributes->getCurrentHp();
+}
+
+int Player::getMaxHp(){
+    return attributes->getMaxHp();
+}
+
+int Player::getShieldCurrentHp(){
+    return attributes->getShieldCurrentHp();
+}
+
+int Player::getShieldMaxHp(){
+    return attributes->getShieldMaxHp();
+}
+
+int Player::getCurrentLevel(){
+    return this->level->getCurrentLevel();
+}
+
+int Player::getCurrentExp(){
+    return this->level->getCurrentExp();
 }
 
 // ダメージを受けたらhpを減らす。
 void Player::damage(int v){
-    hp->reduce(v);
+    attributes->damage(v);
 }
 // シールドにダメージを与える。
 void Player::damageToShield(int v){
-    this->shieldStatus->damage(v);
+    attributes->damageToShield(v);
 }
 
 //回復したらhpを増やす。
 void Player::recover(int v){
-    hp->increase(v);
+    attributes->recover(v);
 }
 
 
 //シールドのhpを回復する。
 void Player::recoverShield(int v){
-    shieldStatus->increase(v);
+    attributes->recoverShield(v);
 }
 
 bool Player::isAlive(){
-    return hp->getCurrentHp() > 0;
+    return attributes->isAlive();
 }
 
 void Player::pushDamage(int v){
@@ -72,7 +91,7 @@ void Player::resetDamage(){
 int Player::getTotalDamage(){
     CCInteger* damage      = NULL;
     CCObject* targetObject = NULL;
-    int totalDamage = baseDamage->getValue();
+    int totalDamage = attributes->getBaseDamage();
     CCARRAY_FOREACH(accumDamages, targetObject){
         damage = (CCInteger*) targetObject;
         totalDamage += damage->getValue();
@@ -96,28 +115,4 @@ void Player::addExp(int addedExp){
 
 Events* Player::getEvent(){
     return this->events;
-}
-
-int Player::getCurrentHp(){
-    return this->hp->getCurrentHp();
-}
-
-int Player::getMaxHp(){
-    return this->hp->getMaxHp();
-}
-
-int Player::getShieldCurrentHp(){
-    return this->shieldStatus->getCurrent();
-}
-
-int Player::getShieldMaxHp(){
-    return this->shieldStatus->getMax();
-}
-
-int Player::getCurrentLevel(){
-    return this->level->getCurrentLevel();
-}
-
-int Player::getCurrentExp(){
-    return this->level->getCurrentExp();
 }
