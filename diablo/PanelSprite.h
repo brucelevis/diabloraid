@@ -30,9 +30,9 @@ protected:
     int _connectType; //つながるかどうかを保存する。
     float _size;
     bool _isActiveOnlyOnePanel;
-public:
     std::string _panelName;
     CCRect _touchRect;
+public:
     PanelSprite();
     ~PanelSprite(void);
     
