@@ -28,6 +28,6 @@ Shield::~Shield(){
 }
 
 void Shield::actionRemoved(Player* player){
-    player->shieldStatus->increase(player->getShieldRefill()->getValue());
+    player->recoverShield(player->getShieldRefill()->getValue());
 }
 

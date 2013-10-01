@@ -92,11 +92,11 @@ void Enemy::update(){
 
 void Enemy::attack(Player* player){
     //攻撃は、軽減される。
-    int damage = baseDamage->getValue() - player->shieldStatus->getCurrent();
+    int damage = baseDamage->getValue() - player->getShieldCurrentHp();
     if(damage < 0){
         damage = 0;
     }
-    player->shieldStatus->damage(baseDamage->getValue());
+    player->damageToShield(baseDamage->getValue());
     player->damage(damage);
 }
 

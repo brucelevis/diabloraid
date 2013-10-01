@@ -103,11 +103,11 @@ bool MainGameScene::init()
     _hp->setPosition(ccp(230, 50));
     this->addChild(_hp);
     
-    HpLabel = CCLabelTTF::create(CCString::createWithFormat("%d/%d", _player->hp->getCurrentHp(), _player->hp->getMaxHp())->getCString(), "arial", 20);
+    HpLabel = CCLabelTTF::create(CCString::createWithFormat("%d/%d", _player->getCurrentHp(), _player->getMaxHp())->getCString(), "arial", 20);
     HpLabel->setPosition(ccp(240, 50));
     this->addChild(HpLabel);
     
-    ShieldLabel = CCLabelTTF::create(CCString::createWithFormat("%d/%d", _player->shieldStatus->getCurrent(), _player->shieldStatus->getMax())->getCString(), "arial", 20);
+    ShieldLabel = CCLabelTTF::create(CCString::createWithFormat("%d/%d", _player->getShieldCurrentHp(), _player->getShieldMaxHp())->getCString(), "arial", 20);
     ShieldLabel->setPosition(ccp(140, 70));
     this->addChild(ShieldLabel);
     
@@ -201,9 +201,9 @@ void MainGameScene::update(float dt){
     _field->movePanels();
     _field->cleanUp();
     _field->showDirections();
-    HpLabel->setString(CCString::createWithFormat("%d/%d", _player->hp->getCurrentHp(), _player->hp->getMaxHp())->getCString());
+    HpLabel->setString(CCString::createWithFormat("%d/%d", _player->getCurrentHp(), _player->getMaxHp())->getCString());
     DamageLabel->setString(CCString::createWithFormat("%d DMG", _player->getTotalDamage())->getCString());
-    ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->shieldStatus->getCurrent(), _player->shieldStatus->getMax())->getCString());
+    ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->getShieldCurrentHp(), _player->getShieldMaxHp())->getCString());
     TurnLabel->setString(CCString::createWithFormat("Turn:%d", _field->getTurn())->getCString());
     FloorLabel->setString(CCString::createWithFormat("%d F", _field->getFloor())->getCString());
     levelLabel->setString(CCString::createWithFormat("level: %d(%d)", _player->level->getCurrentLevel(), _player->level->getCurrentExp())->getCString());

@@ -33,14 +33,24 @@ ShieldRefill* Player::getShieldRefill(){
     return shieldRefill;
 }
 
-//ダメージを受けたらhpを減らす。
+// ダメージを受けたらhpを減らす。
 void Player::damage(int v){
     hp->reduce(v);
+}
+// シールドにダメージを与える。
+void Player::damageToShield(int v){
+    this->shieldStatus->damage(v);
 }
 
 //回復したらhpを増やす。
 void Player::recover(int v){
     hp->increase(v);
+}
+
+
+//シールドのhpを回復する。
+void Player::recoverShield(int v){
+    shieldStatus->increase(v);
 }
 
 bool Player::isAlive(){
@@ -86,4 +96,20 @@ void Player::addExp(int addedExp){
 
 Events* Player::getEvent(){
     return this->events;
+}
+
+int Player::getCurrentHp(){
+    return this->hp->getCurrentHp();
+}
+
+int Player::getMaxHp(){
+    return this->hp->getMaxHp();
+}
+
+int Player::getShieldCurrentHp(){
+    return this->shieldStatus->getCurrent();
+}
+
+int Player::getShieldMaxHp(){
+    return this->shieldStatus->getMax();
 }

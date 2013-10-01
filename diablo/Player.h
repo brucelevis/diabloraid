@@ -25,19 +25,29 @@ using namespace cocos2d;
 class Player{
     CCArray* accumDamages; //パネルをタッチしている間の累積ダメージを保存する。push popで簡単に処理するため
     Events* events;
-public:
     HitPoint* hp;
     ShieldStatus* shieldStatus;
     BaseDamage* baseDamage;
     SwordDamage* swordDamage;
+public:
     SwordDamage* getSwordDamage();
     PotionRecover* potionRecover;
     PotionRecover* getPotionRecover();
     ShieldRefill* shieldRefill;
     ShieldRefill* getShieldRefill();
     Level* level;
+    int getCurrentHp();
+    int getMaxHp();
+    
+    int getShieldCurrentHp();
+    int getShieldMaxHp();
+    
     void damage(int v);
+    void damageToShield(int v);
+    
     void recover(int v);
+    void recoverShield(int v);
+    
     bool isAlive();
     void pushDamage(int v);
     void popDamage();
