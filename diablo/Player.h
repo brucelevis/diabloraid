@@ -13,17 +13,15 @@
 #include "cocos2d.h"
 #include "Level.h"
 #include "Attributes.h"
-#include "Events.h"
-#include "EventFactory.h"
 using namespace cocos2d;
 
 class Player{
     CCArray* accumDamages; //パネルをタッチしている間の累積ダメージを保存する。push popで簡単に処理するため
     Attributes* attributes;
-    Events* events;
     Level* level;
     int levelUpCount;
 public:
+    Attributes* getAttributes();
     int getCurrentHp();
     int getMaxHp();
     

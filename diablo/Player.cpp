@@ -13,8 +13,10 @@ Player::Player(){
     attributes    = new Attributes();
     accumDamages  = CCArray::create();
     accumDamages->retain();
-    events = (Events*) Events::create();
-    events->retain();
+}
+
+Attributes* Player::getAttributes(){
+    return attributes;
 }
 
 int Player::getSwordDamage(){

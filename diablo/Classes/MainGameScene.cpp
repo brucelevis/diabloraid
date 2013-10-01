@@ -228,7 +228,7 @@ void MainGameScene::pushLevelUp(){
 }
    
 void MainGameScene::pushLevelUpEvent(){
-    _events->addObject((CCObject*) EventFactory::create(1));
+    _events->addObject((CCObject*) EventFactory::create(1, _player));
 }
 
 void MainGameScene::handleEvents(){

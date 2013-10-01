@@ -12,3 +12,10 @@
 void EventBase::action(Events *events, CCLayer* layer){
     CCLOG("EventBase::action");
 }
+
+EventBase::EventBase(Player* player){
+    _player = player;
+}
+
+EventBase::~EventBase(){
+}

@@ -8,10 +8,10 @@
 
 #include "EventFactory.h"
 
-EventBase* EventFactory::create(int type){
+EventBase* EventFactory::create(int type, Player* player){
     switch (type) {
         case 1:
-            return new LevelUpEvent();
+            return new LevelUpEvent(player);
             break;
         default:
             return NULL;

@@ -12,10 +12,11 @@
 #include <iostream>
 #include "EventBase.h"
 #include "LevelUpEvent.h"
+#include "Player.h"
 
 class EventFactory{
 public:
-    static EventBase* create(int type);
+    static EventBase* create(int type, Player* player);
 };
 
 #endif /* defined(__diablo__EventFactory__) */

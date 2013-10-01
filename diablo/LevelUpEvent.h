@@ -16,11 +16,15 @@
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
 #include "Attributes.h"
+#include "Player.h"
 using namespace CocosDenshion;
 using namespace cocos2d;
 
 class LevelUpEvent : public EventBase {
+public:
     virtual void action(Events* events, CCLayer* layer);
+    LevelUpEvent(Player* player);
+    ~LevelUpEvent();
 };
 
 #endif /* defined(__diablo__LevelUpEvent__) */
