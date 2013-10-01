@@ -13,8 +13,11 @@
 #include "cocos2d.h"
 #include "StatusUpgrade.h"
 #include "Events.h"
+#include "Attributes.h"
 
 using namespace cocos2d;
+
+class Events;
 class LevelUpLayer : public CCLayer{
     CCArray* status;
     CCLabelTTF* remainings;
@@ -24,12 +27,15 @@ class LevelUpLayer : public CCLayer{
     CCScene* _scene;
     Events* _events;
     CCLayer* _parentLayer;
+    Attributes* _attributes;
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
     virtual bool init();
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static LevelUpLayer* layer();
+    static LevelUpLayer* layerWithAttributes(Attributes* attributes);
     static CCScene* scene();
+    void addWidowObjects();//表示系のものは後で追加する。
     void setScene(CCScene* scene);
     void setCallback(Events* events, CCLayer* layer);
     CCScene* getScene();

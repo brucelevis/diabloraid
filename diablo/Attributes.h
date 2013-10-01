@@ -52,6 +52,11 @@ public:
     
     int getBaseDamage();
     
+    int getStrength();
+    int getDefense();
+    int getDexterity();
+    int getVitality();
+    
     void damage(int v);
     void damageToShield(int v);
     
@@ -62,6 +67,8 @@ public:
     void pushDamage(int v);
     void popDamage();
     void resetDamage();
+    // for debug
+    static Attributes* getAttributesMock();
 };
 
 #endif /* defined(__diablo__Attributes__) */

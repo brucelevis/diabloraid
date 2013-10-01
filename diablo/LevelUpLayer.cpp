@@ -28,6 +28,27 @@ LevelUpLayer* LevelUpLayer::layer(){
     
     // 'layer' is an autorelease object
     LevelUpLayer *layer = (LevelUpLayer*) LevelUpLayer::create();
+    layer->_attributes = Attributes::getAttributesMock();
+    layer->addWidowObjects();
+    
+    // add layer as a child to scene
+    scene->addChild(layer);
+    
+    // return the scene
+    layer->setScene(scene);
+    
+    
+    return layer;
+}
+
+LevelUpLayer* LevelUpLayer::layerWithAttributes(Attributes* attributes){
+    // 'scene' is an autorelease object
+    CCScene *scene = CCScene::create();
+    
+    // 'layer' is an autorelease object
+    LevelUpLayer *layer = (LevelUpLayer*) LevelUpLayer::create();
+    layer->_attributes = attributes;
+    layer->addWidowObjects();
     
     // add layer as a child to scene
     scene->addChild(layer);
@@ -63,6 +84,11 @@ bool LevelUpLayer::init(){
     this->setTouchEnabled(true);
     this->setTouchMode(kCCTouchesOneByOne);
     
+    this->schedule(schedule_selector(LevelUpLayer::update));
+    return true;
+}
+
+void LevelUpLayer::addWidowObjects(){
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
     //    you may modify it.
@@ -105,24 +131,22 @@ bool LevelUpLayer::init(){
     status = CCArray::create();
     status->retain();
     
-    strength = StatusUpgrade::createStatusLine("Strength", 10, ccp(base->getContentSize().width, base->getContentSize().height - 80), this->remain);
+    strength = StatusUpgrade::createStatusLine("Strength", _attributes->getStrength(), ccp(base->getContentSize().width, base->getContentSize().height - 80), this->remain);
     base->addChild(strength);
     status->addObject(strength);
     
-    defense  = StatusUpgrade::createStatusLine("Defense", 5, ccp(base->getContentSize().width, base->getContentSize().height - 120), this->remain);
+    defense  = StatusUpgrade::createStatusLine("Defense", _attributes->getDefense(), ccp(base->getContentSize().width, base->getContentSize().height - 120), this->remain);
     base->addChild(defense);
     status->addObject(defense);
     
-    dexterity  = StatusUpgrade::createStatusLine("Dexterity", 123, ccp(base->getContentSize().width, base->getContentSize().height - 160), this->remain);
+    dexterity  = StatusUpgrade::createStatusLine("Dexterity", _attributes->getDexterity(), ccp(base->getContentSize().width, base->getContentSize().height - 160), this->remain);
     base->addChild(dexterity);
     status->addObject(dexterity);
     
-    vitality  = StatusUpgrade::createStatusLine("Vitality", 84, ccp(base->getContentSize().width, base->getContentSize().height - 200), this->remain);
+    vitality  = StatusUpgrade::createStatusLine("Vitality", _attributes->getVitality(), ccp(base->getContentSize().width, base->getContentSize().height - 200), this->remain);
     base->addChild(vitality);
     status->addObject(vitality);
     
-    this->schedule(schedule_selector(LevelUpLayer::update));
-    return true;
 }
 
 void LevelUpLayer::update(){

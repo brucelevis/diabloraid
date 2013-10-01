@@ -25,6 +25,23 @@ Attributes::Attributes(){
 Attributes::~Attributes(){
 }
 
+int Attributes::getStrength(){
+    return strength->getCurrent();
+}
+
+int Attributes::getDefense(){
+    return defense->getCurrent();
+}
+
+int Attributes::getVitality(){
+    return vitality->getCurrent();
+}
+
+int Attributes::getDexterity(){
+    return dexterity->getCurrent();
+}
+
+
 int Attributes::getSwordDamage(){
     return this->swordDamage->getDamage();
 }
@@ -79,4 +96,8 @@ void Attributes::recoverShield(int v){
 
 bool Attributes::isAlive(){
     return hp->getCurrentHp() > 0;
+}
+
+Attributes* Attributes::getAttributesMock(){
+    return new Attributes();
 }
