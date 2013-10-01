@@ -44,6 +44,7 @@ Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName, EnemyMas
 //このタイミングでダメージを与える。
 void Enemy::actionGotoRemoved(Player* player){
     hp->reduce(player->getTotalDamage());
+    player->addExp(exp);
 }
 
 void Enemy::actionTouched(Player* player){
@@ -64,7 +65,6 @@ void Enemy::setRemoved(Player* player){
     if(hp->getCurrentHp() - player->getTotalDamage() <= 0){
         _willRemoved = true;
     }
-    player->addExp(exp);
 }
 
 
