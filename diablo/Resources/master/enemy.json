@@ -22,5 +22,13 @@
         "attack": 10,
         "def": 5,
         "exp": 20
+    },
+    "4": {
+        "id": 4,
+        "name": "dragon",
+        "hp": 100,
+        "attack": 20,
+        "def": 10,
+        "exp": 100
     }
 }
