@@ -12,8 +12,8 @@
 #include "cocos-ext.h"
 #include "MainGameScene.h"
 #include "MenuScene.h"
-#include "LevelUpLayer.h"
 #include "CCBReader.h"
+#include "BagListLayer.h"
 
 using namespace cocos2d::extension;
 
@@ -44,8 +44,9 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     //create a scene. it's an autorelease object
     //CCScene*pScene = MainGameScene::scene();
-    CCScene* pScene = MenuScene::scene();
+    //CCScene* pScene = MenuScene::scene();
     //CCScene* pScene = LevelUpLayer::scene();
+    CCScene* pScene = BagListLayer::scene();
 //    CCNodeLoaderLibrary* ccNodeLoaderLibrary = CCNodeLoaderLibrary::sharedCCNodeLoaderLibrary();
 //    CCBReader* ccbReader = new CCBReader(ccNodeLoaderLibrary);
 //    CCNode* node = ccbReader->readNodeGraphFromFile("ui/levelup.ccbi");

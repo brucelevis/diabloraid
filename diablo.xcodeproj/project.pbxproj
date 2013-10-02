@@ -37,6 +37,8 @@
 		256AFE6B17FA944100261B7B /* Vitality.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6917FA944100261B7B /* Vitality.cpp */; };
 		256AFE6E17FAFCD400261B7B /* FloorEnemyMapMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6C17FAFCD400261B7B /* FloorEnemyMapMaster.cpp */; };
 		256AFE7117FB11AD00261B7B /* Budget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6F17FB11AD00261B7B /* Budget.cpp */; };
+		256AFE7417FBB30200261B7B /* BagListLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE7217FBB30200261B7B /* BagListLayer.cpp */; };
+		256AFE7817FBED9E00261B7B /* Equipment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE7617FBED9E00261B7B /* Equipment.cpp */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
 		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
 		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
@@ -332,6 +334,10 @@
 		256AFE6D17FAFCD400261B7B /* FloorEnemyMapMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorEnemyMapMaster.h; sourceTree = "<group>"; };
 		256AFE6F17FB11AD00261B7B /* Budget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Budget.cpp; sourceTree = "<group>"; };
 		256AFE7017FB11AD00261B7B /* Budget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Budget.h; sourceTree = "<group>"; };
+		256AFE7217FBB30200261B7B /* BagListLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BagListLayer.cpp; sourceTree = "<group>"; };
+		256AFE7317FBB30200261B7B /* BagListLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BagListLayer.h; sourceTree = "<group>"; };
+		256AFE7617FBED9E00261B7B /* Equipment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Equipment.cpp; sourceTree = "<group>"; };
+		256AFE7717FBED9E00261B7B /* Equipment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equipment.h; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
 		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
 		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
@@ -889,6 +895,8 @@
 				259335F217DAE6DC00D3C419 /* MenuScene.h */,
 				253D0B9517EC493F003A62C2 /* LevelUpLayer.cpp */,
 				253D0B9617EC493F003A62C2 /* LevelUpLayer.h */,
+				256AFE7217FBB30200261B7B /* BagListLayer.cpp */,
+				256AFE7317FBB30200261B7B /* BagListLayer.h */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -917,9 +925,19 @@
 			name = event;
 			sourceTree = "<group>";
 		};
+		256AFE7517FBED8B00261B7B /* user */ = {
+			isa = PBXGroup;
+			children = (
+				256AFE7617FBED9E00261B7B /* Equipment.cpp */,
+				256AFE7717FBED9E00261B7B /* Equipment.h */,
+			);
+			name = user;
+			sourceTree = "<group>";
+		};
 		256C087017E0C632007A6D01 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				256AFE7517FBED8B00261B7B /* user */,
 				256C087117E0C641007A6D01 /* UserModel.cpp */,
 				256C087217E0C641007A6D01 /* UserModel.h */,
 				256C087417E0C68F007A6D01 /* BaseModel.cpp */,
@@ -2015,6 +2033,7 @@
 				25B2FD4817BF4510008E4D34 /* CCActionGrid.cpp in Sources */,
 				25B2FD4B17BF4510008E4D34 /* CCActionGrid3D.cpp in Sources */,
 				25B2FD4E17BF4510008E4D34 /* CCActionInstant.cpp in Sources */,
+				256AFE7817FBED9E00261B7B /* Equipment.cpp in Sources */,
 				25B2FD5117BF4510008E4D34 /* CCActionInterval.cpp in Sources */,
 				25B2FD5417BF4510008E4D34 /* CCActionManager.cpp in Sources */,
 				25B2FD5717BF4510008E4D34 /* CCActionPageTurn3D.cpp in Sources */,
@@ -2155,6 +2174,7 @@
 				25B2FF3417BF4516008E4D34 /* CCLayerColorLoader.cpp in Sources */,
 				25B2FF3717BF4516008E4D34 /* CCLayerGradientLoader.cpp in Sources */,
 				25B2FF3A17BF4516008E4D34 /* CCLayerLoader.cpp in Sources */,
+				256AFE7417FBB30200261B7B /* BagListLayer.cpp in Sources */,
 				25B2FF3D17BF4516008E4D34 /* CCMenuItemImageLoader.cpp in Sources */,
 				25B2FF4017BF4516008E4D34 /* CCMenuItemLoader.cpp in Sources */,
 				25B2FF4417BF4516008E4D34 /* CCNode+CCBRelativePositioning.cpp in Sources */,
