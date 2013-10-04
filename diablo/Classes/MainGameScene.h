@@ -10,6 +10,7 @@
 #include "EventFactory.h"
 #include "Events.h"
 #include "Equipment.h"
+#include "PlayerStatusLayer.h"
 using namespace cocos2d;
 class TurnManager;
 
@@ -49,6 +50,9 @@ public:
     void update(float dt);
     void watchPlayerLevelUp();
     void pushLevelUpEvent();
+    void pushStatusScene();
+    void pushEquipScene();
+    
     void handleEvents();
 };
 

@@ -15,6 +15,7 @@
 #include "CCBReader.h"
 #include "BagListLayer.h"
 #include "DetailLayer.h"
+#include "PlayerStatusLayer.h"
 
 using namespace cocos2d::extension;
 
@@ -49,6 +50,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     //CCScene* pScene = LevelUpLayer::scene();
     //CCScene* pScene = BagListLayer::scene();
     //CCScene* pScene = DetailLayer::scene();
+    //CCScene* pScene = PlayerStatusLayer::scene();
 //    CCNodeLoaderLibrary* ccNodeLoaderLibrary = CCNodeLoaderLibrary::sharedCCNodeLoaderLibrary();
 //    CCBReader* ccbReader = new CCBReader(ccNodeLoaderLibrary);
 //    CCNode* node = ccbReader->readNodeGraphFromFile("ui/levelup.ccbi");

@@ -42,7 +42,7 @@ bool MainGameScene::init()
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("panels.plist");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("direction.plist");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("hp.plist");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("iconSprite.plist");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("icon_button.plist");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui.plist");
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
@@ -62,16 +62,25 @@ bool MainGameScene::init()
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 1);
        
-    CCSprite* statusIcon = CCSprite::createWithSpriteFrameName("status.png");
-    CCSprite* statusIconOff = CCSprite::createWithSpriteFrameName("status.png");
+    CCSprite* statusIcon = CCSprite::createWithSpriteFrameName("status_icon.png");
+    CCSprite* statusIconOff = CCSprite::createWithSpriteFrameName("status_icon.png");
     statusIconOff->setColor(ccc3(102,102,102));
     
     CCMenuItemSprite* pStatusButton =
-        CCMenuItemSprite::create(statusIcon, statusIconOff, this, menu_selector(MainGameScene::pushLevelUp));
-    pStatusButton->setPosition(ccp(40, 440));
-    pStatusButton->setScale(0.5);
+        CCMenuItemSprite::create(statusIcon, statusIconOff, this, menu_selector(MainGameScene::pushStatusScene));
+    pStatusButton->setPosition(ccp(20, 460));
+    pStatusButton->setScale(0.3);
     
-    CCMenu* pStatus = CCMenu::create(pStatusButton, NULL);
+    CCSprite* equipIcon = CCSprite::createWithSpriteFrameName("equiplist_icon.png");
+    CCSprite* equipIconOff = CCSprite::createWithSpriteFrameName("equiplist_icon.png");
+    equipIconOff->setColor(ccc3(102,102,102));
+    
+    CCMenuItemSprite* pEquipButton =
+        CCMenuItemSprite::create(equipIcon, equipIconOff, this, menu_selector(MainGameScene::pushEquipScene));
+    pEquipButton->setPosition(ccp(70, 460));
+    pEquipButton->setScale(0.3);
+    
+    CCMenu* pStatus = CCMenu::create(pEquipButton, pStatusButton, NULL);
     pStatus->setPosition(CCPointZero);
     this->addChild(pStatus,1);
 
@@ -236,11 +245,22 @@ void MainGameScene::watchPlayerLevelUp(){
 }
 
 void MainGameScene::pushLevelUp(){
+}
+
+void MainGameScene::pushEquipScene(){
     BagListLayer *bagListLayer = BagListLayer::layerWithEquipmentList(_equipmentList);
     //push
     this->addChild(bagListLayer->getScene());
 }
-   
+
+void MainGameScene::pushStatusScene(){
+    //BagListLayer *bagListLayer = BagListLayer::layerWithEquipmentList(_equipmentList);
+    PlayerStatusLayer* playerStatusLayer = PlayerStatusLayer::layerWithPlayer(_player);
+    
+    //push
+    this->addChild(playerStatusLayer->getScene());
+}
+
 void MainGameScene::pushLevelUpEvent(){
     _events->addObject((CCObject*) EventFactory::create(1, _player));
 }

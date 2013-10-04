@@ -4,7 +4,20 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>status.png</key>
+            <key>equiplist_icon.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,132},{128,128}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{128,128}}</string>
+                <key>sourceSize</key>
+                <string>{128,128}</string>
+            </dict>
+            <key>status_icon.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{128,128}}</string>
@@ -23,13 +36,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>iconSprite.png</string>
+            <string>icon_button.png</string>
             <key>size</key>
-            <string>{256,256}</string>
+            <string>{256,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f8e1746060fe868e30fd9aabade40dc8:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:caa44a148d04d02ce26dd43a3e89aa74:1/1$</string>
             <key>textureFileName</key>
-            <string>iconSprite.png</string>
+            <string>icon_button.png</string>
         </dict>
     </dict>
 </plist>

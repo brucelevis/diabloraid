@@ -20,12 +20,20 @@ Attributes* Player::getAttributes(){
     return attributes;
 }
 
+int Player::getBaseDamage(){
+    return attributes->getBaseDamage();
+}
+
 int Player::getSwordDamage(){
     return attributes->getSwordDamage();
 }
 
 int Player::getPotionRecover(){
     return attributes->getPotionRecover();
+}
+
+int Player::getCoinAddition(){
+    return attributes->getCoinAddition();
 }
 
 int Player::getShieldRefill(){

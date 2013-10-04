@@ -37,8 +37,11 @@ public:
     
     int getShieldRefill();
     
+    int getBaseDamage();
+    
     int getSwordDamage();
     
+    int getCoinAddition();
     int getStrength();
     int getDefense();
     int getDexterity();
