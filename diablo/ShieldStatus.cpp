@@ -24,6 +24,24 @@ int ShieldStatus::getMax(){
 int ShieldStatus::getCurrent(){
     return current;
 }
+void ShieldStatus::increaseMaxHp(int v){
+    this->setMaxHp(this->max + v);
+}
+
+void ShieldStatus::decreaseMaxHp(int v){
+    if((this->max - v) < 0){
+        this->setMaxHp(1);
+        return;
+    }
+    this->setMaxHp(this->max - v);
+}
+
+void ShieldStatus::setMaxHp(int v){
+    max = v;
+    if(current > v){
+        current = v; //maxHpが下がったときは、currentHpも合わせて下げる。
+    }
+}
 
 void ShieldStatus::setCurrent(int v){
     current = v;

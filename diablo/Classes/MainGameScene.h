@@ -6,7 +6,7 @@
 #include "Field.h"
 #include "Player.h"
 #include "TurnManager.h"
-#include "LevelUpLayer.h"
+#include "BagListLayer.h"
 #include "EventFactory.h"
 #include "Events.h"
 using namespace cocos2d;

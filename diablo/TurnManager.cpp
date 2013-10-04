@@ -65,8 +65,6 @@ void TurnManager::start(){
     this->turnEnd();
     // ターンを経過させる
     _field->countUpTurn();
-    
-    SimpleAudioEngine::sharedEngine()->playEffect("mouhitoiki_01.wav");
 }
 
 void TurnManager::gameOver(){

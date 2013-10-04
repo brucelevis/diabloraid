@@ -109,13 +109,13 @@ int StatusUpgrade::getCurrentAddition(){
 
 char* StatusUpgrade::getDescription(std::string name){
     if(!strcmp(name.c_str(), "Strength")){
-        return "ベースのダメージが上昇します";
+        return "剣一つ分のダメージが1上昇します";
     } else if(!strcmp(name.c_str(), "Defense")){
-        return "盾回復量が上昇します。";
+        return "盾上限1が上昇します。";
     } else if(!strcmp(name.c_str(), "Dexterity")){
-        return "お金取得量が上昇します。";
+        return "ポーションの回復量1が増加します";
     } else if(!strcmp(name.c_str(), "Vitality")){
-        return "HPの上限値が上昇します";
+        return "HPの上限値が10上昇します";
     }
     return "";
 }

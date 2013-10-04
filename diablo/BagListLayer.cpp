@@ -30,7 +30,10 @@ bool BagListLayer::init(){
     {
         return false;
     }
-    //this->setTouchPriority(kBagListLayerPriority);
+    
+    //CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui.plist");
+    this->setTouchPriority(-128);
+    CCLOG("BagListLayer: touchPriority: %d", this->getTouchPriority());
     this->setTouchEnabled(true);
     this->setTouchMode(kCCTouchesOneByOne);
     equipmentList = Equipment::getAll();
@@ -42,8 +45,25 @@ bool BagListLayer::init(){
     tableView->setAnchorPoint(ccp(0,0));
     tableView->setVerticalFillOrder(kCCTableViewFillTopDown);
     tableView->setPosition(ccp(20, 100));
-    this->addChild(tableView, 1);
+    tableView->setTouchPriority(-128);
+    this->addChild(tableView, 2);
+    //CCLOG("tableView: touchPriority: %d", tableView->getTouchPriority());
     tableView->reloadData();
+    
+    
+    CCSprite* ok = CCSprite::createWithSpriteFrameName("ok.png");
+    CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");
+    okOff->setColor(ccc3(102,102,102));
+    pOkButton =
+        CCMenuItemSprite::create(ok, okOff, this, menu_selector(BagListLayer::close));
+    
+    pOkButton->setAnchorPoint(ccp(0,0));
+    pOkButton->setPosition(ccp(232, 64));
+    
+    CCMenu* pMenu = CCMenu::create(pOkButton, NULL);
+    pMenu->setPosition(CCPointZero);
+    
+    this->addChild(pMenu);
     
     this->schedule(schedule_selector(BagListLayer::update));
     return true;
@@ -71,19 +91,19 @@ CCTableViewCell* BagListLayer::tableCellAtIndex(CCTableView* table, unsigned int
         cell = new CCTableViewCell();
         cell->autorelease();
         
-        CCLayerColor *layer = CCLayerColor::create(ccc4(250, 250, 250, 122 ));
+        CCLayerColor *layer = CCLayerColor::create(ccc4(250, 250, 250, 200));
         layer->setContentSize(CCSizeMake(280, CELL_HEIGHT));
         layer->setAnchorPoint(ccp(0,0));
         layer->setPosition(ccp(0,0));
         layer->setTag(111);
-        cell->addChild(layer);
+        cell->addChild(layer, 2);
         
         CCLabelTTF* label = CCLabelTTF::create(name.c_str(), "Hiragino Kaku Gothic ProN", 16);
         label->setAnchorPoint(ccp(0, 0));
         label->setPosition(ccp(50, 28));
         label->setTag(112);
         label->setHorizontalAlignment(kCCTextAlignmentLeft);
-        cell->addChild(label);
+        cell->addChild(label, 2);
         
         label->setColor(ccc3(0, 0, 0));
     }else{
@@ -98,6 +118,7 @@ unsigned int BagListLayer::numberOfCellsInTableView(CCTableView* table){
 }
 
 bool BagListLayer::ccTouchBegan(CCTouch *touch, CCEvent* event){
+    CCLOG("ccTouchBegan");
     return true;
 }
 
@@ -105,4 +126,9 @@ int BagListLayer::getTableViewHeight(){
     int count = equipmentList->count();
     int height = MIN(count * CELL_HEIGHT, 340);
     return height;
+}
+
+void BagListLayer::close(){
+    CCLOG("BagListLayer close");
+    this->removeFromParentAndCleanup(true);
 }

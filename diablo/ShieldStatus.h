@@ -19,6 +19,9 @@ public:
     ~ShieldStatus();
     int getMax();
     int getCurrent();
+    void increaseMaxHp(int v);
+    void decreaseMaxHp(int v);
+    void setMaxHp(int v);
     void setCurrent(int v);
     void reduce(int v);
     void increase(int v);

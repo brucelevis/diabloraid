@@ -44,9 +44,9 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     //create a scene. it's an autorelease object
     //CCScene*pScene = MainGameScene::scene();
-    //CCScene* pScene = MenuScene::scene();
+    CCScene* pScene = MenuScene::scene();
     //CCScene* pScene = LevelUpLayer::scene();
-    CCScene* pScene = BagListLayer::scene();
+    //CCScene* pScene = BagListLayer::scene();
 //    CCNodeLoaderLibrary* ccNodeLoaderLibrary = CCNodeLoaderLibrary::sharedCCNodeLoaderLibrary();
 //    CCBReader* ccbReader = new CCBReader(ccNodeLoaderLibrary);
 //    CCNode* node = ccbReader->readNodeGraphFromFile("ui/levelup.ccbi");

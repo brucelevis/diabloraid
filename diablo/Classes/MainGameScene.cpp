@@ -36,11 +36,14 @@ bool MainGameScene::init()
     {
         return false;
     }
+    CCLOG("MainGameScene: touchPriority: %d", this->getTouchPriority());
+    //this->setTouchPriority(kCCMenuHandlerPriority);
 
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("panels.plist");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("direction.plist");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("hp.plist");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("iconSprite.plist");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui.plist");
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
     //    you may modify it.
@@ -55,6 +58,7 @@ bool MainGameScene::init()
 
     // create menu, it's an autorelease object
     CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
+    CCLOG("pMenu: touchPriority: %d", pMenu->getTouchPriority());
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 1);
        
@@ -230,6 +234,9 @@ void MainGameScene::watchPlayerLevelUp(){
 }
 
 void MainGameScene::pushLevelUp(){
+    CCScene *bagListLayer = BagListLayer::scene();
+    //push
+    this->addChild(bagListLayer);
 }
    
 void MainGameScene::pushLevelUpEvent(){

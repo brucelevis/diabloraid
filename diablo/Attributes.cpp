@@ -14,12 +14,17 @@ Attributes::Attributes(){
     hp->increaseMaxHp(vitality->getCalculatedHp(vitality->getCurrent()));
     hp->recoverAll();
     
-    swordDamage   = new SwordDamage(20);
-    potionRecover = new PotionRecover(3);
-    shieldStatus  = new ShieldStatus(10);  //shieldStatus
+    shieldRefill  = new ShieldRefill(2);
+    shieldStatus  = new ShieldStatus(5);  //shieldStatus
+    defense       = new AttributeBase(5);
+    shieldStatus->increaseMaxHp(defense->getCurrent());
+    
+    baseDamage    = new BaseDamage(5);
+    swordDamage   = new SwordDamage(5);
+    potionRecover = new PotionRecover(0);
     strength      = new AttributeBase(5);
-    defense       = new AttributeBase(2);
-    dexterity     = new AttributeBase(5);
+    dexterity     = new AttributeBase(3);
+    coinAddition   = new AttributeBase(5);
 }
 
 Attributes::~Attributes(){
@@ -43,15 +48,15 @@ int Attributes::getDexterity(){
 
 
 int Attributes::getSwordDamage(){
-    return this->swordDamage->getDamage();
+    return this->swordDamage->getDamage() + this->strength->getCurrent();
 }
 
 int Attributes::getPotionRecover(){
-    return this->potionRecover->getValue();
+    return this->potionRecover->getValue() + dexterity->getCurrent();
 }
 
 int Attributes::getShieldRefill(){
-    return this->defense->getCurrent();
+    return this->shieldRefill->getValue();
 }
 
 int Attributes::getCurrentHp(){
@@ -71,11 +76,11 @@ int Attributes::getShieldMaxHp(){
 }
 
 int Attributes::getBaseDamage(){
-    return this->strength->getCurrent();
+    return this->baseDamage->getValue();
 }
 
 int Attributes::getCoinAddition(){
-    return this->dexterity->getCurrent();
+    return this->coinAddition->getCurrent();
 }
 
 // ダメージを受けたらhpを減らす。
@@ -111,6 +116,7 @@ void Attributes::addStrength(int v){
 
 void Attributes::addDefense(int v){
     defense->add(v);
+    shieldStatus->increaseMaxHp(v);
 }
 
 void Attributes::addDexterity(int v){

@@ -114,7 +114,6 @@ void LevelUpLayer::addWidowObjects(){
     
     // ask director the window size
     CCSize size = CCDirector::sharedDirector()->getWinSize();
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui.plist");
     
     CCSprite* base = CCSprite::createWithSpriteFrameName("dialog.png");
     base->setPosition(ccp(size.width/2, size.height/2));
@@ -130,7 +129,6 @@ void LevelUpLayer::addWidowObjects(){
     pOkButton->setVisible(false);
     
     CCMenu* pMenu = CCMenu::create(pOkButton, NULL);
-    //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, kLevelUpLayerPriority, true);
     pMenu->setPosition(CCPointZero);
     
     base->addChild(pMenu);

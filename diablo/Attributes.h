@@ -30,6 +30,7 @@ class Attributes {
     AttributeBase* defense;
     Vitality* vitality;
     AttributeBase* dexterity;
+    AttributeBase* coinAddition;
 public:
     Attributes();
     ~Attributes();
