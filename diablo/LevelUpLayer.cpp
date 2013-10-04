@@ -80,14 +80,15 @@ void LevelUpLayer::setScene(CCScene* scene) {
     this->_scene = scene;
 }
 
+CCScene* LevelUpLayer::getScene(){
+    return this->_scene;
+}
+
 void LevelUpLayer::setCallback(Events *events, cocos2d::CCLayer *layer){
     this->_events = events;
     this->_parentLayer = layer;
 }
 
-CCScene* LevelUpLayer::getScene(){
-    return this->_scene;
-}
 
 bool LevelUpLayer::init(){
     CCLog("LevelUpLayer init");
@@ -143,7 +144,7 @@ void LevelUpLayer::addWidowObjects(){
     remainings->setColor(ccc3(0,0,0));
     base->addChild(remainings);
     
-    this->remain = 1;
+    this->remain = 3;
     status = CCArray::create();
     status->retain();
     

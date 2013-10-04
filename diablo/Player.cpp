@@ -11,7 +11,7 @@ Player::Player(){
     level         = new Level();
     budget        = new Budget();
     levelUpCount  = 0;
-    attributes    = new Attributes();
+    attributes    = Attributes::createWithDefault();
     accumDamages  = CCArray::create();
     accumDamages->retain();
 }

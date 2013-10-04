@@ -14,6 +14,7 @@
 #include "MenuScene.h"
 #include "CCBReader.h"
 #include "BagListLayer.h"
+#include "DetailLayer.h"
 
 using namespace cocos2d::extension;
 
@@ -47,6 +48,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCScene* pScene = MenuScene::scene();
     //CCScene* pScene = LevelUpLayer::scene();
     //CCScene* pScene = BagListLayer::scene();
+    //CCScene* pScene = DetailLayer::scene();
 //    CCNodeLoaderLibrary* ccNodeLoaderLibrary = CCNodeLoaderLibrary::sharedCCNodeLoaderLibrary();
 //    CCBReader* ccbReader = new CCBReader(ccNodeLoaderLibrary);
 //    CCNode* node = ccbReader->readNodeGraphFromFile("ui/levelup.ccbi");

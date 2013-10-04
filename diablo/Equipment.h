@@ -13,6 +13,7 @@
 #include "picojson.h"
 #include "Util.h"
 #include "cocos2d.h"
+#include "Attributes.h"
 using namespace cocos2d;
 
 class Equipment : public CCObject{
@@ -22,21 +23,32 @@ class Equipment : public CCObject{
     int imageColor;
     std::string name;
     std::string description;
-    int hp;
-    int baseDamage;
-    int swordDamage;
-    int potionRecover;
-    int shieldStatus;
-    int coinAddition;
-    int strength;
-    int defense;
-    int dexterity;
-    int vitality;
+    Attributes* attributes;
 public:
     Equipment(picojson::object rec);
     ~Equipment();
     std::string getName();
     static CCArray* getAll();
+    
+    int getMaxHp();
+    int getShieldMaxHp();
+    
+    int getPotionRecover();
+    
+    int getShieldRefill();
+    
+    int getSwordDamage();
+    int getBaseDamage();
+    
+    int getCoinAddition();
+    
+    int getStrength();
+    int getDefense();
+    int getDexterity();
+    int getVitality();
+    
+    //for debug
+    static Equipment* getMock();
 };
 
 #endif /* defined(__diablo__Equipment__) */

@@ -39,6 +39,7 @@
 		256AFE7117FB11AD00261B7B /* Budget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE6F17FB11AD00261B7B /* Budget.cpp */; };
 		256AFE7417FBB30200261B7B /* BagListLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE7217FBB30200261B7B /* BagListLayer.cpp */; };
 		256AFE7817FBED9E00261B7B /* Equipment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE7617FBED9E00261B7B /* Equipment.cpp */; };
+		256AFE7B17FE6E9900261B7B /* DetailLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE7917FE6E9900261B7B /* DetailLayer.cpp */; };
 		256C086E17DF74EA007A6D01 /* iconSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256C086C17DF74EA007A6D01 /* iconSprite.plist */; };
 		256C086F17DF74EA007A6D01 /* iconSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 256C086D17DF74EA007A6D01 /* iconSprite.png */; };
 		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
@@ -338,6 +339,8 @@
 		256AFE7317FBB30200261B7B /* BagListLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BagListLayer.h; sourceTree = "<group>"; };
 		256AFE7617FBED9E00261B7B /* Equipment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Equipment.cpp; sourceTree = "<group>"; };
 		256AFE7717FBED9E00261B7B /* Equipment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equipment.h; sourceTree = "<group>"; };
+		256AFE7917FE6E9900261B7B /* DetailLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetailLayer.cpp; sourceTree = "<group>"; };
+		256AFE7A17FE6E9900261B7B /* DetailLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLayer.h; sourceTree = "<group>"; };
 		256C086C17DF74EA007A6D01 /* iconSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = iconSprite.plist; path = Resources/iconSprite.plist; sourceTree = "<group>"; };
 		256C086D17DF74EA007A6D01 /* iconSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSprite.png; path = Resources/iconSprite.png; sourceTree = "<group>"; };
 		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
@@ -897,6 +900,8 @@
 				253D0B9617EC493F003A62C2 /* LevelUpLayer.h */,
 				256AFE7217FBB30200261B7B /* BagListLayer.cpp */,
 				256AFE7317FBB30200261B7B /* BagListLayer.h */,
+				256AFE7917FE6E9900261B7B /* DetailLayer.cpp */,
+				256AFE7A17FE6E9900261B7B /* DetailLayer.h */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -2167,6 +2172,7 @@
 				25B2FF2217BF4515008E4D34 /* CCBValue.cpp in Sources */,
 				256AFE5417F9BBCA00261B7B /* LevelUpEvent.cpp in Sources */,
 				25B2FF2517BF4515008E4D34 /* CCControlButtonLoader.cpp in Sources */,
+				256AFE7B17FE6E9900261B7B /* DetailLayer.cpp in Sources */,
 				25B2FF2817BF4515008E4D34 /* CCControlLoader.cpp in Sources */,
 				25B2FF2B17BF4516008E4D34 /* CCData.cpp in Sources */,
 				25B2FF2E17BF4516008E4D34 /* CCLabelBMFontLoader.cpp in Sources */,

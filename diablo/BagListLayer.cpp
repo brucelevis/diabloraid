@@ -33,7 +33,6 @@ bool BagListLayer::init(){
     
     //CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui.plist");
     this->setTouchPriority(kCCMenuHandlerPriority);
-    CCLOG("BagListLayer: touchPriority: %d", this->getTouchPriority());
     this->setTouchEnabled(true);
     this->setTouchMode(kCCTouchesOneByOne);
     equipmentList = Equipment::getAll();
@@ -70,7 +69,12 @@ bool BagListLayer::init(){
 }
 
 void BagListLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell){
-    CCLOG("cell touch idx: %i", cell->getIdx());
+    //LevelUpLayer *levelUpLayer = LevelUpLayer::layerWithAttributes(_player->getAttributes());
+    if(equipmentList->count() < (cell->getIdx()+1)){
+        return;
+    }
+    DetailLayer *detail = DetailLayer::layerWithEquipment((Equipment*) equipmentList->objectAtIndex(cell->getIdx()));
+    this->addChild(detail->getScene(), 3);
 }
 
 CCSize BagListLayer::cellSizeForTable(CCTableView* table){

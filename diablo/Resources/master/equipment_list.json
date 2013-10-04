@@ -10,6 +10,7 @@
   "sworddamage": 1,
   "potionrecover": 0,
   "shieldstatus": 0,
+  "shieldrefill": 0,
   "coinaddition": 0,
   "strength": 0,
   "defense": 0,
@@ -27,6 +28,7 @@
   "sworddamage": 2,
   "potionrecover": 0,
   "shieldstatus": 0,
+  "shieldrefill": 0,
   "coinaddition": 0,
   "strength": 0,
   "defense": 0,
@@ -44,10 +46,11 @@
   "sworddamage": 0,
   "potionrecover": 0,
   "shieldstatus": 2,
+  "shieldrefill": 0,
   "coinaddition": 0,
   "strength": 0,
   "defense": 0,
   "dexterity": 0,
   "vitality": 0
   }
-]
+  ]

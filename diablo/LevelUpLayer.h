@@ -39,8 +39,8 @@ public:
     static CCScene* scene();
     void addWidowObjects();//表示系のものは後で追加する。
     void setScene(CCScene* scene);
-    void setCallback(Events* events, CCLayer* layer);
     CCScene* getScene();
+    void setCallback(Events* events, CCLayer* layer);
     void update();
     void close();
     virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
