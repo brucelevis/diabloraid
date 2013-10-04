@@ -17,6 +17,9 @@ using namespace cocos2d;
 
 class DetailLayer : public CCLayer{
     CCMenuItemSprite* pOkButton;
+    CCMenuItemSprite* pEquipButton;
+    CCMenuItemSprite* pRemoveButton;
+    CCLabelTTF* equipStatusLabel;
     CCScene* _scene;
     Equipment* _equipment;
     int _lineNum;
@@ -35,6 +38,10 @@ public:
     void addStatusObject(std::string name, int status, CCPoint position, CCNode* node);
     
     void close();
+    void remove();
+    void equip();
+    
+    void update();
     virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
     CREATE_FUNC(DetailLayer);
 };

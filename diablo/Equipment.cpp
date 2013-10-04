@@ -14,6 +14,7 @@ Equipment::Equipment(picojson::object rec){
     id         = rec["id"].get<double>();
     imageColor = rec["imagecolor"].get<double>();
     description = rec["description"].get<std::string>();
+    isEquip    = (rec["isequip"].get<double>() == 1) ? true : false;
     int _hp    = rec["hp"].get<double>();
     int _bd    = rec["basedamage"].get<double>();
     int _sd    = rec["sworddamage"].get<double>();
@@ -105,7 +106,16 @@ int Equipment::getVitality(){
     return this->attributes->getVitality();
 }
 
+void Equipment::setEquipped(bool _isEquipped){
+    this->isEquip = _isEquipped;
+}
+
+bool Equipment::isEquipped(){
+    return this->isEquip;
+}
+
 Equipment* Equipment::getMock(){
     picojson::value _mock = Util::JsonParser::parse("master/mock/equipment.json");
     return new Equipment(_mock.get<picojson::object>());
 }
+

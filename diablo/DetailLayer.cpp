@@ -67,7 +67,8 @@ bool DetailLayer::init(){
     this->setTouchPriority(kCCMenuHandlerPriority);
     this->setTouchEnabled(true);
     this->setTouchMode(kCCTouchesOneByOne);
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui.plist");
+    //CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui.plist");
+    this->schedule(schedule_selector(DetailLayer::update));
     return true;
 }
 
@@ -84,18 +85,6 @@ void DetailLayer::addWindowObjects(){
     layer->setPosition(ccp(30,110));
     this->addChild(layer);
     
-    CCSprite* ok = CCSprite::createWithSpriteFrameName("ok.png");
-    CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");
-    okOff->setColor(ccc3(102,102,102));
-    pOkButton =
-        CCMenuItemSprite::create(ok, okOff, this, menu_selector(DetailLayer::close));
-    
-    pOkButton->setAnchorPoint(ccp(0,0));
-    pOkButton->setPosition(ccp(222, 114));
-    
-    CCMenu* pMenu = CCMenu::create(pOkButton, NULL);
-    pMenu->setPosition(CCPointZero);
-    this->addChild(pMenu);
 
     // add a label shows "Hello World"
     // create and initialize a label
@@ -124,6 +113,54 @@ void DetailLayer::addWindowObjects(){
     this->addStatusObject("defense", _equipment->getDefense(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
     this->addStatusObject("dexterity", _equipment->getDexterity(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
     this->addStatusObject("vitality", _equipment->getVitality(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    
+    CCLabelTTF* equipLabel = CCLabelTTF::create("eqiup","arial", 10);
+    equipLabel->setColor(ccc3(0,0,0));
+    equipLabel->setAnchorPoint(ccp(0, 0));
+    equipLabel->setPosition(ccp(10, layer->getContentSize().height - 35 - 15 * (_lineNum)));
+    layer->addChild(equipLabel);
+    
+    CCString* equipStatus;
+    if (_equipment->isEquipped()){
+        equipStatus = CCString::create(": on");
+    } else {
+        equipStatus = CCString::create(": off");
+    }
+    equipStatusLabel = CCLabelTTF::create(equipStatus->getCString(), "arial", 10);
+    equipStatusLabel->setColor(ccc3(0,0,0));
+    equipStatusLabel->setAnchorPoint(ccp(0,0));
+    equipStatusLabel->setPosition(ccp(100, layer->getContentSize().height -35 - 15 * (_lineNum)));
+    layer->addChild(equipStatusLabel);
+    
+    CCSprite* ok = CCSprite::createWithSpriteFrameName("ok.png");
+    CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");
+    okOff->setColor(ccc3(102,102,102));
+    pOkButton =
+        CCMenuItemSprite::create(ok, okOff, this, menu_selector(DetailLayer::close));
+    pOkButton->setAnchorPoint(ccp(0,0));
+    pOkButton->setPosition(ccp(222, 114));
+    
+    CCSprite* equip = CCSprite::createWithSpriteFrameName("equip.png");
+    CCSprite* equipOff = CCSprite::createWithSpriteFrameName("equip.png");
+    equipOff->setColor(ccc3(102,102,102));
+    pEquipButton =
+        CCMenuItemSprite::create(equip, equipOff, this, menu_selector(DetailLayer::equip));
+    pEquipButton->setAnchorPoint(ccp(0,0));
+    pEquipButton->setPosition(ccp(222 - 68, 114));
+    pEquipButton->setVisible(!this->_equipment->isEquipped());
+    
+    CCSprite* remove = CCSprite::createWithSpriteFrameName("remove.png");
+    CCSprite* removeOff = CCSprite::createWithSpriteFrameName("remove.png");
+    removeOff->setColor(ccc3(102,102,102));
+    pRemoveButton =
+        CCMenuItemSprite::create(remove, removeOff, this, menu_selector(DetailLayer::remove));
+    pRemoveButton->setAnchorPoint(ccp(0,0));
+    pRemoveButton->setPosition(ccp(222 - 68, 114));
+    pRemoveButton->setVisible(this->_equipment->isEquipped());
+    
+    CCMenu* pMenu = CCMenu::create(pEquipButton, pRemoveButton, pOkButton, NULL);
+    pMenu->setPosition(CCPointZero);
+    this->addChild(pMenu);
 }
 
 void DetailLayer::addStatusObject(std::string name, CCString* string, CCPoint position, CCNode* node){
@@ -144,7 +181,6 @@ void DetailLayer::addStatusObject(std::string name, CCString* string, CCPoint po
 
 void DetailLayer::addStatusObject(std::string name, int status, CCPoint position, CCNode* node){
     CCLOG("lineNum:%d", _lineNum);
-    _lineNum++;
     CCLabelTTF* pLabel = CCLabelTTF::create(name.c_str(), "arial", 10);
     pLabel->setColor(ccc3(0,0,0));
     pLabel->setAnchorPoint(ccp(0, 0));
@@ -156,6 +192,7 @@ void DetailLayer::addStatusObject(std::string name, int status, CCPoint position
     pStatus->setAnchorPoint(ccp(0,0));
     pStatus->setPosition(ccp(position.x + 100, position.y - 15 * (_lineNum)));
     node->addChild(pStatus);
+    _lineNum++;
 }
 
 
@@ -165,4 +202,26 @@ void DetailLayer::close(){
 
 bool DetailLayer::ccTouchBegan(CCTouch *touch, CCEvent* event){
     return true;
+}
+
+void DetailLayer::equip(){
+    pEquipButton->setVisible(false);
+    pRemoveButton->setVisible(true);
+    this->_equipment->setEquipped(true);
+}
+
+void DetailLayer::remove(){
+    pEquipButton->setVisible(true);
+    pRemoveButton->setVisible(false);
+    this->_equipment->setEquipped(false);
+}
+
+void DetailLayer::update(){
+    CCString* equipStatus;
+    if (_equipment->isEquipped()){
+        equipStatus = CCString::create(": on");
+    } else {
+        equipStatus = CCString::create(": off");
+    }
+    equipStatusLabel->setString(equipStatus->getCString());
 }

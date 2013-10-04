@@ -21,6 +21,7 @@ class Equipment : public CCObject{
     int id;
     int imageId;
     int imageColor;
+    int isEquip;
     std::string name;
     std::string description;
     Attributes* attributes;
@@ -46,6 +47,9 @@ public:
     int getDefense();
     int getDexterity();
     int getVitality();
+    
+    void setEquipped(bool _isEquipped);
+    bool isEquipped();
     
     //for debug
     static Equipment* getMock();
