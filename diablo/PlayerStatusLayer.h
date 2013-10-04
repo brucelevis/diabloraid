@@ -30,7 +30,7 @@ public:
     CCScene* getScene();
     
     void addWindowObjects();
-    void addStatusObject(std::string name, int status, CCPoint position, CCNode* node);
+    void addStatusObject(std::string name, int status, int equipmentStatus, CCPoint position, CCNode* node);
     
     void close();
     

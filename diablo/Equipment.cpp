@@ -48,20 +48,6 @@ std::string Equipment::getName(){
     return name;
 }
 
-CCArray* Equipment::getAll(){
-    CCArray* array = CCArray::create();
-    picojson::value _records = Util::JsonParser::parse("master/equipment_list.json");
-    
-    picojson::array &records = _records.get<picojson::array>();
-    picojson::array::iterator it;
-    for(it = records.begin(); it != records.end(); it++){
-        picojson::object& record = it->get<picojson::object>();
-        Equipment* equipment = new Equipment(record);
-        array->addObject((CCObject*) equipment);
-    }
-    return array;
-}
-
 int Equipment::getMaxHp(){
     return this->attributes->getMaxHp();
 }

@@ -11,6 +11,8 @@ Player::Player(){
     level         = new Level();
     budget        = new Budget();
     levelUpCount  = 0;
+    equipmentList = EquipmentList::getAll();
+    equipmentList->retain();
     attributes    = Attributes::createWithDefault();
     accumDamages  = CCArray::create();
     accumDamages->retain();
@@ -20,24 +22,28 @@ Attributes* Player::getAttributes(){
     return attributes;
 }
 
+EquipmentList* Player::getEquipmentList(){
+    return equipmentList;
+}
+
 int Player::getBaseDamage(){
-    return attributes->getBaseDamage();
+    return attributes->getBaseDamage() + this->equipmentList->getBaseDamage();
 }
 
 int Player::getSwordDamage(){
-    return attributes->getSwordDamage();
+    return attributes->getSwordDamage() + this->equipmentList->getSwordDamage();
 }
 
 int Player::getPotionRecover(){
-    return attributes->getPotionRecover();
+    return attributes->getPotionRecover() + this->equipmentList->getPotionRecover();
 }
 
 int Player::getCoinAddition(){
-    return attributes->getCoinAddition();
+    return attributes->getCoinAddition() + this->equipmentList->getCoinAddition();
 }
 
 int Player::getShieldRefill(){
-    return attributes->getShieldRefill();
+    return attributes->getShieldRefill() + this->equipmentList->getShieldRefill();
 }
 
 int Player::getCurrentHp(){
@@ -45,7 +51,7 @@ int Player::getCurrentHp(){
 }
 
 int Player::getMaxHp(){
-    return attributes->getMaxHp();
+    return attributes->getMaxHp() + this->equipmentList->getMaxHp();
 }
 
 int Player::getShieldCurrentHp(){
@@ -53,7 +59,7 @@ int Player::getShieldCurrentHp(){
 }
 
 int Player::getShieldMaxHp(){
-    return attributes->getShieldMaxHp();
+    return attributes->getShieldMaxHp() + this->equipmentList->getShieldMaxHp();
 }
 
 int Player::getCurrentLevel(){
@@ -65,19 +71,19 @@ int Player::getCurrentExp(){
 }
 
 int Player::getStrength(){
-    return this->attributes->getStrength();
+    return this->attributes->getStrength() + this->equipmentList->getStrength();
 }
 
 int Player::getDefense(){
-    return this->attributes->getDefense();
+    return this->attributes->getDefense() + this->equipmentList->getDefense();
 }
 
 int Player::getDexterity(){
-    return this->attributes->getDexterity();
+    return this->attributes->getDexterity() + this->equipmentList->getDexterity();
 }
 
 int Player::getVitality(){
-    return this->attributes->getVitality();
+    return this->attributes->getVitality() + this->equipmentList->getVitality();
 }
 
 // ダメージを受けたらhpを減らす。

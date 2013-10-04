@@ -12,7 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "cocos-ext.h"
-#include "Equipment.h"
+#include "EquipmentList.h"
 #include "DetailLayer.h"
 using namespace cocos2d;
 using namespace cocos2d::extension;
@@ -22,7 +22,7 @@ class BagListLayer : public CCLayer,
 public CCTableViewDataSource,
 public CCTableViewDelegate
 {
-    CCArray* equipmentList;
+    EquipmentList* equipmentList;
     int CELL_HEIGHT = 60;
     CCMenuItemSprite* pOkButton;
     CCScene* _scene;
@@ -31,7 +31,7 @@ public:
     virtual bool init();
     static CCScene* scene();
     static BagListLayer* layer();
-    static BagListLayer* layerWithEquipmentList(CCArray* EquipmentList);
+    static BagListLayer* layerWithEquipmentList(EquipmentList* EquipmentList);
     
     virtual void tableCellTouched(CCTableView* table, CCTableViewCell* cell);
     

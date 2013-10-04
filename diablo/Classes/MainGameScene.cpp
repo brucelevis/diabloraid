@@ -105,8 +105,7 @@ bool MainGameScene::init()
     
     _player = new Player();
     _field = new Field((CCLayer*) this, _player);
-    _equipmentList = Equipment::getAll();
-    _equipmentList->retain();
+    _equipmentList = _player->getEquipmentList();
     _events = (Events*) Events::create();
     _events->retain();
     CCArray *panels = _field->createInitialField();

@@ -43,6 +43,7 @@
 		256AFE7E17FEBEC300261B7B /* PlayerStatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE7C17FEBEC300261B7B /* PlayerStatusLayer.cpp */; };
 		256AFE8117FEC7BC00261B7B /* icon_button.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE7F17FEC7BC00261B7B /* icon_button.plist */; };
 		256AFE8217FEC7BC00261B7B /* icon_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE8017FEC7BC00261B7B /* icon_button.png */; };
+		256AFE8917FECF1200261B7B /* EquipmentList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE8717FECF1200261B7B /* EquipmentList.cpp */; };
 		256C087317E0C641007A6D01 /* UserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087117E0C641007A6D01 /* UserModel.cpp */; };
 		256C087617E0C68F007A6D01 /* BaseModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087417E0C68F007A6D01 /* BaseModel.cpp */; };
 		256C087917E20E10007A6D01 /* Stair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087717E20E0F007A6D01 /* Stair.cpp */; };
@@ -346,6 +347,8 @@
 		256AFE7D17FEBEC300261B7B /* PlayerStatusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerStatusLayer.h; sourceTree = "<group>"; };
 		256AFE7F17FEC7BC00261B7B /* icon_button.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = icon_button.plist; path = Resources/icon_button.plist; sourceTree = "<group>"; };
 		256AFE8017FEC7BC00261B7B /* icon_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_button.png; path = Resources/icon_button.png; sourceTree = "<group>"; };
+		256AFE8717FECF1200261B7B /* EquipmentList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EquipmentList.cpp; sourceTree = "<group>"; };
+		256AFE8817FECF1200261B7B /* EquipmentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentList.h; sourceTree = "<group>"; };
 		256C087117E0C641007A6D01 /* UserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserModel.cpp; sourceTree = "<group>"; };
 		256C087217E0C641007A6D01 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		256C087417E0C68F007A6D01 /* BaseModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseModel.cpp; sourceTree = "<group>"; };
@@ -940,6 +943,8 @@
 			children = (
 				256AFE7617FBED9E00261B7B /* Equipment.cpp */,
 				256AFE7717FBED9E00261B7B /* Equipment.h */,
+				256AFE8717FECF1200261B7B /* EquipmentList.cpp */,
+				256AFE8817FECF1200261B7B /* EquipmentList.h */,
 			);
 			name = user;
 			sourceTree = "<group>";
@@ -2039,6 +2044,7 @@
 				25B2FD3C17BF4510008E4D34 /* CCAction.cpp in Sources */,
 				25B2FD3F17BF4510008E4D34 /* CCActionCamera.cpp in Sources */,
 				25B2FD4217BF4510008E4D34 /* CCActionCatmullRom.cpp in Sources */,
+				256AFE8917FECF1200261B7B /* EquipmentList.cpp in Sources */,
 				25B2FD4517BF4510008E4D34 /* CCActionEase.cpp in Sources */,
 				25B2FD4817BF4510008E4D34 /* CCActionGrid.cpp in Sources */,
 				25B2FD4B17BF4510008E4D34 /* CCActionGrid3D.cpp in Sources */,

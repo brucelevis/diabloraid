@@ -20,7 +20,7 @@ BagListLayer* BagListLayer::layer(){
     
     // 'layer' is an autorelease object
     BagListLayer *layer = (BagListLayer*) BagListLayer::create();
-    layer->equipmentList = Equipment::getAll();
+    layer->equipmentList = EquipmentList::getAll();
     layer->equipmentList->retain();
     layer->addWindowObjects();
     
@@ -33,7 +33,7 @@ BagListLayer* BagListLayer::layer(){
     return layer;
 }
 
-BagListLayer* BagListLayer::layerWithEquipmentList(CCArray* equipmentList){
+BagListLayer* BagListLayer::layerWithEquipmentList(EquipmentList* equipmentList){
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
     
@@ -176,6 +176,7 @@ int BagListLayer::getTableViewHeight(){
 
 void BagListLayer::close(){
     CCLOG("BagListLayer close");
+    equipmentList->reload();
     this->removeFromParentAndCleanup(true);
 }
 

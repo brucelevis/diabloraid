@@ -29,7 +29,6 @@ public:
     Equipment(picojson::object rec);
     ~Equipment();
     std::string getName();
-    static CCArray* getAll();
     
     int getMaxHp();
     int getShieldMaxHp();
