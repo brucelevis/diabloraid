@@ -9,26 +9,53 @@
 #include "Attributes.h"
 
 Attributes::Attributes(){
-    hp            = new HitPoint(50); //base hp
-    vitality      = new Vitality(5);
-    hp->increaseMaxHp(vitality->getCalculatedHp(vitality->getCurrent()));
-    hp->recoverAll();
-    
-    shieldRefill  = new ShieldRefill(2);
-    shieldStatus  = new ShieldStatus(5);  //shieldStatus
-    defense       = new AttributeBase(5);
-    shieldStatus->increaseMaxHp(defense->getCurrent());
-    
-    baseDamage    = new BaseDamage(5);
-    swordDamage   = new SwordDamage(5);
-    potionRecover = new PotionRecover(0);
-    strength      = new AttributeBase(5);
-    dexterity     = new AttributeBase(3);
-    coinAddition   = new AttributeBase(5);
 }
 
 Attributes::~Attributes(){
 }
+
+Attributes* Attributes::createWithCCDictionary(CCDictionary* dictionary){
+    int _bd = ((CCInteger*) dictionary->objectForKey("baseDamage"))->getValue();
+    int _hp= ((CCInteger*) dictionary->objectForKey("hp"))->getValue();
+    int _sd = ((CCInteger*) dictionary->objectForKey("swordDamage"))->getValue();;
+    int _pr = ((CCInteger*) dictionary->objectForKey("potionRecover"))->getValue();
+    int _ss = ((CCInteger*) dictionary->objectForKey("shieldStatus"))->getValue();
+    int _sr = ((CCInteger*) dictionary->objectForKey("shieldRefill"))->getValue();
+    int _ca = ((CCInteger*) dictionary->objectForKey("coinAddition"))->getValue();
+    int _str  = ((CCInteger*) dictionary->objectForKey("strength"))->getValue();
+    int _def  = ((CCInteger*) dictionary->objectForKey("defense"))->getValue();
+    int _dex  = ((CCInteger*) dictionary->objectForKey("dexterity"))->getValue();
+    int _vit  = ((CCInteger*) dictionary->objectForKey("vitality"))->getValue();
+    
+    return _create(_hp, _ss, _bd, _sd, _pr, _sr, _ca, _str, _def, _vit, _dex);
+}
+
+Attributes* Attributes::createWithDefault(){
+    return _create(50, 5, 5, 5, 0, 2, 5, 5, 5, 5, 3);
+}
+
+Attributes* Attributes::_create(int _hp, int _ss, int _bd, int _sd, int _pr, int _sr, int _ca, int _str, int _def, int _vit, int _dex){
+    Attributes* attr = new Attributes();
+    attr->hp            = new HitPoint(_hp); //base hp
+    attr->vitality      = new Vitality(_vit);
+    attr->hp->increaseMaxHp(attr->vitality->getCalculatedHp(attr->vitality->getCurrent()));
+    attr->hp->recoverAll();
+    
+    attr->shieldRefill  = new ShieldRefill(_sr);
+    attr->shieldStatus  = new ShieldStatus(_ss);  //shieldStatus
+    attr->defense       = new AttributeBase(_def);
+    attr->shieldStatus->increaseMaxHp(attr->defense->getCurrent());
+    
+    attr->baseDamage    = new BaseDamage(_bd);
+    attr->swordDamage   = new SwordDamage(_sd);
+    attr->potionRecover = new PotionRecover(_pr);
+    attr->strength      = new AttributeBase(_str);
+    attr->dexterity     = new AttributeBase(_dex);
+    attr->coinAddition   = new AttributeBase(_ca);
+    return attr;
+}
+
+
 
 int Attributes::getStrength(){
     return strength->getCurrent();
@@ -129,5 +156,5 @@ void Attributes::addVitality(int v){
 }
 
 Attributes* Attributes::getAttributesMock(){
-    return new Attributes();
+    return createWithDefault();
 }

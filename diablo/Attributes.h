@@ -10,6 +10,7 @@
 #define __diablo__Attributes__
 
 #include <iostream>
+#include "cocos2d.h"
 #include "HitPoint.h"
 #include "ShieldStatus.h"
 #include "BaseDamage.h"
@@ -18,6 +19,8 @@
 #include "ShieldRefill.h"
 #include "AttributeBase.h"
 #include "Vitality.h"
+
+using namespace cocos2d;
 
 class Attributes {
     HitPoint* hp;
@@ -34,6 +37,20 @@ class Attributes {
 public:
     Attributes();
     ~Attributes();
+    
+    static Attributes* createWithDefault();
+    static Attributes* createWithCCDictionary(CCDictionary* dictionary);
+    static Attributes* _create(int _hp,
+                        int _ss,
+                        int _bd,
+                        int _sd,
+                        int _pr,
+                        int _sr,
+                        int _ca,
+                        int _str,
+                        int _def,
+                        int _vit,
+                        int _dex);
     
     int getCurrentHp();
     int getMaxHp();
