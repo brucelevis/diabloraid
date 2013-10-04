@@ -9,6 +9,7 @@
 #include "BagListLayer.h"
 #include "EventFactory.h"
 #include "Events.h"
+#include "Equipment.h"
 using namespace cocos2d;
 class TurnManager;
 
@@ -18,6 +19,7 @@ class MainGameScene : public cocos2d::CCLayer
     Player* _player;
     bool _touching;
     bool _onTurn;
+    CCArray* _equipmentList;
     TurnManager* _turnManager;
     CCLabelTTF* HpLabel;
     CCLabelTTF* ShieldLabel;

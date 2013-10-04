@@ -9,17 +9,46 @@
 #include "BagListLayer.h"
 
 CCScene* BagListLayer::scene(){
+    BagListLayer *layer = (BagListLayer*) BagListLayer::layer();
+    
+    return layer->getScene();
+}
+
+BagListLayer* BagListLayer::layer(){
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
     
     // 'layer' is an autorelease object
     BagListLayer *layer = (BagListLayer*) BagListLayer::create();
+    layer->equipmentList = Equipment::getAll();
+    layer->equipmentList->retain();
+    layer->addWindowObjects();
     
     // add layer as a child to scene
     scene->addChild(layer);
     
     // return the scene
-    return scene;
+    layer->setScene(scene);
+    
+    return layer;
+}
+
+BagListLayer* BagListLayer::layerWithEquipmentList(CCArray* equipmentList){
+    // 'scene' is an autorelease object
+    CCScene *scene = CCScene::create();
+    
+    // 'layer' is an autorelease object
+    BagListLayer *layer = (BagListLayer*) BagListLayer::create();
+    layer->equipmentList = equipmentList;
+    layer->addWindowObjects();
+    
+    // add layer as a child to scene
+    scene->addChild(layer);
+    
+    // return the scene
+    layer->setScene(scene);
+    
+    return layer;
 }
 
 bool BagListLayer::init(){
@@ -35,10 +64,22 @@ bool BagListLayer::init(){
     this->setTouchPriority(kCCMenuHandlerPriority);
     this->setTouchEnabled(true);
     this->setTouchMode(kCCTouchesOneByOne);
-    equipmentList = Equipment::getAll();
-    equipmentList->retain();
     
-    CCTableView* tableView = CCTableView::create(this, CCSizeMake(280, 340));
+    this->schedule(schedule_selector(BagListLayer::update));
+    return true;
+}
+
+void BagListLayer::setScene(CCScene* scene) {
+    this->_scene = scene;
+}
+
+CCScene* BagListLayer::getScene(){
+    return this->_scene;
+}
+
+void BagListLayer::addWindowObjects(){
+    
+    tableView = CCTableView::create(this, CCSizeMake(280, 340));
     tableView->setDirection(kCCScrollViewDirectionVertical);
     tableView->setDelegate(this);
     tableView->setAnchorPoint(ccp(0,0));
@@ -63,9 +104,6 @@ bool BagListLayer::init(){
     pMenu->setPosition(CCPointZero);
     
     this->addChild(pMenu);
-    
-    this->schedule(schedule_selector(BagListLayer::update));
-    return true;
 }
 
 void BagListLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell){
@@ -85,7 +123,11 @@ CCTableViewCell* BagListLayer::tableCellAtIndex(CCTableView* table, unsigned int
     std::string name;
     if(equipmentList->count() >= (idx + 1)){
         Equipment *equipment =(Equipment*) equipmentList->objectAtIndex(idx);
-        name = equipment->getName();
+        if(equipment->isEquipped()){
+            name = equipment->getName() + "(E)";
+        } else {
+            name = equipment->getName();
+        }
     } else {
         name = "空";
     }
@@ -136,3 +178,8 @@ void BagListLayer::close(){
     CCLOG("BagListLayer close");
     this->removeFromParentAndCleanup(true);
 }
+
+void BagListLayer::update(){
+    tableView->reloadData();
+}
+

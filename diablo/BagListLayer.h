@@ -25,9 +25,13 @@ public CCTableViewDelegate
     CCArray* equipmentList;
     int CELL_HEIGHT = 60;
     CCMenuItemSprite* pOkButton;
+    CCScene* _scene;
+    CCTableView* tableView;
 public:
     virtual bool init();
     static CCScene* scene();
+    static BagListLayer* layer();
+    static BagListLayer* layerWithEquipmentList(CCArray* EquipmentList);
     
     virtual void tableCellTouched(CCTableView* table, CCTableViewCell* cell);
     
@@ -38,9 +42,15 @@ public:
     virtual void scrollViewDidScroll(CCScrollView* view){};
     virtual void scrollViewDidZoom(CCScrollView* view){};
     virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    
+    void setScene(CCScene* scene);
+    CCScene* getScene();
+    
+    void addWindowObjects();
     int getTableViewHeight();
     
     void close();
+    void update();
     
     CREATE_FUNC(BagListLayer);
 };

@@ -96,6 +96,8 @@ bool MainGameScene::init()
     
     _player = new Player();
     _field = new Field((CCLayer*) this, _player);
+    _equipmentList = Equipment::getAll();
+    _equipmentList->retain();
     _events = (Events*) Events::create();
     _events->retain();
     CCArray *panels = _field->createInitialField();
@@ -234,9 +236,9 @@ void MainGameScene::watchPlayerLevelUp(){
 }
 
 void MainGameScene::pushLevelUp(){
-    CCScene *bagListLayer = BagListLayer::scene();
+    BagListLayer *bagListLayer = BagListLayer::layerWithEquipmentList(_equipmentList);
     //push
-    this->addChild(bagListLayer);
+    this->addChild(bagListLayer->getScene());
 }
    
 void MainGameScene::pushLevelUpEvent(){
