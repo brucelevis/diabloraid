@@ -32,7 +32,7 @@ bool BagListLayer::init(){
     }
     
     //CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui.plist");
-    this->setTouchPriority(-128);
+    this->setTouchPriority(kCCMenuHandlerPriority);
     CCLOG("BagListLayer: touchPriority: %d", this->getTouchPriority());
     this->setTouchEnabled(true);
     this->setTouchMode(kCCTouchesOneByOne);
@@ -45,7 +45,7 @@ bool BagListLayer::init(){
     tableView->setAnchorPoint(ccp(0,0));
     tableView->setVerticalFillOrder(kCCTableViewFillTopDown);
     tableView->setPosition(ccp(20, 100));
-    tableView->setTouchPriority(-128);
+    tableView->setTouchPriority(kCCMenuHandlerPriority);
     this->addChild(tableView, 2);
     //CCLOG("tableView: touchPriority: %d", tableView->getTouchPriority());
     tableView->reloadData();
