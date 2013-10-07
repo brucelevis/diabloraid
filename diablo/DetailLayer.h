@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "Equipment.h"
+#include "Belongings.h"
 using namespace cocos2d;
 
 
@@ -22,6 +23,19 @@ class DetailLayer : public CCLayer{
     CCLabelTTF* equipStatusLabel;
     CCScene* _scene;
     Equipment* _equipment;
+    CCLabelTTF* baseDamageLabel;
+    CCLabelTTF* swordDamageLabel;
+    CCLabelTTF* shieldHpLabel;
+    CCLabelTTF* shieldRefillLabel;
+    CCLabelTTF* maxHpLabel;
+    CCLabelTTF* potionRecoverLabel;
+    CCLabelTTF* coinAdditionLabel;
+    CCLabelTTF* strengthLabel;
+    CCLabelTTF* defenseLabel;
+    CCLabelTTF* dexterityLabel;
+    CCLabelTTF* vitalityLabel;
+    
+    Belongings* _belongings;
     int _lineNum;
 public:
     virtual bool init();
@@ -29,13 +43,15 @@ public:
     static CCScene* scene();
     static DetailLayer* layer();
     static DetailLayer* layerWithEquipment(Equipment* equipment);
+    static DetailLayer* layerWithEquipmentAndBelongings(Equipment* equipment, Belongings* belongings);
     
     void setScene(CCScene* scene);
     CCScene* getScene();
     
     void addWindowObjects();
-    void addStatusObject(std::string name, CCString* string, CCPoint position, CCNode* node);
-    void addStatusObject(std::string name, int status, CCPoint position, CCNode* node);
+    CCLabelTTF* addStatusObject(std::string name, CCString* string, CCPoint position, CCNode* node);
+    CCLabelTTF* addStatusObject(std::string name, int status, int current, CCPoint position, CCNode* node);
+    void updateStatus(CCLabelTTF* label, int status,int current);
     
     void close();
     void remove();

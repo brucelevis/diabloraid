@@ -19,6 +19,7 @@ DetailLayer* DetailLayer::layer(){
     // 'layer' is an autorelease object
     DetailLayer *layer = (DetailLayer*) DetailLayer::create();
     layer->_equipment = Equipment::getMock();
+    layer->_belongings = new Belongings();
     layer->addWindowObjects();
     
     // add layer as a child to scene
@@ -37,6 +38,27 @@ DetailLayer* DetailLayer::layerWithEquipment(Equipment *equipment){
     // 'layer' is an autorelease object
     DetailLayer *layer = (DetailLayer*) DetailLayer::create();
     layer->_equipment = equipment;
+    layer->_belongings = new Belongings();
+    layer->addWindowObjects();
+    
+    // add layer as a child to scene
+    scene->addChild(layer);
+    
+    // return the scene
+    layer->setScene(scene);
+    
+    return layer;
+}
+
+DetailLayer* DetailLayer::layerWithEquipmentAndBelongings(Equipment *equipment, Belongings *belongings){
+    
+       // 'scene' is an autorelease object
+    CCScene *scene = CCScene::create();
+    
+    // 'layer' is an autorelease object
+    DetailLayer *layer = (DetailLayer*) DetailLayer::create();
+    layer->_equipment = equipment;
+    layer->_belongings = belongings;
     layer->addWindowObjects();
     
     // add layer as a child to scene
@@ -102,17 +124,19 @@ void DetailLayer::addWindowObjects(){
     _lineNum = 0;
     
     this->addStatusObject("name", CCString::createWithFormat("%s", _equipment->getName().c_str()), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("base damage", _equipment->getBaseDamage(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("sword damage", _equipment->getSwordDamage(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("shield hp", _equipment->getShieldMaxHp(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("shield refill", _equipment->getShieldRefill(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("hp", _equipment->getMaxHp(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("potion recover", _equipment->getPotionRecover(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("coin addition", _equipment->getCoinAddition(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("strength", _equipment->getStrength(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("defense", _equipment->getDefense(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("dexterity", _equipment->getDexterity(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("vitality", _equipment->getVitality(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    
+    Equipment* _current = _belongings->get(_equipment->getCategory());
+    baseDamageLabel = this->addStatusObject("base damage", _equipment->getBaseDamage(), _current->getBaseDamage(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    swordDamageLabel = this->addStatusObject("sword damage", _equipment->getSwordDamage(), _current->getSwordDamage(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    shieldHpLabel = this->addStatusObject("shield hp", _equipment->getShieldMaxHp(), _current->getShieldMaxHp(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    shieldRefillLabel = this->addStatusObject("shield refill", _equipment->getShieldRefill(), _current->getShieldRefill(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    maxHpLabel = this->addStatusObject("hp", _equipment->getMaxHp(), _current->getMaxHp(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    potionRecoverLabel = this->addStatusObject("potion recover", _equipment->getPotionRecover(), _current->getPotionRecover(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    coinAdditionLabel = this->addStatusObject("coin addition", _equipment->getCoinAddition(), _current->getCoinAddition(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    strengthLabel = this->addStatusObject("strength", _equipment->getStrength(), _current->getStrength(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    defenseLabel = this->addStatusObject("defense", _equipment->getDefense(), _current->getDefense(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    dexterityLabel = this->addStatusObject("dexterity", _equipment->getDexterity(), _current->getDexterity(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    vitalityLabel = this->addStatusObject("vitality", _equipment->getVitality(), _current->getVitality(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
     
     CCLabelTTF* equipLabel = CCLabelTTF::create("eqiup","arial", 10);
     equipLabel->setColor(ccc3(0,0,0));
@@ -163,8 +187,7 @@ void DetailLayer::addWindowObjects(){
     this->addChild(pMenu);
 }
 
-void DetailLayer::addStatusObject(std::string name, CCString* string, CCPoint position, CCNode* node){
-    CCLOG("lineNum:%d", _lineNum);
+CCLabelTTF* DetailLayer::addStatusObject(std::string name, CCString* string, CCPoint position, CCNode* node){
     CCLabelTTF* pLabel = CCLabelTTF::create(name.c_str(), "arial", 10);
     pLabel->setColor(ccc3(0,0,0));
     pLabel->setAnchorPoint(ccp(0, 0));
@@ -177,9 +200,10 @@ void DetailLayer::addStatusObject(std::string name, CCString* string, CCPoint po
     pStatus->setPosition(ccp(position.x + 100, position.y - 15 * (_lineNum)));
     node->addChild(pStatus);
     _lineNum++;
+    return pStatus;
 }
 
-void DetailLayer::addStatusObject(std::string name, int status, CCPoint position, CCNode* node){
+CCLabelTTF* DetailLayer::addStatusObject(std::string name, int status, int current, CCPoint position, CCNode* node){
     CCLOG("lineNum:%d", _lineNum);
     CCLabelTTF* pLabel = CCLabelTTF::create(name.c_str(), "arial", 10);
     pLabel->setColor(ccc3(0,0,0));
@@ -187,12 +211,13 @@ void DetailLayer::addStatusObject(std::string name, int status, CCPoint position
     pLabel->setPosition(ccp(10, position.y - 15 * (_lineNum)));
     node->addChild(pLabel);
     
-    CCLabelTTF* pStatus = CCLabelTTF::create(CCString::createWithFormat(": %d", status)->getCString(), "arial", 10);
+    CCLabelTTF* pStatus = CCLabelTTF::create(CCString::createWithFormat(": %d (%d)", status, current)->getCString(), "arial", 10);
     pStatus->setColor(ccc3(0,0,0));
     pStatus->setAnchorPoint(ccp(0,0));
     pStatus->setPosition(ccp(position.x + 100, position.y - 15 * (_lineNum)));
     node->addChild(pStatus);
     _lineNum++;
+    return pStatus;
 }
 
 
@@ -207,17 +232,36 @@ bool DetailLayer::ccTouchBegan(CCTouch *touch, CCEvent* event){
 void DetailLayer::equip(){
     pEquipButton->setVisible(false);
     pRemoveButton->setVisible(true);
+    _belongings->set(this->_equipment);
     this->_equipment->setEquipped(true);
 }
 
 void DetailLayer::remove(){
     pEquipButton->setVisible(true);
     pRemoveButton->setVisible(false);
+    _belongings->unset(this->_equipment);
     this->_equipment->setEquipped(false);
+}
+
+void DetailLayer::updateStatus(cocos2d::CCLabelTTF *label, int status, int current){
+   label->setString(CCString::createWithFormat(": %d (%d)", status, current)->getCString());
 }
 
 void DetailLayer::update(){
     CCString* equipStatus;
+    Equipment* _current = _belongings->get(_equipment->getCategory());
+    
+    this->updateStatus(baseDamageLabel, _equipment->getBaseDamage(), _current->getBaseDamage());
+    this->updateStatus(swordDamageLabel, _equipment->getSwordDamage(), _current->getSwordDamage());
+    this->updateStatus(shieldHpLabel, _equipment->getShieldMaxHp(), _current->getShieldMaxHp());
+    this->updateStatus(shieldRefillLabel, _equipment->getShieldRefill(), _current->getShieldRefill());
+    this->updateStatus(potionRecoverLabel, _equipment->getPotionRecover(), _current->getPotionRecover());
+    this->updateStatus(maxHpLabel, _equipment->getMaxHp(), _current->getMaxHp());
+    this->updateStatus(coinAdditionLabel, _equipment->getCoinAddition(), _current->getCoinAddition());
+    this->updateStatus(strengthLabel, _equipment->getStrength(), _current->getStrength());
+    this->updateStatus(defenseLabel, _equipment->getDefense(), _current->getDefense());
+    this->updateStatus(dexterityLabel, _equipment->getDexterity(), _current->getDexterity());
+    this->updateStatus(vitalityLabel, _equipment->getVitality(), _current->getVitality());
     if (_equipment->isEquipped()){
         equipStatus = CCString::create(": on");
     } else {

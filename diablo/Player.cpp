@@ -12,6 +12,7 @@ Player::Player(){
     budget        = new Budget();
     levelUpCount  = 0;
     equipmentList = EquipmentList::getAll();
+    equipmentList->setBelongings();
     equipmentList->retain();
     attributes    = Attributes::createWithDefault();
     accumDamages  = CCArray::create();
@@ -137,7 +138,7 @@ int Player::getBudget(){
 int Player::getTotalDamage(){
     CCInteger* damage      = NULL;
     CCObject* targetObject = NULL;
-    int totalDamage = attributes->getBaseDamage();
+    int totalDamage = this->getBaseDamage();
     CCARRAY_FOREACH(accumDamages, targetObject){
         damage = (CCInteger*) targetObject;
         totalDamage += damage->getValue();

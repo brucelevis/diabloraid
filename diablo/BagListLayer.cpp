@@ -111,7 +111,7 @@ void BagListLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell){
     if(equipmentList->count() < (cell->getIdx()+1)){
         return;
     }
-    DetailLayer *detail = DetailLayer::layerWithEquipment((Equipment*) equipmentList->objectAtIndex(cell->getIdx()));
+    DetailLayer *detail = DetailLayer::layerWithEquipmentAndBelongings((Equipment*) equipmentList->objectAtIndex(cell->getIdx()), (Belongings*) equipmentList->getBelongings());
     this->addChild(detail->getScene(), 3);
 }
 

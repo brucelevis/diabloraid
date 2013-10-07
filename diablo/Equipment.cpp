@@ -15,6 +15,7 @@ Equipment::Equipment(picojson::object rec){
     imageColor = rec["imagecolor"].get<double>();
     description = rec["description"].get<std::string>();
     isEquip    = (rec["isequip"].get<double>() == 1) ? true : false;
+    _category  = rec["category"].get<double>();
     int _hp    = rec["hp"].get<double>();
     int _bd    = rec["basedamage"].get<double>();
     int _sd    = rec["sworddamage"].get<double>();
@@ -38,6 +39,29 @@ Equipment::Equipment(picojson::object rec){
     dict->setObject(CCInteger::create(_def), "defense");
     dict->setObject(CCInteger::create(_dex), "dexterity");
     dict->setObject(CCInteger::create(_vit), "vitality");
+    attributes = Attributes::createWithCCDictionary(dict);
+}
+
+Equipment::Equipment(){
+    imageId    = 0;
+    name       = "空";
+    id         = 0;
+    imageColor = 0;
+    description = "";
+    isEquip    = false;
+    _category  = 0;
+    CCDictionary* dict  = CCDictionary::create();
+    dict->setObject(CCInteger::create(0), "hp");
+    dict->setObject(CCInteger::create(0), "baseDamage");
+    dict->setObject(CCInteger::create(0), "swordDamage");
+    dict->setObject(CCInteger::create(0), "potionRecover");
+    dict->setObject(CCInteger::create(0), "shieldStatus");
+    dict->setObject(CCInteger::create(0), "shieldRefill");
+    dict->setObject(CCInteger::create(0), "coinAddition");
+    dict->setObject(CCInteger::create(0), "strength");
+    dict->setObject(CCInteger::create(0), "defense");
+    dict->setObject(CCInteger::create(0), "dexterity");
+    dict->setObject(CCInteger::create(0), "vitality");
     attributes = Attributes::createWithCCDictionary(dict);
 }
 
@@ -90,6 +114,10 @@ int Equipment::getDexterity(){
 
 int Equipment::getVitality(){
     return this->attributes->getVitality();
+}
+
+int Equipment::getCategory(){
+    return _category;
 }
 
 void Equipment::setEquipped(bool _isEquipped){

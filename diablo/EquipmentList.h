@@ -12,15 +12,20 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "Equipment.h"
+#include "Belongings.h"
 #include "picojson.h"
 #include "Util.h"
 using namespace cocos2d;
 
 class EquipmentList : public CCArray{
-    EquipmentList* _equipped; //装備しているものだけを内部的に持っとく。
+    Belongings* _equipped; //装備しているものだけを内部的に持っとく。
     EquipmentList* _getEquippedList();
 public:
+    static EquipmentList* create();
     static EquipmentList* getAll();
+    Belongings* getBelongings();
+    void setBelongings(); //所持品からbelongings生成する
+    
     int getMaxHp();
     
     int getShieldMaxHp();
@@ -42,6 +47,8 @@ public:
     int getDexterity();
     int getVitality();
     void reload(); //装備が更新されたりすると、更新する。
+    EquipmentList();
+    ~EquipmentList();
 };
 
 #endif /* defined(__diablo__EquipmentList__) */

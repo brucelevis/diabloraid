@@ -25,11 +25,15 @@ class Equipment : public CCObject{
     std::string name;
     std::string description;
     Attributes* attributes;
+    int _category;
+    
 public:
+    Equipment();
     Equipment(picojson::object rec);
     ~Equipment();
+    static Equipment* getNull(); ///
     std::string getName();
-    
+
     int getMaxHp();
     int getShieldMaxHp();
     
@@ -46,6 +50,8 @@ public:
     int getDefense();
     int getDexterity();
     int getVitality();
+    
+    int getCategory();
     
     void setEquipped(bool _isEquipped);
     bool isEquipped();

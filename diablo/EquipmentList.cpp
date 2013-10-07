@@ -7,199 +7,111 @@
 //
 
 #include "EquipmentList.h"
+EquipmentList* EquipmentList::create()
+{
+    EquipmentList* pArray = new EquipmentList();
+    
+    if (pArray && pArray->init())
+    {
+        pArray->autorelease();
+    }
+    else
+    {
+        CC_SAFE_DELETE(pArray);
+    }
+    
+    return pArray;
+}
 
 EquipmentList* EquipmentList::getAll(){
-    EquipmentList* array = (EquipmentList*) EquipmentList::create();
+    EquipmentList* array =(EquipmentList*) EquipmentList::create();
     picojson::value _records = Util::JsonParser::parse("master/equipment_list.json");
-    array->_equipped =(EquipmentList*) EquipmentList::create();
-    array->_equipped->retain();
     
     picojson::array &records = _records.get<picojson::array>();
     picojson::array::iterator it;
     for(it = records.begin(); it != records.end(); it++){
         picojson::object& record = it->get<picojson::object>();
         Equipment* equipment = new Equipment(record);
+        CCLOG("getAll category : %d", equipment->getCategory());
         array->addObject((CCObject*) equipment);
     }
-    array->reload();
     return array;
 }
 
-
-
 void EquipmentList::reload(){
-    CCObject* targetObject;
     Equipment* equipment;
-    
-    _equipped->removeAllObjects();
+    CCObject* targetObject;
     CCARRAY_FOREACH(this, targetObject){
         equipment = (Equipment*) targetObject;
-        if(equipment->isEquipped()){
-            _equipped->addObject((CCObject*) equipment);
+        if(_equipped->isEquipped(equipment)){
+            equipment->setEquipped(true);
+        } else {
+            equipment->setEquipped(false);
         }
     }
 }
 
+void EquipmentList::setBelongings(){
+    Equipment* equipment;
+    CCObject* targetObject;
+    CCARRAY_FOREACH(this, targetObject){
+        equipment = (Equipment*) targetObject;
+        if(equipment->isEquipped()){
+            _equipped->set(equipment);
+        }
+    }
+}
+
+Belongings* EquipmentList::getBelongings(){
+    return _equipped;
+}
+
 
 int EquipmentList::getMaxHp(){
-    CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getMaxHp();
-    }
-    return total;
+    return _equipped->getMaxHp();
 }
 
 int EquipmentList::getShieldMaxHp(){
-    CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getShieldMaxHp();
-    }
-    return total;
+    return _equipped->getShieldMaxHp();
 }
 
 int EquipmentList::getPotionRecover(){
-    CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getPotionRecover();
-    }
-    return total;
+    return _equipped->getPotionRecover();
 }
 
 int EquipmentList::getShieldRefill(){
-    CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getShieldRefill();
-    }
-    return total;
+    return _equipped->getShieldRefill();
 }
 
 int EquipmentList::getSwordDamage(){
-    CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getSwordDamage();
-    }
-    return total;
+    return _equipped->getSwordDamage();
 }
 
 int EquipmentList::getBaseDamage(){
-       CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getBaseDamage();
-    }
-    return total;
+    return _equipped->getBaseDamage();
 }
 
 int EquipmentList::getCoinAddition(){
-       CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getCoinAddition();
-    }
-    return total;
+    return _equipped->getCoinAddition();
 }
 
 int EquipmentList::getStrength(){
-       CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getStrength();
-    }
-    return total;
+    return _equipped->getStrength();
 }
 int EquipmentList::getDefense(){
-       CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getDefense();
-    }
-    return total;
+    return _equipped->getDefense();
 }
 int EquipmentList::getDexterity(){
-       CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getDexterity();
-    }
-    return total;
+    return _equipped->getDexterity();
 }
 
 int EquipmentList::getVitality(){
-       CCObject* targetObject;
-    Equipment* equipment;
-    
-    int total = 0;
-    if(!_equipped->count()){
-        return 0;
-    }
-    CCARRAY_FOREACH(_equipped, targetObject){
-        equipment = (Equipment*) targetObject;
-        total += equipment->getVitality();
-    }
-    return total;
+    return _equipped->getVitality();
+}
+
+EquipmentList::EquipmentList(){
+    _equipped = new Belongings();
+}
+
+EquipmentList::~EquipmentList(){
 }
