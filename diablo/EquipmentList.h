@@ -26,6 +26,7 @@ public:
     Belongings* getBelongings();
     void setBelongings(); //所持品からbelongings生成する
     
+    void add(Equipment* equipment); //リストに追加する。
     int getMaxHp();
     
     int getShieldMaxHp();

@@ -130,6 +130,8 @@ bool Equipment::isEquipped(){
 
 Equipment* Equipment::getMock(){
     picojson::value _mock = Util::JsonParser::parse("master/mock/equipment.json");
-    return new Equipment(_mock.get<picojson::object>());
+    Equipment* _e = new Equipment(_mock.get<picojson::object>());
+    CCLOG("getMock: %d", _e->isEquipped());
+    return _e;
 }
 

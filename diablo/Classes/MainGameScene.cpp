@@ -80,7 +80,16 @@ bool MainGameScene::init()
     pEquipButton->setPosition(ccp(70, 460));
     pEquipButton->setScale(0.3);
     
-    CCMenu* pStatus = CCMenu::create(pEquipButton, pStatusButton, NULL);
+    CCSprite* shopIcon = CCSprite::createWithSpriteFrameName("equiplist_icon.png");
+    CCSprite* shopIconOff = CCSprite::createWithSpriteFrameName("equiplist_icon.png");
+    shopIconOff->setColor(ccc3(102,102,102));
+    
+    CCMenuItemSprite* pShopButton =
+        CCMenuItemSprite::create(shopIcon, shopIconOff, this, menu_selector(MainGameScene::pushShop));
+    pShopButton->setPosition(ccp(120, 460));
+    pShopButton->setScale(0.3);
+    
+    CCMenu* pStatus = CCMenu::create(pEquipButton, pStatusButton, pShopButton, NULL);
     pStatus->setPosition(CCPointZero);
     this->addChild(pStatus,1);
 
@@ -262,6 +271,11 @@ void MainGameScene::pushStatusScene(){
 
 void MainGameScene::pushLevelUpEvent(){
     _events->addObject((CCObject*) EventFactory::create(1, _player));
+}
+
+void MainGameScene::pushShop(){
+    CCLOG("pushShop");
+    _player->getEquipmentList()->add(Equipment::getMock());
 }
 
 void MainGameScene::handleEvents(){

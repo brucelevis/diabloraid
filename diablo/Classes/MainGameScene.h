@@ -46,6 +46,7 @@ public:
     void ccTouchesEnded(cocos2d::CCSet* pTouches, cocos2d::CCEvent* event);
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     void pushLevelUp();
+    void pushShop();
     CREATE_FUNC(MainGameScene);
     void update(float dt);
     void watchPlayerLevelUp();

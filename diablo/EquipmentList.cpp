@@ -62,6 +62,11 @@ void EquipmentList::setBelongings(){
     }
 }
 
+void EquipmentList::add(Equipment* equipment){
+    CCLOG("isEquip:%d", equipment->isEquipped());
+    this->addObject((CCObject*) equipment);
+}
+
 Belongings* EquipmentList::getBelongings(){
     return _equipped;
 }
