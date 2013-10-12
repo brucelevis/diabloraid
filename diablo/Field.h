@@ -18,10 +18,10 @@
 #include "Floor.h"
 using namespace cocos2d;
 
-class Field {
+class Field : CCNode {
     const float PANEL_SIZE = 64;
     const float PANEL_SCALE = 0.8;
-    CCLayer* _parentLayer;
+    CCNode* _parentLayer;
     Player* _player;
     FieldPanels* _panels;
     Floor* _floor;
@@ -32,10 +32,10 @@ class Field {
     PanelSprite* _connectPanel;
     bool _moveState;
 public:
-    Field(CCLayer *parentLayer, Player* player);
+    Field(Player* player);
     ~Field(void);
     
-    CCArray* createInitialField();
+    void createInitialField();
     void removeAllPanels();
     CCArray* getPanels();
     TouchedPanels* getWillBeRemovedPanel(); //今回消えるパネルを取得する。

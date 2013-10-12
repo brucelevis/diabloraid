@@ -113,14 +113,11 @@ bool MainGameScene::init()
     
     
     _player = new Player();
-    _field = new Field((CCLayer*) this, _player);
+    _field = new Field(_player);
+    this->addChild((CCNode*) _field);
     _equipmentList = _player->getEquipmentList();
     _events = (Events*) Events::create();
     _events->retain();
-    CCArray *panels = _field->createInitialField();
-    
-    PanelSprite *panel = NULL;
-    CCObject* targetObject = NULL;
     
     CCSprite* _hp = CCSprite::createWithSpriteFrameName("hp.png");
     _hp->setScale(0.4);
@@ -159,10 +156,6 @@ bool MainGameScene::init()
     
     _turnManager = new TurnManager(this, _field, _player);
     
-    CCARRAY_FOREACH(panels,targetObject){
-        panel = (PanelSprite*) targetObject;
-        this->addChild(panel);
-    }
     
     this->setTouchEnabled(true);
  

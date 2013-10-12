@@ -50,6 +50,7 @@
 		256C087917E20E10007A6D01 /* Stair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087717E20E0F007A6D01 /* Stair.cpp */; };
 		256C087C17E21115007A6D01 /* Floor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087A17E21115007A6D01 /* Floor.cpp */; };
 		256C087F17E2114A007A6D01 /* Dungeon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087D17E2114A007A6D01 /* Dungeon.cpp */; };
+		2592F05F18045E7100431295 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2592F05D18045E7100431295 /* Camera.cpp */; };
 		259335E217D63D0100D3C419 /* hp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259335E017D63D0100D3C419 /* hp.plist */; };
 		259335E317D63D0100D3C419 /* hp.png in Resources */ = {isa = PBXBuildFile; fileRef = 259335E117D63D0100D3C419 /* hp.png */; };
 		259335E617D7848500D3C419 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335E417D7848500D3C419 /* Player.cpp */; };
@@ -362,6 +363,8 @@
 		256C087B17E21115007A6D01 /* Floor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Floor.h; sourceTree = "<group>"; };
 		256C087D17E2114A007A6D01 /* Dungeon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dungeon.cpp; sourceTree = "<group>"; };
 		256C087E17E2114A007A6D01 /* Dungeon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dungeon.h; sourceTree = "<group>"; };
+		2592F05D18045E7100431295 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		2592F05E18045E7100431295 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		259335E017D63D0100D3C419 /* hp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hp.plist; path = Resources/hp.plist; sourceTree = "<group>"; };
 		259335E117D63D0100D3C419 /* hp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hp.png; path = Resources/hp.png; sourceTree = "<group>"; };
 		259335E417D7848500D3C419 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -1918,6 +1921,8 @@
 				25B2FFBE17C09D4C008E4D34 /* TurnManager.h */,
 				259335E417D7848500D3C419 /* Player.cpp */,
 				259335E517D7848500D3C419 /* Player.h */,
+				2592F05D18045E7100431295 /* Camera.cpp */,
+				2592F05E18045E7100431295 /* Camera.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2135,6 +2140,7 @@
 				25B2FE6717BF4514008E4D34 /* CCScriptSupport.cpp in Sources */,
 				25B2FE6B17BF4514008E4D34 /* CCGLProgram.cpp in Sources */,
 				25B2FE6E17BF4514008E4D34 /* ccGLStateCache.cpp in Sources */,
+				2592F05F18045E7100431295 /* Camera.cpp in Sources */,
 				25B2FE7E17BF4514008E4D34 /* CCShaderCache.cpp in Sources */,
 				25B2FE8217BF4514008E4D34 /* ccShaders.cpp in Sources */,
 				25B2FE8617BF4514008E4D34 /* CCAnimation.cpp in Sources */,
@@ -2294,7 +2300,7 @@
 					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/third_party/ios\"",
 					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PROVISIONING_PROFILE = "B6F73CDE-2777-45BD-A7AB-C7B5C705458C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6F73CDE-2777-45BD-A7AB-C7B5C705458C";
 				SDKROOT = iphoneos;
@@ -2325,7 +2331,7 @@
 					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/third_party/ios\"",
 					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "B6F73CDE-2777-45BD-A7AB-C7B5C705458C";
 				SDKROOT = iphoneos;

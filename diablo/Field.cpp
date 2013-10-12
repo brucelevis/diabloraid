@@ -11,20 +11,19 @@
 #include "EnemyMaster.h"
 #include <math.h>
 
-Field::Field(CCLayer* parentLayer, Player* player){
+Field::Field(Player* player){
     this->_player = player;
-    this->_parentLayer = parentLayer;
     this->_connectPanel = NULL; //初期化
     this->_touchedPanels = (TouchedPanels*) TouchedPanels::create();
     this->_touchedPanels->retain();
-    
+    this->createInitialField();
 }
 
 Field::~Field(void){
 }
 
 
-CCArray* Field::createInitialField(){
+void Field::createInitialField(){
     _panels = (FieldPanels*) FieldPanels::create();
     _panels->initialize();
     _panels->retain();
@@ -36,10 +35,9 @@ CCArray* Field::createInitialField(){
             PanelSprite* pSprite = _panels->createPanel(_floor, i, j, PANEL_SIZE * PANEL_SCALE, PANEL_SCALE);
             // add the sprite as a child to this layer
             _panels->add(pSprite);
+            this->addChild(pSprite);
         }
     }
-    
-    return _panels;
 }
 
 void Field::removeAllPanels(){
@@ -212,7 +210,7 @@ void Field::restockPanels(){
         float size = PANEL_SIZE * PANEL_SCALE;
         PanelSprite* pSprite = _panels->createPanel(_floor, int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), y, size, PANEL_SCALE);
         _panels->add(pSprite);
-        this->_parentLayer->addChild(pSprite);
+        this->addChild(pSprite);
     }
 }
 
