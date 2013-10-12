@@ -3,7 +3,7 @@
 //  diablo
 //
 //  Created by Kosuke Takami on 13/08/18.
-//
+
 //
 
 #include "Field.h"
@@ -25,45 +25,13 @@ Field::~Field(void){
 
 void Field::createInitialField(){
     _panels = (FieldPanels*) FieldPanels::create();
-    _panels->initialize();
+    _floor = new Floor(1); //スタートは1から。
+    _panels->initialize((CCNode*) this, _floor);
     _panels->retain();
-    _removedPanels = CCArray::create();
-    _removedPanels->retain();
-    _floor = new Floor(1); //スタートは1から。　
-    for(int i = 0; i <= 5; i++){
-        for( int j = 0; j <= 5; j++){
-            PanelSprite* pSprite = _panels->createPanel(_floor, i, j, PANEL_SIZE * PANEL_SCALE, PANEL_SCALE);
-            // add the sprite as a child to this layer
-            _panels->add(pSprite);
-            this->addChild(pSprite);
-        }
-    }
 }
 
 void Field::removeAllPanels(){
-    CCArray* removedIndexes = CCArray::create();
-   
-    PanelSprite *panel = NULL;
-    CCObject* targetObject = NULL;
-    
-    int count = 0;
-    CCARRAY_FOREACH(this->_panels, targetObject){
-        panel = (PanelSprite*) targetObject;
-        
-        //消えるパネルなら消す。
-        panel->removeFromParentAndCleanup(true);
-        this->setRemovedPanel(new CCPoint(panel->getPositionX(), panel->getPositionY()));
-        removedIndexes->addObject(CCInteger::create(count));
-        count++;
-    }
-    
-    
-    int maxIndex = removedIndexes->count();
-    //上から順に消す
-    for(int i = (maxIndex - 1); i >= 0; i--){
-        CCInteger* index = (CCInteger*) removedIndexes->objectAtIndex(i);
-        this->_panels->remove(index->getValue());
-    }
+    this->_panels->removeAllPanels();
 }
 
 CCArray* Field::getEnemies(){
@@ -103,7 +71,7 @@ TouchedPanels* Field::getWillBeRemovedPanel(){
 
 void Field::onTouchStart(CCTouch* touch){
     //動いている時はタッチ出来ない。
-    if(_moveState){
+    if(this->_panels->isMoving()){
         return;
     }
     CCPoint tap = CCDirector::sharedDirector()->convertToGL( touch->getLocationInView() );
@@ -141,7 +109,7 @@ void Field::onTouchEnd(CCTouch* touch){
 
 void Field::onTouchMove(CCTouch* touch){
     //動いている時はタッチmove出来ない。
-    if(_moveState){
+    if(this->_panels->isMoving()){
         return;
     }
     CCPoint tap = CCDirector::sharedDirector()->convertToGL( touch->getLocationInView() );
@@ -162,11 +130,6 @@ void Field::onTouchMove(CCTouch* touch){
     }
 }
 
-//消えたパネルを取得する。
-CCArray* Field::getRemovedPanels(){
-    return _removedPanels;
-}
-
 PanelSprite* Field::getConnectPanel(){
     return _connectPanel;
 }
@@ -179,68 +142,15 @@ void Field::initialize(){
     _touchedPanels->initialize();
 }
 
-//消えたパネルの座標をセットする。
-void Field::setRemovedPanel(CCPoint* point){
-    _removedPanels->addObject(point);
-}
-
 
 //消えたパネルの上に追加する。
 void Field::restockPanels(){
-    CCArray* removedPanels = this->getRemovedPanels();
-    
-    CCPoint *removedPoint = NULL;
-    CCObject* targetObject = NULL;
-    
-    CCDictionary* removedCount = CCDictionary::create();
-    
-    CCARRAY_FOREACH(removedPanels, targetObject){
-        removedPoint = (CCPoint*) targetObject;
-        int y = 6;
-        CCInteger* count = (CCInteger*) removedCount->objectForKey(removedPoint->x);
-        //既にその列が消えている場合は、追加する場所がn段上になる。
-        if(count){
-            y += count->getValue();
-            removedCount->setObject(CCInteger::create(count->getValue()+1),removedPoint->x);
-        //その列がまだ消えていない場合は、dictionaryに追加
-        } else {
-            removedCount->setObject(CCInteger::create(1),removedPoint->x);
-        }
-        
-        float size = PANEL_SIZE * PANEL_SCALE;
-        PanelSprite* pSprite = _panels->createPanel(_floor, int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), y, size, PANEL_SCALE);
-        _panels->add(pSprite);
-        this->addChild(pSprite);
-    }
+    _panels->restockPanel((CCNode*) this, _floor);
 }
 
 //フラグがたっているパネルを全部消す
 void Field::removePanels(){
-    CCArray* removedIndexes = CCArray::create();
-    
-    PanelSprite *panel = NULL;
-    CCObject* targetObject = NULL;
-    
-    int count = 0;
-    CCARRAY_FOREACH(this->_panels, targetObject){
-        panel = (PanelSprite*) targetObject;
-        
-        //消えるパネルなら消す。
-        if(panel->isRemoved()){
-            panel->removeFromParentAndCleanup(true);
-            this->setRemovedPanel(new CCPoint(panel->getPositionX(), panel->getPositionY()));
-            removedIndexes->addObject(CCInteger::create(count));
-        }
-        count++;
-    }
-    
-    
-    int maxIndex = removedIndexes->count();
-    //上から順に消す
-    for(int i = (maxIndex - 1); i >= 0; i--){
-        CCInteger* index = (CCInteger*) removedIndexes->objectAtIndex(i);
-        this->_panels->remove(index->getValue());
-    }
+    _panels->removePanels();
 }
 
 void Field::showDirections(){
@@ -250,43 +160,12 @@ void Field::showDirections(){
 //移動量をパネル達にセットする。
 //消えたパネルよりも上にあるパネルを取得して、セットする。
 void Field::setMoves(){
-    if(_moveState){
-        return;
-    }
-    CCArray* removedPanels = this->getRemovedPanels();
-    CCPoint *removedPoint = NULL;
-    CCObject* targetObject1 = NULL;
-    
-    PanelSprite* panel = NULL;
-    CCObject* targetObject2 = NULL;
-
-    CCARRAY_FOREACH(this->_panels, targetObject1){
-        panel = (PanelSprite*) targetObject1;
-        CCARRAY_FOREACH(removedPanels, targetObject2){
-            removedPoint = (CCPoint*) targetObject2;
-
-            if(removedPoint->x == panel->getPositionX() && removedPoint->y < panel->getPositionY()){
-                _moveState = true;
-                panel->setDeltaY(PANEL_SIZE * PANEL_SCALE);
-            }
-        }
-    }
+    _panels->setMoves();
 }
 
 //パネルを移動させる。
 void Field::movePanels(){
-    PanelSprite* panel = NULL;
-    CCObject* targetObject = NULL;
-    int movingPanelsNum = 0;
-    CCARRAY_FOREACH(this->_panels, targetObject){
-        panel = (PanelSprite*) targetObject;
-        if(panel->move()){
-            movingPanelsNum++;
-        }
-    }
-    if(movingPanelsNum == 0){
-        _moveState = false;
-    }
+    _panels->movePanels();
 }
 
 void Field::updateAllPanels(){
@@ -302,7 +181,7 @@ void Field::updateAllPanels(){
 void Field::onTurnEnd(){
     _touchedPanels->removeAllObjects();
     CCLog("_touchedPanelsNum:%d", _touchedPanels->count());
-    _removedPanels->removeAllObjects();
+    this->_panels->refresh();
     this->updateAllPanels();
 }
 

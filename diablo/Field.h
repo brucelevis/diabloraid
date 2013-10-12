@@ -19,18 +19,14 @@
 using namespace cocos2d;
 
 class Field : CCNode {
-    const float PANEL_SIZE = 64;
-    const float PANEL_SCALE = 0.8;
     CCNode* _parentLayer;
     Player* _player;
     FieldPanels* _panels;
     Floor* _floor;
-    CCArray* _removedPanels;
     TouchedPanels* _touchedPanels; //タッチされたパネルを順に格納する。
     PanelSprite* _currentPanel;
     std::string _touchedPanelName;
     PanelSprite* _connectPanel;
-    bool _moveState;
 public:
     Field(Player* player);
     ~Field(void);
@@ -53,10 +49,8 @@ public:
     void updateAllPanels();
     void onTurnEnd();
     void countUpTurn();
-    CCArray* getRemovedPanels();
     void setRemoved();
     void initialize();
-    void setRemovedPanel(CCPoint* point);
     void setMoves();
     void removePanels();
     void restockPanels();
