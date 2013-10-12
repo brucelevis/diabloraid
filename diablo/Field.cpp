@@ -323,3 +323,4 @@ void Field::countUpTurn(){
     _floor->countupTurn(1); //ターンを進める。
 }
 
+

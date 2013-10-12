@@ -19,11 +19,13 @@
 #include "Shield.h"
 #include "Stair.h"
 #include "Floor.h"
+#include "FieldModel.h"
 
 class FieldPanels : public CCArray{
-    CCArray* _panelNames;
     CCDictionary* _panelCount; //パネルの種類ごとにパネルをカウントする。
+    FieldModel* _fieldModel;
 public:
+    static CCArray* create();
     void initialize(); //明示的に初期化処理を呼ぶ。
     void add(PanelSprite* panel); //パネルを追加する。
     void remove(int index); //inexのパネルを消す。

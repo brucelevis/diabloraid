@@ -8,6 +8,8 @@
 
 #include "FieldPanels.h"
 FieldPanels::FieldPanels(){
+    _fieldModel = FieldModel::create();
+    _fieldModel->retain();
 }
 
 FieldPanels::~FieldPanels(){
@@ -27,6 +29,21 @@ void FieldPanels::remove(int index){
 void FieldPanels::initialize(){
     _panelCount = CCDictionary::create();
     _panelCount->retain();
+}
+
+CCArray* FieldPanels::create(){
+    CCArray* pArray = (CCArray*) new FieldPanels();
+    
+    if (pArray && pArray->init())
+    {
+        pArray->autorelease();
+    }
+    else
+    {
+        CC_SAFE_DELETE(pArray);
+    }
+    
+    return pArray;
 }
 
 int FieldPanels::getCurrentPanelNum(PanelSprite* panel){
@@ -61,7 +78,9 @@ void FieldPanels::decreaseCount(PanelSprite* panel){
 }
 
 PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY, float size,float scale){
-    CCString* panelName = floor->createPanelName();
+    int panelType = floor->createPanel();
+    CCString* panelName = FieldModel::convertToPanelName(panelType);
+    
     PanelSprite* pSprite = this->createPanelSprite(panelName->getCString(), floor);
     //追加出来ないパネルだったら。
     if(!pSprite->canBeAdded(this->getCurrentPanelNum(pSprite))){

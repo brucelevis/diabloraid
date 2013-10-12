@@ -35,24 +35,13 @@ void Floor::countupFloor(int v){
     floor += v;
 }
 
-CCString* Floor::createPanelName(){
-    CCArray* _panelNames = CCArray::create();
-    _panelNames->retain();
-    
-    _panelNames->addObject(new CCString("coin"));
-    _panelNames->addObject(new CCString("enemy"));
-    _panelNames->addObject(new CCString("shield"));
-    _panelNames->addObject(new CCString("sword"));
-    _panelNames->addObject(new CCString("potion"));
-    _panelNames->addObject(new CCString("kaidan"));
+int Floor::createPanel(){
     
     //5％ずつ階段が出る確率が上がる仮実装
     int panelNum = 5;
     if(rand() % 100 < turn * 3 / 7) {
         panelNum = 6;
     }
-    CCLog("panelNum:%d", panelNum);
     
-    CCString* panelName = (CCString*) _panelNames->objectAtIndex(rand() % panelNum);
-    return panelName;
+    return (rand() % panelNum);
 }

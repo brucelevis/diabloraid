@@ -113,6 +113,7 @@ bool MainGameScene::init()
     
     
     _player = new Player();
+    
     _field = new Field(_player);
     this->addChild((CCNode*) _field);
     _equipmentList = _player->getEquipmentList();

@@ -22,7 +22,7 @@ public:
     int getFloor();
     void countupTurn(int v);  // vだけ、ターンを経過させる。
     void countupFloor(int v); //vだけフロアを進ませる。
-    CCString* createPanelName();//どのパネルが出るのかをフロアのマスタ−情報、経過情報などから取得する。
+    int createPanel();//どのパネルが出るのかをフロアのマスタ−情報、経過情報などから取得する。
     Floor(int v);
     ~Floor();
 };
