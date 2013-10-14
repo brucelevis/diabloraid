@@ -10,7 +10,6 @@
 #define __diablo__EnemyFactory__
 
 #include <iostream>
-#include "Enemy.h"
 #include "EnemyMaster.h"
 #include "Floor.h"
 #include "FloorEnemyMapMaster.h"
@@ -18,7 +17,7 @@
 
 class EnemyFactory{
 public:
-    static Enemy* getEnemyPanel(Floor* floor); //エネミーパネルを生成して返す。
+    static EnemyMaster* createEnemy(Floor* floor); //エネミーパネルを生成して返す。
 };
 
 #endif /* defined(__diablo__EnemyFactory__) */
