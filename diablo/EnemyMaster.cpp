@@ -27,6 +27,10 @@ EnemyMaster::EnemyMaster(int v){
 EnemyMaster::~EnemyMaster(){
 }
 
+int EnemyMaster::getId(){
+    return _id;
+}
+
 EnemyMaster* EnemyMaster::getById(int v){
     EnemyMaster *enemy = new EnemyMaster(v);
     return enemy;

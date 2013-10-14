@@ -26,3 +26,10 @@ picojson::value Util::JsonParser::parse(const char* path){
     }
     return v;
 }
+
+std::string Util::Util::intToString(int i){
+    std::ostringstream s;
+    s << i;
+    const std::string i_as_string(s.str());
+    return i_as_string;
+}

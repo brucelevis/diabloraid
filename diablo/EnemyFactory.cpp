@@ -29,5 +29,7 @@ Enemy* EnemyFactory::getEnemyPanel(Floor* floor){
     }
     
     EnemyMaster* enemy = EnemyMaster::getById(enemyId);
+    EnemyData* enemyData = EnemyData::create(enemy);
+    CCLOG("id:%d, enemyId:%d, currentHp:%d", enemyData->id, enemyData->enemyId, enemyData->currentHp);
     return Enemy::createWithSpriteFrameName(enemy->getName().c_str(), enemy);
 }

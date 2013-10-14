@@ -11,11 +11,17 @@
 
 #include <iostream>
 #include "picojson.h"
+#include <sstream>
+#include <string>
 
 namespace Util {
     class JsonParser{
     public:
         static picojson::value parse(const char* path);
+    };
+    class Util{
+    public:
+        std::string static intToString(int i);
     };
 };
 

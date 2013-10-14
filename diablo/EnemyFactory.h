@@ -14,6 +14,7 @@
 #include "EnemyMaster.h"
 #include "Floor.h"
 #include "FloorEnemyMapMaster.h"
+#include "EnemyData.h"
 
 class EnemyFactory{
 public:
