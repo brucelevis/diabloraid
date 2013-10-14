@@ -33,7 +33,7 @@ void FieldPanels::initialize(CCNode* parentNode, Floor* floor){
     _panelCount->retain();
    for(int i = 0; i <= 5; i++){
        for( int j = 0; j <= 5; j++){
-            PanelSprite* pSprite = this->createPanel(floor, i, j, PANEL_SIZE * PANEL_SCALE, PANEL_SCALE);
+            PanelSprite* pSprite = this->createPanel(floor, i, j);
             // add the sprite as a child to this layer
             this->add(pSprite);
             parentNode->addChild(pSprite);
@@ -62,8 +62,7 @@ void FieldPanels::restockPanel(CCNode* parentNode, Floor* floor){
             removedCount->setObject(CCInteger::create(1),removedPoint->x);
         }
         
-        float size = PANEL_SIZE * PANEL_SCALE;
-        PanelSprite* pSprite = this->createPanel(floor, int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), y, size, PANEL_SCALE);
+        PanelSprite* pSprite = this->createPanel(floor, int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), y);
         this->add(pSprite);
         parentNode->addChild(pSprite);
     }
@@ -213,16 +212,18 @@ void FieldPanels::decreaseCount(PanelSprite* panel){
     }
 }
 
-PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY, float size,float scale){
+PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY){
     int panelType = floor->createPanel();
     CCString* panelName = FieldModel::convertToPanelName(panelType);
     
     PanelSprite* pSprite = PanelSpriteFactory::createWithFloorAndPanelName(floor, panelName->getCString());
     
     //追加出来ないパネルだったら。
+    float size = PANEL_SIZE * PANEL_SCALE;
+    float scale = PANEL_SCALE;
     if(!pSprite->canBeAdded(this->getCurrentPanelNum(pSprite))){
         pSprite->release();
-        return this->createPanel(floor, indexX, indexY, size, scale);
+        return this->createPanel(floor, indexX, indexY);
     }
     
     pSprite->setSize(size);

@@ -24,6 +24,7 @@ class FieldPanels : public CCArray{
     CCArray* _removedPanels;
     bool _moveState;
     bool _onMovingEndCalling = false;
+    PanelSprite* createPanel(Floor* floor, int indexX, int indexY);
 public:
     static CCArray* create();
     void initialize(CCNode* parentNode, Floor* floor); //明示的に初期化処理を呼ぶ。
@@ -38,7 +39,6 @@ public:
     void setMoves();
     void movePanels();
     bool isMoving();
-    PanelSprite* createPanel(Floor* floor, int indexX, int indexY, float size, float scale);
     CCArray* getRemovedPanels();
     void setRemovedPanel(CCPoint* point);
     void refresh();
