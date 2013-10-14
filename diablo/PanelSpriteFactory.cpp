@@ -8,7 +8,10 @@
 
 #include "PanelSpriteFactory.h"
 
-PanelSprite* PanelSpriteFactory::createWithFloorAndPanelName(Floor* floor, std::string panelName){
+PanelSprite* PanelSpriteFactory::createWithFloor(Floor* floor){
+    int panelType = floor->createPanel();
+    std::string panelName = ((CCString*) FieldModel::convertToPanelName(panelType))->getCString();
+    
     PanelSprite* pSprite;
     if(panelName == "enemy"){
         pSprite = EnemyFactory::getEnemyPanel(floor);

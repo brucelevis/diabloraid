@@ -19,10 +19,11 @@
 #include "Shield.h"
 #include "Stair.h"
 #include "Floor.h"
+#include "FieldModel.h"
 
 class PanelSpriteFactory {
 public:
-    static PanelSprite* createWithFloorAndPanelName(Floor* floor, std::string panelName);
+    static PanelSprite* createWithFloor(Floor* floor);
 };
 
 #endif /* defined(__diablo__PanelSpriteFactory__) */

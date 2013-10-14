@@ -213,10 +213,7 @@ void FieldPanels::decreaseCount(PanelSprite* panel){
 }
 
 PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY){
-    int panelType = floor->createPanel();
-    CCString* panelName = FieldModel::convertToPanelName(panelType);
-    
-    PanelSprite* pSprite = PanelSpriteFactory::createWithFloorAndPanelName(floor, panelName->getCString());
+    PanelSprite* pSprite = PanelSpriteFactory::createWithFloor(floor);
     
     //追加出来ないパネルだったら。
     float size = PANEL_SIZE * PANEL_SCALE;

@@ -11,7 +11,6 @@
 
 #include <iostream>
 #include "PanelSprite.h"
-#include "FieldModel.h"
 #include "Floor.h"
 #include "PanelSpriteFactory.h"
 
