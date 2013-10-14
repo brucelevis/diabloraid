@@ -14,8 +14,8 @@ PanelSprite* PanelSpriteFactory::createWithFloor(Floor* floor){
     
     PanelSprite* pSprite;
     if(panelName == "enemy"){
-        EnemyMaster* enemy = EnemyFactory::createEnemy(floor);
-        pSprite = Enemy::createWithEnemyMaster(enemy);
+        EnemyData* enemy = EnemyFactory::createEnemy(floor);
+        pSprite = Enemy::createWithEnemyMaster(enemy->master);
     } else if(panelName == "potion"){
         pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "sword"){

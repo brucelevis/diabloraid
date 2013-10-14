@@ -13,6 +13,7 @@
 #include "PanelSprite.h"
 #include "EnemyFactory.h"
 #include "Enemy.h"
+#include "EnemyData.h"
 #include "Potion.h"
 #include "Coin.h"
 #include "Sword.h"

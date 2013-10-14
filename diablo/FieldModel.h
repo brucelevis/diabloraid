@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "EnemyMaster.h"
 
 using namespace cocos2d;
 
@@ -25,7 +26,7 @@ public:
     static int convertToPanelType(std::string panelName);
     int get(int x, int y);
     CCString* getPanelName(int x, int y);
-    void set(int x, int y, int panelType);
+    void set(int x, int y, int panelId);
     void setMockData();
     FieldModel();
     ~FieldModel();

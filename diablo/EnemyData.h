@@ -23,6 +23,7 @@ public:
     int id;
     int enemyId;
     int currentHp;
+    EnemyMaster* master;
     static EnemyData* create(EnemyMaster* enemy);
     EnemyData(map<string, string> entity);
     ~EnemyData();

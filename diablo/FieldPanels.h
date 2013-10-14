@@ -13,6 +13,7 @@
 #include "PanelSprite.h"
 #include "Floor.h"
 #include "PanelSpriteFactory.h"
+#include "FieldModel.h"
 
 class FieldPanels : public CCArray{
     const float PANEL_SIZE = 64;
@@ -32,6 +33,7 @@ public:
     void addCount(PanelSprite* panel);
     void decreaseCount(PanelSprite* panel);
     int getCurrentPanelNum(PanelSprite* panel);
+    void loadPanels(FieldModel* fieldModel);
     void removePanels();
     void removeAllPanels();
     void restockPanel(CCNode* parentNode, Floor* floor);

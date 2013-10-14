@@ -17,17 +17,17 @@ FieldModel::~FieldModel(){
     
 }
 
-void FieldModel::set(int x, int y, int panelType){
+void FieldModel::set(int x, int y, int panelId){
     CCAssert((x >=0 && x <= WIDTH && y <= HEIGHT && y >= 0), "x, y must be from 0 to max Size");
     
     CCDictionary* _dictionary = (CCDictionary*) this->objectForKey(x);
     if(_dictionary){
-        _dictionary->setObject(CCInteger::create(panelType), y);
+        _dictionary->setObject(CCInteger::create(panelId), y);
     } else {
         _dictionary = CCDictionary::create();
         _dictionary->retain();
         this->setObject((CCObject*) _dictionary, x);
-        _dictionary->setObject(CCInteger::create(panelType), y);
+        _dictionary->setObject(CCInteger::create(panelId), y);
     }
 }
 
@@ -36,9 +36,9 @@ int FieldModel::get(int x, int y){
     
     CCDictionary* _dictionary = (CCDictionary*) this->objectForKey(x);
     if(_dictionary){
-        CCInteger* panelType = (CCInteger*) _dictionary->objectForKey(y);
-        if(panelType){
-            return panelType->getValue();
+        CCInteger* panelId = (CCInteger*) _dictionary->objectForKey(y);
+        if(panelId){
+            return panelId->getValue();
         }
     }
     //セットされていない時は-1を返す。

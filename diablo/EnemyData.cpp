@@ -18,7 +18,9 @@ EnemyData* EnemyData::create(EnemyMaster* enemy){
     map<string, string> entity;
     entity["enemyId"]   = Util::Util::intToString(enemy->getId());
     entity["currentHp"] = Util::Util::intToString(enemy->getHp());
-    return new EnemyData(entity);
+    EnemyData* enemyData = new EnemyData(entity);
+    enemyData->master = enemy;
+    return enemyData;
 }
 
 EnemyData::EnemyData(map<string, string> entity){

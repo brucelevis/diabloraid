@@ -17,7 +17,7 @@
 
 class EnemyFactory{
 public:
-    static EnemyMaster* createEnemy(Floor* floor); //エネミーパネルを生成して返す。
+    static EnemyData* createEnemy(Floor* floor); //エネミーパネルを生成して返す。
 };
 
 #endif /* defined(__diablo__EnemyFactory__) */

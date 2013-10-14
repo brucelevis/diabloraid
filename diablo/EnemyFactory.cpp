@@ -8,7 +8,7 @@
 
 #include "EnemyFactory.h"
 
-EnemyMaster* EnemyFactory::createEnemy(Floor* floor){
+EnemyData* EnemyFactory::createEnemy(Floor* floor){
     int currentFloor = floor->getFloor();
     FloorEnemyMapMaster* master = FloorEnemyMapMaster::getById(currentFloor);
     CCArray* enemies = master->getEnemies();
@@ -34,5 +34,5 @@ EnemyMaster* EnemyFactory::createEnemy(Floor* floor){
     enemy->setMaxExistsNum(maxExistsNum);
     EnemyData* enemyData = EnemyData::create(enemy);
     CCLOG("id:%d, enemyId:%d, currentHp:%d", enemyData->id, enemyData->enemyId, enemyData->currentHp);
-    return enemy;
+    return enemyData;
 }
