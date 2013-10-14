@@ -11,15 +11,9 @@
 
 #include <iostream>
 #include "PanelSprite.h"
-#include "EnemyFactory.h"
-#include "Enemy.h"
-#include "Potion.h"
-#include "Coin.h"
-#include "Sword.h"
-#include "Shield.h"
-#include "Stair.h"
-#include "Floor.h"
 #include "FieldModel.h"
+#include "Floor.h"
+#include "PanelSpriteFactory.h"
 
 class FieldPanels : public CCArray{
     const float PANEL_SIZE = 64;
@@ -45,7 +39,6 @@ public:
     void movePanels();
     bool isMoving();
     PanelSprite* createPanel(Floor* floor, int indexX, int indexY, float size, float scale);
-    PanelSprite* createPanelSprite(std::string panelName, Floor* floor);
     CCArray* getRemovedPanels();
     void setRemovedPanel(CCPoint* point);
     void refresh();

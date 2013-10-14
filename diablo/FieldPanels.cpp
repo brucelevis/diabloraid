@@ -217,7 +217,8 @@ PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY, floa
     int panelType = floor->createPanel();
     CCString* panelName = FieldModel::convertToPanelName(panelType);
     
-    PanelSprite* pSprite = this->createPanelSprite(panelName->getCString(), floor);
+    PanelSprite* pSprite = PanelSpriteFactory::createWithFloorAndPanelName(floor, panelName->getCString());
+    
     //追加出来ないパネルだったら。
     if(!pSprite->canBeAdded(this->getCurrentPanelNum(pSprite))){
         pSprite->release();
@@ -230,26 +231,6 @@ PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY, floa
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
     pSprite->update();
-    return pSprite;
-}
-
-PanelSprite* FieldPanels::createPanelSprite(std::string panelName, Floor* floor){
-    PanelSprite* pSprite;
-    if(panelName == "enemy"){
-        pSprite = EnemyFactory::getEnemyPanel(floor);
-    } else if(panelName == "potion"){
-        pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
-    } else if(panelName == "sword"){
-        pSprite = Sword::createWithSpriteFrameName(panelName.c_str());
-    } else if(panelName == "coin"){
-        pSprite = Coin::createWithSpriteFrameName(panelName.c_str());
-    } else if(panelName == "shield"){
-        pSprite = Shield::createWithSpriteFrameName(panelName.c_str());
-    } else if(panelName == "kaidan"){
-        pSprite = Stair::createWithSpriteFrameName(panelName.c_str());
-    } else {
-        pSprite = PanelSprite::createWithSpriteFrameName(panelName.c_str());
-    }
     return pSprite;
 }
 

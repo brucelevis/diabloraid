@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		25002ED818092ACD00114AE3 /* FieldModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002ED618092ACD00114AE3 /* FieldModel.cpp */; };
+		25002EFA180BABBA00114AE3 /* EnemyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002EF8180BABBA00114AE3 /* EnemyData.cpp */; };
+		25002F15180BBA9900114AE3 /* PanelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F13180BBA9900114AE3 /* PanelData.cpp */; };
+		25002F18180BBD9300114AE3 /* PanelSpriteFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F16180BBD9300114AE3 /* PanelSpriteFactory.cpp */; };
 		250557A517DB837400D85441 /* Shield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A317DB837400D85441 /* Shield.cpp */; };
 		250557A817DB842700D85441 /* Coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A617DB842700D85441 /* Coin.cpp */; };
 		250557AB17DB84A400D85441 /* Sword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A917DB84A400D85441 /* Sword.cpp */; };
@@ -287,6 +290,12 @@
 /* Begin PBXFileReference section */
 		25002ED618092ACD00114AE3 /* FieldModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FieldModel.cpp; sourceTree = "<group>"; };
 		25002ED718092ACD00114AE3 /* FieldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldModel.h; sourceTree = "<group>"; };
+		25002EF8180BABBA00114AE3 /* EnemyData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyData.cpp; sourceTree = "<group>"; };
+		25002EF9180BABBA00114AE3 /* EnemyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyData.h; sourceTree = "<group>"; };
+		25002F13180BBA9900114AE3 /* PanelData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PanelData.cpp; sourceTree = "<group>"; };
+		25002F14180BBA9900114AE3 /* PanelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelData.h; sourceTree = "<group>"; };
+		25002F16180BBD9300114AE3 /* PanelSpriteFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PanelSpriteFactory.cpp; sourceTree = "<group>"; };
+		25002F17180BBD9300114AE3 /* PanelSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelSpriteFactory.h; sourceTree = "<group>"; };
 		250557A317DB837400D85441 /* Shield.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shield.cpp; sourceTree = "<group>"; };
 		250557A417DB837400D85441 /* Shield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shield.h; sourceTree = "<group>"; };
 		250557A617DB842700D85441 /* Coin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Coin.cpp; sourceTree = "<group>"; };
@@ -863,6 +872,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25002EF4180BA88100114AE3 /* master */ = {
+			isa = PBXGroup;
+			children = (
+				25EF285D17E437BE003FBA91 /* EnemyMaster.cpp */,
+				25EF285E17E437BE003FBA91 /* EnemyMaster.h */,
+				256AFE4B17F99D7500261B7B /* LevelMaster.cpp */,
+				256AFE4C17F99D7500261B7B /* LevelMaster.h */,
+				256AFE6C17FAFCD400261B7B /* FloorEnemyMapMaster.cpp */,
+				256AFE6D17FAFCD400261B7B /* FloorEnemyMapMaster.h */,
+				256C087A17E21115007A6D01 /* Floor.cpp */,
+				256C087B17E21115007A6D01 /* Floor.h */,
+			);
+			name = master;
+			sourceTree = "<group>";
+		};
 		250557AE17DC562100D85441 /* status */ = {
 			isa = PBXGroup;
 			children = (
@@ -947,6 +971,8 @@
 		256AFE7517FBED8B00261B7B /* user */ = {
 			isa = PBXGroup;
 			children = (
+				256C087117E0C641007A6D01 /* UserModel.cpp */,
+				256C087217E0C641007A6D01 /* UserModel.h */,
 				256AFE7617FBED9E00261B7B /* Equipment.cpp */,
 				256AFE7717FBED9E00261B7B /* Equipment.h */,
 				256AFE8717FECF1200261B7B /* EquipmentList.cpp */,
@@ -960,23 +986,18 @@
 		256C087017E0C632007A6D01 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				25002EF4180BA88100114AE3 /* master */,
 				256AFE7517FBED8B00261B7B /* user */,
-				256C087117E0C641007A6D01 /* UserModel.cpp */,
-				256C087217E0C641007A6D01 /* UserModel.h */,
 				256C087417E0C68F007A6D01 /* BaseModel.cpp */,
 				256C087517E0C68F007A6D01 /* BaseModel.h */,
-				256C087A17E21115007A6D01 /* Floor.cpp */,
-				256C087B17E21115007A6D01 /* Floor.h */,
 				256C087D17E2114A007A6D01 /* Dungeon.cpp */,
 				256C087E17E2114A007A6D01 /* Dungeon.h */,
-				25EF285D17E437BE003FBA91 /* EnemyMaster.cpp */,
-				25EF285E17E437BE003FBA91 /* EnemyMaster.h */,
-				256AFE4B17F99D7500261B7B /* LevelMaster.cpp */,
-				256AFE4C17F99D7500261B7B /* LevelMaster.h */,
-				256AFE6C17FAFCD400261B7B /* FloorEnemyMapMaster.cpp */,
-				256AFE6D17FAFCD400261B7B /* FloorEnemyMapMaster.h */,
 				25002ED618092ACD00114AE3 /* FieldModel.cpp */,
 				25002ED718092ACD00114AE3 /* FieldModel.h */,
+				25002EF8180BABBA00114AE3 /* EnemyData.cpp */,
+				25002EF9180BABBA00114AE3 /* EnemyData.h */,
+				25002F13180BBA9900114AE3 /* PanelData.cpp */,
+				25002F14180BBA9900114AE3 /* PanelData.h */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -998,6 +1019,8 @@
 				250557AA17DB84A400D85441 /* Sword.h */,
 				256C087717E20E0F007A6D01 /* Stair.cpp */,
 				256C087817E20E0F007A6D01 /* Stair.h */,
+				25002F16180BBD9300114AE3 /* PanelSpriteFactory.cpp */,
+				25002F17180BBD9300114AE3 /* PanelSpriteFactory.h */,
 			);
 			name = panel;
 			sourceTree = "<group>";
@@ -2096,6 +2119,7 @@
 				25B2FDCB17BF4511008E4D34 /* neon_matrix_impl.c in Sources */,
 				25B2FDCD17BF4511008E4D34 /* plane.c in Sources */,
 				25B2FDCF17BF4512008E4D34 /* quaternion.c in Sources */,
+				25002F18180BBD9300114AE3 /* PanelSpriteFactory.cpp in Sources */,
 				25B2FDD117BF4512008E4D34 /* ray2.c in Sources */,
 				25B2FDD317BF4512008E4D34 /* utility.c in Sources */,
 				25B2FDD517BF4512008E4D34 /* vec2.c in Sources */,
@@ -2128,6 +2152,7 @@
 				25B2FE3117BF4513008E4D34 /* CCApplication.mm in Sources */,
 				25B2FE3317BF4513008E4D34 /* CCCommon.mm in Sources */,
 				25B2FE3617BF4513008E4D34 /* CCDirectorCaller.mm in Sources */,
+				25002EFA180BABBA00114AE3 /* EnemyData.cpp in Sources */,
 				25B2FE3917BF4513008E4D34 /* CCEGLView.mm in Sources */,
 				25B2FE3C17BF4513008E4D34 /* CCES2Renderer.m in Sources */,
 				25B2FE3F17BF4513008E4D34 /* CCFileUtils.mm in Sources */,
@@ -2215,6 +2240,7 @@
 				25B2FF5417BF4516008E4D34 /* CCScrollViewLoader.cpp in Sources */,
 				25B2FF5717BF4516008E4D34 /* CCSpriteLoader.cpp in Sources */,
 				25B2FF5E17BF4516008E4D34 /* CCControl.cpp in Sources */,
+				25002F15180BBA9900114AE3 /* PanelData.cpp in Sources */,
 				25B2FF6117BF4516008E4D34 /* CCControlButton.cpp in Sources */,
 				25B2FF6417BF4516008E4D34 /* CCControlColourPicker.cpp in Sources */,
 				25B2FF6817BF4516008E4D34 /* CCControlHuePicker.cpp in Sources */,
