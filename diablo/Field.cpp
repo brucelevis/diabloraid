@@ -168,6 +168,13 @@ void Field::movePanels(){
     _panels->movePanels();
 }
 
+void Field::update(){
+    this->movePanels();
+    this->cleanUp();
+    this->showDirections();
+    _panels->update();
+}
+
 void Field::updateAllPanels(){
     PanelSprite* panel = NULL;
     CCObject* targetObject = NULL;

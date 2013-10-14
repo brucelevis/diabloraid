@@ -22,6 +22,7 @@ class FieldModel : public CCDictionary{
 public:
     static FieldModel* create();
     static CCString* convertToPanelName(int panelType);
+    static int convertToPanelType(std::string panelName);
     int get(int x, int y);
     CCString* getPanelName(int x, int y);
     void set(int x, int y, int panelType);

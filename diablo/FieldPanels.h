@@ -24,10 +24,12 @@
 class FieldPanels : public CCArray{
     const float PANEL_SIZE = 64;
     const float PANEL_SCALE = 0.8;
+    const float OFFSET_Y = 96;
     CCDictionary* _panelCount; //パネルの種類ごとにパネルをカウントする。
     FieldModel* _fieldModel;
     CCArray* _removedPanels;
     bool _moveState;
+    bool _onMovingEndCalling = false;
 public:
     static CCArray* create();
     void initialize(CCNode* parentNode, Floor* floor); //明示的に初期化処理を呼ぶ。
@@ -47,6 +49,9 @@ public:
     CCArray* getRemovedPanels();
     void setRemovedPanel(CCPoint* point);
     void refresh();
+    void save();
+    void update();
+    void onMovingEnd();
     FieldPanels();
     ~FieldPanels();
 };

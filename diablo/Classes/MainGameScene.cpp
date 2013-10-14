@@ -220,9 +220,7 @@ void MainGameScene::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
 }
 
 void MainGameScene::update(float dt){
-    _field->movePanels();
-    _field->cleanUp();
-    _field->showDirections();
+    _field->update();
     HpLabel->setString(CCString::createWithFormat("%d/%d", _player->getCurrentHp(), _player->getMaxHp())->getCString());
     DamageLabel->setString(CCString::createWithFormat("%d DMG", _player->getTotalDamage())->getCString());
     ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->getShieldCurrentHp(), _player->getShieldMaxHp())->getCString());

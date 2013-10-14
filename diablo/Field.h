@@ -48,6 +48,7 @@ public:
     void onTurnStart();
     void updateAllPanels();
     void onTurnEnd();
+    void update(); //フレーム呼ばれる。
     void countUpTurn();
     void setRemoved();
     void initialize();

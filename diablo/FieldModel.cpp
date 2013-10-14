@@ -62,6 +62,19 @@ CCString* FieldModel::convertToPanelName(int panelType){
     return (CCString*) _panelNameMap->objectForKey(panelType);
 }
 
+int FieldModel::convertToPanelType(std::string panelName){
+    CCDictionary* _panelNameMap = CCDictionary::create();
+
+    _panelNameMap->setObject((CCObject*) new CCInteger(0), "coin");
+    _panelNameMap->setObject((CCObject*) new CCInteger(1), "enemy");
+    _panelNameMap->setObject((CCObject*) new CCInteger(2), "shield");
+    _panelNameMap->setObject((CCObject*) new CCInteger(3), "sword");
+    _panelNameMap->setObject((CCObject*) new CCInteger(4), "potion");
+    _panelNameMap->setObject((CCObject*) new CCInteger(5), "kaidan");
+    _panelNameMap->setObject((CCObject*) new CCInteger(-1), "");
+    return ((CCInteger*) _panelNameMap->objectForKey(panelName))->getValue();
+}
+
 FieldModel* FieldModel::create(){
     FieldModel* pRet = new FieldModel();
     if (pRet != NULL)

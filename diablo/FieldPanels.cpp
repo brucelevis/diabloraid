@@ -155,6 +155,7 @@ void FieldPanels::movePanels(){
         panel = (PanelSprite*) targetObject;
         if(panel->move()){
             movingPanelsNum++;
+            _onMovingEndCalling = false;
         }
     }
     if(movingPanelsNum == 0){
@@ -227,7 +228,7 @@ PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY, floa
     pSprite->setContentSize(CCSize(size,size));
     pSprite->setScale(scale);
     // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(size/2 + size * indexX, 96 + size/2 + size * indexY) );
+    pSprite->setPosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
     pSprite->update();
     return pSprite;
 }
@@ -261,7 +262,34 @@ void FieldPanels::refresh(){
     _removedPanels->removeAllObjects();
 }
 
+//現在のパネル状況をmodelにアップデートする。
+void FieldPanels::save(){
+    CCLOG("save");
+    PanelSprite* pSprite;
+    CCObject* targetObject;
+    float size = PANEL_SIZE * PANEL_SCALE;
+    CCARRAY_FOREACH(this, targetObject){
+        pSprite = (PanelSprite*) targetObject;
+        CCPoint pos = pSprite->getPosition();
+        int x = (int) (pos.x / size);
+        int y = (int) ((pos.y - OFFSET_Y) /size );
+        CCLOG("(x,y) = (%d, %d)", x, y);
+    }
+}
+
 //消えたパネルの座標をセットする。
 void FieldPanels::setRemovedPanel(CCPoint* point){
     _removedPanels->addObject(point);
+}
+
+void FieldPanels::update(){
+   if(!this->isMoving() && !_onMovingEndCalling){
+       //最初の一回だけ呼ぶ
+       this->onMovingEnd();
+       _onMovingEndCalling = true;
+   }
+}
+
+void FieldPanels::onMovingEnd(){
+    this->save();
 }
