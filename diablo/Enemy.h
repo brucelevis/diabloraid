@@ -28,7 +28,7 @@ class Enemy : public PanelSprite
     CCLabelTTF* shieldStatusLabel;  //攻撃力の表示
     bool _isEnemy;
 public:
-    static Enemy* createWithSpriteFrameName(const char *pszSpriteFrameName, EnemyMaster* enemy);
+    static Enemy* createWithEnemyMaster(EnemyMaster* enemy);
     bool isEnemy();
     void attack(Player* player); //Playerも攻撃対象とかの抽象クラスにするかもね。
     void setRemoved(Player* player);

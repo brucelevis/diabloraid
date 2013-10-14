@@ -45,6 +45,7 @@ public:
     bool isSamePanel(std::string panelName);
     bool isNextPanel(PanelSprite* panel);
     bool isActiveOnlyOnePanel();
+    void setCanExistNum(int v);
     virtual bool canBeAdded(int num); //現在の数を渡して存在出来るかチェックする。
     virtual bool isEnemy();
     virtual void setRemoved(Player* player);

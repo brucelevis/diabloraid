@@ -31,6 +31,14 @@ int EnemyMaster::getId(){
     return _id;
 }
 
+void EnemyMaster::setMaxExistsNum(int v){
+    _maxExistsNum = v;
+}
+
+int EnemyMaster::getMaxExistsNum(){
+    return _maxExistsNum;
+}
+
 EnemyMaster* EnemyMaster::getById(int v){
     EnemyMaster *enemy = new EnemyMaster(v);
     return enemy;

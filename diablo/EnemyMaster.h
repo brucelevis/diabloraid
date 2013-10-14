@@ -21,8 +21,11 @@ class EnemyMaster{
     int _attack;
     int _def;
     int _exp;
+    int _maxExistsNum;
 public:
     static EnemyMaster* getById(int v);
+    void setMaxExistsNum(int v);
+    int getMaxExistsNum();
     std::string getName();
     int getId();
     int getHp();

@@ -78,6 +78,10 @@ bool PanelSprite::canBeAdded(int num){
     return true;
 }
 
+void PanelSprite::setCanExistNum(int v){
+    _canExistNum = v;
+}
+
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){
     PanelSprite* sprite = new PanelSprite();
     

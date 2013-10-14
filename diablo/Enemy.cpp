@@ -17,11 +17,15 @@ Enemy::Enemy(EnemyMaster* enemy){
     exp = enemy->getExp();
 }
 
-Enemy* Enemy::createWithSpriteFrameName(const char *pszSpriteFrameName, EnemyMaster* enemy){
+Enemy* Enemy::createWithEnemyMaster(EnemyMaster* enemy){
     Enemy* sprite = new Enemy(enemy);
+    
+    const char *pszSpriteFrameName = enemy->getName().c_str();
     
     sprite->_panelName = pszSpriteFrameName;
     if(sprite && sprite->initWithSpriteFrameName((sprite->_panelName + ".png").c_str())){
+        
+        sprite->setCanExistNum(enemy->getMaxExistsNum());
         sprite->currentHpLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->hp->getCurrentHp())->getCString(), "arial", 10);
         sprite->currentHpLabel->setPosition(ccp(48, 0));
         sprite->addChild(sprite->currentHpLabel);
