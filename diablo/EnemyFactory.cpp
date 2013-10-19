@@ -33,6 +33,5 @@ EnemyData* EnemyFactory::createEnemy(Floor* floor){
     EnemyMaster* enemy = EnemyMaster::getById(enemyId);
     enemy->setMaxExistsNum(maxExistsNum);
     EnemyData* enemyData = EnemyData::create(enemy);
-    CCLOG("id:%d, enemyId:%d, currentHp:%d", enemyData->id, enemyData->enemyId, enemyData->currentHp);
     return enemyData;
 }

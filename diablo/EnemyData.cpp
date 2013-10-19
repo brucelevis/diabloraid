@@ -28,3 +28,15 @@ EnemyData::EnemyData(map<string, string> entity){
     enemyId   = atoi(entity["enemyId"].c_str());
     currentHp = atoi(entity["currentHp"].c_str());
 }
+
+int EnemyData::getId(){
+    return id;
+}
+
+int EnemyData::getEnemyId(){
+    return enemyId;
+}
+
+int EnemyData::getCurrentHp(){
+    return currentHp;
+}

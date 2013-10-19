@@ -212,10 +212,14 @@ void FieldPanels::decreaseCount(PanelSprite* panel){
     }
 }
 
+void FieldPanels::loadPanels(FieldModel *fieldModel){
+    
+    
+}
+
 PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY){
     PanelSprite* pSprite = PanelSpriteFactory::createWithFloor(floor);
     
-    //追加出来ないパネルだったら。
     float size = PANEL_SIZE * PANEL_SCALE;
     float scale = PANEL_SCALE;
     if(!pSprite->canBeAdded(this->getCurrentPanelNum(pSprite))){
@@ -252,7 +256,7 @@ void FieldPanels::save(){
         CCPoint pos = pSprite->getPosition();
         int x = (int) (pos.x / size);
         int y = (int) ((pos.y - OFFSET_Y) /size );
-        CCLOG("(x,y) = (%d, %d)", x, y);
+        _fieldModel->set(x, y, pSprite->getId());
     }
 }
 

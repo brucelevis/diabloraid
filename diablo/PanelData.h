@@ -19,9 +19,11 @@ private:
     static int seqId;
     int getSeqId();
     int typeInstanceId;
-public:
     int id;
     int type;
+public:
+    int getId();
+    int getType();
     int getTypeInstanceId();
     static PanelData* create(int type, int typeInstanceId);
     PanelData(map<string, string> entity);

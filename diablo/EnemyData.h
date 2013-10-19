@@ -19,10 +19,13 @@ class EnemyData{
 private:
     static int seqId;
     int getSeqId();
-public:
     int id;
     int enemyId;
     int currentHp;
+public:
+    int getId();
+    int getEnemyId();
+    int getCurrentHp();
     EnemyMaster* master;
     static EnemyData* create(EnemyMaster* enemy);
     EnemyData(map<string, string> entity);

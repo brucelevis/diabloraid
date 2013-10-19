@@ -142,6 +142,14 @@ void PanelSprite::setSize(float size){
     _size = size;
 }
 
+void PanelSprite::setPanelData(PanelData* panelData){
+    _panelData = panelData;
+}
+
+int PanelSprite::getId(){
+    return _panelData->getId();
+}
+
 void PanelSprite::_switchOn(bool isOn){
     std::string frameName;
     if(isOn){

@@ -12,10 +12,12 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "Player.h"
+#include "PanelData.h"
 using namespace cocos2d;
 
 class PanelSprite : public cocos2d::CCSprite
 {
+    PanelData* _panelData;
     float _deltaY;
     float _velocity;
     bool _isOn; //on状態か
@@ -41,6 +43,10 @@ public:
     std::string getPanelName();
     int getConnectType();
     void setSize(float size); //サイズをsetする。
+    void setPanelData(PanelData* panelData);
+    
+    int getId();
+    
     bool isConnectable(PanelSprite* panel); //自身のconnectTypeと比較して、つながるかどうかチェック
     bool isSamePanel(std::string panelName);
     bool isNextPanel(PanelSprite* panel);

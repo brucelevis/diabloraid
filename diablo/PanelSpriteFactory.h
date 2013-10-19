@@ -14,6 +14,7 @@
 #include "EnemyFactory.h"
 #include "Enemy.h"
 #include "EnemyData.h"
+#include "PanelData.h"
 #include "Potion.h"
 #include "Coin.h"
 #include "Sword.h"

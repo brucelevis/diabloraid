@@ -25,3 +25,15 @@ PanelData::PanelData(map<string, string> entity){
     type           = atoi(entity["type"].c_str());
     typeInstanceId = atoi(entity["typeInstanceId"].c_str());
 }
+
+int PanelData::getId(){
+    return id;
+}
+
+int PanelData::getType(){
+    return type;
+}
+
+int PanelData::getTypeInstanceId(){
+    return typeInstanceId;
+}
