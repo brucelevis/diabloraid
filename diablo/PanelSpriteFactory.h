@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include "PanelSprite.h"
+#include "ModelManager.h"
+#include "PanelDataManager.h"
 #include "EnemyFactory.h"
 #include "Enemy.h"
 #include "EnemyData.h"

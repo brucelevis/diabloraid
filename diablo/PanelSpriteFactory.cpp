@@ -46,6 +46,10 @@ PanelSprite* PanelSpriteFactory::createWithFloor(Floor* floor){
         pSprite = PanelSprite::createWithSpriteFrameName(panelName.c_str());
     }
     PanelData* panelData = PanelData::create(type, typeInstanceId);
+    ModelManager* modelManager = ModelManager::getInstance();
+    PanelDataManager* panelDataManager =(PanelDataManager*) modelManager->getModel("PanelData");
+    panelDataManager->add(panelData);
+    
     CCLOG("panelData: id:%d, type: %d, typeInstanceId: %d", panelData->getId(), panelData->getType(), panelData->getTypeInstanceId());
     //そもそもpanelDataから生成するようにしたいところ
     pSprite->setPanelData(panelData);

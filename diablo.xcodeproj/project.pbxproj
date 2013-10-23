@@ -11,6 +11,9 @@
 		25002EFA180BABBA00114AE3 /* EnemyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002EF8180BABBA00114AE3 /* EnemyData.cpp */; };
 		25002F15180BBA9900114AE3 /* PanelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F13180BBA9900114AE3 /* PanelData.cpp */; };
 		25002F18180BBD9300114AE3 /* PanelSpriteFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F16180BBD9300114AE3 /* PanelSpriteFactory.cpp */; };
+		25002F8B1813D01000114AE3 /* ModelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F891813D01000114AE3 /* ModelManager.cpp */; };
+		25002F8E1813D01900114AE3 /* ModelInstanceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F8C1813D01900114AE3 /* ModelInstanceManager.cpp */; };
+		25002F951813D12E00114AE3 /* PanelDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F931813D12E00114AE3 /* PanelDataManager.cpp */; };
 		250557A517DB837400D85441 /* Shield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A317DB837400D85441 /* Shield.cpp */; };
 		250557A817DB842700D85441 /* Coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A617DB842700D85441 /* Coin.cpp */; };
 		250557AB17DB84A400D85441 /* Sword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A917DB84A400D85441 /* Sword.cpp */; };
@@ -296,6 +299,12 @@
 		25002F14180BBA9900114AE3 /* PanelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelData.h; sourceTree = "<group>"; };
 		25002F16180BBD9300114AE3 /* PanelSpriteFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PanelSpriteFactory.cpp; sourceTree = "<group>"; };
 		25002F17180BBD9300114AE3 /* PanelSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelSpriteFactory.h; sourceTree = "<group>"; };
+		25002F891813D01000114AE3 /* ModelManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelManager.cpp; sourceTree = "<group>"; };
+		25002F8A1813D01000114AE3 /* ModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelManager.h; sourceTree = "<group>"; };
+		25002F8C1813D01900114AE3 /* ModelInstanceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelInstanceManager.cpp; sourceTree = "<group>"; };
+		25002F8D1813D01900114AE3 /* ModelInstanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelInstanceManager.h; sourceTree = "<group>"; };
+		25002F931813D12E00114AE3 /* PanelDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PanelDataManager.cpp; sourceTree = "<group>"; };
+		25002F941813D12E00114AE3 /* PanelDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelDataManager.h; sourceTree = "<group>"; };
 		250557A317DB837400D85441 /* Shield.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shield.cpp; sourceTree = "<group>"; };
 		250557A417DB837400D85441 /* Shield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shield.h; sourceTree = "<group>"; };
 		250557A617DB842700D85441 /* Coin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Coin.cpp; sourceTree = "<group>"; };
@@ -887,6 +896,19 @@
 			name = master;
 			sourceTree = "<group>";
 		};
+		25002F921813D03100114AE3 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				25002F891813D01000114AE3 /* ModelManager.cpp */,
+				25002F8A1813D01000114AE3 /* ModelManager.h */,
+				25002F8C1813D01900114AE3 /* ModelInstanceManager.cpp */,
+				25002F8D1813D01900114AE3 /* ModelInstanceManager.h */,
+				25002F931813D12E00114AE3 /* PanelDataManager.cpp */,
+				25002F941813D12E00114AE3 /* PanelDataManager.h */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
 		250557AE17DC562100D85441 /* status */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +1008,7 @@
 		256C087017E0C632007A6D01 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				25002F921813D03100114AE3 /* manager */,
 				25002EF4180BA88100114AE3 /* master */,
 				256AFE7517FBED8B00261B7B /* user */,
 				256C087417E0C68F007A6D01 /* BaseModel.cpp */,
@@ -2135,6 +2158,7 @@
 				25B2FDF017BF4512008E4D34 /* CCScene.cpp in Sources */,
 				25B2FDF317BF4512008E4D34 /* CCTransition.cpp in Sources */,
 				25B2FDF617BF4512008E4D34 /* CCTransitionPageTurn.cpp in Sources */,
+				25002F8E1813D01900114AE3 /* ModelInstanceManager.cpp in Sources */,
 				25B2FDF917BF4512008E4D34 /* CCTransitionProgress.cpp in Sources */,
 				25B2FDFD17BF4512008E4D34 /* CCMenu.cpp in Sources */,
 				25B2FE0017BF4512008E4D34 /* CCMenuItem.cpp in Sources */,
@@ -2160,6 +2184,7 @@
 				25B2FE4417BF4513008E4D34 /* CCLock.cpp in Sources */,
 				25B2FE4917BF4513008E4D34 /* CCThread.mm in Sources */,
 				25B2FE4C17BF4513008E4D34 /* EAGLView.mm in Sources */,
+				25002F951813D12E00114AE3 /* PanelDataManager.cpp in Sources */,
 				25B2FE5117BF4513008E4D34 /* AccelerometerSimulation.m in Sources */,
 				25B2FE5317BF4513008E4D34 /* platform.cpp in Sources */,
 				25B2FE6717BF4514008E4D34 /* CCScriptSupport.cpp in Sources */,
@@ -2212,6 +2237,7 @@
 				25B2FF0717BF4515008E4D34 /* SimpleAudioEngine.mm in Sources */,
 				25B2FF0A17BF4515008E4D34 /* SimpleAudioEngine_objc.m in Sources */,
 				25B2FF0E17BF4515008E4D34 /* CCBAnimationManager.cpp in Sources */,
+				25002F8B1813D01000114AE3 /* ModelManager.cpp in Sources */,
 				25B2FF1117BF4515008E4D34 /* CCBFileLoader.cpp in Sources */,
 				25B2FF1417BF4515008E4D34 /* CCBKeyframe.cpp in Sources */,
 				25B2FF1817BF4515008E4D34 /* CCBReader.cpp in Sources */,
