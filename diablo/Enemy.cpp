@@ -45,6 +45,12 @@ Enemy* Enemy::createWithEnemyMaster(EnemyMaster* enemy){
     return NULL;
 }
 
+Enemy* Enemy::createWithEnemyData(EnemyData *enemyData){
+    Enemy* sprite = createWithEnemyMaster(enemyData->master);
+    sprite->hp->setCurrentHp(enemyData->getCurrentHp());
+    return sprite;
+}
+
 //このタイミングでダメージを与える。
 void Enemy::actionGotoRemoved(Player* player){
     hp->reduce(player->getTotalDamage());

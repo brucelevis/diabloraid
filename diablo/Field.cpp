@@ -24,8 +24,10 @@ Field::~Field(void){
 
 
 void Field::createInitialField(){
-    _panels = (FieldPanels*) FieldPanels::create();
     _floor = new Floor(1); //スタートは1から。
+    FloorFieldModel* floorFieldModel = FloorField::createInitialFloor(_floor);
+    
+    _panels = (FieldPanels*) FieldPanels::createWithFieldModel(floorFieldModel->getByIndex(0,0));// とりあえず、0,0をロードする。
     _panels->initialize((CCNode*) this, _floor);
     _panels->retain();
 }

@@ -14,6 +14,8 @@
 #include "Floor.h"
 #include "PanelSpriteFactory.h"
 #include "FieldModel.h"
+#include "ModelManager.h"
+#include "PanelDataManager.h"
 
 class FieldPanels : public CCArray{
     const float PANEL_SIZE = 64;
@@ -25,15 +27,17 @@ class FieldPanels : public CCArray{
     bool _moveState;
     bool _onMovingEndCalling = false;
     PanelSprite* createPanel(Floor* floor, int indexX, int indexY);
+    PanelSprite* loadPanel(int indexX, int indexY);
 public:
     static CCArray* create();
+    static CCArray* createWithFieldModel(FieldModel* fieldModel);
+    
     void initialize(CCNode* parentNode, Floor* floor); //明示的に初期化処理を呼ぶ。
     void add(PanelSprite* panel); //パネルを追加する。
     void remove(int index); //inexのパネルを消す。
     void addCount(PanelSprite* panel);
     void decreaseCount(PanelSprite* panel);
     int getCurrentPanelNum(PanelSprite* panel);
-    void loadPanels(FieldModel* fieldModel);
     void removePanels();
     void removeAllPanels();
     void restockPanel(CCNode* parentNode, Floor* floor);
@@ -46,7 +50,7 @@ public:
     void save();
     void update();
     void onMovingEnd();
-    FieldPanels();
+    FieldPanels(FieldModel* fieldModel);
     ~FieldPanels();
 };
 

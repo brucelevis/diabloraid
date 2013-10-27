@@ -12,10 +12,13 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "PanelSprite.h"
+#include "FieldModel.h"
 #include "Player.h"
 #include "TouchedPanels.h"
 #include "FieldPanels.h"
 #include "Floor.h"
+#include "FloorField.h"
+#include "FloorFieldModel.h"
 using namespace cocos2d;
 
 class Field : CCNode {

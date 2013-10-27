@@ -28,11 +28,12 @@ ModelInstanceManager* ModelManager::getModel(std::string name){
     ModelInstanceManager* model;
     if(name == "PanelData"){
         model = (PanelDataManager*) new PanelDataManager();
-        this->append(model);
+    } else if(name == "EnemyData"){
+        model = (EnemyDataManager*) new EnemyDataManager();
     } else {
         model = (ModelInstanceManager*) new ModelInstanceManager();
-        this->append(model);
     }
+    this->append(model);
     return model;
 }
 

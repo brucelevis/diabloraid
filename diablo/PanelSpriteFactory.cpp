@@ -10,34 +10,28 @@
 
 PanelSprite* PanelSpriteFactory::createWithFloor(Floor* floor){
     int panelType = floor->createPanel();
-    std::string panelName = ((CCString*) FieldModel::convertToPanelName(panelType))->getCString();
+    std::string panelName = ((CCString*) convertToPanelName(panelType))->getCString();
     
     PanelSprite* pSprite;
-    int type; //とりま。
+    int type = panelType; //とりま。
     int typeInstanceId; //とりま。
     if(panelName == "enemy"){
-        type = 1;
         EnemyData* enemy = EnemyFactory::createEnemy(floor);
         typeInstanceId = enemy->getId();
         pSprite = Enemy::createWithEnemyMaster(enemy->master);
     } else if(panelName == "potion"){
-        type = 4;
         typeInstanceId = 0;
         pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "sword"){
-        type = 3;
         typeInstanceId = 0;
         pSprite = Sword::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "coin"){
-        type = 0;
         typeInstanceId = 0;
         pSprite = Coin::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "shield"){
-        type = 2;
         typeInstanceId = 0;
         pSprite = Shield::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "kaidan"){
-        type = 5;
         typeInstanceId = 0;
         pSprite = Stair::createWithSpriteFrameName(panelName.c_str());
     } else {
@@ -56,3 +50,88 @@ PanelSprite* PanelSpriteFactory::createWithFloor(Floor* floor){
     
     return pSprite;
 }
+
+PanelData* PanelSpriteFactory::createPanelDataWithFloor(Floor *floor){
+    int panelType = floor->createPanel();
+    std::string panelName = ((CCString*) convertToPanelName(panelType))->getCString();
+    ModelManager* modelManager = ModelManager::getInstance();
+    
+    int type = panelType; //とりま。
+    int typeInstanceId = 0; //とりま。
+    if(panelName == "enemy"){
+        EnemyData* enemy = EnemyFactory::createEnemy(floor);
+        EnemyDataManager* enemyDataManager = (EnemyDataManager*) modelManager->getModel("EnemyData");
+        enemyDataManager->add(enemy);
+        typeInstanceId = enemy->getId();
+    }
+    
+    PanelData* panelData = PanelData::create(type, typeInstanceId);
+    PanelDataManager* panelDataManager =(PanelDataManager*) modelManager->getModel("PanelData");
+    panelDataManager->add(panelData);
+    return panelData;
+}
+
+PanelSprite* PanelSpriteFactory::createByPanelData(PanelData* panelData){
+    int type = panelData->getType();
+    std::string panelName = ((CCString*) convertToPanelName(type))->getCString();
+    PanelSprite *pSprite;
+    switch (type) {
+        case -1:
+            pSprite = PanelSprite::createWithSpriteFrameName(panelName.c_str());
+            break;
+        case 0:
+            pSprite = Coin::createWithSpriteFrameName(panelName.c_str());
+            break;
+        case 1:
+            {
+                ModelManager* modelManager = ModelManager::getInstance();
+                EnemyDataManager* enemyDataManager = (EnemyDataManager*) modelManager->getModel("EnemyData");
+                EnemyData* enemyData = enemyDataManager->getByPrimaryKey(panelData->getTypeInstanceId());
+                pSprite = Enemy::createWithEnemyData(enemyData);
+            }
+            break;
+        case 2:
+            pSprite = Shield::createWithSpriteFrameName(panelName.c_str());
+            break;
+        case 3:
+            pSprite = Sword::createWithSpriteFrameName(panelName.c_str());
+            break;
+        case 4:
+            pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
+            break;
+        case 5:
+            pSprite = Stair::createWithSpriteFrameName(panelName.c_str());
+            break;
+        default:
+            break;
+    }
+    pSprite->setPanelData(panelData);
+    return pSprite;
+}
+
+CCString* PanelSpriteFactory::convertToPanelName(int panelType){
+    CCDictionary* _panelNameMap = CCDictionary::create();
+
+    _panelNameMap->setObject((CCObject*) new CCString("coin"), 0);
+    _panelNameMap->setObject((CCObject*) new CCString("enemy"), 1);
+    _panelNameMap->setObject((CCObject*) new CCString("shield"), 2);
+    _panelNameMap->setObject((CCObject*) new CCString("sword"), 3);
+    _panelNameMap->setObject((CCObject*) new CCString("potion"), 4);
+    _panelNameMap->setObject((CCObject*) new CCString("kaidan"), 5);
+    _panelNameMap->setObject((CCObject*) new CCString(""), -1);
+    return (CCString*) _panelNameMap->objectForKey(panelType);
+}
+
+int PanelSpriteFactory::convertToPanelType(std::string panelName){
+    CCDictionary* _panelNameMap = CCDictionary::create();
+
+    _panelNameMap->setObject((CCObject*) new CCInteger(0), "coin");
+    _panelNameMap->setObject((CCObject*) new CCInteger(1), "enemy");
+    _panelNameMap->setObject((CCObject*) new CCInteger(2), "shield");
+    _panelNameMap->setObject((CCObject*) new CCInteger(3), "sword");
+    _panelNameMap->setObject((CCObject*) new CCInteger(4), "potion");
+    _panelNameMap->setObject((CCObject*) new CCInteger(5), "kaidan");
+    _panelNameMap->setObject((CCObject*) new CCInteger(-1), "");
+    return ((CCInteger*) _panelNameMap->objectForKey(panelName))->getValue();
+}
+

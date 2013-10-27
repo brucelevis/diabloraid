@@ -13,6 +13,7 @@
 #include "PanelSprite.h"
 #include "ModelManager.h"
 #include "PanelDataManager.h"
+#include "EnemyDataManager.h"
 #include "EnemyFactory.h"
 #include "Enemy.h"
 #include "EnemyData.h"
@@ -23,11 +24,14 @@
 #include "Shield.h"
 #include "Stair.h"
 #include "Floor.h"
-#include "FieldModel.h"
 
 class PanelSpriteFactory {
 public:
     static PanelSprite* createWithFloor(Floor* floor);
+    static PanelData* createPanelDataWithFloor(Floor* floor); //データを生成する。
+    static PanelSprite* createByPanelData(PanelData* panelData);
+    static CCString* convertToPanelName(int panelType);
+    static int convertToPanelType(std::string panelName);
 };
 
 #endif /* defined(__diablo__PanelSpriteFactory__) */

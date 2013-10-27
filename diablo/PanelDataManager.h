@@ -11,8 +11,8 @@
 
 #include <iostream>
 #include "ModelInstanceManager.h"
-#include "cocos2d.h"
 #include "PanelData.h"
+#include "cocos2d.h"
 #include "Util.h"
 using namespace cocos2d;
 

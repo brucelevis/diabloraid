@@ -16,6 +16,7 @@
 #include "BaseDamage.h"
 #include "ShieldStatus.h"
 #include "EnemyMaster.h"
+#include "EnemyData.h"
 
 class Enemy : public PanelSprite
 {
@@ -29,6 +30,7 @@ class Enemy : public PanelSprite
     bool _isEnemy;
 public:
     static Enemy* createWithEnemyMaster(EnemyMaster* enemy);
+    static Enemy* createWithEnemyData(EnemyData* enemyData);
     bool isEnemy();
     void attack(Player* player); //Playerも攻撃対象とかの抽象クラスにするかもね。
     void setRemoved(Player* player);

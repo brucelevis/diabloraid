@@ -18,14 +18,11 @@
 using namespace cocos2d;
 
 class FieldModel : public CCDictionary{
-    int WIDTH  = 5; //Fieldの横幅
-    int HEIGHT = 5; //Fieldの縦幅
 public:
+    static int getWidth();
+    static int getHeight();
     static FieldModel* create();
-    static CCString* convertToPanelName(int panelType);
-    static int convertToPanelType(std::string panelName);
     int get(int x, int y);
-    CCString* getPanelName(int x, int y);
     void set(int x, int y, int panelId);
     void setMockData();
     FieldModel();

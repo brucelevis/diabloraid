@@ -7,11 +7,10 @@
 //
 
 #include "FieldPanels.h"
-FieldPanels::FieldPanels(){
+FieldPanels::FieldPanels(FieldModel* _fieldModel){
     _removedPanels = CCArray::create();
     _removedPanels->retain();
-    _fieldModel = FieldModel::create();
-    _fieldModel->retain();
+    this->_fieldModel = _fieldModel;
 }
 
 FieldPanels::~FieldPanels(){
@@ -33,7 +32,7 @@ void FieldPanels::initialize(CCNode* parentNode, Floor* floor){
     _panelCount->retain();
    for(int i = 0; i <= 5; i++){
        for( int j = 0; j <= 5; j++){
-            PanelSprite* pSprite = this->createPanel(floor, i, j);
+            PanelSprite* pSprite = this->loadPanel(i, j);
             // add the sprite as a child to this layer
             this->add(pSprite);
             parentNode->addChild(pSprite);
@@ -167,8 +166,25 @@ bool FieldPanels::isMoving(){
 }
 
 CCArray* FieldPanels::create(){
-    CCArray* pArray = (CCArray*) new FieldPanels();
+    FieldModel* _fieldModel = FieldModel::create();
+    _fieldModel->retain();
+    CCArray* pArray = (CCArray*) new FieldPanels(_fieldModel);
     
+    if (pArray && pArray->init())
+    {
+        pArray->autorelease();
+    }
+    else
+    {
+        CC_SAFE_DELETE(pArray);
+    }
+    
+    return pArray;
+}
+
+CCArray* FieldPanels::createWithFieldModel(FieldModel *fieldModel){
+    CCArray* pArray = (CCArray*) new FieldPanels(fieldModel);
+  
     if (pArray && pArray->init())
     {
         pArray->autorelease();
@@ -212,21 +228,35 @@ void FieldPanels::decreaseCount(PanelSprite* panel){
     }
 }
 
-void FieldPanels::loadPanels(FieldModel *fieldModel){
-    
-    
-}
-
 PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY){
     PanelSprite* pSprite = PanelSpriteFactory::createWithFloor(floor);
     
-    float size = PANEL_SIZE * PANEL_SCALE;
-    float scale = PANEL_SCALE;
     if(!pSprite->canBeAdded(this->getCurrentPanelNum(pSprite))){
         pSprite->release();
         return this->createPanel(floor, indexX, indexY);
     }
     
+    float size = PANEL_SIZE * PANEL_SCALE;
+    float scale = PANEL_SCALE;
+    pSprite->setSize(size);
+    pSprite->setContentSize(CCSize(size,size));
+    pSprite->setScale(scale);
+    // position the sprite on the center of the screen
+    pSprite->setPosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
+    pSprite->update();
+    return pSprite;
+}
+
+PanelSprite* FieldPanels::loadPanel(int indexX, int indexY){
+    int id = _fieldModel->get(indexX, indexY);
+    ModelManager* modelManager = ModelManager::getInstance();
+    PanelDataManager* panelDataManager =(PanelDataManager*) modelManager->getModel("PanelData");
+    PanelData* panelData = panelDataManager->getByPrimaryKey(id);
+    
+    PanelSprite* pSprite = PanelSpriteFactory::createByPanelData(panelData);
+    
+    float size = PANEL_SIZE * PANEL_SCALE;
+    float scale = PANEL_SCALE;
     pSprite->setSize(size);
     pSprite->setContentSize(CCSize(size,size));
     pSprite->setScale(scale);

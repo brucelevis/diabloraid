@@ -14,6 +14,7 @@
 #include <map>
 #include "ModelInstanceManager.h"
 #include "PanelDataManager.h"
+#include "EnemyDataManager.h"
 using namespace std;
 
 class ModelManager {
