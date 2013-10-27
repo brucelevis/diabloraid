@@ -114,8 +114,13 @@ bool MainGameScene::init()
     
     _player = new Player();
     
-    _field = new Field(_player);
+    _camera = new Camera(ccp(0,0), CCRectMake(0, 96, 318, 318));
+    
+    Floor* floor = new Floor(1);
+    FloorFieldModel* floorFieldModel = FloorField::createInitialFloor(floor);
+    _field = new Field(_player, _camera, floor, floorFieldModel);
     this->addChild((CCNode*) _field);
+    
     _equipmentList = _player->getEquipmentList();
     _events = (Events*) Events::create();
     _events->retain();

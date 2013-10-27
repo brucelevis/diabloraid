@@ -11,6 +11,9 @@
 #include "Events.h"
 #include "EquipmentList.h"
 #include "PlayerStatusLayer.h"
+#include "Floor.h"
+#include "FloorField.h"
+#include "Camera.h"
 using namespace cocos2d;
 class TurnManager;
 
@@ -18,6 +21,7 @@ class MainGameScene : public cocos2d::CCLayer
 {
     Field *_field;
     Player* _player;
+    Camera* _camera;
     bool _touching;
     bool _onTurn;
     EquipmentList* _equipmentList;

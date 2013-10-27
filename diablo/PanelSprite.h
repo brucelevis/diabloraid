@@ -21,7 +21,9 @@ class PanelSprite : public cocos2d::CCSprite
     float _deltaY;
     float _velocity;
     bool _isOn; //on状態か
+    bool _isVisible;
     bool _isEnemy;
+    bool isTouchable;
     void _switchOn(bool isOn);
     int _canExistNum;
     CCDictionary* _displayedDirection;
@@ -46,6 +48,10 @@ public:
     void setPanelData(PanelData* panelData);
     
     int getId();
+    
+    CCRect getRect();
+    
+    void setActiveState(bool isActiveState);
     
     bool isConnectable(PanelSprite* panel); //自身のconnectTypeと比較して、つながるかどうかチェック
     bool isSamePanel(std::string panelName);

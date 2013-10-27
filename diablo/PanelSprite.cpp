@@ -150,6 +150,10 @@ int PanelSprite::getId(){
     return _panelData->getId();
 }
 
+CCRect PanelSprite::getRect(){
+    return CCRectMake(this->getPositionX() - _size / 2, this->getPositionY() - _size / 2, _size, _size);
+}
+
 void PanelSprite::_switchOn(bool isOn){
     std::string frameName;
     if(isOn){
@@ -300,5 +304,19 @@ bool PanelSprite::move(){
 
 //タッチ領域の取得
 CCRect PanelSprite::getTouchRect(){
-    return _touchRect;
+    if(this->isTouchable){
+        return _touchRect;
+    } else {
+        return CCRectMake(0,0,0,0);
+    }
+}
+
+void PanelSprite::setActiveState(bool isActiveState){
+    if(isActiveState){
+        this->setVisible(true);
+        this->isTouchable = true;
+    } else {
+        this->setVisible(false);
+        this->isTouchable = false;
+    }
 }

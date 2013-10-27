@@ -17,8 +17,8 @@
 #include "TouchedPanels.h"
 #include "FieldPanels.h"
 #include "Floor.h"
-#include "FloorField.h"
 #include "FloorFieldModel.h"
+#include "Camera.h"
 using namespace cocos2d;
 
 class Field : CCNode {
@@ -31,10 +31,10 @@ class Field : CCNode {
     std::string _touchedPanelName;
     PanelSprite* _connectPanel;
 public:
-    Field(Player* player);
+    Field(Player* player, Camera* camera, Floor* floor, FloorFieldModel* floorFieldModel);
     ~Field(void);
     
-    void createInitialField();
+    void createInitialField(FloorFieldModel* floorFieldModel, Camera* camera);
     void removeAllPanels();
     CCArray* getPanels();
     TouchedPanels* getWillBeRemovedPanel(); //今回消えるパネルを取得する。

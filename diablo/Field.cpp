@@ -11,23 +11,21 @@
 #include "EnemyMaster.h"
 #include <math.h>
 
-Field::Field(Player* player){
+Field::Field(Player* player, Camera* camera, Floor* floor, FloorFieldModel* floorFieldModel){
     this->_player = player;
+    this->_floor = floor;
     this->_connectPanel = NULL; //初期化
     this->_touchedPanels = (TouchedPanels*) TouchedPanels::create();
     this->_touchedPanels->retain();
-    this->createInitialField();
+    this->createInitialField(floorFieldModel, camera);
 }
 
 Field::~Field(void){
 }
 
 
-void Field::createInitialField(){
-    _floor = new Floor(1); //スタートは1から。
-    FloorFieldModel* floorFieldModel = FloorField::createInitialFloor(_floor);
-    
-    _panels = (FieldPanels*) FieldPanels::createWithFieldModel(floorFieldModel->getByIndex(0,0));// とりあえず、0,0をロードする。
+void Field::createInitialField(FloorFieldModel* floorFieldModel, Camera* camera){
+    _panels = (FieldPanels*) FieldPanels::createWithFieldModel(floorFieldModel->getByIndex(0, 0), camera);// とりあえず、0,0をロードする。
     _panels->initialize((CCNode*) this, _floor);
     _panels->retain();
 }

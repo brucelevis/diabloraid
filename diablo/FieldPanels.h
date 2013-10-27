@@ -16,12 +16,14 @@
 #include "FieldModel.h"
 #include "ModelManager.h"
 #include "PanelDataManager.h"
+#include "Camera.h"
 
 class FieldPanels : public CCArray{
     const float PANEL_SIZE = 64;
     const float PANEL_SCALE = 0.8;
-    const float OFFSET_Y = 96;
+    const float OFFSET_Y = 96; //後でもっと上に持っていく。
     CCDictionary* _panelCount; //パネルの種類ごとにパネルをカウントする。
+    Camera* camera;
     FieldModel* _fieldModel;
     CCArray* _removedPanels;
     bool _moveState;
@@ -30,7 +32,7 @@ class FieldPanels : public CCArray{
     PanelSprite* loadPanel(int indexX, int indexY);
 public:
     static CCArray* create();
-    static CCArray* createWithFieldModel(FieldModel* fieldModel);
+    static CCArray* createWithFieldModel(FieldModel* fieldModel, Camera* camera);
     
     void initialize(CCNode* parentNode, Floor* floor); //明示的に初期化処理を呼ぶ。
     void add(PanelSprite* panel); //パネルを追加する。
@@ -41,6 +43,7 @@ public:
     void removePanels();
     void removeAllPanels();
     void restockPanel(CCNode* parentNode, Floor* floor);
+    void switchActiveState(); // cameraの表示領域に応じて active stateをon/offする。
     void setMoves();
     void movePanels();
     bool isMoving();
@@ -50,7 +53,7 @@ public:
     void save();
     void update();
     void onMovingEnd();
-    FieldPanels(FieldModel* fieldModel);
+    FieldPanels(FieldModel* fieldModel, Camera* camera);
     ~FieldPanels();
 };
 

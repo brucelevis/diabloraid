@@ -7,9 +7,10 @@
 //
 
 #include "FieldPanels.h"
-FieldPanels::FieldPanels(FieldModel* _fieldModel){
+FieldPanels::FieldPanels(FieldModel* _fieldModel, Camera* camera){
     _removedPanels = CCArray::create();
     _removedPanels->retain();
+    this->camera  = camera;
     this->_fieldModel = _fieldModel;
 }
 
@@ -165,25 +166,8 @@ bool FieldPanels::isMoving(){
     return _moveState;
 }
 
-CCArray* FieldPanels::create(){
-    FieldModel* _fieldModel = FieldModel::create();
-    _fieldModel->retain();
-    CCArray* pArray = (CCArray*) new FieldPanels(_fieldModel);
-    
-    if (pArray && pArray->init())
-    {
-        pArray->autorelease();
-    }
-    else
-    {
-        CC_SAFE_DELETE(pArray);
-    }
-    
-    return pArray;
-}
-
-CCArray* FieldPanels::createWithFieldModel(FieldModel *fieldModel){
-    CCArray* pArray = (CCArray*) new FieldPanels(fieldModel);
+CCArray* FieldPanels::createWithFieldModel(FieldModel *fieldModel, Camera* camera){
+    CCArray* pArray = (CCArray*) new FieldPanels(fieldModel, camera);
   
     if (pArray && pArray->init())
     {
@@ -296,6 +280,7 @@ void FieldPanels::setRemovedPanel(CCPoint* point){
 }
 
 void FieldPanels::update(){
+   this->switchActiveState();
    if(!this->isMoving() && !_onMovingEndCalling){
        //最初の一回だけ呼ぶ
        this->onMovingEnd();
@@ -305,4 +290,17 @@ void FieldPanels::update(){
 
 void FieldPanels::onMovingEnd(){
     this->save();
+}
+
+void FieldPanels::switchActiveState(){
+    PanelSprite* pSprite;
+    CCObject* targetObject;
+    CCARRAY_FOREACH(this, targetObject){
+        pSprite = (PanelSprite*) targetObject;
+        if(this->camera->intersectsRect(pSprite)){
+            pSprite->setActiveState(true);
+        } else {
+            pSprite->setActiveState(false);
+        }//cameraの中にあれば、visibleにする。
+    }
 }
