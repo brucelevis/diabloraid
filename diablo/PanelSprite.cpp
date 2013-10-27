@@ -82,6 +82,10 @@ void PanelSprite::setCanExistNum(int v){
     _canExistNum = v;
 }
 
+void PanelSprite::setCameraPos(CCPoint* cameraPos){
+    this->cameraPos = cameraPos;
+}
+
 PanelSprite* PanelSprite::createWithSpriteFrameName(const char *pszSpriteFrameName){
     PanelSprite* sprite = new PanelSprite();
     
@@ -151,7 +155,7 @@ int PanelSprite::getId(){
 }
 
 CCRect PanelSprite::getRect(){
-    return CCRectMake(this->getPositionX() - _size / 2, this->getPositionY() - _size / 2, _size, _size);
+    return CCRectMake(this->getPositionX() - _size / 2 + cameraPos->x, this->getPositionY() - _size / 2 + cameraPos->y, _size, _size);
 }
 
 void PanelSprite::_switchOn(bool isOn){
@@ -315,8 +319,10 @@ void PanelSprite::setActiveState(bool isActiveState){
     if(isActiveState){
         this->setVisible(true);
         this->isTouchable = true;
+        this->_isActive = true;
     } else {
         this->setVisible(false);
         this->isTouchable = false;
+        this->_isActive = false;
     }
 }

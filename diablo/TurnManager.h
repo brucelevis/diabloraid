@@ -14,6 +14,7 @@
 #include "Field.h"
 #include "Player.h"
 #include "MainGameScene.h"
+#include "Camera.h"
 
 using namespace cocos2d;
 class MainGameScene;
@@ -22,9 +23,10 @@ class TurnManager {
     int *_turn;
     Field* _field;
     Player* _player;
+    Camera* _camera;
     MainGameScene* _layer;
 public:
-    TurnManager(MainGameScene* layer, Field* field, Player* player);
+    TurnManager(MainGameScene* layer, Field* field, Player* player, Camera* camera);
     ~TurnManager(void);
     int getTurn();
     void actionGotoRemoved(CCArray* removedPanels); //消えないときも触れられていたときに何かするならここで。

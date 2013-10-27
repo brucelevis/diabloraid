@@ -15,8 +15,8 @@ FloorFieldModel* FloorField::createInitialFloor(Floor* floor){
     FloorFieldModel* floorFieldModel = FloorFieldModel::create();
     floorFieldModel->retain();
     int i, j;
-    for(i = 0; i < width; i++){
-        for (j = 0; j < height; j++){
+    for(i = 0; i <= width; i++){
+        for (j = 0; j <= height; j++){
             PanelData* panelData = PanelSpriteFactory::createPanelDataWithFloor(floor);
             floorFieldModel->set(i, j, panelData->getId());
         }

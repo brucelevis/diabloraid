@@ -25,7 +25,7 @@ Field::~Field(void){
 
 
 void Field::createInitialField(FloorFieldModel* floorFieldModel, Camera* camera){
-    _panels = (FieldPanels*) FieldPanels::createWithFieldModel(floorFieldModel->getByIndex(0, 0), camera);// とりあえず、0,0をロードする。
+    _panels = (FieldPanels*) FieldPanels::createWithFloorFieldModel(floorFieldModel, camera);// とりあえず、0,0をロードする。
     _panels->initialize((CCNode*) this, _floor);
     _panels->retain();
 }

@@ -28,8 +28,10 @@ class PanelSprite : public cocos2d::CCSprite
     int _canExistNum;
     CCDictionary* _displayedDirection;
     CCArray* _directionSprites; //方向の絵を保持する。
+    CCPoint* cameraPos;
 protected:
     bool _willRemoved; //消去されるflag
+    bool _isActive;
     bool _alreadyActionTouched;
     int _connectType; //つながるかどうかを保存する。
     float _size;
@@ -46,6 +48,7 @@ public:
     int getConnectType();
     void setSize(float size); //サイズをsetする。
     void setPanelData(PanelData* panelData);
+    void setCameraPos(CCPoint* cameraPos);
     
     int getId();
     

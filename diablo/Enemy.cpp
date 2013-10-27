@@ -97,10 +97,17 @@ bool Enemy::isEnemy(){
 
 void Enemy::update(){
     PanelSprite::update();
+    if(!_isActive){
+        return;
+    }
     this->currentHpLabel->setString((CCString::createWithFormat("%d", this->hp->getCurrentHp())->getCString()));
 }
 
 void Enemy::attack(Player* player){
+    if(!_isActive){
+        return;
+    }
+    
     //攻撃は、軽減される。
     int damage = baseDamage->getValue() - player->getShieldCurrentHp();
     if(damage < 0){

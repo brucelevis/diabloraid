@@ -114,7 +114,8 @@ bool MainGameScene::init()
     
     _player = new Player();
     
-    _camera = new Camera(ccp(0,0), CCRectMake(0, 96, 318, 318));
+    CCPoint point = ccp(0, 0);
+    _camera = new Camera(point, CCRectMake(0, 96, 307, 307));
     
     Floor* floor = new Floor(1);
     FloorFieldModel* floorFieldModel = FloorField::createInitialFloor(floor);
@@ -160,7 +161,7 @@ bool MainGameScene::init()
     DamageLabel->setVisible(false);
     this->addChild(DamageLabel,1000);
     
-    _turnManager = new TurnManager(this, _field, _player);
+    _turnManager = new TurnManager(this, _field, _player, _camera);
     
     
     this->setTouchEnabled(true);
@@ -226,6 +227,7 @@ void MainGameScene::ccTouchesEnded(CCSet* pTouches, CCEvent* event){
 
 void MainGameScene::update(float dt){
     _field->update();
+    _camera->update();
     HpLabel->setString(CCString::createWithFormat("%d/%d", _player->getCurrentHp(), _player->getMaxHp())->getCString());
     DamageLabel->setString(CCString::createWithFormat("%d DMG", _player->getTotalDamage())->getCString());
     ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->getShieldCurrentHp(), _player->getShieldMaxHp())->getCString());

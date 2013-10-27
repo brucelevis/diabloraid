@@ -8,8 +8,8 @@
 
 #include "FloorFieldModel.h"
 
-static int WIDTH   = 36;
-static int HEIGHT  = 36;
+static int WIDTH   = 35;
+static int HEIGHT  = 35;
 FloorFieldModel::FloorFieldModel(){
 }
 

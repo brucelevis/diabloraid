@@ -12,10 +12,11 @@
 #include "SimpleAudioEngine.h"
 using namespace CocosDenshion;
 
-TurnManager::TurnManager(MainGameScene* layer, Field *field, Player* player){
+TurnManager::TurnManager(MainGameScene* layer, Field *field, Player* player, Camera* camera){
     _layer = layer;
     _field = field;
     _player = player;
+    _camera = camera;
     _turn = 0;
 }
 

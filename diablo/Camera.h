@@ -18,11 +18,18 @@ using namespace cocos2d;
 class Camera {
     CCPoint position; //座標
     CCRect  rect;     //大きさ
+    CCRect viewRect;  //相対位置のviewRect
+    float dx;
+    float dy;
     bool onMoving;    //動いているとき。
 public:
     bool intersectsRect(PanelSprite* panel); // panelがカメラの中に入っているかどうかを判定する。
     void update();
     void showPanels();                       // cameraに入っているパネル
+    void move();
+    void setMove(bool isOnMove);
+    CCPoint* getPosition();
+    void setPosition(float x, float y);
     Camera(CCPoint position, CCRect rect);
     ~Camera();
 };

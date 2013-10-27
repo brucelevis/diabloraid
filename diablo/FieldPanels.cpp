@@ -7,11 +7,11 @@
 //
 
 #include "FieldPanels.h"
-FieldPanels::FieldPanels(FieldModel* _fieldModel, Camera* camera){
+FieldPanels::FieldPanels(FloorFieldModel* _floorFieldModel, Camera* camera){
     _removedPanels = CCArray::create();
     _removedPanels->retain();
     this->camera  = camera;
-    this->_fieldModel = _fieldModel;
+    this->_floorFieldModel = _floorFieldModel;
 }
 
 FieldPanels::~FieldPanels(){
@@ -31,8 +31,8 @@ void FieldPanels::remove(int index){
 void FieldPanels::initialize(CCNode* parentNode, Floor* floor){
     _panelCount = CCDictionary::create();
     _panelCount->retain();
-   for(int i = 0; i <= 5; i++){
-       for( int j = 0; j <= 5; j++){
+   for(int i = 0; i <= 35; i++){
+       for( int j = 0; j <= 35; j++){
             PanelSprite* pSprite = this->loadPanel(i, j);
             // add the sprite as a child to this layer
             this->add(pSprite);
@@ -51,7 +51,7 @@ void FieldPanels::restockPanel(CCNode* parentNode, Floor* floor){
     
     CCARRAY_FOREACH(removedPanels, targetObject){
         removedPoint = (CCPoint*) targetObject;
-        int y = 6;
+        int y = 36;
         CCInteger* count = (CCInteger*) removedCount->objectForKey(removedPoint->x);
         //既にその列が消えている場合は、追加する場所がn段上になる。
         if(count){
@@ -81,7 +81,7 @@ void FieldPanels::removePanels(){
         //消えるパネルなら消す。
         if(panel->isRemoved()){
             panel->removeFromParentAndCleanup(true);
-            this->setRemovedPanel(new CCPoint(panel->getPositionX(), panel->getPositionY()));
+            this->setRemovedPanel(new CCPoint(panel->getPositionX() + camera->getPosition()->x, panel->getPositionY() + camera->getPosition()->y));
             removedIndexes->addObject(CCInteger::create(count));
         }
         count++;
@@ -138,7 +138,7 @@ void FieldPanels::setMoves(){
         CCARRAY_FOREACH(removedPanels, targetObject2){
             removedPoint = (CCPoint*) targetObject2;
 
-            if(removedPoint->x == panel->getPositionX() && removedPoint->y < panel->getPositionY()){
+            if(removedPoint->x == panel->getPositionX() + camera->getPosition()->x && removedPoint->y < panel->getPositionY() + camera->getPosition()->y){
                 _moveState = true;
                 panel->setDeltaY(PANEL_SIZE * PANEL_SCALE);
             }
@@ -166,8 +166,8 @@ bool FieldPanels::isMoving(){
     return _moveState;
 }
 
-CCArray* FieldPanels::createWithFieldModel(FieldModel *fieldModel, Camera* camera){
-    CCArray* pArray = (CCArray*) new FieldPanels(fieldModel, camera);
+CCArray* FieldPanels::createWithFloorFieldModel(FloorFieldModel *floorFieldModel, Camera* camera){
+    CCArray* pArray = (CCArray*) new FieldPanels(floorFieldModel, camera);
   
     if (pArray && pArray->init())
     {
@@ -222,17 +222,18 @@ PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY){
     
     float size = PANEL_SIZE * PANEL_SCALE;
     float scale = PANEL_SCALE;
+    pSprite->setCameraPos(camera->getPosition());
     pSprite->setSize(size);
     pSprite->setContentSize(CCSize(size,size));
     pSprite->setScale(scale);
     // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
+    pSprite->setPosition( ccp(size/2 + size * indexX - camera->getPosition()->x, OFFSET_Y + size/2 + size * indexY - camera->getPosition()->y) );
     pSprite->update();
     return pSprite;
 }
 
 PanelSprite* FieldPanels::loadPanel(int indexX, int indexY){
-    int id = _fieldModel->get(indexX, indexY);
+    int id = _floorFieldModel->get(indexX, indexY);
     ModelManager* modelManager = ModelManager::getInstance();
     PanelDataManager* panelDataManager =(PanelDataManager*) modelManager->getModel("PanelData");
     PanelData* panelData = panelDataManager->getByPrimaryKey(id);
@@ -241,11 +242,12 @@ PanelSprite* FieldPanels::loadPanel(int indexX, int indexY){
     
     float size = PANEL_SIZE * PANEL_SCALE;
     float scale = PANEL_SCALE;
+    pSprite->setCameraPos(camera->getPosition());
     pSprite->setSize(size);
     pSprite->setContentSize(CCSize(size,size));
     pSprite->setScale(scale);
     // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
+    pSprite->setPosition( ccp(size/2 + size * indexX - camera->getPosition()->x, OFFSET_Y + size/2 + size * indexY - camera->getPosition()->y) );
     pSprite->update();
     return pSprite;
 }
@@ -268,9 +270,9 @@ void FieldPanels::save(){
     CCARRAY_FOREACH(this, targetObject){
         pSprite = (PanelSprite*) targetObject;
         CCPoint pos = pSprite->getPosition();
-        int x = (int) (pos.x / size);
-        int y = (int) ((pos.y - OFFSET_Y) /size );
-        _fieldModel->set(x, y, pSprite->getId());
+        int x = (int) ((pos.x + camera->getPosition()->x) / size);
+        int y = (int) ((pos.y - OFFSET_Y + camera->getPosition()->y) /size );
+        _floorFieldModel->set(x, y, pSprite->getId());
     }
 }
 

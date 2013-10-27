@@ -13,7 +13,7 @@
 #include "PanelSprite.h"
 #include "Floor.h"
 #include "PanelSpriteFactory.h"
-#include "FieldModel.h"
+#include "FloorFieldModel.h"
 #include "ModelManager.h"
 #include "PanelDataManager.h"
 #include "Camera.h"
@@ -24,7 +24,7 @@ class FieldPanels : public CCArray{
     const float OFFSET_Y = 96; //後でもっと上に持っていく。
     CCDictionary* _panelCount; //パネルの種類ごとにパネルをカウントする。
     Camera* camera;
-    FieldModel* _fieldModel;
+    FloorFieldModel* _floorFieldModel;
     CCArray* _removedPanels;
     bool _moveState;
     bool _onMovingEndCalling = false;
@@ -32,7 +32,7 @@ class FieldPanels : public CCArray{
     PanelSprite* loadPanel(int indexX, int indexY);
 public:
     static CCArray* create();
-    static CCArray* createWithFieldModel(FieldModel* fieldModel, Camera* camera);
+    static CCArray* createWithFloorFieldModel(FloorFieldModel* floorFieldModel, Camera* camera);
     
     void initialize(CCNode* parentNode, Floor* floor); //明示的に初期化処理を呼ぶ。
     void add(PanelSprite* panel); //パネルを追加する。
@@ -53,7 +53,7 @@ public:
     void save();
     void update();
     void onMovingEnd();
-    FieldPanels(FieldModel* fieldModel, Camera* camera);
+    FieldPanels(FloorFieldModel* floorFieldModel, Camera* camera);
     ~FieldPanels();
 };
 
