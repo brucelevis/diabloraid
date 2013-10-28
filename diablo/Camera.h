@@ -30,6 +30,7 @@ public:
     void setMove(bool isOnMove);
     CCPoint* getPosition();
     void setPosition(float x, float y);
+    void setMoveVector(CCPoint vector);
     Camera(CCPoint position, CCRect rect);
     ~Camera();
 };

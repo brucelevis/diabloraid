@@ -54,6 +54,9 @@ void TurnManager::start(){
     _field->restockPanels();
     // パネルを移動
     _field->setMoves();
+    
+    //cameraの移動
+    _camera->setMoveVector(ccp(51.2, 0));
     // 敵の攻撃
     this->attack(enemies);
     // playerの生死を確認

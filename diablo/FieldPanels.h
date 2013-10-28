@@ -46,6 +46,7 @@ public:
     void switchActiveState(); // cameraの表示領域に応じて active stateをon/offする。
     void setMoves();
     void movePanels();
+    void adjustPosition();
     bool isMoving();
     CCArray* getRemovedPanels();
     void setRemovedPanel(CCPoint* point);

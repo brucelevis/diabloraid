@@ -29,6 +29,7 @@ class PanelSprite : public cocos2d::CCSprite
     CCDictionary* _displayedDirection;
     CCArray* _directionSprites; //方向の絵を保持する。
     CCPoint* cameraPos;
+    CCPoint absolutePos;
 protected:
     bool _willRemoved; //消去されるflag
     bool _isActive;
@@ -85,6 +86,9 @@ public:
     bool isRemoved();
     void setDeltaY(float deltaY);
     void setPosition(const CCPoint& pos);
+    void setAbsolutePosition(const CCPoint& pos);//絶対座標をセットする。
+    CCPoint getAbsolutePosition();
+    
     bool move();
     CCRect getTouchRect();
 };

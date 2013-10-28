@@ -9,12 +9,13 @@
 #include "Camera.h"
 
 Camera::Camera(CCPoint _position, CCRect _rect){
-    dx = 51.2;
-    dy = 51.2;
+    dx = 0;
+    dy = 0;
     onMoving = false;
     
-    position = _position;
     rect = _rect;
+    position  = _position;
+    //position = ccp(_position.x + rect.getMinX(), _position.y + rect.getMinY());
     viewRect  = CCRectMake(position.x + rect.getMinX(), position.y + rect.getMinY(), rect.getMaxX() - rect.getMinX(), rect.getMaxY() - rect.getMinY() );
 }
 
@@ -31,7 +32,13 @@ CCPoint* Camera::getPosition(){
 }
 
 void Camera::setPosition(float x, float y){
+    viewRect.setRect(x + rect.getMinX(), y + rect.getMinY(), rect.getMaxX() - rect.getMinX(), rect.getMaxY() - rect.getMinY());
     position.setPoint(x, y);
+}
+
+void Camera::setMoveVector(CCPoint vector){
+    dx = vector.x;
+    dy = vector.y;
 }
 
 void Camera::setMove(bool isOnMove){
@@ -48,12 +55,15 @@ void Camera::update(){
 
 void Camera::move(){
     if (this->dx >= -0.0001 && this->dx <= 0.0001 ){
+        CCLOG("STOP");
         onMoving = false;
         return;
     }
+    CCLOG("MOVE");
     float currentX = this->getPosition()->x;
     float currentY = this->getPosition()->y;
-    this->setPosition(currentX + 0.1, currentY);
+    this->setPosition(currentX + 5.12, currentY);
+    //this->setPosition(currentX, currentY);
     
-    dx -= 0.1;
+    dx -= 5.12;
 }

@@ -81,7 +81,7 @@ void FieldPanels::removePanels(){
         //消えるパネルなら消す。
         if(panel->isRemoved()){
             panel->removeFromParentAndCleanup(true);
-            this->setRemovedPanel(new CCPoint(panel->getPositionX() + camera->getPosition()->x, panel->getPositionY() + camera->getPosition()->y));
+            this->setRemovedPanel(new CCPoint(panel->getAbsolutePosition().x, panel->getAbsolutePosition().y));
             removedIndexes->addObject(CCInteger::create(count));
         }
         count++;
@@ -108,7 +108,7 @@ void FieldPanels::removeAllPanels(){
         
         //消えるパネルなら消す。
         panel->removeFromParentAndCleanup(true);
-        this->setRemovedPanel(new CCPoint(panel->getPositionX(), panel->getPositionY()));
+        this->setRemovedPanel(new CCPoint(panel->getAbsolutePosition().x, panel->getAbsolutePosition().y));
         removedIndexes->addObject(CCInteger::create(count));
         count++;
     }
@@ -138,7 +138,7 @@ void FieldPanels::setMoves(){
         CCARRAY_FOREACH(removedPanels, targetObject2){
             removedPoint = (CCPoint*) targetObject2;
 
-            if(removedPoint->x == panel->getPositionX() + camera->getPosition()->x && removedPoint->y < panel->getPositionY() + camera->getPosition()->y){
+            if(removedPoint->x == panel->getAbsolutePosition().x && removedPoint->y < panel->getAbsolutePosition().y){
                 _moveState = true;
                 panel->setDeltaY(PANEL_SIZE * PANEL_SCALE);
             }
@@ -228,6 +228,10 @@ PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY){
     pSprite->setScale(scale);
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(size/2 + size * indexX - camera->getPosition()->x, OFFSET_Y + size/2 + size * indexY - camera->getPosition()->y) );
+    //pSprite->setPosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
+    //pSprite->setAbsolutePosition( ccp(size/2 + size * indexX + camera->getPosition()->x, OFFSET_Y + size/2 + size * indexY + camera->getPosition()->y) );
+    //pSprite->setAbsolutePosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
+    pSprite->setAbsolutePosition( ccp(size * indexX, size * indexY) );
     pSprite->update();
     return pSprite;
 }
@@ -248,6 +252,9 @@ PanelSprite* FieldPanels::loadPanel(int indexX, int indexY){
     pSprite->setScale(scale);
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(size/2 + size * indexX - camera->getPosition()->x, OFFSET_Y + size/2 + size * indexY - camera->getPosition()->y) );
+    //pSprite->setPosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
+    //pSprite->setAbsolutePosition( ccp(size/2 + size * indexX + camera->getPosition()->x, OFFSET_Y + size/2 + size * indexY + camera->getPosition()->y) );
+    pSprite->setAbsolutePosition( ccp(size * indexX, size * indexY) );
     pSprite->update();
     return pSprite;
 }
@@ -269,9 +276,9 @@ void FieldPanels::save(){
     float size = PANEL_SIZE * PANEL_SCALE;
     CCARRAY_FOREACH(this, targetObject){
         pSprite = (PanelSprite*) targetObject;
-        CCPoint pos = pSprite->getPosition();
-        int x = (int) ((pos.x + camera->getPosition()->x) / size);
-        int y = (int) ((pos.y - OFFSET_Y + camera->getPosition()->y) /size );
+        CCPoint pos = pSprite->getAbsolutePosition();
+        int x = (int) ((pos.x) / size);
+        int y = (int) ((pos.y) / size );
         _floorFieldModel->set(x, y, pSprite->getId());
     }
 }
@@ -283,6 +290,7 @@ void FieldPanels::setRemovedPanel(CCPoint* point){
 
 void FieldPanels::update(){
    this->switchActiveState();
+   this->adjustPosition();
    if(!this->isMoving() && !_onMovingEndCalling){
        //最初の一回だけ呼ぶ
        this->onMovingEnd();
@@ -290,8 +298,20 @@ void FieldPanels::update(){
    }
 }
 
+void FieldPanels::adjustPosition(){
+    PanelSprite* pSprite;
+    CCObject* targetObject;
+    CCARRAY_FOREACH(this, targetObject){
+        pSprite = (PanelSprite*) targetObject;
+        CCPoint absolutePos = pSprite->getAbsolutePosition();
+        float size = PANEL_SIZE * PANEL_SCALE;
+        pSprite->setPosition(ccp(size/2 + absolutePos.x - camera->getPosition()->x, OFFSET_Y + size/2 +absolutePos.y - camera->getPosition()->y));
+    }
+}
+
 void FieldPanels::onMovingEnd(){
     this->save();
+    this->camera->setMove(true);
 }
 
 void FieldPanels::switchActiveState(){

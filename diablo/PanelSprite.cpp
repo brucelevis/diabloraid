@@ -295,6 +295,14 @@ void PanelSprite::setPosition(const CCPoint& pos){
     this->_touchRect.setRect(pos.x - size.width/2 + 1, pos.y - size.height/2 + 1, size.width - 2, size.height - 2);
 }
 
+void PanelSprite::setAbsolutePosition(const CCPoint& pos){
+    this->absolutePos = pos;
+}
+
+CCPoint PanelSprite::getAbsolutePosition(){
+    return absolutePos;
+}
+
 //移動量に合わせて移動させて、deltaXを減らす。
 bool PanelSprite::move(){
     if (_deltaY >= -0.0001 && _deltaY <= 0.0001 ){
@@ -302,6 +310,7 @@ bool PanelSprite::move(){
     }
     float currentY = this->getPositionY();
     this->setPositionY(currentY - _velocity);
+    absolutePos.y -= _velocity; //この移動の場合、絶対位置も変化する。
     _deltaY -= _velocity;
     return true;
 }
