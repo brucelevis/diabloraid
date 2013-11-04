@@ -15,6 +15,7 @@
 #include "Player.h"
 #include "MainGameScene.h"
 #include "Camera.h"
+#include "MoveVector.h"
 
 using namespace cocos2d;
 class MainGameScene;

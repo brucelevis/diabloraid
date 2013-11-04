@@ -11,7 +11,9 @@
 Camera::Camera(CCPoint _position, CCRect _rect){
     dx = 0;
     dy = 0;
-    onMoving = false;
+    onMoving   = false;
+    moveList = (MoveList*) MoveList::create();
+    moveList->retain();
     
     rect = _rect;
     position  = _position;
@@ -36,9 +38,9 @@ void Camera::setPosition(float x, float y){
     position.setPoint(x, y);
 }
 
-void Camera::setMoveVector(CCPoint vector){
-    dx = vector.x;
-    dy = vector.y;
+void Camera::setMoveVector(MoveVector* vector){
+    moveList->push(vector);
+    //moveVector = vector;
 }
 
 void Camera::setMove(bool isOnMove){
@@ -54,16 +56,13 @@ void Camera::update(){
 }
 
 void Camera::move(){
-    if (this->dx >= -0.0001 && this->dx <= 0.0001 ){
-        CCLOG("STOP");
-        onMoving = false;
-        return;
-    }
-    CCLOG("MOVE");
+    //moveVector.move(this);
+    moveList->handle(this);
+}
+
+void Camera::move(float x, float y){
+    CCLOG("camera move:(%f, %f)", x, y);
     float currentX = this->getPosition()->x;
     float currentY = this->getPosition()->y;
-    this->setPosition(currentX + 5.12, currentY);
-    //this->setPosition(currentX, currentY);
-    
-    dx -= 5.12;
+    this->setPosition(currentX + x, currentY + y);
 }

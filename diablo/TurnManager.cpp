@@ -56,7 +56,8 @@ void TurnManager::start(){
     _field->setMoves();
     
     //cameraの移動
-    _camera->setMoveVector(ccp(51.2, 0));
+    _camera->setMoveVector(new MoveVector(51.2, 51.2));
+    _camera->setMoveVector(new MoveVector(0, 51.2));
     // 敵の攻撃
     this->attack(enemies);
     // playerの生死を確認

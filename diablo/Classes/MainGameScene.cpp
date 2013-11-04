@@ -115,7 +115,7 @@ bool MainGameScene::init()
     _player = new Player();
     
     CCPoint point = ccp(0, 0);
-    _camera = new Camera(point, CCRectMake(0, 96, 307, 307));
+    _camera = new Camera(point, CCRectMake(0, 97, 305, 305));
     
     Floor* floor = new Floor(1);
     FloorFieldModel* floorFieldModel = FloorField::createInitialFloor(floor);

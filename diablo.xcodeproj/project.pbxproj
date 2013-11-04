@@ -14,6 +14,10 @@
 		25002F8B1813D01000114AE3 /* ModelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F891813D01000114AE3 /* ModelManager.cpp */; };
 		25002F8E1813D01900114AE3 /* ModelInstanceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F8C1813D01900114AE3 /* ModelInstanceManager.cpp */; };
 		25002F951813D12E00114AE3 /* PanelDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F931813D12E00114AE3 /* PanelDataManager.cpp */; };
+		25002F981818169400114AE3 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F961818169400114AE3 /* Camera.cpp */; };
+		25002F9E181BD06D00114AE3 /* FloorField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F9C181BD06D00114AE3 /* FloorField.cpp */; };
+		25002FA1181CE5FB00114AE3 /* EnemyDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002F9F181CE5FB00114AE3 /* EnemyDataManager.cpp */; };
+		25002FA4181CEE9F00114AE3 /* FloorFieldModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25002FA2181CEE9F00114AE3 /* FloorFieldModel.cpp */; };
 		250557A517DB837400D85441 /* Shield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A317DB837400D85441 /* Shield.cpp */; };
 		250557A817DB842700D85441 /* Coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A617DB842700D85441 /* Coin.cpp */; };
 		250557AB17DB84A400D85441 /* Sword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250557A917DB84A400D85441 /* Sword.cpp */; };
@@ -29,6 +33,9 @@
 		253D0B9717EC493F003A62C2 /* LevelUpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253D0B9517EC493F003A62C2 /* LevelUpLayer.cpp */; };
 		2544CF0817D1E5520023929D /* direction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0617D1E5520023929D /* direction.plist */; };
 		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
+		2562059B18268D1C000D321F /* MoveList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059918268D1C000D321F /* MoveList.cpp */; };
+		2562059E18269230000D321F /* MoveVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059C18269230000D321F /* MoveVector.cpp */; };
+		256205A2182698CB000D321F /* MoveInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256205A0182698CB000D321F /* MoveInterface.cpp */; };
 		256AFE4317F9186300261B7B /* ui.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE4117F9186300261B7B /* ui.plist */; };
 		256AFE4417F9186300261B7B /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 256AFE4217F9186300261B7B /* ui.png */; };
 		256AFE4817F9240A00261B7B /* StatusUpgrade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256AFE4617F9240A00261B7B /* StatusUpgrade.cpp */; };
@@ -56,7 +63,6 @@
 		256C087617E0C68F007A6D01 /* BaseModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087417E0C68F007A6D01 /* BaseModel.cpp */; };
 		256C087917E20E10007A6D01 /* Stair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087717E20E0F007A6D01 /* Stair.cpp */; };
 		256C087C17E21115007A6D01 /* Floor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087A17E21115007A6D01 /* Floor.cpp */; };
-		256C087F17E2114A007A6D01 /* Dungeon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256C087D17E2114A007A6D01 /* Dungeon.cpp */; };
 		259335E217D63D0100D3C419 /* hp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259335E017D63D0100D3C419 /* hp.plist */; };
 		259335E317D63D0100D3C419 /* hp.png in Resources */ = {isa = PBXBuildFile; fileRef = 259335E117D63D0100D3C419 /* hp.png */; };
 		259335E617D7848500D3C419 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 259335E417D7848500D3C419 /* Player.cpp */; };
@@ -305,6 +311,14 @@
 		25002F8D1813D01900114AE3 /* ModelInstanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelInstanceManager.h; sourceTree = "<group>"; };
 		25002F931813D12E00114AE3 /* PanelDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PanelDataManager.cpp; sourceTree = "<group>"; };
 		25002F941813D12E00114AE3 /* PanelDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelDataManager.h; sourceTree = "<group>"; };
+		25002F961818169400114AE3 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		25002F971818169400114AE3 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		25002F9C181BD06D00114AE3 /* FloorField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FloorField.cpp; sourceTree = "<group>"; };
+		25002F9D181BD06D00114AE3 /* FloorField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorField.h; sourceTree = "<group>"; };
+		25002F9F181CE5FB00114AE3 /* EnemyDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyDataManager.cpp; sourceTree = "<group>"; };
+		25002FA0181CE5FB00114AE3 /* EnemyDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyDataManager.h; sourceTree = "<group>"; };
+		25002FA2181CEE9F00114AE3 /* FloorFieldModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FloorFieldModel.cpp; sourceTree = "<group>"; };
+		25002FA3181CEE9F00114AE3 /* FloorFieldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorFieldModel.h; sourceTree = "<group>"; };
 		250557A317DB837400D85441 /* Shield.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shield.cpp; sourceTree = "<group>"; };
 		250557A417DB837400D85441 /* Shield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shield.h; sourceTree = "<group>"; };
 		250557A617DB842700D85441 /* Coin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Coin.cpp; sourceTree = "<group>"; };
@@ -332,6 +346,12 @@
 		253D0B9617EC493F003A62C2 /* LevelUpLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUpLayer.h; sourceTree = "<group>"; };
 		2544CF0617D1E5520023929D /* direction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = direction.plist; path = Resources/direction.plist; sourceTree = "<group>"; };
 		2544CF0717D1E5520023929D /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = direction.png; path = Resources/direction.png; sourceTree = "<group>"; };
+		2562059918268D1C000D321F /* MoveList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveList.cpp; sourceTree = "<group>"; };
+		2562059A18268D1C000D321F /* MoveList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveList.h; sourceTree = "<group>"; };
+		2562059C18269230000D321F /* MoveVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveVector.cpp; sourceTree = "<group>"; };
+		2562059D18269230000D321F /* MoveVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveVector.h; sourceTree = "<group>"; };
+		256205A0182698CB000D321F /* MoveInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveInterface.cpp; sourceTree = "<group>"; };
+		256205A1182698CB000D321F /* MoveInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveInterface.h; sourceTree = "<group>"; };
 		256AFE4117F9186300261B7B /* ui.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ui.plist; path = images/ui/ui.plist; sourceTree = SOURCE_ROOT; };
 		256AFE4217F9186300261B7B /* ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ui.png; path = images/ui/ui.png; sourceTree = SOURCE_ROOT; };
 		256AFE4617F9240A00261B7B /* StatusUpgrade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StatusUpgrade.cpp; sourceTree = "<group>"; };
@@ -381,8 +401,6 @@
 		256C087817E20E0F007A6D01 /* Stair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stair.h; sourceTree = "<group>"; };
 		256C087A17E21115007A6D01 /* Floor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Floor.cpp; sourceTree = "<group>"; };
 		256C087B17E21115007A6D01 /* Floor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Floor.h; sourceTree = "<group>"; };
-		256C087D17E2114A007A6D01 /* Dungeon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dungeon.cpp; sourceTree = "<group>"; };
-		256C087E17E2114A007A6D01 /* Dungeon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dungeon.h; sourceTree = "<group>"; };
 		259335E017D63D0100D3C419 /* hp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hp.plist; path = Resources/hp.plist; sourceTree = "<group>"; };
 		259335E117D63D0100D3C419 /* hp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hp.png; path = Resources/hp.png; sourceTree = "<group>"; };
 		259335E417D7848500D3C419 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -905,6 +923,8 @@
 				25002F8D1813D01900114AE3 /* ModelInstanceManager.h */,
 				25002F931813D12E00114AE3 /* PanelDataManager.cpp */,
 				25002F941813D12E00114AE3 /* PanelDataManager.h */,
+				25002F9F181CE5FB00114AE3 /* EnemyDataManager.cpp */,
+				25002FA0181CE5FB00114AE3 /* EnemyDataManager.h */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -966,6 +986,15 @@
 			name = Layers;
 			sourceTree = "<group>";
 		};
+		2562059F182698BC000D321F /* interface */ = {
+			isa = PBXGroup;
+			children = (
+				256205A0182698CB000D321F /* MoveInterface.cpp */,
+				256205A1182698CB000D321F /* MoveInterface.h */,
+			);
+			name = interface;
+			sourceTree = "<group>";
+		};
 		256AFE4517F923E000261B7B /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -1013,14 +1042,14 @@
 				256AFE7517FBED8B00261B7B /* user */,
 				256C087417E0C68F007A6D01 /* BaseModel.cpp */,
 				256C087517E0C68F007A6D01 /* BaseModel.h */,
-				256C087D17E2114A007A6D01 /* Dungeon.cpp */,
-				256C087E17E2114A007A6D01 /* Dungeon.h */,
 				25002ED618092ACD00114AE3 /* FieldModel.cpp */,
 				25002ED718092ACD00114AE3 /* FieldModel.h */,
 				25002EF8180BABBA00114AE3 /* EnemyData.cpp */,
 				25002EF9180BABBA00114AE3 /* EnemyData.h */,
 				25002F13180BBA9900114AE3 /* PanelData.cpp */,
 				25002F14180BBA9900114AE3 /* PanelData.h */,
+				25002FA2181CEE9F00114AE3 /* FloorFieldModel.cpp */,
+				25002FA3181CEE9F00114AE3 /* FloorFieldModel.h */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1949,6 +1978,7 @@
 		25B2FFA217BF4517008E4D34 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2562059F182698BC000D321F /* interface */,
 				256AFE5117F9BB2200261B7B /* event */,
 				256AFE4517F923E000261B7B /* UIComponent */,
 				253D0B9417EC491E003A62C2 /* Layers */,
@@ -1969,6 +1999,14 @@
 				25B2FFBE17C09D4C008E4D34 /* TurnManager.h */,
 				259335E417D7848500D3C419 /* Player.cpp */,
 				259335E517D7848500D3C419 /* Player.h */,
+				25002F961818169400114AE3 /* Camera.cpp */,
+				25002F971818169400114AE3 /* Camera.h */,
+				25002F9C181BD06D00114AE3 /* FloorField.cpp */,
+				25002F9D181BD06D00114AE3 /* FloorField.h */,
+				2562059918268D1C000D321F /* MoveList.cpp */,
+				2562059A18268D1C000D321F /* MoveList.h */,
+				2562059C18269230000D321F /* MoveVector.cpp */,
+				2562059D18269230000D321F /* MoveVector.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2114,6 +2152,7 @@
 				25B2FD6017BF4510008E4D34 /* CCActionTween.cpp in Sources */,
 				25B2FD6417BF4510008E4D34 /* CCAtlasNode.cpp in Sources */,
 				25B2FD6717BF4510008E4D34 /* CCNode.cpp in Sources */,
+				25002FA1181CE5FB00114AE3 /* EnemyDataManager.cpp in Sources */,
 				25B2FD6A17BF4510008E4D34 /* CCCamera.cpp in Sources */,
 				25B2FD6D17BF4511008E4D34 /* CCConfiguration.cpp in Sources */,
 				25B2FD7017BF4511008E4D34 /* CCDirector.cpp in Sources */,
@@ -2143,6 +2182,7 @@
 				25B2FDCD17BF4511008E4D34 /* plane.c in Sources */,
 				25B2FDCF17BF4512008E4D34 /* quaternion.c in Sources */,
 				25002F18180BBD9300114AE3 /* PanelSpriteFactory.cpp in Sources */,
+				256205A2182698CB000D321F /* MoveInterface.cpp in Sources */,
 				25B2FDD117BF4512008E4D34 /* ray2.c in Sources */,
 				25B2FDD317BF4512008E4D34 /* utility.c in Sources */,
 				25B2FDD517BF4512008E4D34 /* vec2.c in Sources */,
@@ -2167,6 +2207,7 @@
 				25B2FE0A17BF4512008E4D34 /* CCRenderTexture.cpp in Sources */,
 				25B2FE0E17BF4512008E4D34 /* CCParticleBatchNode.cpp in Sources */,
 				25B2FE1117BF4512008E4D34 /* CCParticleExamples.cpp in Sources */,
+				2562059B18268D1C000D321F /* MoveList.cpp in Sources */,
 				25B2FE1417BF4513008E4D34 /* CCParticleSystem.cpp in Sources */,
 				25B2FE1717BF4513008E4D34 /* CCParticleSystemQuad.cpp in Sources */,
 				25B2FE1E17BF4513008E4D34 /* CCEGLViewProtocol.cpp in Sources */,
@@ -2192,6 +2233,7 @@
 				25B2FE6E17BF4514008E4D34 /* ccGLStateCache.cpp in Sources */,
 				25B2FE7E17BF4514008E4D34 /* CCShaderCache.cpp in Sources */,
 				25B2FE8217BF4514008E4D34 /* ccShaders.cpp in Sources */,
+				25002FA4181CEE9F00114AE3 /* FloorFieldModel.cpp in Sources */,
 				25B2FE8617BF4514008E4D34 /* CCAnimation.cpp in Sources */,
 				25B2FE8917BF4514008E4D34 /* CCAnimationCache.cpp in Sources */,
 				25B2FE8C17BF4514008E4D34 /* CCSprite.cpp in Sources */,
@@ -2211,6 +2253,7 @@
 				25B2FEB817BF4514008E4D34 /* TransformUtils.cpp in Sources */,
 				256AFE5D17F9DB4000261B7B /* EventFactory.cpp in Sources */,
 				25B2FEBC17BF4514008E4D34 /* ioapi.cpp in Sources */,
+				25002F9E181BD06D00114AE3 /* FloorField.cpp in Sources */,
 				256AFE7117FB11AD00261B7B /* Budget.cpp in Sources */,
 				25B2FEBF17BF4514008E4D34 /* unzip.cpp in Sources */,
 				25002ED818092ACD00114AE3 /* FieldModel.cpp in Sources */,
@@ -2243,6 +2286,7 @@
 				25B2FF1817BF4515008E4D34 /* CCBReader.cpp in Sources */,
 				256AFE8C17FEFE4100261B7B /* Belongings.cpp in Sources */,
 				25B2FF1C17BF4515008E4D34 /* CCBSequence.cpp in Sources */,
+				25002F981818169400114AE3 /* Camera.cpp in Sources */,
 				25B2FF1F17BF4515008E4D34 /* CCBSequenceProperty.cpp in Sources */,
 				25B2FF2217BF4515008E4D34 /* CCBValue.cpp in Sources */,
 				256AFE5417F9BBCA00261B7B /* LevelUpEvent.cpp in Sources */,
@@ -2311,10 +2355,10 @@
 				256C087617E0C68F007A6D01 /* BaseModel.cpp in Sources */,
 				256C087917E20E10007A6D01 /* Stair.cpp in Sources */,
 				256C087C17E21115007A6D01 /* Floor.cpp in Sources */,
-				256C087F17E2114A007A6D01 /* Dungeon.cpp in Sources */,
 				25EF285F17E437BE003FBA91 /* EnemyMaster.cpp in Sources */,
 				25EF286817E483BB003FBA91 /* Util.cpp in Sources */,
 				251C371E17E49E3800990EAA /* EnemyFactory.cpp in Sources */,
+				2562059E18269230000D321F /* MoveVector.cpp in Sources */,
 				251C372B17E580DA00990EAA /* FieldPanels.cpp in Sources */,
 				251C373017E729F100990EAA /* SwordDamage.cpp in Sources */,
 				251C373317E7605D00990EAA /* PotionRecover.cpp in Sources */,
