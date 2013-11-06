@@ -32,6 +32,7 @@ public:
     int getTurn();
     void actionGotoRemoved(CCArray* removedPanels); //消えないときも触れられていたときに何かするならここで。
     void actionRemoved(CCArray* removedPanels); //消えるときに何かするならここで。
+    void setCameraMove(CCArray* removedPanels); //消える時に、cameraの移動をセットする。
     void attack(CCArray* enemies);
     void start();
     void gameOver();

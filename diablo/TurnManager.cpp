@@ -47,6 +47,8 @@ void TurnManager::start(){
     this->actionGotoRemoved(removedPanels);
     // 取り除かれたパネルのアクションを実行する。
     this->actionRemoved(removedPanels);
+    //cameraの移動をセット
+    this->setCameraMove(removedPanels);
     // パネルをとリ除く
     _field->removePanels();
     CCArray* enemies = _field->getEnemies();
@@ -55,9 +57,6 @@ void TurnManager::start(){
     // パネルを移動
     _field->setMoves();
     
-    //cameraの移動
-    _camera->setMoveVector(new MoveVector(51.2, 51.2));
-    _camera->setMoveVector(new MoveVector(0, 51.2));
     // 敵の攻撃
     this->attack(enemies);
     // playerの生死を確認
@@ -89,6 +88,27 @@ void TurnManager::turnEnd(){
     // playerの攻撃状態を解除する。
     _player->resetDamage();
     
+}
+
+void TurnManager::setCameraMove(cocos2d::CCArray *removedPanels){
+    PanelSprite* afterPanel   =(PanelSprite*) removedPanels->lastObject();
+    PanelSprite* beforePanel  =(PanelSprite*) removedPanels->objectAtIndex(0);
+    
+    _camera->setMoveVector(new MoveVector(afterPanel->getPositionX() - beforePanel->getPositionX(),
+                                          afterPanel->getPositionY() - beforePanel->getPositionY()));
+    
+    
+    //CCARRAY_FOREACH(removedPanels, targetObject){
+    //    panel = (PanelSprite*) targetObject;
+    //    if(count == 0){
+    //        beforePoint = panel->getPosition();
+    //    } else {
+    //        _camera->setMoveVector(new MoveVector(panel->getPositionX() - beforePoint.x,
+    //                                              panel->getPositionY() - beforePoint.y));
+    //        beforePoint = panel->getPosition();
+    //    }
+    //    count++;
+    //}
 }
 
 void TurnManager::actionGotoRemoved(cocos2d::CCArray *removedPanels){

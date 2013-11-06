@@ -64,5 +64,10 @@ void Camera::move(float x, float y){
     CCLOG("camera move:(%f, %f)", x, y);
     float currentX = this->getPosition()->x;
     float currentY = this->getPosition()->y;
-    this->setPosition(currentX + x, currentY + y);
+    float setX;
+    float setY;
+    setX = MIN(MAX(currentX + x, 0), 51.2 * 35);
+    setY = MIN(MAX(currentY + y, 0), 51.2 * 35);
+    
+    this->setPosition(setX, setY);
 }

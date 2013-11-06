@@ -24,7 +24,7 @@ bool MoveVector::move(MoveInterface *moveObject){
 
 MoveVector::MoveVector(float x, float y){
     CCPoint::setPoint(x, y);
-    velocity = CCPoint(this->x / 10, this->y / 10);
+    velocity = CCPoint(this->x / 20, this->y / 20);
     current  = CCPoint(0, 0);
 }
 

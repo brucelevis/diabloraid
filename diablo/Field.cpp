@@ -23,7 +23,6 @@ Field::Field(Player* player, Camera* camera, Floor* floor, FloorFieldModel* floo
 Field::~Field(void){
 }
 
-
 void Field::createInitialField(FloorFieldModel* floorFieldModel, Camera* camera){
     _panels = (FieldPanels*) FieldPanels::createWithFloorFieldModel(floorFieldModel, camera);// とりあえず、0,0をロードする。
     _panels->initialize((CCNode*) this, _floor);
