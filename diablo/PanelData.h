@@ -12,9 +12,10 @@
 #include <iostream>
 #include "Util.h"
 #include "map"
+#include "ModelInterface.h"
 using namespace std;
 
-class PanelData{
+class PanelData : ModelInterface{
 private:
     static int seqId;
     int getSeqId();

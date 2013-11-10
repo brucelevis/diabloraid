@@ -19,15 +19,9 @@ using namespace cocos2d;
 
 class PanelDataManager : public ModelInstanceManager{
 private:
-    map<string, PanelData*> *_modelMap;
-    std::string name;
 public:
     PanelDataManager();
     ~PanelDataManager();
-    void add(PanelData* panelData);
-    void remove(PanelData* panelData);
-    std::string getModelName();
-    PanelData* getByPrimaryKey(int id);
 };
 
 #endif /* defined(__diablo__PanelDataManager__) */

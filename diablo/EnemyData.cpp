@@ -40,3 +40,7 @@ int EnemyData::getEnemyId(){
 int EnemyData::getCurrentHp(){
     return currentHp;
 }
+
+EnemyData::~EnemyData(){
+    
+}

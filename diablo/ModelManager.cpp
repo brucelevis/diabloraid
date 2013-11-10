@@ -27,9 +27,9 @@ ModelInstanceManager* ModelManager::getModel(std::string name){
     // new nameとか出来ればいいけど。
     ModelInstanceManager* model;
     if(name == "PanelData"){
-        model = (PanelDataManager*) new PanelDataManager();
+        model = (ModelInstanceManager*) new PanelDataManager();
     } else if(name == "EnemyData"){
-        model = (EnemyDataManager*) new EnemyDataManager();
+        model = (ModelInstanceManager*) new EnemyDataManager();
     } else {
         model = (ModelInstanceManager*) new ModelInstanceManager();
     }

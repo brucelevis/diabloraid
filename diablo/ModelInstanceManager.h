@@ -12,6 +12,7 @@
 #include <iostream>
 #include <map>
 #include "Util.h"
+#include "ModelInterface.h"
 #include <sstream>
 
 using namespace std;
@@ -19,18 +20,14 @@ using namespace std;
 // モデルインスタンス自体と管理クラス
 class ModelInstanceManager{
 private:
-//    //ModelInstanceManager( const ModelInstanceManager& );     //封印
-//    //void operator=(const ModelInstanceManager& ); //封印
-//    // model managerをつり下げる。
-//    void append(ModelBase *model);
-//    void remove(ModelBase *model);
 protected:
-//    map< string, ModelBase* > *_modelMap;
     std::string name;
+    map<string, ModelInterface*> *_modelMap;
 public:
-//    virtual ModelBase* getByPrimaryKey(int id);     //idで絞り込める時はidを渡す。
-//    virtual ModelBase* create(int id);              //idから生成する。
-    virtual std::string getModelName();
+    std::string getModelName();
+    virtual void add(ModelInterface* model);
+    virtual void remove(ModelInterface* model);
+    ModelInterface* getByPrimaryKey(int id);
     ModelInstanceManager();
     ~ModelInstanceManager();
 };

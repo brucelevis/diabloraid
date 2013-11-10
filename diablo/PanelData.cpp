@@ -37,3 +37,7 @@ int PanelData::getType(){
 int PanelData::getTypeInstanceId(){
     return typeInstanceId;
 }
+
+PanelData::~PanelData(){
+    
+}

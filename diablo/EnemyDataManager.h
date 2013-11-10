@@ -18,15 +18,9 @@ using namespace cocos2d;
 
 class EnemyDataManager : public ModelInstanceManager{
 private:
-    map<string, EnemyData*> *_modelMap;
-    std::string name;
 public:
     EnemyDataManager();
     ~EnemyDataManager();
-    void add(EnemyData* enemyData);
-    void remove(EnemyData* enemyData);
-    std::string getModelName();
-    EnemyData* getByPrimaryKey(int id);
 };
 
 #endif /* defined(__diablo__EnemyDataManager__) */

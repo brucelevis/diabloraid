@@ -42,7 +42,7 @@ PanelSprite* PanelSpriteFactory::createWithFloor(Floor* floor){
     PanelData* panelData = PanelData::create(type, typeInstanceId);
     ModelManager* modelManager = ModelManager::getInstance();
     PanelDataManager* panelDataManager =(PanelDataManager*) modelManager->getModel("PanelData");
-    panelDataManager->add(panelData);
+    panelDataManager->add((ModelInterface*) panelData);
     
     CCLOG("panelData: id:%d, type: %d, typeInstanceId: %d", panelData->getId(), panelData->getType(), panelData->getTypeInstanceId());
     //そもそもpanelDataから生成するようにしたいところ
@@ -61,13 +61,13 @@ PanelData* PanelSpriteFactory::createPanelDataWithFloor(Floor *floor){
     if(panelName == "enemy"){
         EnemyData* enemy = EnemyFactory::createEnemy(floor);
         EnemyDataManager* enemyDataManager = (EnemyDataManager*) modelManager->getModel("EnemyData");
-        enemyDataManager->add(enemy);
+        enemyDataManager->add((ModelInterface*)enemy);
         typeInstanceId = enemy->getId();
     }
     
     PanelData* panelData = PanelData::create(type, typeInstanceId);
     PanelDataManager* panelDataManager =(PanelDataManager*) modelManager->getModel("PanelData");
-    panelDataManager->add(panelData);
+    panelDataManager->add((ModelInterface*) panelData);
     return panelData;
 }
 
@@ -86,7 +86,7 @@ PanelSprite* PanelSpriteFactory::createByPanelData(PanelData* panelData){
             {
                 ModelManager* modelManager = ModelManager::getInstance();
                 EnemyDataManager* enemyDataManager = (EnemyDataManager*) modelManager->getModel("EnemyData");
-                EnemyData* enemyData = enemyDataManager->getByPrimaryKey(panelData->getTypeInstanceId());
+                EnemyData* enemyData =(EnemyData*) enemyDataManager->getByPrimaryKey(panelData->getTypeInstanceId());
                 pSprite = Enemy::createWithEnemyData(enemyData);
             }
             break;

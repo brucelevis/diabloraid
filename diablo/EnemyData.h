@@ -13,9 +13,10 @@
 #include "EnemyMaster.h"
 #include <map>
 #include "Util.h"
+#include "ModelInterface.h"
 using namespace std;
 
-class EnemyData{
+class EnemyData : ModelInterface{
 private:
     static int seqId;
     int getSeqId();
