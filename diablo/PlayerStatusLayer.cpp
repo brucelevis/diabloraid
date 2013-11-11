@@ -102,17 +102,17 @@ void PlayerStatusLayer::addWindowObjects(){
     layer->addChild(pLabel, 1);
     _lineNum = 0;
     
-    this->addStatusObject("base damage", _player->getBaseDamage(), _player->getEquipmentList()->getBaseDamage(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("sword damage", _player->getSwordDamage(), _player->getEquipmentList()->getSwordDamage(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("shield hp", _player->getShieldMaxHp(), _player->getEquipmentList()->getShieldMaxHp(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("shield refill", _player->getShieldRefill(), _player->getEquipmentList()->getShieldRefill(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("hp", _player->getMaxHp(), _player->getEquipmentList()->getMaxHp(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("potion recover", _player->getPotionRecover(), _player->getEquipmentList()->getPotionRecover(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("coin addition", _player->getCoinAddition(), _player->getEquipmentList()->getCoinAddition(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("strength", _player->getStrength(), _player->getEquipmentList()->getStrength(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("defense", _player->getDefense(), _player->getEquipmentList()->getDefense(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("dexterity", _player->getDexterity(), _player->getEquipmentList()->getDexterity(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
-    this->addStatusObject("vitality", _player->getVitality(), _player->getEquipmentList()->getVitality(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("base damage", _player->getBaseDamage(), _player->getUserItem()->getBaseDamage(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("sword damage", _player->getSwordDamage(), _player->getUserItem()->getSwordDamage(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("shield hp", _player->getShieldMaxHp(), _player->getUserItem()->getShieldMaxHp(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("shield refill", _player->getShieldRefill(), _player->getUserItem()->getShieldRefill(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("hp", _player->getMaxHp(), _player->getUserItem()->getMaxHp(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("potion recover", _player->getPotionRecover(), _player->getUserItem()->getPotionRecover(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("coin addition", _player->getCoinAddition(), _player->getUserItem()->getCoinAddition(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("strength", _player->getStrength(), _player->getUserItem()->getStrength(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("defense", _player->getDefense(), _player->getUserItem()->getDefense(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("dexterity", _player->getDexterity(), _player->getUserItem()->getDexterity(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
+    this->addStatusObject("vitality", _player->getVitality(), _player->getUserItem()->getVitality(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
     
     CCSprite* ok = CCSprite::createWithSpriteFrameName("ok.png");
     CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");

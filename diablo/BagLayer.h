@@ -1,28 +1,29 @@
 //
-//  BagListLayer.h
+//  BagLayer.h
 //  diablo
 //
 //  Created by Kosuke Takami on 2013/10/02.
 //
 //
 
-#ifndef __diablo__BagListLayer__
-#define __diablo__BagListLayer__
+#ifndef __diablo__BagLayer__
+#define __diablo__BagLayer__
 
 #include <iostream>
 #include "cocos2d.h"
 #include "cocos-ext.h"
-#include "EquipmentList.h"
 #include "DetailLayer.h"
+#include "UserItems.h"
+#include "UserItem.h"
 using namespace cocos2d;
 using namespace cocos2d::extension;
 
 
-class BagListLayer : public CCLayer,
+class BagLayer : public CCLayer,
 public CCTableViewDataSource,
 public CCTableViewDelegate
 {
-    EquipmentList* equipmentList;
+    UserItems* userItem;
     int CELL_HEIGHT = 60;
     CCMenuItemSprite* pOkButton;
     CCScene* _scene;
@@ -30,8 +31,8 @@ public CCTableViewDelegate
 public:
     virtual bool init();
     static CCScene* scene();
-    static BagListLayer* layer();
-    static BagListLayer* layerWithEquipmentList(EquipmentList* EquipmentList);
+    static BagLayer* layer();
+    static BagLayer* layerWithUserItems(UserItems* userItems);
     
     virtual void tableCellTouched(CCTableView* table, CCTableViewCell* cell);
     
@@ -52,7 +53,7 @@ public:
     void close();
     void update();
     
-    CREATE_FUNC(BagListLayer);
+    CREATE_FUNC(BagLayer);
 };
 
-#endif /* defined(__diablo__BagListLayer__) */
+#endif /* defined(__diablo__BagLayer__) */

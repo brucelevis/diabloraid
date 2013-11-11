@@ -15,6 +15,8 @@
 #include "ModelInstanceManager.h"
 #include "PanelDataManager.h"
 #include "EnemyDataManager.h"
+#include "ItemMasterManager.h"
+#include "EquipmentMasterManager.h"
 using namespace std;
 
 class ModelManager {

@@ -1,32 +1,32 @@
 //
-//  EquipmentList.h
+//  UserItems.h
 //  diablo
 //
-//  Created by Kosuke Takami on 2013/10/04.
+//  Created by Kosuke Takami on 2013/11/11.
 //
 //
 
-#ifndef __diablo__EquipmentList__
-#define __diablo__EquipmentList__
+#ifndef __diablo__UserItems__
+#define __diablo__UserItems__
 
 #include <iostream>
 #include "cocos2d.h"
-#include "Equipment.h"
-#include "Belongings.h"
-#include "picojson.h"
+#include "UserItem.h"
 #include "Util.h"
+#include "Belongings.h"
+
+using namespace std;
 using namespace cocos2d;
 
-class EquipmentList : public CCArray{
+class UserItems : public CCArray {
     Belongings* _equipped; //装備しているものだけを内部的に持っとく。
-    EquipmentList* _getEquippedList();
+    static UserItems* create();
 public:
-    static EquipmentList* create();
-    static EquipmentList* getAll();
+    static UserItems* getAll();
     Belongings* getBelongings();
-    void setBelongings(); //所持品からbelongings生成する
-    
-    void add(Equipment* equipment); //リストに追加する。
+    void setBelongings();
+    UserItems();
+    ~UserItems();
     int getMaxHp();
     
     int getShieldMaxHp();
@@ -48,8 +48,6 @@ public:
     int getDexterity();
     int getVitality();
     void reload(); //装備が更新されたりすると、更新する。
-    EquipmentList();
-    ~EquipmentList();
 };
 
-#endif /* defined(__diablo__EquipmentList__) */
+#endif /* defined(__diablo__UserItems__) */

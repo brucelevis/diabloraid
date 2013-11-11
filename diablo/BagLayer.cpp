@@ -1,27 +1,29 @@
 //
-//  BagListLayer.cpp
+//  BagLayer.cpp
 //  diablo
 //
 //  Created by Kosuke Takami on 2013/10/02.
 //
 //
 
-#include "BagListLayer.h"
+#include "BagLayer.h"
 
-CCScene* BagListLayer::scene(){
-    BagListLayer *layer = (BagListLayer*) BagListLayer::layer();
+CCScene* BagLayer::scene(){
+    BagLayer *layer = (BagLayer*) BagLayer::layer();
     
     return layer->getScene();
 }
 
-BagListLayer* BagListLayer::layer(){
+BagLayer* BagLayer::layer(){
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
     
     // 'layer' is an autorelease object
-    BagListLayer *layer = (BagListLayer*) BagListLayer::create();
-    layer->equipmentList = EquipmentList::getAll();
-    layer->equipmentList->retain();
+    BagLayer *layer = (BagLayer*) BagLayer::create();
+    layer->userItem = UserItems::getAll();
+    layer->userItem->retain();
+    //layer->equipmentList = EquipmentList::getAll();
+    //layer->equipmentList->retain();
     layer->addWindowObjects();
     
     // add layer as a child to scene
@@ -33,26 +35,26 @@ BagListLayer* BagListLayer::layer(){
     return layer;
 }
 
-BagListLayer* BagListLayer::layerWithEquipmentList(EquipmentList* equipmentList){
-    // 'scene' is an autorelease object
+BagLayer* BagLayer::layerWithUserItems(UserItems* userItems){
+    //'scene' is an autorelease object
     CCScene *scene = CCScene::create();
-    
-    // 'layer' is an autorelease object
-    BagListLayer *layer = (BagListLayer*) BagListLayer::create();
-    layer->equipmentList = equipmentList;
+  
+    //'layer' is an autorelease object
+    BagLayer *layer = (BagLayer*) BagLayer::create();
+    layer->userItem = userItems;
     layer->addWindowObjects();
-    
-    // add layer as a child to scene
+   
+    //add layer as a child to scene
     scene->addChild(layer);
-    
-    // return the scene
+  
+    //return the scene
     layer->setScene(scene);
-    
+  
     return layer;
 }
 
-bool BagListLayer::init(){
-    CCLog("BagListLayer init");
+bool BagLayer::init(){
+    CCLog("BagLayer init");
     //////////////////////////////
     // 1. super init first
     if ( !CCLayer::init() )
@@ -60,25 +62,24 @@ bool BagListLayer::init(){
         return false;
     }
     
-    //CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui.plist");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui.plist");
     this->setTouchPriority(kCCMenuHandlerPriority);
     this->setTouchEnabled(true);
     this->setTouchMode(kCCTouchesOneByOne);
     
-    this->schedule(schedule_selector(BagListLayer::update));
+    this->schedule(schedule_selector(BagLayer::update));
     return true;
 }
 
-void BagListLayer::setScene(CCScene* scene) {
+void BagLayer::setScene(CCScene* scene) {
     this->_scene = scene;
 }
 
-CCScene* BagListLayer::getScene(){
+CCScene* BagLayer::getScene(){
     return this->_scene;
 }
 
-void BagListLayer::addWindowObjects(){
-    
+void BagLayer::addWindowObjects(){
     tableView = CCTableView::create(this, CCSizeMake(280, 340));
     tableView->setDirection(kCCScrollViewDirectionVertical);
     tableView->setDelegate(this);
@@ -95,7 +96,7 @@ void BagListLayer::addWindowObjects(){
     CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");
     okOff->setColor(ccc3(102,102,102));
     pOkButton =
-        CCMenuItemSprite::create(ok, okOff, this, menu_selector(BagListLayer::close));
+    CCMenuItemSprite::create(ok, okOff, this, menu_selector(BagLayer::close));
     
     pOkButton->setAnchorPoint(ccp(0,0));
     pOkButton->setPosition(ccp(232, 64));
@@ -106,27 +107,26 @@ void BagListLayer::addWindowObjects(){
     this->addChild(pMenu);
 }
 
-void BagListLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell){
-    //LevelUpLayer *levelUpLayer = LevelUpLayer::layerWithAttributes(_player->getAttributes());
-    if(equipmentList->count() < (cell->getIdx()+1)){
+void BagLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell){
+    if(userItem->count() < (cell->getIdx()+1)){
         return;
     }
-    DetailLayer *detail = DetailLayer::layerWithEquipmentAndBelongings((Equipment*) equipmentList->objectAtIndex(cell->getIdx()), (Belongings*) equipmentList->getBelongings());
+    DetailLayer *detail = DetailLayer::layerWithUserItemAndBelongings((UserItem*) userItem->objectAtIndex(cell->getIdx()), (Belongings*) userItem->getBelongings());
     this->addChild(detail->getScene(), 3);
 }
 
-CCSize BagListLayer::cellSizeForTable(CCTableView* table){
+CCSize BagLayer::cellSizeForTable(CCTableView* table){
     return CCSizeMake(280, CELL_HEIGHT-2);
 }
 
-CCTableViewCell* BagListLayer::tableCellAtIndex(CCTableView* table, unsigned int idx){
+CCTableViewCell* BagLayer::tableCellAtIndex(CCTableView* table, unsigned int idx){
     std::string name;
-    if(equipmentList->count() >= (idx + 1)){
-        Equipment *equipment =(Equipment*) equipmentList->objectAtIndex(idx);
-        if(equipment->isEquipped()){
-            name = equipment->getName() + "(E)";
+    if(userItem->count() >= (idx + 1)){
+        UserItem* item = (UserItem*) userItem->objectAtIndex(idx);
+        if(item->isEquipped()){
+            name = item->getName() + "(E)";
         } else {
-            name = equipment->getName();
+            name = item->getName();
         }
     } else {
         name = "空";
@@ -159,28 +159,28 @@ CCTableViewCell* BagListLayer::tableCellAtIndex(CCTableView* table, unsigned int
     return cell;
 }
 
-unsigned int BagListLayer::numberOfCellsInTableView(CCTableView* table){
-    return MAX(equipmentList->count(),6);
+unsigned int BagLayer::numberOfCellsInTableView(CCTableView* table){
+    return MAX(userItem->count(),6);
 }
 
-bool BagListLayer::ccTouchBegan(CCTouch *touch, CCEvent* event){
+bool BagLayer::ccTouchBegan(CCTouch *touch, CCEvent* event){
     CCLOG("ccTouchBegan");
     return true;
 }
 
-int BagListLayer::getTableViewHeight(){
-    int count = equipmentList->count();
+int BagLayer::getTableViewHeight(){
+    int count = userItem->count();
     int height = MIN(count * CELL_HEIGHT, 340);
     return height;
 }
 
-void BagListLayer::close(){
-    CCLOG("BagListLayer close");
-    equipmentList->reload();
+void BagLayer::close(){
+    CCLOG("BagLayer close");
+    //userItem->reload();
     this->removeFromParentAndCleanup(true);
 }
 
-void BagListLayer::update(){
+void BagLayer::update(){
     tableView->reloadData();
 }
 

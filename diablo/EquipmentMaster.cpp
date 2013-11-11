@@ -1,20 +1,27 @@
 //
-//  Equipment.cpp
+//  EquipmentMaster.cpp
 //  diablo
 //
-//  Created by Kosuke Takami on 2013/10/02.
+//  Created by Kosuke Takami on 2013/11/07.
 //
 //
 
-#include "Equipment.h"
+#include "EquipmentMaster.h"
 
-Equipment::Equipment(picojson::object rec){
+#include "cocos2d.h"
+using namespace cocos2d;
+
+EquipmentMaster::EquipmentMaster(int v){
+    _records = Util::JsonParser::parse("master/equipment_master.json");
+    picojson::object &records = _records.get<picojson::object>();
+    
+    CCString* idString = CCString::createWithFormat("%d",v);
+    picojson::object &rec = records[idString->getCString()].get<picojson::object>();
+    _name = rec["name"].get<std::string>();
+    _id = rec["id"].get<double>();
     imageId    = rec["imageid"].get<double>();
-    name       = rec["name"].get<std::string>();
-    id         = rec["id"].get<double>();
     imageColor = rec["imagecolor"].get<double>();
     description = rec["description"].get<std::string>();
-    isEquip    = (rec["isequip"].get<double>() == 1) ? true : false;
     _category  = rec["category"].get<double>();
     int _hp    = rec["hp"].get<double>();
     int _bd    = rec["basedamage"].get<double>();
@@ -42,96 +49,66 @@ Equipment::Equipment(picojson::object rec){
     attributes = Attributes::createWithCCDictionary(dict);
 }
 
-Equipment::Equipment(){
-    imageId    = 0;
-    name       = "空";
-    id         = 0;
-    imageColor = 0;
-    description = "";
-    isEquip    = false;
-    _category  = 0;
-    CCDictionary* dict  = CCDictionary::create();
-    dict->setObject(CCInteger::create(0), "hp");
-    dict->setObject(CCInteger::create(0), "baseDamage");
-    dict->setObject(CCInteger::create(0), "swordDamage");
-    dict->setObject(CCInteger::create(0), "potionRecover");
-    dict->setObject(CCInteger::create(0), "shieldStatus");
-    dict->setObject(CCInteger::create(0), "shieldRefill");
-    dict->setObject(CCInteger::create(0), "coinAddition");
-    dict->setObject(CCInteger::create(0), "strength");
-    dict->setObject(CCInteger::create(0), "defense");
-    dict->setObject(CCInteger::create(0), "dexterity");
-    dict->setObject(CCInteger::create(0), "vitality");
-    attributes = Attributes::createWithCCDictionary(dict);
+EquipmentMaster::~EquipmentMaster(){
 }
 
-Equipment::~Equipment(){
+int EquipmentMaster::getId(){
+    return _id;
 }
 
-std::string Equipment::getName(){
-    return name;
+EquipmentMaster* EquipmentMaster::getById(int v){
+    EquipmentMaster *item = new EquipmentMaster(v);
+    return item;
 }
 
-int Equipment::getMaxHp(){
+std::string EquipmentMaster::getName(){
+    return this->_name;
+}
+
+int EquipmentMaster::getMaxHp(){
     return this->attributes->getMaxHp();
 }
 
-int Equipment::getShieldMaxHp(){
+int EquipmentMaster::getShieldMaxHp(){
     return this->attributes->getShieldMaxHp();
 }
 
-int Equipment::getPotionRecover(){
+int EquipmentMaster::getPotionRecover(){
     return this->attributes->getPotionRecover();
 }
 
-int Equipment::getShieldRefill(){
+int EquipmentMaster::getShieldRefill(){
     return  this->attributes->getShieldRefill();
 }
 
-int Equipment::getSwordDamage(){
+int EquipmentMaster::getSwordDamage(){
     return this->attributes->getSwordDamage();
 }
 
-int Equipment::getBaseDamage(){
+int EquipmentMaster::getBaseDamage(){
     return this->attributes->getBaseDamage();
 }
 
-int Equipment::getCoinAddition(){
+int EquipmentMaster::getCoinAddition(){
     return this->attributes->getCoinAddition();
 }
 
-int Equipment::getStrength(){
+int EquipmentMaster::getStrength(){
     return this->attributes->getStrength();
 }
 
-int Equipment::getDefense(){
+int EquipmentMaster::getDefense(){
     return this->attributes->getDefense();
 }
 
-int Equipment::getDexterity(){
+int EquipmentMaster::getDexterity(){
     return this->attributes->getDexterity();
 }
 
-int Equipment::getVitality(){
+int EquipmentMaster::getVitality(){
     return this->attributes->getVitality();
 }
 
-int Equipment::getCategory(){
+int EquipmentMaster::getCategory(){
     return _category;
 }
-
-void Equipment::setEquipped(bool _isEquipped){
-    this->isEquip = _isEquipped;
-}
-
-bool Equipment::isEquipped(){
-    return this->isEquip;
-}
-
-Equipment* Equipment::getMock(){
-    picojson::value _mock = Util::JsonParser::parse("master/mock/equipment.json");
-    Equipment* _e = new Equipment(_mock.get<picojson::object>());
-    CCLOG("getMock: %d", _e->isEquipped());
-    return _e;
-}
-

@@ -13,8 +13,9 @@
 #include "cocos2d.h"
 #include "Level.h"
 #include "Attributes.h"
-#include "EquipmentList.h"
 #include "Budget.h"
+#include "UserItem.h"
+#include "UserItems.h"
 using namespace cocos2d;
 
 class Player{
@@ -22,11 +23,11 @@ class Player{
     Attributes* attributes;
     Level* level;
     Budget* budget;
-    EquipmentList* equipmentList;
+    UserItems* userItem;
     int levelUpCount;
 public:
     Attributes* getAttributes();
-    EquipmentList* getEquipmentList();
+    UserItems* getUserItem();
     int getCurrentHp();
     int getMaxHp();
     

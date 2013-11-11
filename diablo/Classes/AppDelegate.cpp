@@ -13,7 +13,7 @@
 #include "MainGameScene.h"
 #include "MenuScene.h"
 #include "CCBReader.h"
-#include "BagListLayer.h"
+#include "BagLayer.h"
 #include "DetailLayer.h"
 #include "PlayerStatusLayer.h"
 
@@ -49,6 +49,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCScene* pScene = MenuScene::scene();
     //CCScene* pScene = LevelUpLayer::scene();
     //CCScene* pScene = BagListLayer::scene();
+    //CCScene* pScene = BagLayer::scene();
     //CCScene* pScene = DetailLayer::scene();
     //CCScene* pScene = PlayerStatusLayer::scene();
 //    CCNodeLoaderLibrary* ccNodeLoaderLibrary = CCNodeLoaderLibrary::sharedCCNodeLoaderLibrary();

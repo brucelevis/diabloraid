@@ -27,7 +27,7 @@ public:
     std::string getModelName();
     virtual void add(ModelInterface* model);
     virtual void remove(ModelInterface* model);
-    ModelInterface* getByPrimaryKey(int id);
+    virtual ModelInterface* getByPrimaryKey(int id);
     ModelInstanceManager();
     ~ModelInstanceManager();
 };

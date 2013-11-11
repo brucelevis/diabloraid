@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "Equipment.h"
+#include "UserItem.h"
 #include "Belongings.h"
 using namespace cocos2d;
 
@@ -22,7 +22,7 @@ class DetailLayer : public CCLayer{
     CCMenuItemSprite* pRemoveButton;
     CCLabelTTF* equipStatusLabel;
     CCScene* _scene;
-    Equipment* _equipment;
+    UserItem* _equipment;
     CCLabelTTF* baseDamageLabel;
     CCLabelTTF* swordDamageLabel;
     CCLabelTTF* shieldHpLabel;
@@ -40,10 +40,10 @@ class DetailLayer : public CCLayer{
 public:
     virtual bool init();
     
-    static CCScene* scene();
-    static DetailLayer* layer();
-    static DetailLayer* layerWithEquipment(Equipment* equipment);
-    static DetailLayer* layerWithEquipmentAndBelongings(Equipment* equipment, Belongings* belongings);
+    //static CCScene* scene();
+    //static DetailLayer* layer();
+    static DetailLayer* layerWithUserItem(UserItem* equipment);
+    static DetailLayer* layerWithUserItemAndBelongings(UserItem* equipment, Belongings* belongings);
     
     void setScene(CCScene* scene);
     CCScene* getScene();

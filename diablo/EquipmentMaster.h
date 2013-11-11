@@ -1,39 +1,36 @@
 //
-//  Equipment.h
+//  EquipmentMaster.h
 //  diablo
 //
-//  Created by Kosuke Takami on 2013/10/02.
+//  Created by Kosuke Takami on 2013/11/09.
 //
 //
 
-#ifndef __diablo__Equipment__
-#define __diablo__Equipment__
+#ifndef __diablo__EquipmentMaster__
+#define __diablo__EquipmentMaster__
 
 #include <iostream>
-#include "picojson.h"
 #include "Util.h"
-#include "cocos2d.h"
+#include "ModelInterface.h"
+#include "HavingMasterInterface.h"
+#include "picojson.h"
 #include "Attributes.h"
-using namespace cocos2d;
 
-class Equipment : public CCObject{
+class EquipmentMaster : public HavingMasterInterface, public ModelInterface {
     picojson::value _records;
-    int id;
+    int _id;
+    std::string _name;
+    int type;
+    int value;
     int imageId;
     int imageColor;
-    int isEquip;
-    std::string name;
     std::string description;
     Attributes* attributes;
     int _category;
-    
 public:
-    Equipment();
-    Equipment(picojson::object rec);
-    ~Equipment();
-    static Equipment* getNull(); ///
+    static EquipmentMaster* getById(int v);
     std::string getName();
-
+    int getId();
     int getMaxHp();
     int getShieldMaxHp();
     
@@ -52,12 +49,8 @@ public:
     int getVitality();
     
     int getCategory();
-    
-    void setEquipped(bool _isEquipped);
-    bool isEquipped();
-    
-    //for debug
-    static Equipment* getMock();
+    EquipmentMaster(int v);
+    ~EquipmentMaster();
 };
 
-#endif /* defined(__diablo__Equipment__) */
+#endif /* defined(__diablo__EquipmentMaster__) */

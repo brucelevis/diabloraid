@@ -240,7 +240,7 @@ PanelSprite* FieldPanels::loadPanel(int indexX, int indexY){
     int id = _floorFieldModel->get(indexX, indexY);
     ModelManager* modelManager = ModelManager::getInstance();
     PanelDataManager* panelDataManager =(PanelDataManager*) modelManager->getModel("PanelData");
-    PanelData* panelData = panelDataManager->getByPrimaryKey(id);
+    PanelData* panelData =(PanelData*) panelDataManager->getByPrimaryKey(id);
     
     PanelSprite* pSprite = PanelSpriteFactory::createByPanelData(panelData);
     

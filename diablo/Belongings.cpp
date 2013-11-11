@@ -9,21 +9,21 @@
 #include "Belongings.h"
 
 Belongings::Belongings(){
-    _null  = new Equipment();
+    _null  = new UserItem();
     
     sword  = _null;
     shield = _null;
     armor  = _null;
 }
 
-bool Belongings::isEquipped(Equipment* equipment){
+bool Belongings::isEquipped(UserItem* equipment){
     return (sword == equipment)  ? true
     : (shield == equipment) ? true
     : (armor  == equipment) ? true
     : false;
 }
 
-Equipment* Belongings::get(int category){
+UserItem* Belongings::get(int category){
     switch(category){
         case 1:
             return sword;
@@ -84,7 +84,7 @@ int Belongings::getVitality(){
 Belongings::~Belongings(){
 }
 
-void Belongings::set(Equipment* equipment){
+void Belongings::set(UserItem* equipment){
     CCLOG("Belongings::set : %d", equipment->getCategory());
     this->unset(equipment);
     switch (equipment->getCategory()) {
@@ -105,7 +105,7 @@ void Belongings::set(Equipment* equipment){
     }
 }
 
-void Belongings::unset(Equipment* equipment){
+void Belongings::unset(UserItem* equipment){
        switch (equipment->getCategory()) {
         case 1:
             this->sword->setEquipped(false);

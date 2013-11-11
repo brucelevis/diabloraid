@@ -10,18 +10,18 @@
 #define __diablo__Belongings__
 
 #include <iostream>
-#include "Equipment.h"
+#include "UserItem.h"
 
 class Belongings {
-    Equipment* _null;
-    Equipment* sword;
-    Equipment* shield;
-    Equipment* armor;
+    UserItem* _null;
+    UserItem* sword;
+    UserItem* shield;
+    UserItem* armor;
 public:
-    void set(Equipment* equipment);
-    void unset(Equipment* equipment);
-    bool isEquipped(Equipment* equipment); //その装備を装備しているかどうかを返す。
-    Equipment* get(int category);//そのカテゴリの装備を取得する。
+    void set(UserItem* equipment);
+    void unset(UserItem* equipment);
+    bool isEquipped(UserItem* equipment); //その装備を装備しているかどうかを返す。
+    UserItem* get(int category);//そのカテゴリの装備を取得する。
     int getMaxHp();
     
     int getShieldMaxHp();

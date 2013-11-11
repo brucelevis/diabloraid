@@ -30,6 +30,10 @@ ModelInstanceManager* ModelManager::getModel(std::string name){
         model = (ModelInstanceManager*) new PanelDataManager();
     } else if(name == "EnemyData"){
         model = (ModelInstanceManager*) new EnemyDataManager();
+    } else if(name == "ItemMaster"){
+        model = (ModelInstanceManager*) new ItemMasterManager();
+    } else if(name == "EquipmentMaster"){
+               model = (ModelInstanceManager*) new EquipmentMasterManager();
     } else {
         model = (ModelInstanceManager*) new ModelInstanceManager();
     }

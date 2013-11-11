@@ -122,9 +122,10 @@ bool MainGameScene::init()
     _field = new Field(_player, _camera, floor, floorFieldModel);
     this->addChild((CCNode*) _field);
     
-    _equipmentList = _player->getEquipmentList();
     _events = (Events*) Events::create();
     _events->retain();
+    
+    userItem = _player->getUserItem();
     
     CCSprite* _hp = CCSprite::createWithSpriteFrameName("hp.png");
     _hp->setScale(0.4);
@@ -255,9 +256,9 @@ void MainGameScene::pushLevelUp(){
 }
 
 void MainGameScene::pushEquipScene(){
-    BagListLayer *bagListLayer = BagListLayer::layerWithEquipmentList(_equipmentList);
+    BagLayer *bagLayer = BagLayer::layerWithUserItems(userItem);
     //push
-    this->addChild(bagListLayer->getScene());
+    this->addChild(bagLayer->getScene());
 }
 
 void MainGameScene::pushStatusScene(){
@@ -274,7 +275,7 @@ void MainGameScene::pushLevelUpEvent(){
 
 void MainGameScene::pushShop(){
     CCLOG("pushShop");
-    _player->getEquipmentList()->add(Equipment::getMock());
+    //_player->getEquipmentList()->add(Equipment::getMock());
 }
 
 void MainGameScene::handleEvents(){

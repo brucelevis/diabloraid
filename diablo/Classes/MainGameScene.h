@@ -6,14 +6,14 @@
 #include "Field.h"
 #include "Player.h"
 #include "TurnManager.h"
-#include "BagListLayer.h"
+#include "BagLayer.h"
 #include "EventFactory.h"
 #include "Events.h"
-#include "EquipmentList.h"
 #include "PlayerStatusLayer.h"
 #include "Floor.h"
 #include "FloorField.h"
 #include "Camera.h"
+#include "UserItems.h"
 using namespace cocos2d;
 class TurnManager;
 
@@ -24,7 +24,7 @@ class MainGameScene : public cocos2d::CCLayer
     Camera* _camera;
     bool _touching;
     bool _onTurn;
-    EquipmentList* _equipmentList;
+    UserItems* userItem;
     TurnManager* _turnManager;
     CCLabelTTF* HpLabel;
     CCLabelTTF* ShieldLabel;

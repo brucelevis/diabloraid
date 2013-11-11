@@ -7,31 +7,31 @@
 //
 
 #include "DetailLayer.h"
-CCScene* DetailLayer::scene(){
-    DetailLayer *layer = (DetailLayer*) DetailLayer::layer();
-    return layer->getScene();
-}
+//CCScene* DetailLayer::scene(){
+//    DetailLayer *layer = (DetailLayer*) DetailLayer::layer();
+//    return layer->getScene();
+//}
 
-DetailLayer* DetailLayer::layer(){
-    // 'scene' is an autorelease object
-    CCScene *scene = CCScene::create();
-    
-    // 'layer' is an autorelease object
-    DetailLayer *layer = (DetailLayer*) DetailLayer::create();
-    layer->_equipment = Equipment::getMock();
-    layer->_belongings = new Belongings();
-    layer->addWindowObjects();
-    
-    // add layer as a child to scene
-    scene->addChild(layer);
-    
-    // return the scene
-    layer->setScene(scene);
-    
-    return layer;
-}
+//DetailLayer* DetailLayer::layer(){
+//    // 'scene' is an autorelease object
+//    CCScene *scene = CCScene::create();
+//    
+//    // 'layer' is an autorelease object
+//    DetailLayer *layer = (DetailLayer*) DetailLayer::create();
+//    layer->_equipment = UserItem::getMock();
+//    layer->_belongings = new Belongings();
+//    layer->addWindowObjects();
+//    
+//    // add layer as a child to scene
+//    scene->addChild(layer);
+//    
+//    // return the scene
+//    layer->setScene(scene);
+//    
+//    return layer;
+//}
 
-DetailLayer* DetailLayer::layerWithEquipment(Equipment *equipment){
+DetailLayer* DetailLayer::layerWithUserItem(UserItem *equipment){
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
     
@@ -50,7 +50,7 @@ DetailLayer* DetailLayer::layerWithEquipment(Equipment *equipment){
     return layer;
 }
 
-DetailLayer* DetailLayer::layerWithEquipmentAndBelongings(Equipment *equipment, Belongings *belongings){
+DetailLayer* DetailLayer::layerWithUserItemAndBelongings(UserItem *equipment, Belongings *belongings){
     
        // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
@@ -125,7 +125,7 @@ void DetailLayer::addWindowObjects(){
     
     this->addStatusObject("name", CCString::createWithFormat("%s", _equipment->getName().c_str()), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
     
-    Equipment* _current = _belongings->get(_equipment->getCategory());
+    UserItem* _current = _belongings->get(_equipment->getCategory());
     baseDamageLabel = this->addStatusObject("base damage", _equipment->getBaseDamage(), _current->getBaseDamage(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
     swordDamageLabel = this->addStatusObject("sword damage", _equipment->getSwordDamage(), _current->getSwordDamage(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
     shieldHpLabel = this->addStatusObject("shield hp", _equipment->getShieldMaxHp(), _current->getShieldMaxHp(), ccp(0, layer->getContentSize().height - 35), (CCNode*) layer);
@@ -249,7 +249,7 @@ void DetailLayer::updateStatus(cocos2d::CCLabelTTF *label, int status, int curre
 
 void DetailLayer::update(){
     CCString* equipStatus;
-    Equipment* _current = _belongings->get(_equipment->getCategory());
+    UserItem* _current = _belongings->get(_equipment->getCategory());
     
     this->updateStatus(baseDamageLabel, _equipment->getBaseDamage(), _current->getBaseDamage());
     this->updateStatus(swordDamageLabel, _equipment->getSwordDamage(), _current->getSwordDamage());

@@ -15,4 +15,3 @@ EnemyDataManager::EnemyDataManager(){
 
 EnemyDataManager::~EnemyDataManager(){
 }
-
