@@ -13,6 +13,9 @@
 #include <iostream>
 #include "UserItem.h"
 #include "Belongings.h"
+#include "cocos2d.h"
+
+using namespace cocos2d;
 
 class DetailInterface {
 public:

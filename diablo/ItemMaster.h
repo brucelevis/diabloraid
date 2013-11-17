@@ -19,11 +19,13 @@ class ItemMaster : public HavingMasterInterface, public ModelInterface {
     picojson::value _records;
     int _id;
     std::string _name;
+    std::string description;
     int type;
     int value;
 public:
     static ItemMaster* getById(int v);
     std::string getName();
+    std::string getDescription();
     int getId();
     int getType();
     int getValue();

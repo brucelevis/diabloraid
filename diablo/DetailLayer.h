@@ -14,8 +14,9 @@
 #include "UserItem.h"
 #include "Belongings.h"
 #include "Const.h"
-#include "DetailInterface.h"
+#include "DetailBase.h"
 #include "EquipmentDetail.h"
+#include "UsableDetail.h"
 
 using namespace cocos2d;
 
@@ -25,9 +26,11 @@ class DetailLayer : public CCLayer{
     UserItem* userItem;
     
     Belongings* belongings;
-    EquipmentDetail* windowObjects;
+    DetailBase* windowObjects;
+    //EquipmentDetail* windowObjects;
     CCMenuItemSprite* pOkButton;
     void close();
+    void setDetail();
 public:
     virtual bool init();
     

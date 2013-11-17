@@ -60,6 +60,7 @@ public:
     int getCategory();
     void setMaster(HavingMasterInterface* master);
     std::string getName();
+    std::string getDescription();
     void setEquipped(bool _isEquipped);
     UserItem(map<string, string> entity);
     static UserItem* getMock(int type);

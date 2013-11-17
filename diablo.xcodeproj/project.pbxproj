@@ -299,6 +299,7 @@
 		25E459AB1837646000B71DC2 /* EquipmentDetail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25E459A91837646000B71DC2 /* EquipmentDetail.cpp */; };
 		25E459AE1837647100B71DC2 /* UsableDetail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25E459AC1837647100B71DC2 /* UsableDetail.cpp */; };
 		25E459B1183764C400B71DC2 /* DetailInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25E459AF183764C400B71DC2 /* DetailInterface.cpp */; };
+		25E459B51838D5A700B71DC2 /* DetailBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25E459B31838D5A700B71DC2 /* DetailBase.cpp */; };
 		25EF285817E415C5003FBA91 /* kaidan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 25EF285717E415C5003FBA91 /* kaidan.wav */; };
 		25EF285C17E437A4003FBA91 /* master in Resources */ = {isa = PBXBuildFile; fileRef = 25EF285B17E437A4003FBA91 /* master */; };
 		25EF285F17E437BE003FBA91 /* EnemyMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EF285D17E437BE003FBA91 /* EnemyMaster.cpp */; };
@@ -898,6 +899,8 @@
 		25E459AF183764C400B71DC2 /* DetailInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetailInterface.cpp; sourceTree = "<group>"; };
 		25E459B0183764C400B71DC2 /* DetailInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInterface.h; sourceTree = "<group>"; };
 		25E459B21837783900B71DC2 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		25E459B31838D5A700B71DC2 /* DetailBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetailBase.cpp; sourceTree = "<group>"; };
+		25E459B41838D5A700B71DC2 /* DetailBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBase.h; sourceTree = "<group>"; };
 		25EF285717E415C5003FBA91 /* kaidan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kaidan.wav; sourceTree = "<group>"; };
 		25EF285B17E437A4003FBA91 /* master */ = {isa = PBXFileReference; lastKnownFileType = folder; name = master; path = Resources/master; sourceTree = "<group>"; };
 		25EF285D17E437BE003FBA91 /* EnemyMaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyMaster.cpp; sourceTree = "<group>"; };
@@ -2061,6 +2064,8 @@
 				25E459AA1837646000B71DC2 /* EquipmentDetail.h */,
 				25E459AC1837647100B71DC2 /* UsableDetail.cpp */,
 				25E459AD1837647100B71DC2 /* UsableDetail.h */,
+				25E459B31838D5A700B71DC2 /* DetailBase.cpp */,
+				25E459B41838D5A700B71DC2 /* DetailBase.h */,
 			);
 			name = dialog;
 			sourceTree = "<group>";
@@ -2190,6 +2195,7 @@
 				25B2FD3217BF4510008E4D34 /* AppController.mm in Sources */,
 				25B2FD3517BF4510008E4D34 /* RootViewController.mm in Sources */,
 				25B2FD3717BF4510008E4D34 /* main.m in Sources */,
+				25E459B51838D5A700B71DC2 /* DetailBase.cpp in Sources */,
 				25B2FD3C17BF4510008E4D34 /* CCAction.cpp in Sources */,
 				25B2FD3F17BF4510008E4D34 /* CCActionCamera.cpp in Sources */,
 				25B2FD4217BF4510008E4D34 /* CCActionCatmullRom.cpp in Sources */,

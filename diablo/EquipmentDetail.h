@@ -10,13 +10,13 @@
 #define __diablo__EquipmentDetail__
 
 #include <iostream>
-#include "DetailInterface.h"
 #include "UserItem.h"
+#include "DetailBase.h"
 #include "cocos2d.h"
 
 using namespace cocos2d;
 
-class EquipmentDetail : public CCNode, public DetailInterface{
+class EquipmentDetail :public DetailBase {
     CCMenuItemSprite* pEquipButton;
     CCMenuItemSprite* pRemoveButton;
     CCLabelTTF* equipStatusLabel;
@@ -39,7 +39,6 @@ class EquipmentDetail : public CCNode, public DetailInterface{
     
     UserItem* userItem;
     Belongings* belongings;
-    
 public:
     static EquipmentDetail* createWithUserItemAndBelongings(UserItem* userItem, Belongings* belongings);
     void update();

@@ -2,12 +2,14 @@
     "1": {
         "id": 1,
         "name": "薬草",
+        "description": "HPを20回復します。",
         "type": 1,
         "value": 20
     },
     "2": {
         "id": 2,
         "name": "弟切草",
+        "description": "HPを100回復します。",
         "type": 1,
         "value": 100
     }

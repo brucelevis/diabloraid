@@ -93,6 +93,10 @@ std::string UserItem::getName(){
     return master->getName();
 }
 
+std::string UserItem::getDescription(){
+    return master->getDescription();
+}
+
 int UserItem::getMaxHp(){
     if(!this->isEquipment()){
         return 0;

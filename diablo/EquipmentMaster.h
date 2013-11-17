@@ -30,6 +30,7 @@ class EquipmentMaster : public HavingMasterInterface, public ModelInterface {
 public:
     static EquipmentMaster* getById(int v);
     std::string getName();
+    std::string getDescription();
     int getId();
     int getMaxHp();
     int getShieldMaxHp();

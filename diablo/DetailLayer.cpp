@@ -18,16 +18,12 @@ DetailLayer* DetailLayer::layer(){
     
     // 'layer' is an autorelease object
     DetailLayer *layer = (DetailLayer*) DetailLayer::create();
-    layer->userItem = UserItem::getMock(1);
+    layer->userItem = UserItem::getMock(2);
     layer->belongings = new Belongings();
-    
-    layer->windowObjects = EquipmentDetail::createWithUserItemAndBelongings(layer->userItem, layer->belongings);
-    //layer->addWindowObjects();
-    layer->windowObjects->addWindowObjects();
-    layer->addChild((CCNode*) layer->windowObjects);
     
     // add layer as a child to scene
     scene->addChild(layer);
+    layer->setDetail();
     layer->addCommonComponents();
     
     
@@ -36,6 +32,8 @@ DetailLayer* DetailLayer::layer(){
     
     return layer;
 }
+
+
 
 DetailLayer* DetailLayer::layerWithUserItem(UserItem *userItem){
     // 'scene' is an autorelease object
@@ -53,6 +51,7 @@ DetailLayer* DetailLayer::layerWithUserItem(UserItem *userItem){
     
     // add layer as a child to scene
     scene->addChild(layer);
+    layer->setDetail();
     layer->addCommonComponents();
     
     // return the scene
@@ -78,6 +77,7 @@ DetailLayer* DetailLayer::layerWithUserItemAndBelongings(UserItem *userItem, Bel
     
     // add layer as a child to scene
     scene->addChild(layer);
+    layer->setDetail();
     layer->addCommonComponents();
     
     // return the scene
@@ -86,7 +86,27 @@ DetailLayer* DetailLayer::layerWithUserItemAndBelongings(UserItem *userItem, Bel
     return layer;
 }
 
+void DetailLayer::setDetail(){
+    switch(this->userItem->getType()){
+        case EQUIPMENT:
+            this->windowObjects = EquipmentDetail::createWithUserItemAndBelongings(this->userItem, this->belongings);
+            break;
+        case USABLE:
+            //this->windowObjects = EquipmentDetail::createWithUserItemAndBelongings(this->userItem, this->belongings);
+                this->windowObjects = UsableDetail::createWithUserItem(this->userItem);
+            break;
+        default:
+                this->windowObjects = EquipmentDetail::createWithUserItemAndBelongings(this->userItem, this->belongings);
+            break;
+    }
+    
+    //this->addWindowObjects();
+    this->windowObjects->addWindowObjects();
+    this->addChild((CCNode*) this->windowObjects);
+}
+
 void DetailLayer::addCommonComponents(){
+    
     CCSprite* ok = CCSprite::createWithSpriteFrameName("ok.png");
     CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");
     okOff->setColor(ccc3(102,102,102));

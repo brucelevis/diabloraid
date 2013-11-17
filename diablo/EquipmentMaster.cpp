@@ -65,6 +65,10 @@ std::string EquipmentMaster::getName(){
     return this->_name;
 }
 
+std::string EquipmentMaster::getDescription(){
+    return this->description;
+}
+
 int EquipmentMaster::getMaxHp(){
     return this->attributes->getMaxHp();
 }

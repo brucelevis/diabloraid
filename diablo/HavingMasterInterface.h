@@ -14,6 +14,7 @@
 class HavingMasterInterface{
 public:
     virtual std::string getName() = 0;
+    virtual std::string getDescription() = 0;
     virtual ~HavingMasterInterface(){};
 };
 

@@ -18,6 +18,7 @@ ItemMaster::ItemMaster(int v){
     CCString* idString = CCString::createWithFormat("%d",v);
     picojson::object &rec = records[idString->getCString()].get<picojson::object>();
     _name = rec["name"].get<std::string>();
+    description = rec["description"].get<std::string>();
     _id = rec["id"].get<double>();
     type = rec["type"].get<double>();
     value = rec["value"].get<double>();
@@ -45,4 +46,8 @@ ItemMaster* ItemMaster::getById(int v){
 
 std::string ItemMaster::getName(){
     return this->_name;
+}
+
+std::string ItemMaster::getDescription(){
+    return this->description;
 }
