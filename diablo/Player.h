@@ -16,6 +16,7 @@
 #include "Budget.h"
 #include "UserItem.h"
 #include "UserItems.h"
+#include "Belongings.h"
 using namespace cocos2d;
 
 class Player{
@@ -28,6 +29,7 @@ class Player{
 public:
     Attributes* getAttributes();
     UserItems* getUserItem();
+    Belongings* getBelongings();
     int getCurrentHp();
     int getMaxHp();
     

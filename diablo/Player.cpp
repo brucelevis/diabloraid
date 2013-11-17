@@ -27,6 +27,10 @@ UserItems* Player::getUserItem(){
     return userItem;
 }
 
+Belongings* Player::getBelongings(){
+    return userItem->getBelongings();
+}
+
 int Player::getBaseDamage(){
     return attributes->getBaseDamage() + this->userItem->getBaseDamage();
 }

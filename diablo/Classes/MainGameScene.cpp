@@ -256,7 +256,7 @@ void MainGameScene::pushLevelUp(){
 }
 
 void MainGameScene::pushEquipScene(){
-    BagLayer *bagLayer = BagLayer::layerWithUserItems(userItem);
+    BagLayer *bagLayer = BagLayer::layerWithUserItemsAndPlayer(userItem, _player);
     //push
     this->addChild(bagLayer->getScene());
 }

@@ -35,13 +35,14 @@ BagLayer* BagLayer::layer(){
     return layer;
 }
 
-BagLayer* BagLayer::layerWithUserItems(UserItems* userItems){
+BagLayer* BagLayer::layerWithUserItemsAndPlayer(UserItems* userItems, Player* player){
     //'scene' is an autorelease object
     CCScene *scene = CCScene::create();
   
     //'layer' is an autorelease object
     BagLayer *layer = (BagLayer*) BagLayer::create();
     layer->userItem = userItems;
+    layer->player = player;
     layer->addWindowObjects();
    
     //add layer as a child to scene
@@ -111,7 +112,7 @@ void BagLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell){
     if(userItem->count() < (cell->getIdx()+1)){
         return;
     }
-    DetailLayer *detail = DetailLayer::layerWithUserItemAndBelongings((UserItem*) userItem->objectAtIndex(cell->getIdx()), (Belongings*) userItem->getBelongings());
+    DetailLayer *detail = DetailLayer::layerWithUserItemAndPlayer((UserItem*) userItem->objectAtIndex(cell->getIdx()),this->player);
     this->addChild(detail->getScene(), 3);
 }
 

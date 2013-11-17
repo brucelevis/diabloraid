@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "UserItem.h"
+#include "Player.h"
 #include "Belongings.h"
 #include "Const.h"
 #include "DetailBase.h"
@@ -26,6 +27,7 @@ class DetailLayer : public CCLayer{
     UserItem* userItem;
     
     Belongings* belongings;
+    Player* player;
     DetailBase* windowObjects;
     //EquipmentDetail* windowObjects;
     CCMenuItemSprite* pOkButton;
@@ -37,7 +39,7 @@ public:
     static CCScene* scene();
     static DetailLayer* layer();
     static DetailLayer* layerWithUserItem(UserItem* equipment);
-    static DetailLayer* layerWithUserItemAndBelongings(UserItem* equipment, Belongings* belongings);
+    static DetailLayer* layerWithUserItemAndPlayer(UserItem* equipment, Player* player);
     void addCommonComponents();
     
     void setScene(CCScene* scene);

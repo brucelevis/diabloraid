@@ -15,6 +15,7 @@
 #include "DetailLayer.h"
 #include "UserItems.h"
 #include "UserItem.h"
+#include "Player.h"
 using namespace cocos2d;
 using namespace cocos2d::extension;
 
@@ -23,6 +24,7 @@ class BagLayer : public CCLayer,
 public CCTableViewDataSource,
 public CCTableViewDelegate
 {
+    Player* player;
     UserItems* userItem;
     int CELL_HEIGHT = 60;
     CCMenuItemSprite* pOkButton;
@@ -32,7 +34,7 @@ public:
     virtual bool init();
     static CCScene* scene();
     static BagLayer* layer();
-    static BagLayer* layerWithUserItems(UserItems* userItems);
+    static BagLayer* layerWithUserItemsAndPlayer(UserItems* userItems, Player* player);
     
     virtual void tableCellTouched(CCTableView* table, CCTableViewCell* cell);
     
