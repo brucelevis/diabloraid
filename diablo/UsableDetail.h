@@ -13,18 +13,20 @@
 #include "cocos2d.h"
 #include "DetailBase.h"
 #include "UserItem.h"
+#include "Player.h"
 
 using namespace cocos2d;
 
 class UsableDetail: public DetailBase{
     CCMenuItemSprite* pUseButton;
     UserItem* userItem;
+    Player* player;
 public:
-    static UsableDetail* createWithUserItem(UserItem* userItem);
+    static UsableDetail* createWithUserItemAndPlayer(UserItem* userItem, Player* player);
     void addWindowObjects();
     void update();
     void use();
-    UsableDetail(UserItem* userItem);
+    UsableDetail(UserItem* userItem, Player* player);
     ~UsableDetail();
 };
 

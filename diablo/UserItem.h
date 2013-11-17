@@ -40,6 +40,8 @@ public:
     int getItemId();
     bool isEquipped();
     bool isEquipment();
+    bool isUsable();
+    
     
     int getMaxHp();
     int getShieldMaxHp();
@@ -58,6 +60,8 @@ public:
     int getDexterity();
     int getVitality();
     int getCategory();
+    
+    int getValue(); // itemの時だけ。
     void setMaster(HavingMasterInterface* master);
     std::string getName();
     std::string getDescription();

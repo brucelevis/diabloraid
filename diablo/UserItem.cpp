@@ -73,6 +73,17 @@ bool UserItem::isEquipment(){
    }
 }
 
+bool UserItem::isUsable(){
+   switch(this->getType()){
+       case EQUIPMENT:
+           return false;
+       case USABLE:
+           return true;
+       default:
+           return false;
+   }
+}
+
 void UserItem::setMaster(HavingMasterInterface *master){
     this->master = master;
 }
@@ -215,4 +226,11 @@ UserItem* UserItem::getMock(int type){
     UserItem* userItem   = new UserItem(entity);
     userItem->setMaster(UserItem::createMaster(userItem));
     return userItem;
+}
+
+int UserItem::getValue(){
+    if(!this->isUsable()){
+        return 0;
+    }
+    return ((ItemMaster*)this->master)->getValue();
 }

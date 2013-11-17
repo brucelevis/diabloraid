@@ -70,6 +70,7 @@ DetailLayer* DetailLayer::layerWithUserItemAndPlayer(UserItem *userItem, Player 
     // 'layer' is an autorelease object
     DetailLayer *layer = (DetailLayer*) DetailLayer::create();
     layer->userItem = userItem;
+    layer->player = player;
     layer->belongings = player->getBelongings();
     
     layer->windowObjects = EquipmentDetail::createWithUserItemAndBelongings(layer->userItem, layer->belongings);
@@ -94,7 +95,7 @@ void DetailLayer::setDetail(){
             this->windowObjects = EquipmentDetail::createWithUserItemAndBelongings(this->userItem, this->belongings);
             break;
         case USABLE:
-            this->windowObjects = UsableDetail::createWithUserItem(this->userItem);
+            this->windowObjects = UsableDetail::createWithUserItemAndPlayer(this->userItem, this->player);
             break;
         default:
             this->windowObjects = EquipmentDetail::createWithUserItemAndBelongings(this->userItem, this->belongings);

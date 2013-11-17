@@ -8,14 +8,15 @@
 
 #include "UsableDetail.h"
 
-UsableDetail *UsableDetail::createWithUserItem(UserItem* userItem){
-	UsableDetail * pRet = new UsableDetail(userItem);
+UsableDetail *UsableDetail::createWithUserItemAndPlayer(UserItem* userItem, Player* player){
+	UsableDetail * pRet = new UsableDetail(userItem, player);
 	pRet->autorelease();
 	return pRet;
 }
 
-UsableDetail::UsableDetail(UserItem* userItem){
+UsableDetail::UsableDetail(UserItem* userItem, Player* player){
     this->userItem = userItem;
+    this->player = player;
 }
 
 UsableDetail::~UsableDetail(){
@@ -83,4 +84,6 @@ void UsableDetail::update(){
 }
 
 void UsableDetail::use(){
+    //TODO 薬草、おとぎりそう以外も対応する。
+    player->recover(userItem->getValue());
 }
