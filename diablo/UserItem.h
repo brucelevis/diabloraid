@@ -18,6 +18,7 @@
 #include "ItemMaster.h"
 #include "EquipmentMaster.h"
 #include "cocos2d.h"
+#include "Const.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -61,6 +62,7 @@ public:
     std::string getName();
     void setEquipped(bool _isEquipped);
     UserItem(map<string, string> entity);
+    static UserItem* getMock(int type);
     UserItem();
     ~UserItem();
 };

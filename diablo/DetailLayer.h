@@ -13,52 +13,36 @@
 #include "cocos2d.h"
 #include "UserItem.h"
 #include "Belongings.h"
+#include "Const.h"
+#include "DetailInterface.h"
+#include "EquipmentDetail.h"
+
 using namespace cocos2d;
 
 
 class DetailLayer : public CCLayer{
-    CCMenuItemSprite* pOkButton;
-    CCMenuItemSprite* pEquipButton;
-    CCMenuItemSprite* pRemoveButton;
-    CCLabelTTF* equipStatusLabel;
     CCScene* _scene;
-    UserItem* _equipment;
-    CCLabelTTF* baseDamageLabel;
-    CCLabelTTF* swordDamageLabel;
-    CCLabelTTF* shieldHpLabel;
-    CCLabelTTF* shieldRefillLabel;
-    CCLabelTTF* maxHpLabel;
-    CCLabelTTF* potionRecoverLabel;
-    CCLabelTTF* coinAdditionLabel;
-    CCLabelTTF* strengthLabel;
-    CCLabelTTF* defenseLabel;
-    CCLabelTTF* dexterityLabel;
-    CCLabelTTF* vitalityLabel;
+    UserItem* userItem;
     
-    Belongings* _belongings;
-    int _lineNum;
+    Belongings* belongings;
+    EquipmentDetail* windowObjects;
+    CCMenuItemSprite* pOkButton;
+    void close();
 public:
     virtual bool init();
     
-    //static CCScene* scene();
-    //static DetailLayer* layer();
+    static CCScene* scene();
+    static DetailLayer* layer();
     static DetailLayer* layerWithUserItem(UserItem* equipment);
     static DetailLayer* layerWithUserItemAndBelongings(UserItem* equipment, Belongings* belongings);
+    void addCommonComponents();
     
     void setScene(CCScene* scene);
     CCScene* getScene();
     
     void addWindowObjects();
-    CCLabelTTF* addStatusObject(std::string name, CCString* string, CCPoint position, CCNode* node);
-    CCLabelTTF* addStatusObject(std::string name, int status, int current, CCPoint position, CCNode* node);
-    void updateStatus(CCLabelTTF* label, int status,int current);
-    
-    void close();
-    void remove();
-    void equip();
-    
-    void update();
     virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    void update();
     CREATE_FUNC(DetailLayer);
 };
 

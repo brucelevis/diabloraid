@@ -1,20 +1,6 @@
 {
-    "id": 1,
-    "imageid": 1,
-    "imagecolor": 0,
-    "isequip": 0,
-    "category": 1,
-    "name": "木刀",
-    "description": "ただの木刀",
-    "hp": 0,
-    "basedamage": 3,
-    "sworddamage": 1,
-    "potionrecover": 0,
-    "shieldstatus": 0,
-    "shieldrefill": 0,
-    "coinaddition": 0,
-    "strength": 0,
-    "defense": 0,
-    "dexterity": 0,
-    "vitality": 0
+  "id": 1,
+  "type": 1,
+  "itemId": 1,
+  "isEquip": 1
 }

@@ -12,7 +12,7 @@
 #include <iostream>
 #include "UserItem.h"
 
-class Belongings {
+class Belongings{
     UserItem* _null;
     UserItem* sword;
     UserItem* shield;

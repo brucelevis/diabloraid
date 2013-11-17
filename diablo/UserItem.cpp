@@ -7,7 +7,6 @@
 //
 
 #include "UserItem.h"
-enum ITEM_TYPE {EQUIPMENT = 1, USABLE = 2};
 
 
 int UserItem::seqId = 1;
@@ -25,6 +24,10 @@ UserItem::UserItem(map<string, string> entity){
 }
 
 UserItem::UserItem(){
+    id      = 0;
+    type    = -1;
+    itemId  = 0;
+    isEquip = false;
 }
 
 
@@ -179,4 +182,33 @@ void UserItem::setEquipped(bool _isEquipped){
         return;
     }
     this->isEquip = _isEquipped;
+}
+
+UserItem* UserItem::getMock(int type){
+    picojson::object record;
+    switch(type){
+        case EQUIPMENT:
+        {
+            picojson::value equipment = Util::JsonParser::parse("master/mock/equipment.json");
+            record = equipment.get<picojson::object>();
+        }
+            break;
+        case USABLE:
+        {
+            picojson::value usable = Util::JsonParser::parse("master/mock/usable.json");
+            record = usable.get<picojson::object>();
+            
+        }
+            break;
+        default:
+            break;
+    }
+    map<string, string> entity;
+    entity["id"]   = Util::Util::intToString(record["id"].get<double>());
+    entity["type"] = Util::Util::intToString(record["type"].get<double>());
+    entity["itemId"] = Util::Util::intToString(record["itemId"].get<double>());
+    entity["isEquip"] = Util::Util::intToString(record["isEquip"].get<double>());
+    UserItem* userItem   = new UserItem(entity);
+    userItem->setMaster(UserItem::createMaster(userItem));
+    return userItem;
 }
