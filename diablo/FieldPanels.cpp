@@ -31,8 +31,8 @@ void FieldPanels::remove(int index){
 void FieldPanels::initialize(CCNode* parentNode, Floor* floor){
     _panelCount = CCDictionary::create();
     _panelCount->retain();
-   for(int i = 0; i <= 35; i++){
-       for( int j = 0; j <= 35; j++){
+   for(int i = 0; i <= 5; i++){
+       for( int j = 0; j <= 5; j++){
             PanelSprite* pSprite = this->loadPanel(i, j);
             // add the sprite as a child to this layer
             this->add(pSprite);
@@ -51,7 +51,7 @@ void FieldPanels::restockPanel(CCNode* parentNode, Floor* floor){
     
     CCARRAY_FOREACH(removedPanels, targetObject){
         removedPoint = (CCPoint*) targetObject;
-        int y = 36;
+        int y = 6;
         CCInteger* count = (CCInteger*) removedCount->objectForKey(removedPoint->x);
         //既にその列が消えている場合は、追加する場所がn段上になる。
         if(count){

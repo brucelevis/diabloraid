@@ -66,8 +66,8 @@ void Camera::move(float x, float y){
     float currentY = this->getPosition()->y;
     float setX;
     float setY;
-    setX = MIN(MAX(currentX + x, 0), 51.2 * 35 * 0.8);
-    setY = MIN(MAX(currentY + y, 0), 51.2 * 35 * 0.8);
+    setX = MIN(MAX(currentX + x, 0), 51.2 * 0 * 0.8);
+    setY = MIN(MAX(currentY + y, 0), 51.2 * 0 * 0.8);
     CCLOG("%f", setY);
     
     this->setPosition(setX, setY);
