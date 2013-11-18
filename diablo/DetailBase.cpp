@@ -25,3 +25,6 @@ void DetailBase::addWindowObjects(){
 
 void DetailBase::update(){
 }
+
+void DetailBase::setParentLayer(DialogLayerInterface* layer){
+}

@@ -14,11 +14,13 @@
 #include "DetailBase.h"
 #include "UserItem.h"
 #include "Player.h"
+#include "DialogLayerInterface.h"
 
 using namespace cocos2d;
 
 class UsableDetail: public DetailBase{
     CCMenuItemSprite* pUseButton;
+    CCMenuItemSprite* pOkButton;
     UserItem* userItem;
     Player* player;
 public:
@@ -26,6 +28,8 @@ public:
     void addWindowObjects();
     void update();
     void use();
+    void close();
+    void setParentLayer(DialogLayerInterface* layer);
     UsableDetail(UserItem* userItem, Player* player);
     ~UsableDetail();
 };

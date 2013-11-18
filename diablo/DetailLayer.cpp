@@ -101,6 +101,7 @@ void DetailLayer::setDetail(){
             this->windowObjects = EquipmentDetail::createWithUserItemAndBelongings(this->userItem, this->belongings);
             break;
     }
+    this->windowObjects->setParentLayer(this);
     
     //this->addWindowObjects();
     this->windowObjects->addWindowObjects();
@@ -108,17 +109,6 @@ void DetailLayer::setDetail(){
 }
 
 void DetailLayer::addCommonComponents(){
-    CCSprite* ok = CCSprite::createWithSpriteFrameName("ok.png");
-    CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");
-    okOff->setColor(ccc3(102,102,102));
-    this->pOkButton =
-        CCMenuItemSprite::create(ok, okOff, this, menu_selector(DetailLayer::close));
-    this->pOkButton->setAnchorPoint(ccp(0,0));
-    this->pOkButton->setPosition(ccp(222, 114));
-    
-    CCMenu* pMenu = CCMenu::create(this->pOkButton, NULL);
-    pMenu->setPosition(CCPointZero);
-    this->addChild(pMenu);
     
 }
 

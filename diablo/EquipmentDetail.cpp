@@ -15,6 +15,10 @@ EquipmentDetail *EquipmentDetail::createWithUserItemAndBelongings(UserItem* user
 	return pRet;
 }
 
+void EquipmentDetail::setParentLayer(DialogLayerInterface* layer){
+    this->parentLayer = layer;
+}
+
 
 void EquipmentDetail::addWindowObjects(){
     CCLayerColor *background = CCLayerColor::create(ccc4(0, 250, 250, 255));
@@ -78,6 +82,14 @@ void EquipmentDetail::addWindowObjects(){
     equipStatusLabel->setPosition(ccp(100, layer->getContentSize().height -35 - 15 * (_lineNum)));
     layer->addChild(equipStatusLabel);
     
+    CCSprite* ok = CCSprite::createWithSpriteFrameName("ok.png");
+    CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");
+    okOff->setColor(ccc3(102,102,102));
+    this->pOkButton =
+        CCMenuItemSprite::create(ok, okOff, this, menu_selector(EquipmentDetail::close));
+    this->pOkButton->setAnchorPoint(ccp(0,0));
+    this->pOkButton->setPosition(ccp(222, 114));
+    
     CCSprite* equip = CCSprite::createWithSpriteFrameName("equip.png");
     CCSprite* equipOff = CCSprite::createWithSpriteFrameName("equip.png");
     equipOff->setColor(ccc3(102,102,102));
@@ -96,7 +108,7 @@ void EquipmentDetail::addWindowObjects(){
     pRemoveButton->setPosition(ccp(222 - 68, 114));
     pRemoveButton->setVisible(this->userItem->isEquipped());
     
-    CCMenu* pMenu = CCMenu::create(pEquipButton, pRemoveButton, NULL);
+    CCMenu* pMenu = CCMenu::create(pEquipButton, pRemoveButton, pOkButton, NULL);
     pMenu->setPosition(CCPointZero);
     this->addChild(pMenu);
 }
@@ -136,6 +148,12 @@ CCLabelTTF* EquipmentDetail::addStatusObject(std::string name, int status, int c
 
 void EquipmentDetail::updateStatus(cocos2d::CCLabelTTF *label, int status, int current){
    label->setString(CCString::createWithFormat(": %d (%d)", status, current)->getCString());
+}
+
+void EquipmentDetail::close(){
+    if(this->parentLayer){
+        this->parentLayer->close();
+    }
 }
 
 

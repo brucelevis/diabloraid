@@ -58,6 +58,18 @@ UserItems* UserItems::getAll(){
     return array;
 }
 
+UserItem* UserItems::getById(int id){
+    CCObject* targetObject;
+    UserItem* userItem;
+    CCARRAY_FOREACH(this, targetObject){
+        userItem = (UserItem*) targetObject;
+        if(userItem->getId() == id){
+            return userItem;
+        }
+    }
+    return NULL;
+}
+
 int UserItems::getMaxHp(){
     return _equipped->getMaxHp();
 }
@@ -105,4 +117,22 @@ UserItems::UserItems(){
 }
 
 UserItems::~UserItems(){
+}
+
+//アイテムを追加する。
+void UserItems::add(int type, int itemId){
+    map<string, string> entity;
+    entity["type"] = Util::Util::intToString(type);
+    entity["itemId"] = Util::Util::intToString(itemId);
+    entity["isEquip"] = Util::Util::intToString(0);
+    UserItem* userItem   = new UserItem(entity);
+    userItem->setMaster(UserItem::createMaster(userItem));
+    this->addObject((CCObject*) userItem);
+}
+
+//アイテムを削除する。
+void UserItems::remove(int id){
+    UserItem* removedItem = this->getById(id);
+    this->removeObject((CCObject*) removedItem);
+    delete removedItem;
 }

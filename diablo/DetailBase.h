@@ -12,14 +12,18 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "DetailInterface.h"
+#include "DialogLayerInterface.h"
 
 using namespace cocos2d;
 
 class DetailBase : public CCNode, public DetailInterface {
+protected:
+    DialogLayerInterface* parentLayer;
 public:
     static DetailBase* create();
     virtual void addWindowObjects();
     virtual void update();
+    virtual void setParentLayer(DialogLayerInterface* layer);
     DetailBase();
     ~DetailBase();
 };

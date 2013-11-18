@@ -275,7 +275,7 @@ void MainGameScene::pushLevelUpEvent(){
 
 void MainGameScene::pushShop(){
     CCLOG("pushShop");
-    //_player->getEquipmentList()->add(Equipment::getMock());
+    _player->getUserItem()->add(2, 1);
 }
 
 void MainGameScene::handleEvents(){

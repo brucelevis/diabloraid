@@ -22,6 +22,10 @@ UsableDetail::UsableDetail(UserItem* userItem, Player* player){
 UsableDetail::~UsableDetail(){
 }
 
+void UsableDetail::setParentLayer(DialogLayerInterface *layer){
+    this->parentLayer = layer;
+}
+
 void UsableDetail::addWindowObjects(){
     CCLayerColor *background = CCLayerColor::create(ccc4(0, 250, 250, 255));
     background->setContentSize(CCSizeMake(264, 344));
@@ -65,6 +69,14 @@ void UsableDetail::addWindowObjects(){
     pLabel->setPosition( ccp(layer->getContentSize().width / 2, layer->getContentSize().height - 10) );
 
     // add the label as a child to this layer
+  
+    CCSprite* ok = CCSprite::createWithSpriteFrameName("ok.png");
+    CCSprite* okOff = CCSprite::createWithSpriteFrameName("ok.png");
+    okOff->setColor(ccc3(102,102,102));
+    this->pOkButton =
+        CCMenuItemSprite::create(ok, okOff, this, menu_selector(UsableDetail::close));
+    this->pOkButton->setAnchorPoint(ccp(0,0));
+    this->pOkButton->setPosition(ccp(222, 114));
     
     layer->addChild(pLabel, 1);
     CCSprite* equip = CCSprite::createWithSpriteFrameName("use.png");
@@ -75,9 +87,15 @@ void UsableDetail::addWindowObjects(){
     pUseButton->setAnchorPoint(ccp(0,0));
     pUseButton->setPosition(ccp(222 - 68, 114));
     
-    CCMenu* pMenu = CCMenu::create(pUseButton, NULL);
+    CCMenu* pMenu = CCMenu::create(pUseButton, pOkButton, NULL);
     pMenu->setPosition(CCPointZero);
     this->addChild(pMenu);
+}
+
+void UsableDetail::close(){
+    if(this->parentLayer){
+        this->parentLayer->close();
+    }
 }
 
 void UsableDetail::update(){
@@ -86,4 +104,6 @@ void UsableDetail::update(){
 void UsableDetail::use(){
     //TODO 薬草、おとぎりそう以外も対応する。
     player->recover(userItem->getValue());
+    player->getUserItem()->remove(userItem->getId());
+    this->close();
 }

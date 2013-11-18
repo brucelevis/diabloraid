@@ -18,11 +18,12 @@
 #include "DetailBase.h"
 #include "EquipmentDetail.h"
 #include "UsableDetail.h"
+#include "DialogLayerInterface.h"
 
 using namespace cocos2d;
 
 
-class DetailLayer : public CCLayer{
+class DetailLayer : public CCLayer, public DialogLayerInterface{
     CCScene* _scene;
     UserItem* userItem;
     
@@ -30,7 +31,6 @@ class DetailLayer : public CCLayer{
     Player* player;
     DetailBase* windowObjects;
     //EquipmentDetail* windowObjects;
-    CCMenuItemSprite* pOkButton;
     void close();
     void setDetail();
 public:

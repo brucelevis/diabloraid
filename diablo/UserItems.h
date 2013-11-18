@@ -25,6 +25,7 @@ public:
     static UserItems* getAll();
     Belongings* getBelongings();
     void setBelongings();
+    UserItem* getById(int id);
     UserItems();
     ~UserItems();
     int getMaxHp();
@@ -47,6 +48,8 @@ public:
     int getDefense();
     int getDexterity();
     int getVitality();
+    void add(int type, int itemId);
+    void remove(int id); //idの所持品を削除する。
     void reload(); //装備が更新されたりすると、更新する。
 };
 

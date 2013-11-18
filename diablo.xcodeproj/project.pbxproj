@@ -300,6 +300,7 @@
 		25E459AE1837647100B71DC2 /* UsableDetail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25E459AC1837647100B71DC2 /* UsableDetail.cpp */; };
 		25E459B1183764C400B71DC2 /* DetailInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25E459AF183764C400B71DC2 /* DetailInterface.cpp */; };
 		25E459B51838D5A700B71DC2 /* DetailBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25E459B31838D5A700B71DC2 /* DetailBase.cpp */; };
+		25E459B8183A64FC00B71DC2 /* DialogLayerInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25E459B6183A64FC00B71DC2 /* DialogLayerInterface.cpp */; };
 		25EF285817E415C5003FBA91 /* kaidan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 25EF285717E415C5003FBA91 /* kaidan.wav */; };
 		25EF285C17E437A4003FBA91 /* master in Resources */ = {isa = PBXBuildFile; fileRef = 25EF285B17E437A4003FBA91 /* master */; };
 		25EF285F17E437BE003FBA91 /* EnemyMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EF285D17E437BE003FBA91 /* EnemyMaster.cpp */; };
@@ -901,6 +902,8 @@
 		25E459B21837783900B71DC2 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		25E459B31838D5A700B71DC2 /* DetailBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetailBase.cpp; sourceTree = "<group>"; };
 		25E459B41838D5A700B71DC2 /* DetailBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBase.h; sourceTree = "<group>"; };
+		25E459B6183A64FC00B71DC2 /* DialogLayerInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogLayerInterface.cpp; sourceTree = "<group>"; };
+		25E459B7183A64FC00B71DC2 /* DialogLayerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogLayerInterface.h; sourceTree = "<group>"; };
 		25EF285717E415C5003FBA91 /* kaidan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kaidan.wav; sourceTree = "<group>"; };
 		25EF285B17E437A4003FBA91 /* master */ = {isa = PBXFileReference; lastKnownFileType = folder; name = master; path = Resources/master; sourceTree = "<group>"; };
 		25EF285D17E437BE003FBA91 /* EnemyMaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyMaster.cpp; sourceTree = "<group>"; };
@@ -1037,6 +1040,8 @@
 				256205B3182F3738000D321F /* ModelInterface.h */,
 				25E459AF183764C400B71DC2 /* DetailInterface.cpp */,
 				25E459B0183764C400B71DC2 /* DetailInterface.h */,
+				25E459B6183A64FC00B71DC2 /* DialogLayerInterface.cpp */,
+				25E459B7183A64FC00B71DC2 /* DialogLayerInterface.h */,
 			);
 			name = interface;
 			sourceTree = "<group>";
@@ -2263,6 +2268,7 @@
 				25002F8E1813D01900114AE3 /* ModelInstanceManager.cpp in Sources */,
 				25B2FDF917BF4512008E4D34 /* CCTransitionProgress.cpp in Sources */,
 				25B2FDFD17BF4512008E4D34 /* CCMenu.cpp in Sources */,
+				25E459B8183A64FC00B71DC2 /* DialogLayerInterface.cpp in Sources */,
 				25B2FE0017BF4512008E4D34 /* CCMenuItem.cpp in Sources */,
 				25B2FE0417BF4512008E4D34 /* CCMotionStreak.cpp in Sources */,
 				25B2FE0717BF4512008E4D34 /* CCProgressTimer.cpp in Sources */,
