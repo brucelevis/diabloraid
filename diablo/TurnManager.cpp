@@ -35,12 +35,7 @@ void TurnManager::start(){
         return;
     }
     if(removedPanels->hasActiveOnlyOnePanel()){
-        _field->removeAllPanels();
-        _field->restockPanels();
-        _field->setMoves();
-        _field->gotoNextFloor();
-        this->turnEnd();
-        SimpleAudioEngine::sharedEngine()->playEffect("kaidan.wav");
+        this->gotoNextFloor();
         return;
     }
     // 取り除かれそうになっているパネルのアクションを実行する。
@@ -137,6 +132,16 @@ void TurnManager::attack(CCArray* enemies){
         enemy = (Enemy*) targetObject;
         enemy->attack(_player);
     }
+}
+
+void TurnManager::gotoNextFloor(){
+    _field->removeAllPanels();
+    _field->restockPanels();
+    _field->setMoves();
+    _field->gotoNextFloor();
+    this->turnEnd();
+    SimpleAudioEngine::sharedEngine()->playEffect("kaidan.wav");
+    return;
 }
 
 void TurnManager::end(){
