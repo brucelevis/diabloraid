@@ -44,25 +44,25 @@ void FieldPanels::initialize(CCNode* parentNode, Floor* floor){
 void FieldPanels::restockPanel(CCNode* parentNode, Floor* floor){
     CCArray* removedPanels = this->getRemovedPanels();
     
-    CCPoint *removedPoint = NULL;
+    PanelSprite* removedPanel = NULL;
     CCObject* targetObject = NULL;
     
     CCDictionary* removedCount = CCDictionary::create();
     
     CCARRAY_FOREACH(removedPanels, targetObject){
-        removedPoint = (CCPoint*) targetObject;
+        removedPanel = (PanelSprite*) targetObject;
         int y = 6;
-        CCInteger* count = (CCInteger*) removedCount->objectForKey(removedPoint->x);
+        CCInteger* count = (CCInteger*) removedCount->objectForKey(removedPanel->getAbsolutePosition().x);
         //既にその列が消えている場合は、追加する場所がn段上になる。
         if(count){
             y += count->getValue();
-            removedCount->setObject(CCInteger::create(count->getValue()+1),removedPoint->x);
+            removedCount->setObject(CCInteger::create(count->getValue()+1),removedPanel->getAbsolutePosition().x);
         //その列がまだ消えていない場合は、dictionaryに追加
         } else {
-            removedCount->setObject(CCInteger::create(1),removedPoint->x);
+            removedCount->setObject(CCInteger::create(1),removedPanel->getAbsolutePosition().x);
         }
         
-        PanelSprite* pSprite = this->createPanel(floor, int(removedPoint->x / (PANEL_SIZE * PANEL_SCALE)), y);
+        PanelSprite* pSprite = this->createPanel(floor, int(removedPanel->getAbsolutePosition().x / (PANEL_SIZE * PANEL_SCALE)), y);
         this->add(pSprite);
         parentNode->addChild(pSprite);
     }
@@ -81,7 +81,9 @@ void FieldPanels::removePanels(){
         //消えるパネルなら消す。
         if(panel->isRemoved()){
             panel->removeFromParentAndCleanup(true);
-            this->setRemovedPanel(new CCPoint(panel->getAbsolutePosition().x, panel->getAbsolutePosition().y));
+            //this->setRemovedPanel(new CCPoint(panel->getAbsolutePosition().x, panel->getAbsolutePosition().y));
+            this->setRemovedPanel(panel);
+            
             removedIndexes->addObject(CCInteger::create(count));
         }
         count++;
@@ -108,7 +110,8 @@ void FieldPanels::removeAllPanels(){
         
         //消えるパネルなら消す。
         panel->removeFromParentAndCleanup(true);
-        this->setRemovedPanel(new CCPoint(panel->getAbsolutePosition().x, panel->getAbsolutePosition().y));
+        //this->setRemovedPanel(new CCPoint(panel->getAbsolutePosition().x, panel->getAbsolutePosition().y));
+        this->setRemovedPanel(panel);
         removedIndexes->addObject(CCInteger::create(count));
         count++;
     }
@@ -127,7 +130,7 @@ void FieldPanels::setMoves(){
        return;
     }
     CCArray* removedPanels = this->getRemovedPanels();
-    CCPoint *removedPoint = NULL;
+    PanelSprite* removedPanel = NULL;
     CCObject* targetObject1 = NULL;
     
     PanelSprite* panel = NULL;
@@ -136,9 +139,9 @@ void FieldPanels::setMoves(){
     CCARRAY_FOREACH(this, targetObject1){
         panel = (PanelSprite*) targetObject1;
         CCARRAY_FOREACH(removedPanels, targetObject2){
-            removedPoint = (CCPoint*) targetObject2;
+            removedPanel = (PanelSprite*) targetObject2;
 
-            if(removedPoint->x == panel->getAbsolutePosition().x && removedPoint->y < panel->getAbsolutePosition().y){
+            if(removedPanel->getAbsolutePosition().x == panel->getAbsolutePosition().x && removedPanel->getAbsolutePosition().y < panel->getAbsolutePosition().y){
                 _moveState = true;
                 panel->setDeltaY(PANEL_SIZE * PANEL_SCALE);
             }
@@ -284,8 +287,8 @@ void FieldPanels::save(){
 }
 
 //消えたパネルの座標をセットする。
-void FieldPanels::setRemovedPanel(CCPoint* point){
-    _removedPanels->addObject(point);
+void FieldPanels::setRemovedPanel(PanelSprite* panel){
+    _removedPanels->addObject(panel);
 }
 
 void FieldPanels::update(){

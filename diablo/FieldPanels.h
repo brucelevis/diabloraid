@@ -49,7 +49,8 @@ public:
     void adjustPosition();
     bool isMoving();
     CCArray* getRemovedPanels();
-    void setRemovedPanel(CCPoint* point);
+    //void setRemovedPanel(CCPoint* point);
+    void setRemovedPanel(PanelSprite* panel);
     void refresh();
     void save();
     void update();
