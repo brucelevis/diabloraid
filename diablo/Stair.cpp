@@ -8,7 +8,7 @@
 
 #include "Stair.h"
 Stair::Stair(){
-    _connectType = 5;
+    _connectType = 6;
     _isActiveOnlyOnePanel = true;
     _canExistNum = 1;
 }

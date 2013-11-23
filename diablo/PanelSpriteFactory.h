@@ -24,6 +24,7 @@
 #include "Shield.h"
 #include "Stair.h"
 #include "Floor.h"
+#include "Treasure.h"
 
 class PanelSpriteFactory {
 public:

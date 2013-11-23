@@ -34,6 +34,9 @@ PanelSprite* PanelSpriteFactory::createWithFloor(Floor* floor){
     } else if(panelName == "kaidan"){
         typeInstanceId = 0;
         pSprite = Stair::createWithSpriteFrameName(panelName.c_str());
+    } else if(panelName == "treasure"){
+        typeInstanceId = 0;
+        pSprite = Treasure::createWithSpriteFrameName(panelName.c_str());
     } else {
         type = -1;
         typeInstanceId = 0;
@@ -100,6 +103,9 @@ PanelSprite* PanelSpriteFactory::createByPanelData(PanelData* panelData){
             pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
             break;
         case 5:
+            pSprite = Treasure::createWithSpriteFrameName(panelName.c_str());
+            break;
+        case 6:
             pSprite = Stair::createWithSpriteFrameName(panelName.c_str());
             break;
         default:
@@ -117,7 +123,8 @@ CCString* PanelSpriteFactory::convertToPanelName(int panelType){
     _panelNameMap->setObject((CCObject*) new CCString("shield"), 2);
     _panelNameMap->setObject((CCObject*) new CCString("sword"), 3);
     _panelNameMap->setObject((CCObject*) new CCString("potion"), 4);
-    _panelNameMap->setObject((CCObject*) new CCString("kaidan"), 5);
+    _panelNameMap->setObject((CCObject*) new CCString("treasure"), 5);
+    _panelNameMap->setObject((CCObject*) new CCString("kaidan"), 6);
     _panelNameMap->setObject((CCObject*) new CCString(""), -1);
     return (CCString*) _panelNameMap->objectForKey(panelType);
 }
@@ -130,7 +137,8 @@ int PanelSpriteFactory::convertToPanelType(std::string panelName){
     _panelNameMap->setObject((CCObject*) new CCInteger(2), "shield");
     _panelNameMap->setObject((CCObject*) new CCInteger(3), "sword");
     _panelNameMap->setObject((CCObject*) new CCInteger(4), "potion");
-    _panelNameMap->setObject((CCObject*) new CCInteger(5), "kaidan");
+    _panelNameMap->setObject((CCObject*) new CCInteger(5), "treasure");
+    _panelNameMap->setObject((CCObject*) new CCInteger(6), "kaidan");
     _panelNameMap->setObject((CCObject*) new CCInteger(-1), "");
     return ((CCInteger*) _panelNameMap->objectForKey(panelName))->getValue();
 }

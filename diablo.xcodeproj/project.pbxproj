@@ -33,6 +33,7 @@
 		253D0B9717EC493F003A62C2 /* LevelUpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253D0B9517EC493F003A62C2 /* LevelUpLayer.cpp */; };
 		2544CF0817D1E5520023929D /* direction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0617D1E5520023929D /* direction.plist */; };
 		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
+		255DB605183F1FDA00CAFCBF /* Treasure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DB603183F1FDA00CAFCBF /* Treasure.cpp */; };
 		2562059B18268D1C000D321F /* MoveList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059918268D1C000D321F /* MoveList.cpp */; };
 		2562059E18269230000D321F /* MoveVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059C18269230000D321F /* MoveVector.cpp */; };
 		256205A2182698CB000D321F /* MoveInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256205A0182698CB000D321F /* MoveInterface.cpp */; };
@@ -357,6 +358,8 @@
 		253D0B9617EC493F003A62C2 /* LevelUpLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUpLayer.h; sourceTree = "<group>"; };
 		2544CF0617D1E5520023929D /* direction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = direction.plist; path = Resources/direction.plist; sourceTree = "<group>"; };
 		2544CF0717D1E5520023929D /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = direction.png; path = Resources/direction.png; sourceTree = "<group>"; };
+		255DB603183F1FDA00CAFCBF /* Treasure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Treasure.cpp; sourceTree = "<group>"; };
+		255DB604183F1FDA00CAFCBF /* Treasure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treasure.h; sourceTree = "<group>"; };
 		2562059918268D1C000D321F /* MoveList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveList.cpp; sourceTree = "<group>"; };
 		2562059A18268D1C000D321F /* MoveList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveList.h; sourceTree = "<group>"; };
 		2562059C18269230000D321F /* MoveVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveVector.cpp; sourceTree = "<group>"; };
@@ -1122,6 +1125,8 @@
 				250557AA17DB84A400D85441 /* Sword.h */,
 				256C087717E20E0F007A6D01 /* Stair.cpp */,
 				256C087817E20E0F007A6D01 /* Stair.h */,
+				255DB603183F1FDA00CAFCBF /* Treasure.cpp */,
+				255DB604183F1FDA00CAFCBF /* Treasure.h */,
 				25002F16180BBD9300114AE3 /* PanelSpriteFactory.cpp */,
 				25002F17180BBD9300114AE3 /* PanelSpriteFactory.h */,
 			);
@@ -2245,6 +2250,7 @@
 				25B2FDC717BF4511008E4D34 /* mat3.c in Sources */,
 				25B2FDC917BF4511008E4D34 /* mat4.c in Sources */,
 				25B2FDCB17BF4511008E4D34 /* neon_matrix_impl.c in Sources */,
+				255DB605183F1FDA00CAFCBF /* Treasure.cpp in Sources */,
 				25B2FDCD17BF4511008E4D34 /* plane.c in Sources */,
 				25B2FDCF17BF4512008E4D34 /* quaternion.c in Sources */,
 				25002F18180BBD9300114AE3 /* PanelSpriteFactory.cpp in Sources */,
