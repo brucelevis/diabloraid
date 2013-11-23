@@ -35,8 +35,10 @@ PanelSprite* PanelSpriteFactory::createWithFloor(Floor* floor){
         typeInstanceId = 0;
         pSprite = Stair::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "treasure"){
-        typeInstanceId = 0;
-        pSprite = Treasure::createWithSpriteFrameName(panelName.c_str());
+        //何のアイテムが出るかは敵に依存するが、とりあえず薬草が出たとする。
+        UserItem* userItem = UserItem::createWithTypeAndItemId(2, 1);
+        typeInstanceId = userItem->getId();
+        pSprite = Treasure::createWithUserItem(userItem);
     } else {
         type = -1;
         typeInstanceId = 0;
@@ -66,6 +68,12 @@ PanelData* PanelSpriteFactory::createPanelDataWithFloor(Floor *floor){
         EnemyDataManager* enemyDataManager = (EnemyDataManager*) modelManager->getModel("EnemyData");
         enemyDataManager->add((ModelInterface*)enemy);
         typeInstanceId = enemy->getId();
+    } else if(panelName == "treasure"){
+        //とりあえず。
+        UserItem* userItem = UserItem::createWithTypeAndItemId(2, 1);
+        UserItemManager* userItemManager = (UserItemManager*) modelManager->getModel("UserItem");
+        userItemManager->add((ModelInterface*) userItem);
+        typeInstanceId = userItem->getId();
     }
     
     PanelData* panelData = PanelData::create(type, typeInstanceId);
@@ -103,7 +111,12 @@ PanelSprite* PanelSpriteFactory::createByPanelData(PanelData* panelData){
             pSprite = Potion::createWithSpriteFrameName(panelName.c_str());
             break;
         case 5:
-            pSprite = Treasure::createWithSpriteFrameName(panelName.c_str());
+            {
+                ModelManager* modelManager = ModelManager::getInstance();
+                ModelInstanceManager* userItemManager = (UserItemManager*) modelManager->getModel("UserItem");
+                UserItem* userItem =(UserItem*) userItemManager->getByPrimaryKey(panelData->getTypeInstanceId());
+                pSprite = Treasure::createWithUserItem(userItem);
+            }
             break;
         case 6:
             pSprite = Stair::createWithSpriteFrameName(panelName.c_str());

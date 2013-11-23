@@ -29,6 +29,19 @@ Treasure* Treasure::createWithSpriteFrameName(const char *pszSpriteFrameName){
     return NULL;
 }
 
+Treasure* Treasure::createWithUserItem(UserItem* userItem){
+    Treasure* sprite   = new Treasure();
+    sprite->_panelName = "treasure";
+    if(sprite && sprite->initWithSpriteFrameName((sprite->_panelName + ".png").c_str())){
+        sprite->_touchRect = *new CCRect();
+        sprite->userItem = userItem;
+        sprite->autorelease();
+        return sprite;
+    }
+    CC_SAFE_DELETE(sprite);
+    return NULL;
+}
+
 void Treasure::actionRemoved(Player* player){
-    player->getUserItem()->add(2, 1);
+    player->getUserItem()->add(this->userItem->getType(), this->userItem->getItemId());
 }

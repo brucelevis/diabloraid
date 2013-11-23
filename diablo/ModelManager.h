@@ -17,6 +17,7 @@
 #include "EnemyDataManager.h"
 #include "ItemMasterManager.h"
 #include "EquipmentMasterManager.h"
+#include "UserItemManager.h"
 using namespace std;
 
 class ModelManager {

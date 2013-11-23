@@ -11,10 +11,13 @@
 
 #include <iostream>
 #include "PanelSprite.h"
+#include "UserItem.h"
 
 class Treasure : public PanelSprite{
+    UserItem* userItem;
 public:
     static Treasure* createWithSpriteFrameName(const char *pszSpriteFrameName);
+    static Treasure* createWithUserItem(UserItem* userItem);
     void actionRemoved(Player* player);
     Treasure();
     ~Treasure();

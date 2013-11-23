@@ -30,6 +30,17 @@ UserItem::UserItem(){
     isEquip = false;
 }
 
+UserItem* UserItem::createWithTypeAndItemId(int type, int itemId){
+    map<string, string> entity;
+    entity["id"]   = Util::Util::intToString(itemId);
+    entity["type"] = Util::Util::intToString(type);
+    entity["itemId"] = Util::Util::intToString(itemId);
+    entity["isEquip"] = Util::Util::intToString(0);
+    UserItem* userItem   = new UserItem(entity);
+    userItem->setMaster(UserItem::createMaster(userItem));
+    return userItem;
+}
+
 
 UserItem::~UserItem(){
 }

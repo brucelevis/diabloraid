@@ -34,6 +34,7 @@
 		2544CF0817D1E5520023929D /* direction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0617D1E5520023929D /* direction.plist */; };
 		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
 		255DB605183F1FDA00CAFCBF /* Treasure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DB603183F1FDA00CAFCBF /* Treasure.cpp */; };
+		255DB60818409CE100CAFCBF /* UserItemManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DB60618409CE100CAFCBF /* UserItemManager.cpp */; };
 		2562059B18268D1C000D321F /* MoveList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059918268D1C000D321F /* MoveList.cpp */; };
 		2562059E18269230000D321F /* MoveVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059C18269230000D321F /* MoveVector.cpp */; };
 		256205A2182698CB000D321F /* MoveInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256205A0182698CB000D321F /* MoveInterface.cpp */; };
@@ -360,6 +361,8 @@
 		2544CF0717D1E5520023929D /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = direction.png; path = Resources/direction.png; sourceTree = "<group>"; };
 		255DB603183F1FDA00CAFCBF /* Treasure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Treasure.cpp; sourceTree = "<group>"; };
 		255DB604183F1FDA00CAFCBF /* Treasure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treasure.h; sourceTree = "<group>"; };
+		255DB60618409CE100CAFCBF /* UserItemManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserItemManager.cpp; sourceTree = "<group>"; };
+		255DB60718409CE100CAFCBF /* UserItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserItemManager.h; sourceTree = "<group>"; };
 		2562059918268D1C000D321F /* MoveList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveList.cpp; sourceTree = "<group>"; };
 		2562059A18268D1C000D321F /* MoveList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveList.h; sourceTree = "<group>"; };
 		2562059C18269230000D321F /* MoveVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveVector.cpp; sourceTree = "<group>"; };
@@ -970,6 +973,8 @@
 				256205B6182F3899000D321F /* ItemMasterManager.h */,
 				256205D6182FD322000D321F /* EquipmentMasterManager.cpp */,
 				256205D7182FD322000D321F /* EquipmentMasterManager.h */,
+				255DB60618409CE100CAFCBF /* UserItemManager.cpp */,
+				255DB60718409CE100CAFCBF /* UserItemManager.h */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -2221,6 +2226,7 @@
 				25B2FD6017BF4510008E4D34 /* CCActionTween.cpp in Sources */,
 				25B2FD6417BF4510008E4D34 /* CCAtlasNode.cpp in Sources */,
 				25B2FD6717BF4510008E4D34 /* CCNode.cpp in Sources */,
+				255DB60818409CE100CAFCBF /* UserItemManager.cpp in Sources */,
 				25002FA1181CE5FB00114AE3 /* EnemyDataManager.cpp in Sources */,
 				25B2FD6A17BF4510008E4D34 /* CCCamera.cpp in Sources */,
 				25B2FD6D17BF4511008E4D34 /* CCConfiguration.cpp in Sources */,

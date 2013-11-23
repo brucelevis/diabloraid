@@ -14,6 +14,7 @@
 #include "ModelManager.h"
 #include "PanelDataManager.h"
 #include "EnemyDataManager.h"
+#include "UserItemManager.h"
 #include "EnemyFactory.h"
 #include "Enemy.h"
 #include "EnemyData.h"
@@ -25,6 +26,7 @@
 #include "Stair.h"
 #include "Floor.h"
 #include "Treasure.h"
+#include "UserItem.h"
 
 class PanelSpriteFactory {
 public:

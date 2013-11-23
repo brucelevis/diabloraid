@@ -33,7 +33,9 @@ ModelInstanceManager* ModelManager::getModel(std::string name){
     } else if(name == "ItemMaster"){
         model = (ModelInstanceManager*) new ItemMasterManager();
     } else if(name == "EquipmentMaster"){
-               model = (ModelInstanceManager*) new EquipmentMasterManager();
+       model = (ModelInstanceManager*) new EquipmentMasterManager();
+    } else if(name == "UserItem"){
+        model = (ModelInstanceManager*) new UserItemManager();
     } else {
         model = (ModelInstanceManager*) new ModelInstanceManager();
     }

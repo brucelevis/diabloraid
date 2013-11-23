@@ -19,11 +19,12 @@
 #include "EquipmentMaster.h"
 #include "cocos2d.h"
 #include "Const.h"
+#include "ModelInterface.h"
 
 using namespace std;
 using namespace cocos2d;
 
-class UserItem : public CCObject{
+class UserItem : public CCObject, ModelInterface{
     
 private:
     static int seqId;
@@ -34,6 +35,7 @@ private:
     bool isEquip;
     HavingMasterInterface* master;
 public:
+    static UserItem* createWithTypeAndItemId(int type, int itemId);
     static HavingMasterInterface* createMaster(UserItem *userItem);
     int getId();
     int getType();
