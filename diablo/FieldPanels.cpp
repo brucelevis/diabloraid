@@ -81,7 +81,6 @@ void FieldPanels::removePanels(){
         //消えるパネルなら消す。
         if(panel->isRemoved()){
             panel->removeFromParentAndCleanup(true);
-            //this->setRemovedPanel(new CCPoint(panel->getAbsolutePosition().x, panel->getAbsolutePosition().y));
             this->setRemovedPanel(panel);
             
             removedIndexes->addObject(CCInteger::create(count));
@@ -110,7 +109,6 @@ void FieldPanels::removeAllPanels(){
         
         //消えるパネルなら消す。
         panel->removeFromParentAndCleanup(true);
-        //this->setRemovedPanel(new CCPoint(panel->getAbsolutePosition().x, panel->getAbsolutePosition().y));
         this->setRemovedPanel(panel);
         removedIndexes->addObject(CCInteger::create(count));
         count++;
@@ -231,9 +229,6 @@ PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY){
     pSprite->setScale(scale);
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(size/2 + size * indexX - camera->getPosition()->x, OFFSET_Y + size/2 + size * indexY - camera->getPosition()->y) );
-    //pSprite->setPosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
-    //pSprite->setAbsolutePosition( ccp(size/2 + size * indexX + camera->getPosition()->x, OFFSET_Y + size/2 + size * indexY + camera->getPosition()->y) );
-    //pSprite->setAbsolutePosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
     pSprite->setAbsolutePosition( ccp(size * indexX, size * indexY) );
     pSprite->update();
     return pSprite;
@@ -255,8 +250,6 @@ PanelSprite* FieldPanels::loadPanel(int indexX, int indexY){
     pSprite->setScale(scale);
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(size/2 + size * indexX - camera->getPosition()->x, OFFSET_Y + size/2 + size * indexY - camera->getPosition()->y) );
-    //pSprite->setPosition( ccp(size/2 + size * indexX, OFFSET_Y + size/2 + size * indexY) );
-    //pSprite->setAbsolutePosition( ccp(size/2 + size * indexX + camera->getPosition()->x, OFFSET_Y + size/2 + size * indexY + camera->getPosition()->y) );
     pSprite->setAbsolutePosition( ccp(size * indexX, size * indexY) );
     pSprite->update();
     return pSprite;
