@@ -15,6 +15,7 @@
 class Treasure : public PanelSprite{
 public:
     static Treasure* createWithSpriteFrameName(const char *pszSpriteFrameName);
+    void actionRemoved(Player* player);
     Treasure();
     ~Treasure();
     

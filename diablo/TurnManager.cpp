@@ -34,7 +34,7 @@ void TurnManager::start(){
         this->turnEnd();
         return;
     }
-    if(removedPanels->hasActiveOnlyOnePanel()){
+    if(removedPanels->hasFloorChangePanels()){
         this->gotoNextFloor();
         return;
     }

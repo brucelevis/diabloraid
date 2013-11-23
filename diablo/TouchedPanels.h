@@ -22,6 +22,7 @@ public:
     void initialize();
     void showDirections();
     bool hasActiveOnlyOnePanel(); //一つでもアクティブになるパネルを持ってるかどうか
+    bool hasFloorChangePanels(); //階段等のフロアが移動するパネルを持っているかどうか
     void push(PanelSprite* panel, Player* player);
     void pop(Player* player);
     void popTo(PanelSprite* panel, Player* player);

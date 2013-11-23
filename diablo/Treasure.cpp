@@ -10,6 +10,10 @@
 
 Treasure::Treasure(){
     _connectType = 5;
+    _isActiveOnlyOnePanel = true;
+}
+
+Treasure::~Treasure(){
 }
 
 Treasure* Treasure::createWithSpriteFrameName(const char *pszSpriteFrameName){
@@ -25,5 +29,6 @@ Treasure* Treasure::createWithSpriteFrameName(const char *pszSpriteFrameName){
     return NULL;
 }
 
-Treasure::~Treasure(){
+void Treasure::actionRemoved(Player* player){
+    player->getUserItem()->add(2, 1);
 }

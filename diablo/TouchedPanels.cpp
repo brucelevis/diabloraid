@@ -159,3 +159,15 @@ bool TouchedPanels::hasActiveOnlyOnePanel(){
     }
     return false;
 }
+
+bool TouchedPanels::hasFloorChangePanels(){
+    PanelSprite* p = NULL;
+    CCObject* targetObject = NULL;
+    CCARRAY_FOREACH(this, targetObject) {
+        p = (PanelSprite*) targetObject;
+        if(p->getPanelName() == "kaidan"){
+            return true;
+        }
+    }
+    return false;
+}
