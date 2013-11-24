@@ -276,7 +276,9 @@ void MainGameScene::pushLevelUpEvent(){
 
 void MainGameScene::pushShop(){
     CCLOG("pushShop");
-    _player->getUserItem()->add(2, 1);
+    LogLayer *logLayer = LogLayer::layer();
+    //push
+    this->addChild(logLayer->getScene());
 }
 
 void MainGameScene::handleEvents(){

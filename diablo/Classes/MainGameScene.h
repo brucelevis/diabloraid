@@ -14,6 +14,7 @@
 #include "FloorField.h"
 #include "Camera.h"
 #include "UserItems.h"
+#include "LogLayer.h"
 using namespace cocos2d;
 class TurnManager;
 
@@ -57,6 +58,7 @@ public:
     void pushLevelUpEvent();
     void pushStatusScene();
     void pushEquipScene();
+    
     
     void handleEvents();
 };

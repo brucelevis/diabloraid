@@ -44,6 +44,8 @@
 		255DB9F41841CF3200CAFCBF /* diablo_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DB9F31841CF3200CAFCBF /* diablo_Tests.m */; };
 		255DB9FC1841CF8200CAFCBF /* ItemMapTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 255DB9FB1841CF8200CAFCBF /* ItemMapTest.mm */; };
 		255DB9FF1841DAF900CAFCBF /* PanelMapMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DB9FD1841DAF900CAFCBF /* PanelMapMaster.cpp */; };
+		255DBA021842507C00CAFCBF /* LogLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DBA001842507C00CAFCBF /* LogLayer.cpp */; };
+		255DBA051842576300CAFCBF /* LogEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DBA031842576300CAFCBF /* LogEvent.cpp */; };
 		2562059B18268D1C000D321F /* MoveList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059918268D1C000D321F /* MoveList.cpp */; };
 		2562059E18269230000D321F /* MoveVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059C18269230000D321F /* MoveVector.cpp */; };
 		256205A2182698CB000D321F /* MoveInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256205A0182698CB000D321F /* MoveInterface.cpp */; };
@@ -395,6 +397,10 @@
 		255DB9FB1841CF8200CAFCBF /* ItemMapTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ItemMapTest.mm; sourceTree = "<group>"; };
 		255DB9FD1841DAF900CAFCBF /* PanelMapMaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PanelMapMaster.cpp; sourceTree = "<group>"; };
 		255DB9FE1841DAF900CAFCBF /* PanelMapMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelMapMaster.h; sourceTree = "<group>"; };
+		255DBA001842507C00CAFCBF /* LogLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogLayer.cpp; sourceTree = "<group>"; };
+		255DBA011842507C00CAFCBF /* LogLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogLayer.h; sourceTree = "<group>"; };
+		255DBA031842576300CAFCBF /* LogEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogEvent.cpp; sourceTree = "<group>"; };
+		255DBA041842576300CAFCBF /* LogEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEvent.h; sourceTree = "<group>"; };
 		2562059918268D1C000D321F /* MoveList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveList.cpp; sourceTree = "<group>"; };
 		2562059A18268D1C000D321F /* MoveList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveList.h; sourceTree = "<group>"; };
 		2562059C18269230000D321F /* MoveVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveVector.cpp; sourceTree = "<group>"; };
@@ -1071,6 +1077,8 @@
 				25E459A81837644900B71DC2 /* dialog */,
 				25B2FFA717BF4517008E4D34 /* MainGameScene.cpp */,
 				25B2FFA617BF4517008E4D34 /* MainGameScene.h */,
+				255DBA001842507C00CAFCBF /* LogLayer.cpp */,
+				255DBA011842507C00CAFCBF /* LogLayer.h */,
 				259335F117DAE6DB00D3C419 /* MenuScene.cpp */,
 				259335F217DAE6DC00D3C419 /* MenuScene.h */,
 				253D0B9517EC493F003A62C2 /* LevelUpLayer.cpp */,
@@ -1142,6 +1150,8 @@
 				256AFE5917F9BCD900261B7B /* Events.h */,
 				256AFE5B17F9DB4000261B7B /* EventFactory.cpp */,
 				256AFE5C17F9DB4000261B7B /* EventFactory.h */,
+				255DBA031842576300CAFCBF /* LogEvent.cpp */,
+				255DBA041842576300CAFCBF /* LogEvent.h */,
 			);
 			name = event;
 			sourceTree = "<group>";
@@ -2335,6 +2345,7 @@
 				25B2FD5D17BF4510008E4D34 /* CCActionTiledGrid.cpp in Sources */,
 				25B2FD6017BF4510008E4D34 /* CCActionTween.cpp in Sources */,
 				25B2FD6417BF4510008E4D34 /* CCAtlasNode.cpp in Sources */,
+				255DBA021842507C00CAFCBF /* LogLayer.cpp in Sources */,
 				25B2FD6717BF4510008E4D34 /* CCNode.cpp in Sources */,
 				255DB60818409CE100CAFCBF /* UserItemManager.cpp in Sources */,
 				25002FA1181CE5FB00114AE3 /* EnemyDataManager.cpp in Sources */,
@@ -2497,6 +2508,7 @@
 				25B2FF3717BF4516008E4D34 /* CCLayerGradientLoader.cpp in Sources */,
 				25B2FF3A17BF4516008E4D34 /* CCLayerLoader.cpp in Sources */,
 				25B2FF3D17BF4516008E4D34 /* CCMenuItemImageLoader.cpp in Sources */,
+				255DBA051842576300CAFCBF /* LogEvent.cpp in Sources */,
 				25B2FF4017BF4516008E4D34 /* CCMenuItemLoader.cpp in Sources */,
 				25B2FF4417BF4516008E4D34 /* CCNode+CCBRelativePositioning.cpp in Sources */,
 				25B2FF4717BF4516008E4D34 /* CCNodeLoader.cpp in Sources */,
