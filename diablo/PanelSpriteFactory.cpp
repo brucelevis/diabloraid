@@ -36,7 +36,7 @@ PanelSprite* PanelSpriteFactory::createWithFloor(Floor* floor){
         pSprite = Stair::createWithSpriteFrameName(panelName.c_str());
     } else if(panelName == "treasure"){
         //何のアイテムが出るかは敵に依存するが、とりあえず薬草が出たとする。
-        UserItem* userItem = UserItem::createWithTypeAndItemId(2, 1);
+        UserItem* userItem = TreasureFactory::createTreasure();
         typeInstanceId = userItem->getId();
         pSprite = Treasure::createWithUserItem(userItem);
     } else {
@@ -70,7 +70,7 @@ PanelData* PanelSpriteFactory::createPanelDataWithFloor(Floor *floor){
         typeInstanceId = enemy->getId();
     } else if(panelName == "treasure"){
         //とりあえず。
-        UserItem* userItem = UserItem::createWithTypeAndItemId(2, 1);
+        UserItem* userItem = TreasureFactory::createTreasure();
         UserItemManager* userItemManager = (UserItemManager*) modelManager->getModel("UserItem");
         userItemManager->add((ModelInterface*) userItem);
         typeInstanceId = userItem->getId();

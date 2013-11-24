@@ -16,6 +16,7 @@
 #include "EnemyDataManager.h"
 #include "UserItemManager.h"
 #include "EnemyFactory.h"
+#include "TreasureFactory.h"
 #include "Enemy.h"
 #include "EnemyData.h"
 #include "PanelData.h"

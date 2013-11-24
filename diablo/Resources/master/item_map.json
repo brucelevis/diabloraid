@@ -1,0 +1,27 @@
+[
+    {
+        "type": 1,
+        "itemId": 1,
+        "probability": 30
+    },
+    {
+        "type": 1,
+        "itemId": 2,
+        "probability": 10
+    },
+    {
+        "type": 1,
+        "itemId": 3,
+        "probability": 30
+    },
+    {
+        "type": 2,
+        "itemId": 1,
+        "probability": 10
+    },
+    {
+        "type": 2,
+        "itemId": 2,
+        "probability": 20
+    }
+]

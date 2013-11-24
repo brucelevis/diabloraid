@@ -35,6 +35,14 @@
 		2544CF0917D1E5520023929D /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2544CF0717D1E5520023929D /* direction.png */; };
 		255DB605183F1FDA00CAFCBF /* Treasure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DB603183F1FDA00CAFCBF /* Treasure.cpp */; };
 		255DB60818409CE100CAFCBF /* UserItemManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DB60618409CE100CAFCBF /* UserItemManager.cpp */; };
+		255DB60B1841C6C700CAFCBF /* TreasureFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DB6091841C6C700CAFCBF /* TreasureFactory.cpp */; };
+		255DB60E1841C78700CAFCBF /* ItemMapMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DB60C1841C78700CAFCBF /* ItemMapMaster.cpp */; };
+		255DB9EA1841CF3200CAFCBF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 255DB9E91841CF3200CAFCBF /* XCTest.framework */; };
+		255DB9EB1841CF3200CAFCBF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD1217BF4510008E4D34 /* Foundation.framework */; };
+		255DB9EC1841CF3200CAFCBF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD1017BF4510008E4D34 /* UIKit.framework */; };
+		255DB9F21841CF3200CAFCBF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 255DB9F01841CF3200CAFCBF /* InfoPlist.strings */; };
+		255DB9F41841CF3200CAFCBF /* diablo_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DB9F31841CF3200CAFCBF /* diablo_Tests.m */; };
+		255DB9FC1841CF8200CAFCBF /* ItemMapTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 255DB9FB1841CF8200CAFCBF /* ItemMapTest.mm */; };
 		2562059B18268D1C000D321F /* MoveList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059918268D1C000D321F /* MoveList.cpp */; };
 		2562059E18269230000D321F /* MoveVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059C18269230000D321F /* MoveVector.cpp */; };
 		256205A2182698CB000D321F /* MoveInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256205A0182698CB000D321F /* MoveInterface.cpp */; };
@@ -309,6 +317,16 @@
 		25EF286817E483BB003FBA91 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EF286617E483BB003FBA91 /* Util.cpp */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		255DB9F61841CF3200CAFCBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25B2FCFB17BF4510008E4D34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25B2FD0217BF4510008E4D34;
+			remoteInfo = diablo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		25002ED618092ACD00114AE3 /* FieldModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FieldModel.cpp; sourceTree = "<group>"; };
 		25002ED718092ACD00114AE3 /* FieldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldModel.h; sourceTree = "<group>"; };
@@ -363,6 +381,17 @@
 		255DB604183F1FDA00CAFCBF /* Treasure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treasure.h; sourceTree = "<group>"; };
 		255DB60618409CE100CAFCBF /* UserItemManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserItemManager.cpp; sourceTree = "<group>"; };
 		255DB60718409CE100CAFCBF /* UserItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserItemManager.h; sourceTree = "<group>"; };
+		255DB6091841C6C700CAFCBF /* TreasureFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreasureFactory.cpp; sourceTree = "<group>"; };
+		255DB60A1841C6C700CAFCBF /* TreasureFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureFactory.h; sourceTree = "<group>"; };
+		255DB60C1841C78700CAFCBF /* ItemMapMaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemMapMaster.cpp; sourceTree = "<group>"; };
+		255DB60D1841C78700CAFCBF /* ItemMapMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemMapMaster.h; sourceTree = "<group>"; };
+		255DB9E81841CF3200CAFCBF /* diablo Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "diablo Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		255DB9E91841CF3200CAFCBF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		255DB9EF1841CF3200CAFCBF /* diablo Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "diablo Tests-Info.plist"; sourceTree = "<group>"; };
+		255DB9F11841CF3200CAFCBF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		255DB9F31841CF3200CAFCBF /* diablo_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = diablo_Tests.m; sourceTree = "<group>"; };
+		255DB9F51841CF3200CAFCBF /* diablo Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "diablo Tests-Prefix.pch"; sourceTree = "<group>"; };
+		255DB9FB1841CF8200CAFCBF /* ItemMapTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ItemMapTest.mm; sourceTree = "<group>"; };
 		2562059918268D1C000D321F /* MoveList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveList.cpp; sourceTree = "<group>"; };
 		2562059A18268D1C000D321F /* MoveList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveList.h; sourceTree = "<group>"; };
 		2562059C18269230000D321F /* MoveVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveVector.cpp; sourceTree = "<group>"; };
@@ -920,6 +949,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		255DB9E51841CF3200CAFCBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				255DB9EA1841CF3200CAFCBF /* XCTest.framework in Frameworks */,
+				255DB9EC1841CF3200CAFCBF /* UIKit.framework in Frameworks */,
+				255DB9EB1841CF3200CAFCBF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		25B2FD0017BF4510008E4D34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -954,6 +993,8 @@
 				256205A7182AA0B4000D321F /* ItemMaster.h */,
 				256205AF182DF97C000D321F /* EquipmentMaster.cpp */,
 				256205B0182DF97C000D321F /* EquipmentMaster.h */,
+				255DB60C1841C78700CAFCBF /* ItemMapMaster.cpp */,
+				255DB60D1841C78700CAFCBF /* ItemMapMaster.h */,
 			);
 			name = master;
 			sourceTree = "<group>";
@@ -1013,6 +1054,8 @@
 			children = (
 				251C371C17E49E3800990EAA /* EnemyFactory.cpp */,
 				251C371D17E49E3800990EAA /* EnemyFactory.h */,
+				255DB6091841C6C700CAFCBF /* TreasureFactory.cpp */,
+				255DB60A1841C6C700CAFCBF /* TreasureFactory.h */,
 			);
 			name = factory;
 			sourceTree = "<group>";
@@ -1035,6 +1078,26 @@
 				256205D4182F5AE5000D321F /* BagLayer.h */,
 			);
 			name = Layers;
+			sourceTree = "<group>";
+		};
+		255DB9ED1841CF3200CAFCBF /* diablo Tests */ = {
+			isa = PBXGroup;
+			children = (
+				255DB9F31841CF3200CAFCBF /* diablo_Tests.m */,
+				255DB9EE1841CF3200CAFCBF /* Supporting Files */,
+				255DB9FB1841CF8200CAFCBF /* ItemMapTest.mm */,
+			);
+			path = "diablo Tests";
+			sourceTree = "<group>";
+		};
+		255DB9EE1841CF3200CAFCBF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				255DB9EF1841CF3200CAFCBF /* diablo Tests-Info.plist */,
+				255DB9F01841CF3200CAFCBF /* InfoPlist.strings */,
+				255DB9F51841CF3200CAFCBF /* diablo Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		2562059F182698BC000D321F /* interface */ = {
@@ -1172,6 +1235,7 @@
 			isa = PBXGroup;
 			children = (
 				25B2FD1617BF4510008E4D34 /* diablo */,
+				255DB9ED1841CF3200CAFCBF /* diablo Tests */,
 				25B2FD0517BF4510008E4D34 /* Frameworks */,
 				25B2FD0417BF4510008E4D34 /* Products */,
 			);
@@ -1181,6 +1245,7 @@
 			isa = PBXGroup;
 			children = (
 				25B2FD0317BF4510008E4D34 /* diablo.app */,
+				255DB9E81841CF3200CAFCBF /* diablo Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1196,6 +1261,7 @@
 				25B2FD1017BF4510008E4D34 /* UIKit.framework */,
 				25B2FD1217BF4510008E4D34 /* Foundation.framework */,
 				25B2FD1417BF4510008E4D34 /* CoreGraphics.framework */,
+				255DB9E91841CF3200CAFCBF /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2099,6 +2165,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		255DB9E71841CF3200CAFCBF /* diablo Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 255DB9F81841CF3200CAFCBF /* Build configuration list for PBXNativeTarget "diablo Tests" */;
+			buildPhases = (
+				255DB9E41841CF3200CAFCBF /* Sources */,
+				255DB9E51841CF3200CAFCBF /* Frameworks */,
+				255DB9E61841CF3200CAFCBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				255DB9F71841CF3200CAFCBF /* PBXTargetDependency */,
+			);
+			name = "diablo Tests";
+			productName = "diablo Tests";
+			productReference = 255DB9E81841CF3200CAFCBF /* diablo Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		25B2FD0217BF4510008E4D34 /* diablo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25B2FFAB17BF4517008E4D34 /* Build configuration list for PBXNativeTarget "diablo" */;
@@ -2124,6 +2208,9 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				TargetAttributes = {
+					255DB9E71841CF3200CAFCBF = {
+						TestTargetID = 25B2FD0217BF4510008E4D34;
+					};
 					25B2FD0217BF4510008E4D34 = {
 						DevelopmentTeam = BW226VS6RT;
 					};
@@ -2142,11 +2229,20 @@
 			projectRoot = "";
 			targets = (
 				25B2FD0217BF4510008E4D34 /* diablo */,
+				255DB9E71841CF3200CAFCBF /* diablo Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		255DB9E61841CF3200CAFCBF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				255DB9F21841CF3200CAFCBF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		25B2FD0117BF4510008E4D34 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2203,6 +2299,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		255DB9E41841CF3200CAFCBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				255DB9F41841CF3200CAFCBF /* diablo_Tests.m in Sources */,
+				255DB9FC1841CF8200CAFCBF /* ItemMapTest.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		25B2FCFF17BF4510008E4D34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2254,6 +2359,7 @@
 				25B2FDC317BF4511008E4D34 /* mat4stack.c in Sources */,
 				25B2FDC517BF4511008E4D34 /* matrix.c in Sources */,
 				25B2FDC717BF4511008E4D34 /* mat3.c in Sources */,
+				255DB60B1841C6C700CAFCBF /* TreasureFactory.cpp in Sources */,
 				25B2FDC917BF4511008E4D34 /* mat4.c in Sources */,
 				25B2FDCB17BF4511008E4D34 /* neon_matrix_impl.c in Sources */,
 				255DB605183F1FDA00CAFCBF /* Treasure.cpp in Sources */,
@@ -2285,6 +2391,7 @@
 				25B2FE0417BF4512008E4D34 /* CCMotionStreak.cpp in Sources */,
 				25B2FE0717BF4512008E4D34 /* CCProgressTimer.cpp in Sources */,
 				25B2FE0A17BF4512008E4D34 /* CCRenderTexture.cpp in Sources */,
+				255DB60E1841C78700CAFCBF /* ItemMapMaster.cpp in Sources */,
 				25B2FE0E17BF4512008E4D34 /* CCParticleBatchNode.cpp in Sources */,
 				25B2FE1117BF4512008E4D34 /* CCParticleExamples.cpp in Sources */,
 				2562059B18268D1C000D321F /* MoveList.cpp in Sources */,
@@ -2457,7 +2564,112 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		255DB9F71841CF3200CAFCBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 25B2FD0217BF4510008E4D34 /* diablo */;
+			targetProxy = 255DB9F61841CF3200CAFCBF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		255DB9F01841CF3200CAFCBF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				255DB9F11841CF3200CAFCBF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		255DB9F91841CF3200CAFCBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/diablo.app/diablo";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "diablo Tests/diablo Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "diablo Tests/diablo Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		255DB9FA1841CF3200CAFCBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/diablo.app/diablo";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "diablo Tests/diablo Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "diablo Tests/diablo Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		25B2FFA917BF4517008E4D34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2578,6 +2790,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		255DB9F81841CF3200CAFCBF /* Build configuration list for PBXNativeTarget "diablo Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				255DB9F91841CF3200CAFCBF /* Debug */,
+				255DB9FA1841CF3200CAFCBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		25B2FCFE17BF4510008E4D34 /* Build configuration list for PBXProject "diablo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
