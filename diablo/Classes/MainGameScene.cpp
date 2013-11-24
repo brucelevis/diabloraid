@@ -118,7 +118,8 @@ bool MainGameScene::init()
     _camera = new Camera(point, CCRectMake(0, 97, 305, 305));
     
     Floor* floor = new Floor(1);
-    FloorFieldModel* floorFieldModel = FloorField::createInitialFloor(floor);
+    FloorFieldModel* floorFieldModel = FloorFieldModel::create();
+    floorFieldModel->retain();
     _field = new Field(_player, _camera, floor, floorFieldModel);
     this->addChild((CCNode*) _field);
     

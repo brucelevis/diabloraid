@@ -33,7 +33,8 @@ void FieldPanels::initialize(CCNode* parentNode, Floor* floor){
     _panelCount->retain();
    for(int i = 0; i <= 5; i++){
        for( int j = 0; j <= 5; j++){
-            PanelSprite* pSprite = this->loadPanel(i, j);
+            //PanelSprite* pSprite = this->loadPanel(i, j);
+            PanelSprite* pSprite = this->createPanel(floor, i, j);
             // add the sprite as a child to this layer
             this->add(pSprite);
             parentNode->addChild(pSprite);
@@ -62,7 +63,7 @@ void FieldPanels::restockPanel(CCNode* parentNode, Floor* floor){
             removedCount->setObject(CCInteger::create(1),removedPanel->getAbsolutePosition().x);
         }
         
-        PanelSprite* pSprite = this->createPanel(floor, int(removedPanel->getAbsolutePosition().x / (PANEL_SIZE * PANEL_SCALE)), y, removedPanel);
+        PanelSprite* pSprite = this->createPanel(floor, int(removedPanel->getAbsolutePosition().x / (PANEL_SIZE * PANEL_SCALE)), y);
         this->add(pSprite);
         parentNode->addChild(pSprite);
     }
@@ -213,14 +214,14 @@ void FieldPanels::decreaseCount(PanelSprite* panel){
     }
 }
 
-PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY, PanelSprite* removedPanel){
+PanelSprite* FieldPanels::createPanel(Floor* floor, int indexX, int indexY){
     //削除されたパネルから落ちてくるパネルが決まるとき(例えば、敵を倒すと宝箱が落ちてくるとか)
     PanelSprite* pSprite;
     pSprite = PanelSpriteFactory::createWithFloor(floor);
     
     if(!pSprite->canBeAdded(this->getCurrentPanelNum(pSprite))){
         pSprite->release();
-        return this->createPanel(floor, indexX, indexY, removedPanel);
+        return this->createPanel(floor, indexX, indexY);
     }
     
     float size = PANEL_SIZE * PANEL_SCALE;

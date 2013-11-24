@@ -28,7 +28,7 @@ class FieldPanels : public CCArray{
     CCArray* _removedPanels;
     bool _moveState;
     bool _onMovingEndCalling = false;
-    PanelSprite* createPanel(Floor* floor, int indexX, int indexY, PanelSprite* removedPanel);
+    PanelSprite* createPanel(Floor* floor, int indexX, int indexY);
     PanelSprite* loadPanel(int indexX, int indexY);
 public:
     static CCArray* create();
