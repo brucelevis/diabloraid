@@ -24,6 +24,7 @@ public:
     virtual void action(Events* events, CCLayer* layer);
     virtual void onEnd();
     EventBase(Player* player);
+    EventBase();
     ~EventBase();
 };
 

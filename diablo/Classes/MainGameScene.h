@@ -15,6 +15,7 @@
 #include "Camera.h"
 #include "UserItems.h"
 #include "LogLayer.h"
+#include "LogEvent.h"
 using namespace cocos2d;
 class TurnManager;
 
@@ -55,6 +56,7 @@ public:
     CREATE_FUNC(MainGameScene);
     void update(float dt);
     void watchPlayerLevelUp();
+    void watchPlayerLog();
     void pushLevelUpEvent();
     void pushStatusScene();
     void pushEquipScene();

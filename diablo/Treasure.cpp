@@ -43,5 +43,5 @@ Treasure* Treasure::createWithUserItem(UserItem* userItem){
 }
 
 void Treasure::actionRemoved(Player* player){
-    player->getUserItem()->add(this->userItem->getType(), this->userItem->getItemId());
+    player->addItem(this->userItem);
 }

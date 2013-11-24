@@ -57,6 +57,11 @@ LogLayer* LogLayer::layerWithText(std::string text){
     
 }
 
+void LogLayer::setCallback(Events *events, cocos2d::CCLayer *layer){
+    this->_events = events;
+    this->_parentLayer = layer;
+}
+
 LogLayer* LogLayer::layer(){
     return LogLayer::layerWithText("薬草を手に入れた");
 }
@@ -81,4 +86,6 @@ CCScene* LogLayer::getScene(){
 
 void LogLayer::close(){
     this->removeFromParentAndCleanup(true);
+    this->_events->setHandling(false);
+    this->_events->handle(this->_parentLayer);
 }

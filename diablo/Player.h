@@ -26,6 +26,7 @@ class Player{
     Budget* budget;
     UserItems* userItem;
     int levelUpCount;
+    CCArray* playerLog;
 public:
     Attributes* getAttributes();
     UserItems* getUserItem();
@@ -73,6 +74,12 @@ public:
     
     int getLevelUpCount(); //レベルアップしたときに、そのレベルアップした数が返る。
     void resetLevelUpCount(); //状態を取得し終わったら、レベルアップのカウントをリセットする。
+    
+    void addPlayerLog(std::string text); //ログを追加する。
+    std::string popPlayerLog();                  //ログを取り出す。
+    bool hasPlayerLog();
+    
+    void addItem(UserItem* getItem);
     
     // for debug
     static Player* getPlayerMock();

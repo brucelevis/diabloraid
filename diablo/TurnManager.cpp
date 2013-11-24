@@ -60,6 +60,7 @@ void TurnManager::start(){
         return;
     }
     _layer->watchPlayerLevelUp();
+    _layer->watchPlayerLog();
     _layer->handleEvents();
     this->turnEnd();
     // ターンを経過させる

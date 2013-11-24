@@ -1144,14 +1144,14 @@
 			children = (
 				256AFE5217F9BBCA00261B7B /* LevelUpEvent.cpp */,
 				256AFE5317F9BBCA00261B7B /* LevelUpEvent.h */,
+				255DBA031842576300CAFCBF /* LogEvent.cpp */,
+				255DBA041842576300CAFCBF /* LogEvent.h */,
 				256AFE5517F9BBD500261B7B /* EventBase.cpp */,
 				256AFE5617F9BBD500261B7B /* EventBase.h */,
 				256AFE5817F9BCD900261B7B /* Events.cpp */,
 				256AFE5917F9BCD900261B7B /* Events.h */,
 				256AFE5B17F9DB4000261B7B /* EventFactory.cpp */,
 				256AFE5C17F9DB4000261B7B /* EventFactory.h */,
-				255DBA031842576300CAFCBF /* LogEvent.cpp */,
-				255DBA041842576300CAFCBF /* LogEvent.h */,
 			);
 			name = event;
 			sourceTree = "<group>";

@@ -17,6 +17,8 @@ Player::Player(){
     attributes    = Attributes::createWithDefault();
     accumDamages  = CCArray::create();
     accumDamages->retain();
+    playerLog     = CCArray::create();
+    playerLog->retain();
 }
 
 Attributes* Player::getAttributes(){
@@ -150,10 +152,31 @@ int Player::getTotalDamage(){
     return totalDamage;
 }
 
+
+bool Player::hasPlayerLog(){
+    return (playerLog->count() != 0);
+}
+
 void Player::addExp(int addedExp){
     CCLOG("Player::addExp: %d", addedExp);
     levelUpCount += this->level->addExp(addedExp);
     CCLOG("Player::after addExp: levelUpCount%d", levelUpCount);
+}
+
+void Player::addItem(UserItem* getItem){
+    this->getUserItem()->add(getItem->getType(), getItem->getItemId());
+    this->addPlayerLog((getItem->getName() + "を手に入れた").c_str());
+}
+
+void Player::addPlayerLog(std::string text){
+    playerLog->addObject(CCString::create(text));
+}
+
+std::string Player::popPlayerLog(){
+    CCString* text = (CCString*) playerLog->lastObject();
+    std::string retText = text->getCString();
+    playerLog->removeLastObject();
+    return retText;
 }
 
 int Player::getLevelUpCount(){

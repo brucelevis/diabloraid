@@ -12,6 +12,7 @@
 #include <iostream>
 #include "PanelSprite.h"
 #include "UserItem.h"
+#include "LogLayer.h"
 
 class Treasure : public PanelSprite{
     UserItem* userItem;

@@ -20,6 +20,9 @@ EventBase::EventBase(Player* player){
     _player = player;
 }
 
+EventBase::EventBase(){
+}
+
 EventBase::~EventBase(){
 }
 
