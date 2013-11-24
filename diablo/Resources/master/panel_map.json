@@ -1,0 +1,37 @@
+ [
+  {
+  "type": 0,
+  "probability": 100,
+  "description": "コイン"
+  },
+  {
+  "type": 1,
+  "probability": 150,
+  "description": "敵"
+  },
+  {
+  "type": 2,
+  "probability": 100,
+  "description": "盾"
+  },
+  {
+  "type": 3,
+  "probability": 50,
+  "description": "剣"
+  },
+  {
+  "type": 4,
+  "probability": 100,
+  "description": "ポーション"
+  },
+  {
+  "type": 5,
+  "probability": 10,
+  "description": "宝箱"
+  },
+  {
+  "type": 6,
+  "probability": 20,
+  "description": "階段"
+  }
+  ]

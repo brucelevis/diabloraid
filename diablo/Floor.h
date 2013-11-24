@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "PanelMapMaster.h"
 using namespace cocos2d;
 
 class Floor{

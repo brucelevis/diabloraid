@@ -43,6 +43,7 @@
 		255DB9F21841CF3200CAFCBF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 255DB9F01841CF3200CAFCBF /* InfoPlist.strings */; };
 		255DB9F41841CF3200CAFCBF /* diablo_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DB9F31841CF3200CAFCBF /* diablo_Tests.m */; };
 		255DB9FC1841CF8200CAFCBF /* ItemMapTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 255DB9FB1841CF8200CAFCBF /* ItemMapTest.mm */; };
+		255DB9FF1841DAF900CAFCBF /* PanelMapMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255DB9FD1841DAF900CAFCBF /* PanelMapMaster.cpp */; };
 		2562059B18268D1C000D321F /* MoveList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059918268D1C000D321F /* MoveList.cpp */; };
 		2562059E18269230000D321F /* MoveVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2562059C18269230000D321F /* MoveVector.cpp */; };
 		256205A2182698CB000D321F /* MoveInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 256205A0182698CB000D321F /* MoveInterface.cpp */; };
@@ -392,6 +393,8 @@
 		255DB9F31841CF3200CAFCBF /* diablo_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = diablo_Tests.m; sourceTree = "<group>"; };
 		255DB9F51841CF3200CAFCBF /* diablo Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "diablo Tests-Prefix.pch"; sourceTree = "<group>"; };
 		255DB9FB1841CF8200CAFCBF /* ItemMapTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ItemMapTest.mm; sourceTree = "<group>"; };
+		255DB9FD1841DAF900CAFCBF /* PanelMapMaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PanelMapMaster.cpp; sourceTree = "<group>"; };
+		255DB9FE1841DAF900CAFCBF /* PanelMapMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelMapMaster.h; sourceTree = "<group>"; };
 		2562059918268D1C000D321F /* MoveList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveList.cpp; sourceTree = "<group>"; };
 		2562059A18268D1C000D321F /* MoveList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveList.h; sourceTree = "<group>"; };
 		2562059C18269230000D321F /* MoveVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveVector.cpp; sourceTree = "<group>"; };
@@ -995,6 +998,8 @@
 				256205B0182DF97C000D321F /* EquipmentMaster.h */,
 				255DB60C1841C78700CAFCBF /* ItemMapMaster.cpp */,
 				255DB60D1841C78700CAFCBF /* ItemMapMaster.h */,
+				255DB9FD1841DAF900CAFCBF /* PanelMapMaster.cpp */,
+				255DB9FE1841DAF900CAFCBF /* PanelMapMaster.h */,
 			);
 			name = master;
 			sourceTree = "<group>";
@@ -2349,6 +2354,7 @@
 				25E459AB1837646000B71DC2 /* EquipmentDetail.cpp in Sources */,
 				256AFE5717F9BBD500261B7B /* EventBase.cpp in Sources */,
 				256AFE7E17FEBEC300261B7B /* PlayerStatusLayer.cpp in Sources */,
+				255DB9FF1841DAF900CAFCBF /* PanelMapMaster.cpp in Sources */,
 				256205A5182A971D000D321F /* UserItem.cpp in Sources */,
 				25B2FD9317BF4511008E4D34 /* CCString.cpp in Sources */,
 				25B2FD9617BF4511008E4D34 /* CCZone.cpp in Sources */,

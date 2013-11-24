@@ -36,11 +36,5 @@ void Floor::countupFloor(int v){
 }
 
 int Floor::createPanel(){
-    //5％ずつ階段が出る確率が上がる仮実装
-    int panelNum = 6;
-    if(rand() % 100 < turn * 3 / 7) {
-        panelNum = 7;
-    }
-    
-    return (rand() % panelNum);
+    return PanelMapMaster::getType();
 }
