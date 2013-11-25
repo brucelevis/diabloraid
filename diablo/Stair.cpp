@@ -38,3 +38,7 @@ bool Stair::canBeAdded(int num){
     }
     return true;
 }
+
+void Stair::actionRemoved(Player *player){
+    player->addPlayerLog("階段を下りた");
+}

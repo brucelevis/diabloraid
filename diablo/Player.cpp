@@ -173,9 +173,9 @@ void Player::addPlayerLog(std::string text){
 }
 
 std::string Player::popPlayerLog(){
-    CCString* text = (CCString*) playerLog->lastObject();
+    CCString* text = (CCString*) playerLog->objectAtIndex(0);
     std::string retText = text->getCString();
-    playerLog->removeLastObject();
+    playerLog->removeObject(text);
     return retText;
 }
 

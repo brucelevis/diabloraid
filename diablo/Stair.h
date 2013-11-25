@@ -17,6 +17,7 @@ class Stair : public PanelSprite{
 public:
     static Stair* createWithSpriteFrameName(const char *pszSpriteFrameName);
     bool canBeAdded(int num);
+    void actionRemoved(Player* player);
     Stair();
     ~Stair(void);
 };

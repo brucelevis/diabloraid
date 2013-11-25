@@ -46,7 +46,10 @@ LogLayer* LogLayer::layerWithText(std::string text){
     CCSpawn* spawn = CCSpawn::createWithTwoActions(move, fo);
     
     CCCallFunc *func = CCCallFunc::create(layer, callfunc_selector(LogLayer::close));
+    CCCallFunc* funcNext = CCCallFunc::create(layer, callfunc_selector(LogLayer::next));
+    
     background->runAction(CCSequence::create(spawn, func, NULL));
+    background->runAction(CCSequence::create(CCDelayTime::create(0.5f), funcNext, NULL));
     
     layer->addChild(background);
     // add layer as a child to scene
@@ -86,6 +89,9 @@ CCScene* LogLayer::getScene(){
 
 void LogLayer::close(){
     this->removeFromParentAndCleanup(true);
+}
+
+void LogLayer::next(){
     this->_events->setHandling(false);
     this->_events->handle(this->_parentLayer);
 }

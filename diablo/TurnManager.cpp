@@ -35,7 +35,7 @@ void TurnManager::start(){
         return;
     }
     if(removedPanels->hasFloorChangePanels()){
-        this->gotoNextFloor();
+        this->gotoNextFloor(removedPanels);
         return;
     }
     // 取り除かれそうになっているパネルのアクションを実行する。
@@ -135,11 +135,14 @@ void TurnManager::attack(CCArray* enemies){
     }
 }
 
-void TurnManager::gotoNextFloor(){
+void TurnManager::gotoNextFloor(CCArray* removedPanels){
+    this->actionRemoved(removedPanels);
     _field->removeAllPanels();
     _field->restockPanels();
     _field->setMoves();
     _field->gotoNextFloor();
+    _layer->watchPlayerLog();
+    _layer->handleEvents();
     this->turnEnd();
     SimpleAudioEngine::sharedEngine()->playEffect("kaidan.wav");
     return;

@@ -17,18 +17,23 @@
 #include "ShieldStatus.h"
 #include "EnemyMaster.h"
 #include "EnemyData.h"
+#include "Util.h"
 
 class Enemy : public PanelSprite
 {
+    int damage;
+    Player* player;
     HitPoint* hp;
     BaseDamage* baseDamage; //BaseDamageクラスを一応使う
     ShieldStatus*  shieldStatus;  //ShieldStatusクラスを一応使う
+    EnemyMaster* enemyMaster;
     int exp;
     CCLabelTTF* currentHpLabel; //今のhpの表示
     CCLabelTTF* baseDamageLabel;  //攻撃力の表示
     CCLabelTTF* shieldStatusLabel;  //攻撃力の表示
     bool _isEnemy;
     void actionAttack();
+    void addAttackLog();
 public:
     static Enemy* createWithEnemyMaster(EnemyMaster* enemy);
     static Enemy* createWithEnemyData(EnemyData* enemyData);

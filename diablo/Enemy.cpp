@@ -11,6 +11,7 @@
 Enemy::Enemy(EnemyMaster* enemy){
     _connectType = 1;
     _isEnemy = true;
+    damage = 0;
     hp = new HitPoint(enemy->getHp());
     baseDamage = new BaseDamage(enemy->getAttack());
     shieldStatus = new ShieldStatus(enemy->getDef());
@@ -24,6 +25,7 @@ Enemy* Enemy::createWithEnemyMaster(EnemyMaster* enemy){
     
     sprite->_panelName = pszSpriteFrameName;
     if(sprite && sprite->initWithSpriteFrameName((sprite->_panelName + ".png").c_str())){
+        sprite->enemyMaster = enemy;
         
         sprite->setCanExistNum(enemy->getMaxExistsNum());
         sprite->currentHpLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->hp->getCurrentHp())->getCString(), "arial", 10);
@@ -73,9 +75,14 @@ void Enemy::actionAttack(){
     CCScaleBy* scaleByBig       = CCScaleBy::create(0.1, 4.0);
     CCScaleBy* scaleByCurrent   = CCScaleBy::create(0.1, 0.5);
     CCTintBy*  tintByRed        = CCTintBy::create(0.1, 0, 255, 255);
-    //CCTintBy*  tintByNormal     = CCTintBy::create(0.1, -255, 0,0);
+    //CCCallFunc *func = CCCallFunc::create(this, callfunc_selector(Enemy::addAttackLog));
     
     this->runAction(CCSequence::create(scaleBySmall, CCSpawn::createWithTwoActions(scaleByBig, tintByRed), scaleByCurrent, NULL));
+}
+
+void Enemy::addAttackLog(){
+    std::string text = this->enemyMaster->getName() + "の攻撃で、" + Util::Util::intToString(this->damage) + "のダメージ";
+    player->addPlayerLog(text);
 }
 
 void Enemy::actionUntouched(Player* player){
@@ -123,7 +130,10 @@ void Enemy::attack(Player* player){
     if(damage < 0){
         damage = 0;
     }
+    this->damage = damage;
     this->actionAttack();
+    std::string text = this->enemyMaster->getName() + "の攻撃で、" + Util::Util::intToString(this->damage) + "のダメージ";
+    player->addPlayerLog(text);
     player->damageToShield(baseDamage->getValue());
     player->damage(damage);
 }

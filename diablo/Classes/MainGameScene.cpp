@@ -257,8 +257,10 @@ void MainGameScene::watchPlayerLog(){
     if(!this->_player->hasPlayerLog()){
         return;
     }
-    std::string text = this->_player->popPlayerLog();
-    _events->addObject((CCObject*) new LogEvent(text));
+    while(this->_player->hasPlayerLog()){
+        std::string text = this->_player->popPlayerLog();
+        _events->addObject((CCObject*) new LogEvent(text));
+    }
 }
 
 void MainGameScene::pushLevelUp(){

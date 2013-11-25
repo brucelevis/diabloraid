@@ -29,6 +29,7 @@ public:
     CCScene* getScene();
     void setCallback(Events* events, CCLayer* layer);
     void close();
+    void next();
     CREATE_FUNC(LogLayer);
 };
 
