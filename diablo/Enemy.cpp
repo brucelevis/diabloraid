@@ -68,6 +68,16 @@ void Enemy::actionTouched(Player* player){
     }
 }
 
+void Enemy::actionAttack(){
+    CCScaleBy* scaleBySmall     = CCScaleBy::create(0.2, 0.5);
+    CCScaleBy* scaleByBig       = CCScaleBy::create(0.1, 4.0);
+    CCScaleBy* scaleByCurrent   = CCScaleBy::create(0.1, 0.5);
+    CCTintBy*  tintByRed        = CCTintBy::create(0.1, 0, 255, 255);
+    //CCTintBy*  tintByNormal     = CCTintBy::create(0.1, -255, 0,0);
+    
+    this->runAction(CCSequence::create(scaleBySmall, CCSpawn::createWithTwoActions(scaleByBig, tintByRed), scaleByCurrent, NULL));
+}
+
 void Enemy::actionUntouched(Player* player){
     this->switchOn();
 }
@@ -113,6 +123,7 @@ void Enemy::attack(Player* player){
     if(damage < 0){
         damage = 0;
     }
+    this->actionAttack();
     player->damageToShield(baseDamage->getValue());
     player->damage(damage);
 }

@@ -28,6 +28,7 @@ class Enemy : public PanelSprite
     CCLabelTTF* baseDamageLabel;  //攻撃力の表示
     CCLabelTTF* shieldStatusLabel;  //攻撃力の表示
     bool _isEnemy;
+    void actionAttack();
 public:
     static Enemy* createWithEnemyMaster(EnemyMaster* enemy);
     static Enemy* createWithEnemyData(EnemyData* enemyData);
