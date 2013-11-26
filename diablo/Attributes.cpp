@@ -26,15 +26,16 @@ Attributes* Attributes::createWithCCDictionary(CCDictionary* dictionary){
     int _def  = ((CCInteger*) dictionary->objectForKey("defense"))->getValue();
     int _dex  = ((CCInteger*) dictionary->objectForKey("dexterity"))->getValue();
     int _vit  = ((CCInteger*) dictionary->objectForKey("vitality"))->getValue();
+    int _hungryP = ((CCInteger*) dictionary->objectForKey("hungryP"))->getValue();
     
-    return _create(_hp, _ss, _bd, _sd, _pr, _sr, _ca, _str, _def, _vit, _dex);
+    return _create(_hp, _ss, _bd, _sd, _pr, _sr, _ca, _str, _def, _vit, _dex, _hungryP);
 }
 
 Attributes* Attributes::createWithDefault(){
-    return _create(50, 5, 5, 5, 0, 2, 5, 5, 5, 5, 3);
+    return _create(50, 5, 5, 5, 0, 2, 5, 5, 5, 5, 3, 100);
 }
 
-Attributes* Attributes::_create(int _hp, int _ss, int _bd, int _sd, int _pr, int _sr, int _ca, int _str, int _def, int _vit, int _dex){
+Attributes* Attributes::_create(int _hp, int _ss, int _bd, int _sd, int _pr, int _sr, int _ca, int _str, int _def, int _vit, int _dex, int _hungryP){
     Attributes* attr = new Attributes();
     attr->hp            = new HitPoint(_hp); //base hp
     attr->vitality      = new Vitality(_vit);
@@ -52,6 +53,7 @@ Attributes* Attributes::_create(int _hp, int _ss, int _bd, int _sd, int _pr, int
     attr->strength      = new AttributeBase(_str);
     attr->dexterity     = new AttributeBase(_dex);
     attr->coinAddition   = new AttributeBase(_ca);
+    attr->hungryP       = new HungryPoint(_hungryP);
     return attr;
 }
 

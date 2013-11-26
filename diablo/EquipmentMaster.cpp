@@ -34,6 +34,7 @@ EquipmentMaster::EquipmentMaster(int v){
     int _def   = rec["defense"].get<double>();
     int _dex   = rec["dexterity"].get<double>();
     int _vit   = rec["vitality"].get<double>();
+    int _hungryP = rec["hungryp"].get<double>();
     CCDictionary* dict  = CCDictionary::create();
     dict->setObject(CCInteger::create(_hp), "hp");
     dict->setObject(CCInteger::create(_bd), "baseDamage");
@@ -46,6 +47,7 @@ EquipmentMaster::EquipmentMaster(int v){
     dict->setObject(CCInteger::create(_def), "defense");
     dict->setObject(CCInteger::create(_dex), "dexterity");
     dict->setObject(CCInteger::create(_vit), "vitality");
+    dict->setObject(CCInteger::create(_hungryP), "hungryP");
     attributes = Attributes::createWithCCDictionary(dict);
 }
 

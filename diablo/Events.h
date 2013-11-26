@@ -18,8 +18,11 @@ class EventBase;
 class Events : public CCArray{
     bool _handling;
 public:
+    static CCArray* create();
     void handle(CCLayer* layer);
     void setHandling(bool handling);
+    Events();
+    ~Events();
 };
 
 #endif /* defined(__diablo__Events__) */

@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "HitPoint.h"
+#include "HungryPoint.h"
 #include "ShieldStatus.h"
 #include "BaseDamage.h"
 #include "SwordDamage.h"
@@ -24,6 +25,7 @@ using namespace cocos2d;
 
 class Attributes {
     HitPoint* hp;
+    HungryPoint* hungryP;
     ShieldStatus* shieldStatus;
     BaseDamage* baseDamage;
     SwordDamage* swordDamage;
@@ -50,7 +52,8 @@ public:
                         int _str,
                         int _def,
                         int _vit,
-                        int _dex);
+                        int _dex,
+                        int _hungryP);
     
     int getCurrentHp();
     int getMaxHp();

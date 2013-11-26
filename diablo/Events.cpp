@@ -7,6 +7,20 @@
 //
 
 #include "Events.h"
+CCArray* Events::create(){
+    CCArray* pArray = (CCArray*) new Events();
+  
+    if (pArray && pArray->init())
+    {
+        pArray->autorelease();
+    }
+    else
+    {
+        CC_SAFE_DELETE(pArray);
+    }
+    
+    return pArray;
+}
 
 void Events::handle(CCLayer* layer){
        EventBase* event;
@@ -27,4 +41,11 @@ void Events::handle(CCLayer* layer){
 
 void Events::setHandling(bool handling){
     this->_handling = handling;
+}
+
+Events::Events(){
+    _handling = false;
+}
+
+Events::~Events(){
 }

@@ -108,6 +108,7 @@
 		2593361C17DB27FC00D3C419 /* yahhoo_01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2593360817DB27FC00D3C419 /* yahhoo_01.wav */; };
 		2593361D17DB27FC00D3C419 /* yahhoo_02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2593360917DB27FC00D3C419 /* yahhoo_02.wav */; };
 		2593361E17DB27FC00D3C419 /* yoroshiku_01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2593360A17DB27FC00D3C419 /* yoroshiku_01.wav */; };
+		25A3F7A31844F7D1004E739F /* HungryPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A3F7A11844F7D1004E739F /* HungryPoint.cpp */; };
 		25B2FD0717BF4510008E4D34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0617BF4510008E4D34 /* QuartzCore.framework */; };
 		25B2FD0917BF4510008E4D34 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0817BF4510008E4D34 /* OpenGLES.framework */; };
 		25B2FD0B17BF4510008E4D34 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0A17BF4510008E4D34 /* OpenAL.framework */; };
@@ -498,6 +499,8 @@
 		2593360817DB27FC00D3C419 /* yahhoo_01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = yahhoo_01.wav; path = Resources/yahhoo_01.wav; sourceTree = "<group>"; };
 		2593360917DB27FC00D3C419 /* yahhoo_02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = yahhoo_02.wav; path = Resources/yahhoo_02.wav; sourceTree = "<group>"; };
 		2593360A17DB27FC00D3C419 /* yoroshiku_01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = yoroshiku_01.wav; path = Resources/yoroshiku_01.wav; sourceTree = "<group>"; };
+		25A3F7A11844F7D1004E739F /* HungryPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HungryPoint.cpp; sourceTree = "<group>"; };
+		25A3F7A21844F7D1004E739F /* HungryPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HungryPoint.h; sourceTree = "<group>"; };
 		25B2FD0317BF4510008E4D34 /* diablo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diablo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B2FD0617BF4510008E4D34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		25B2FD0817BF4510008E4D34 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1036,6 +1039,8 @@
 			children = (
 				259335E717D786C500D3C419 /* HitPoint.cpp */,
 				259335E817D786C500D3C419 /* HitPoint.h */,
+				25A3F7A11844F7D1004E739F /* HungryPoint.cpp */,
+				25A3F7A21844F7D1004E739F /* HungryPoint.h */,
 				250557AF17DC565300D85441 /* BaseDamage.cpp */,
 				250557B017DC565400D85441 /* BaseDamage.h */,
 				250557B217DC58F200D85441 /* ShieldStatus.cpp */,
@@ -2534,6 +2539,7 @@
 				256AFE5A17F9BCD900261B7B /* Events.cpp in Sources */,
 				25B2FF7717BF4516008E4D34 /* CCControlSwitch.cpp in Sources */,
 				25B2FF7A17BF4516008E4D34 /* CCControlUtils.cpp in Sources */,
+				25A3F7A31844F7D1004E739F /* HungryPoint.cpp in Sources */,
 				25B2FF7D17BF4516008E4D34 /* CCInvocation.cpp in Sources */,
 				25B2FF8017BF4516008E4D34 /* CCScale9Sprite.cpp in Sources */,
 				25B2FF8417BF4516008E4D34 /* CCEditBox.cpp in Sources */,
@@ -2815,6 +2821,7 @@
 				255DB9FA1841CF3200CAFCBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25B2FCFE17BF4510008E4D34 /* Build configuration list for PBXProject "diablo" */ = {
 			isa = XCConfigurationList;
