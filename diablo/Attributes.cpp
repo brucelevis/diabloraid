@@ -96,6 +96,14 @@ int Attributes::getMaxHp(){
     return this->hp->getMaxHp();
 }
 
+int Attributes::getCurrentHungryP(){
+    return this->hungryP->getCurrent();
+}
+
+int Attributes::getMaxHungryP(){
+    return this->hungryP->getMax();
+}
+
 int Attributes::getShieldCurrentHp(){
     return this->shieldStatus->getCurrent();
 }
@@ -116,6 +124,25 @@ int Attributes::getCoinAddition(){
 void Attributes::damage(int v){
     hp->reduce(v);
 }
+
+void Attributes::reduceHungryP(int v){
+    hungryP->reduce(v);
+}
+
+bool Attributes::hasHungryP(){
+    return (hungryP->getCurrent() > 0);
+}
+
+bool Attributes::isHungryMiddle(){ //お腹が減ってきた……。
+    return (this->hungryP->getCurrent() <= 20 && this->hungryP->getCurrent() > 10);
+}
+bool Attributes::isHungryBig(){    //ハラペコで　目がまわってきた……。
+    return (this->hungryP->getCurrent() <= 10 && this->hungryP->getCurrent() > 0);
+}
+bool Attributes::isHungryToDeath(){ //だめだ！　もう倒れそうだ！早く……何か　食べないと……。飢え死にしてしまう！
+    return (hungryP->getCurrent() == 0);
+}
+
 // シールドにダメージを与える。
 void Attributes::damageToShield(int v){
     this->shieldStatus->damage(v);

@@ -141,6 +141,10 @@ bool MainGameScene::init()
     ShieldLabel->setPosition(ccp(140, 70));
     this->addChild(ShieldLabel);
     
+    HungryLabel = CCLabelTTF::create(CCString::createWithFormat("%d/%d", _player->getCurrentHungryP(), _player->getMaxHungryP())->getCString(), "arial", 20);
+    HungryLabel->setPosition(ccp(140, 50));
+    this->addChild(HungryLabel);
+    
     TurnLabel = CCLabelTTF::create(CCString::createWithFormat("Turn:%d", _field->getTurn())->getCString(), "arial", 20);
     TurnLabel->setPosition(ccp(size.width / 2, size.height - 43) );
     this->addChild(TurnLabel);
@@ -233,6 +237,8 @@ void MainGameScene::update(float dt){
     HpLabel->setString(CCString::createWithFormat("%d/%d", _player->getCurrentHp(), _player->getMaxHp())->getCString());
     DamageLabel->setString(CCString::createWithFormat("%d DMG", _player->getTotalDamage())->getCString());
     ShieldLabel->setString(CCString::createWithFormat("%d/%d", _player->getShieldCurrentHp(), _player->getShieldMaxHp())->getCString());
+    
+    HungryLabel->setString(CCString::createWithFormat("%d/%d", _player->getCurrentHungryP(), _player->getMaxHungryP())->getCString());
     TurnLabel->setString(CCString::createWithFormat("Turn:%d", _field->getTurn())->getCString());
     FloorLabel->setString(CCString::createWithFormat("%d F", _field->getFloor())->getCString());
     levelLabel->setString(CCString::createWithFormat("level: %d(%d)", _player->getCurrentLevel(), _player->getCurrentExp())->getCString());

@@ -58,6 +58,9 @@ public:
     int getCurrentHp();
     int getMaxHp();
     
+    int getCurrentHungryP();
+    int getMaxHungryP();
+    
     int getShieldCurrentHp();
     int getShieldMaxHp();
     
@@ -81,6 +84,12 @@ public:
     
     void damage(int v);
     void damageToShield(int v);
+    
+    void reduceHungryP(int v);
+    bool hasHungryP();
+    bool isHungryMiddle(); //お腹が減ってきた……。
+    bool isHungryBig();    //ハラペコで　目がまわってきた……。
+    bool isHungryToDeath(); //だめだ！　もう倒れそうだ！早く……何か　食べないと……。飢え死にしてしまう！
     
     void recover(int v);
     void recoverAllHp();

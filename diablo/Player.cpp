@@ -61,6 +61,14 @@ int Player::getMaxHp(){
     return attributes->getMaxHp() + this->userItem->getMaxHp();
 }
 
+int Player::getCurrentHungryP(){
+    return attributes->getCurrentHungryP();
+}
+
+int Player::getMaxHungryP(){
+    return attributes->getMaxHungryP();
+}
+
 int Player::getShieldCurrentHp(){
     return attributes->getShieldCurrentHp();
 }
@@ -97,6 +105,31 @@ int Player::getVitality(){
 void Player::damage(int v){
     attributes->damage(v);
 }
+
+void Player::reduceHungryP(int v){
+    attributes->reduceHungryP(v);
+    if( attributes->isHungryMiddle()){
+        //お腹が減ってきた……。
+        this->addPlayerLog("お腹が減ってきた……。");
+        
+    } else if(attributes->isHungryBig()){
+        //ハラペコで　目がまわってきた……。
+        this->addPlayerLog("ハラペコで　目がまわってきた……。");
+    } else if(attributes->isHungryToDeath()){
+        //だめだ！　もう倒れそうだ！早く……何か　食べないと……。飢え死にしてしまう！
+        this->addPlayerLog("だめだ！　もう倒れそうだ！");
+        this->addPlayerLog("早く……何か　食べないと……。");
+        this->addPlayerLog("飢え死にしてしまう！");
+    }
+}
+
+void Player::damageWithHungryP(){
+    if(attributes->hasHungryP()){
+        return;
+    }
+    attributes->damage(5);
+}
+
 // シールドにダメージを与える。
 void Player::damageToShield(int v){
     attributes->damageToShield(v);

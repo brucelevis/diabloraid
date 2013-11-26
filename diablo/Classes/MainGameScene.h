@@ -29,6 +29,7 @@ class MainGameScene : public cocos2d::CCLayer
     UserItems* userItem;
     TurnManager* _turnManager;
     CCLabelTTF* HpLabel;
+    CCLabelTTF* HungryLabel;
     CCLabelTTF* ShieldLabel;
     CCLabelTTF* TurnLabel;
     CCLabelTTF* FloorLabel;

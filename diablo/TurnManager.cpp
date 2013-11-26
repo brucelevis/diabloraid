@@ -54,6 +54,14 @@ void TurnManager::start(){
     
     // 敵の攻撃
     this->attack(enemies);
+    
+    // 空腹度を減らす
+    _player->reduceHungryP(10);
+    
+    // 空腹度によるダメージ
+    _player->damageWithHungryP();
+    
+    
     // playerの生死を確認
     if(!_player->isAlive()){
         this->gameOver();

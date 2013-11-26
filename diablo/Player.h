@@ -37,6 +37,9 @@ public:
     int getShieldCurrentHp();
     int getShieldMaxHp();
     
+    int getCurrentHungryP();
+    int getMaxHungryP();
+    
     int getCurrentLevel();
     int getCurrentExp();
     
@@ -59,6 +62,9 @@ public:
     
     void damage(int v);
     void damageToShield(int v);
+    
+    void reduceHungryP(int v);
+    void damageWithHungryP();
     
     void recover(int v);
     void recoverAllHp();
