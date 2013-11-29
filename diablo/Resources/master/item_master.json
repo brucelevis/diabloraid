@@ -12,5 +12,19 @@
         "description": "HPを100回復します。",
         "type": 1,
         "value": 100
+    },
+    "3": {
+        "id": 3,
+        "name": "パン",
+        "description": "空腹度を50回復します",
+        "type": 2,
+        "value": 50
+    },
+    "4": {
+        "id": 4,
+        "name": "大きなパン",
+        "description": "空腹度を100回復します",
+        "type": 2,
+        "value": 100
     }
 }

@@ -12,6 +12,8 @@
 #include <iostream>
 #include "UserItem.h"
 
+class UserItem;
+
 class Belongings{
     UserItem* _null;
     UserItem* sword;

@@ -19,6 +19,7 @@
 #include "Belongings.h"
 using namespace cocos2d;
 
+class UserItems;
 class Player{
     CCArray* accumDamages; //パネルをタッチしている間の累積ダメージを保存する。push popで簡単に処理するため
     Attributes* attributes;
@@ -69,6 +70,8 @@ public:
     void recover(int v);
     void recoverAllHp();
     void recoverShield(int v);
+    
+    void recoverHungryP(int v);
     
     bool isAlive();
     void pushDamage(int v);

@@ -18,6 +18,9 @@
 using namespace std;
 using namespace cocos2d;
 
+class UserItem;
+class Belongings;
+
 class UserItems : public CCArray {
     Belongings* _equipped; //装備しているものだけを内部的に持っとく。
     static UserItems* create();

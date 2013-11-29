@@ -94,5 +94,17 @@
   "itemId": 2,
   "probability": 553,
   "description": "弟切草"
+  },
+  {
+  "type": 2,
+  "itemId": 3,
+  "probability": 939,
+  "description": "パン"
+  },
+  {
+  "type": 2,
+  "itemId": 4,
+  "probability": 200,
+  "description": "大きなバン"
   }
   ]

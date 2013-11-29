@@ -103,7 +103,7 @@ void UsableDetail::update(){
 
 void UsableDetail::use(){
     //TODO 薬草、おとぎりそう以外も対応する。
-    player->recover(userItem->getValue());
-    player->getUserItem()->remove(userItem->getId());
+    //別の実装に変える
+    userItem->use(player);
     this->close();
 }

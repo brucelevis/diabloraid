@@ -15,4 +15,10 @@ enum ITEM_TYPE {
     USABLE = 2
 };
 
+enum USABLE_TYPE {
+    RECOVER_HP     = 1,
+    RECOVER_HUNGRY = 2
+};
+
+
 #endif

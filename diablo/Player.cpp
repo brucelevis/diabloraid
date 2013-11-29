@@ -144,6 +144,10 @@ void Player::recoverAllHp(){
     attributes->recoverAllHp();
 }
 
+void Player::recoverHungryP(int v){
+    attributes->recoverHungryP(v);
+}
+
 
 //シールドのhpを回復する。
 void Player::recoverShield(int v){

@@ -245,3 +245,17 @@ int UserItem::getValue(){
     }
     return ((ItemMaster*)this->master)->getValue();
 }
+
+void UserItem::use(Player* player){
+    int type = ((ItemMaster*) this->master)->getType();
+    switch(type){
+        case RECOVER_HP:
+            player->recover(this->getValue());
+            break;
+        case RECOVER_HUNGRY:
+            player->recoverHungryP(this->getValue());
+            break;
+    }
+    
+    player->getUserItem()->remove(this->getId());
+}

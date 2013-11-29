@@ -157,6 +157,10 @@ void Attributes::recoverAllHp(){
     hp->recoverAll();
 }
 
+void Attributes::recoverHungryP(int v){
+    hungryP->increase(v);
+}
+
 //シールドのhpを回復する。
 void Attributes::recoverShield(int v){
     shieldStatus->increase(v);

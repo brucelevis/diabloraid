@@ -20,9 +20,12 @@
 #include "cocos2d.h"
 #include "Const.h"
 #include "ModelInterface.h"
+#include "Player.h"
 
 using namespace std;
 using namespace cocos2d;
+
+class Player;
 
 class UserItem : public CCObject, ModelInterface{
     
@@ -64,6 +67,7 @@ public:
     int getCategory();
     
     int getValue(); // itemの時だけ。
+    void use(Player* player);
     void setMaster(HavingMasterInterface* master);
     std::string getName();
     std::string getDescription();
