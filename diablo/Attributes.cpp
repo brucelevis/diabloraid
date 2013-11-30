@@ -125,6 +125,10 @@ void Attributes::damage(int v){
     hp->reduce(v);
 }
 
+void Attributes::decreaseStrength(int v){
+    strength->decreaseCurrent(v);
+}
+
 void Attributes::reduceHungryP(int v){
     hungryP->reduce(v);
 }

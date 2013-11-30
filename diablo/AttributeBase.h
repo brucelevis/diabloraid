@@ -18,6 +18,9 @@ protected:
 public:
     void add(int v);
     int getCurrent();
+    void decreaseCurrent(int v);
+    void setCurrent(int v);
+    void recoverAll();
     AttributeBase(int v);
     ~AttributeBase();
 };

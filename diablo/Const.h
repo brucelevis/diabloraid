@@ -20,5 +20,10 @@ enum USABLE_TYPE {
     RECOVER_HUNGRY = 2
 };
 
+enum SKILL_TYPE {
+    POISON = 1,
+    FIRE = 2
+};
+
 
 #endif

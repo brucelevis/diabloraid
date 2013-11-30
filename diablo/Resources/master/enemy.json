@@ -5,7 +5,9 @@
         "hp": 10,
         "attack": 2,
         "def": 1,
-        "exp": 1
+        "exp": 1,
+        "skill": 0,
+        "skillProbability": 0
     },
     "2": {
         "id": 2,
@@ -13,7 +15,9 @@
         "hp": 20,
         "attack": 5,
         "def": 3,
-        "exp": 5
+        "exp": 5,
+        "skill": 1,
+        "skillProbability": 20
     },
     "3": {
         "id": 3,
@@ -21,7 +25,9 @@
         "hp": 30,
         "attack": 10,
         "def": 5,
-        "exp": 20
+        "exp": 20,
+        "skill": 0,
+        "skillProbability": 0
     },
     "4": {
         "id": 4,
@@ -29,6 +35,8 @@
         "hp": 100,
         "attack": 20,
         "def": 10,
-        "exp": 100
+        "exp": 100,
+        "skill": 2,
+        "skillProbability": 20
     }
 }

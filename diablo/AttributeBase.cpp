@@ -24,3 +24,22 @@ void AttributeBase::add(int v){
 int AttributeBase::getCurrent(){
     return current;
 }
+
+void AttributeBase::decreaseCurrent(int v){
+    this->setCurrent(current - v);
+}
+
+void AttributeBase::recoverAll(){
+    this->current = max;
+}
+
+void AttributeBase::setCurrent(int v){
+    int setValue = v;
+    if(v < 0){
+        setValue = 0;
+    }
+    if(v > max){
+        setValue = max;
+    }
+    this->current = setValue;
+}

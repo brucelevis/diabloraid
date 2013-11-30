@@ -16,6 +16,7 @@
 #include "BaseDamage.h"
 #include "ShieldStatus.h"
 #include "EnemyMaster.h"
+#include "EnemySkillMaster.h"
 #include "EnemyData.h"
 #include "Util.h"
 
@@ -27,18 +28,23 @@ class Enemy : public PanelSprite
     BaseDamage* baseDamage; //BaseDamageクラスを一応使う
     ShieldStatus*  shieldStatus;  //ShieldStatusクラスを一応使う
     EnemyMaster* enemyMaster;
+    EnemySkillMaster* skill;
     int exp;
     CCLabelTTF* currentHpLabel; //今のhpの表示
     CCLabelTTF* baseDamageLabel;  //攻撃力の表示
     CCLabelTTF* shieldStatusLabel;  //攻撃力の表示
     bool _isEnemy;
     void actionAttack();
+    void actionPoison();
     void addAttackLog();
+    void removeSprite();
 public:
     static Enemy* createWithEnemyMaster(EnemyMaster* enemy);
     static Enemy* createWithEnemyData(EnemyData* enemyData);
     bool isEnemy();
     void attack(Player* player); //Playerも攻撃対象とかの抽象クラスにするかもね。
+    void normalAttack(Player* player); //通常攻撃
+    void skillAttack(Player* player);  //スキル攻撃
     void setRemoved(Player* player);
     void actionGotoRemoved(Player* player);
     void actionTouched(Player* player);

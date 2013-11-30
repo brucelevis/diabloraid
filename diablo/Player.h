@@ -67,6 +67,8 @@ public:
     void reduceHungryP(int v);
     void damageWithHungryP();
     
+    void decreaseStrength(int v);
+    
     void recover(int v);
     void recoverAllHp();
     void recoverShield(int v);

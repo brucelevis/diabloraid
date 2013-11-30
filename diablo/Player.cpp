@@ -174,6 +174,10 @@ void Player::resetDamage(){
     accumDamages->removeAllObjects();
 }
 
+void Player::decreaseStrength(int v){
+    attributes->decreaseStrength(v);
+}
+
 int Player::getBudget(){
     return this->budget->getCurrent();
 }

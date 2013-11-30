@@ -109,6 +109,7 @@
 		2593361D17DB27FC00D3C419 /* yahhoo_02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2593360917DB27FC00D3C419 /* yahhoo_02.wav */; };
 		2593361E17DB27FC00D3C419 /* yoroshiku_01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2593360A17DB27FC00D3C419 /* yoroshiku_01.wav */; };
 		25A3F7A31844F7D1004E739F /* HungryPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A3F7A11844F7D1004E739F /* HungryPoint.cpp */; };
+		25A3F7A91849C82F004E739F /* EnemySkillMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A3F7A71849C82F004E739F /* EnemySkillMaster.cpp */; };
 		25B2FD0717BF4510008E4D34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0617BF4510008E4D34 /* QuartzCore.framework */; };
 		25B2FD0917BF4510008E4D34 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0817BF4510008E4D34 /* OpenGLES.framework */; };
 		25B2FD0B17BF4510008E4D34 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B2FD0A17BF4510008E4D34 /* OpenAL.framework */; };
@@ -501,6 +502,8 @@
 		2593360A17DB27FC00D3C419 /* yoroshiku_01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = yoroshiku_01.wav; path = Resources/yoroshiku_01.wav; sourceTree = "<group>"; };
 		25A3F7A11844F7D1004E739F /* HungryPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HungryPoint.cpp; sourceTree = "<group>"; };
 		25A3F7A21844F7D1004E739F /* HungryPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HungryPoint.h; sourceTree = "<group>"; };
+		25A3F7A71849C82F004E739F /* EnemySkillMaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemySkillMaster.cpp; sourceTree = "<group>"; };
+		25A3F7A81849C82F004E739F /* EnemySkillMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemySkillMaster.h; sourceTree = "<group>"; };
 		25B2FD0317BF4510008E4D34 /* diablo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diablo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B2FD0617BF4510008E4D34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		25B2FD0817BF4510008E4D34 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1009,6 +1012,8 @@
 				255DB60D1841C78700CAFCBF /* ItemMapMaster.h */,
 				255DB9FD1841DAF900CAFCBF /* PanelMapMaster.cpp */,
 				255DB9FE1841DAF900CAFCBF /* PanelMapMaster.h */,
+				25A3F7A71849C82F004E739F /* EnemySkillMaster.cpp */,
+				25A3F7A81849C82F004E739F /* EnemySkillMaster.h */,
 			);
 			name = master;
 			sourceTree = "<group>";
@@ -2474,6 +2479,7 @@
 				25B2FECA17BF4515008E4D34 /* CCTextFieldTTF.cpp in Sources */,
 				25B2FECE17BF4515008E4D34 /* CCTexture2D.cpp in Sources */,
 				25B2FED117BF4515008E4D34 /* CCTextureAtlas.cpp in Sources */,
+				25A3F7A91849C82F004E739F /* EnemySkillMaster.cpp in Sources */,
 				25B2FED417BF4515008E4D34 /* CCTextureCache.cpp in Sources */,
 				25B2FED717BF4515008E4D34 /* CCTexturePVR.cpp in Sources */,
 				25B2FEDB17BF4515008E4D34 /* CCParallaxNode.cpp in Sources */,

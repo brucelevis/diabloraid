@@ -102,6 +102,8 @@ public:
     void popDamage();
     void resetDamage();
     
+    void decreaseStrength(int v);
+    
     void addStrength(int v);
     void addDefense(int v);
     void addDexterity(int v);

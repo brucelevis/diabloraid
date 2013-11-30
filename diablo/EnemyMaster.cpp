@@ -22,6 +22,8 @@ EnemyMaster::EnemyMaster(int v){
     _attack = rec["attack"].get<double>();
     _def = rec["def"].get<double>();
     _exp = rec["exp"].get<double>();
+    skill = rec["skill"].get<double>();
+    skillProbability = rec["skillProbability"].get<double>();
 }
 
 EnemyMaster::~EnemyMaster(){
@@ -62,4 +64,12 @@ std::string EnemyMaster::getName(){
 
 int EnemyMaster::getExp(){
     return _exp;
+}
+
+int EnemyMaster::getSkill(){
+    return skill;
+}
+
+int EnemyMaster::getSkillProbability(){
+    return skillProbability;
 }

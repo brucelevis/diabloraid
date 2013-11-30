@@ -22,6 +22,8 @@ class EnemyMaster{
     int _def;
     int _exp;
     int _maxExistsNum;
+    int skill;
+    int skillProbability;
 public:
     static EnemyMaster* getById(int v);
     void setMaxExistsNum(int v);
@@ -32,6 +34,8 @@ public:
     int getAttack();
     int getDef();
     int getExp();
+    int getSkill();
+    int getSkillProbability();
     EnemyMaster(int v);
     ~EnemyMaster();
 };

@@ -26,6 +26,7 @@ Enemy* Enemy::createWithEnemyMaster(EnemyMaster* enemy){
     sprite->_panelName = pszSpriteFrameName;
     if(sprite && sprite->initWithSpriteFrameName((sprite->_panelName + ".png").c_str())){
         sprite->enemyMaster = enemy;
+        sprite->skill = EnemySkillMaster::getById(enemy->getSkill());
         
         sprite->setCanExistNum(enemy->getMaxExistsNum());
         sprite->currentHpLabel = CCLabelTTF::create(CCString::createWithFormat("%d", sprite->hp->getCurrentHp())->getCString(), "arial", 10);
@@ -80,6 +81,22 @@ void Enemy::actionAttack(){
     this->runAction(CCSequence::create(scaleBySmall, CCSpawn::createWithTwoActions(scaleByBig, tintByRed), scaleByCurrent, NULL));
 }
 
+void Enemy::actionPoison(){
+    CCSprite* poison = CCSprite::createWithSpriteFrameName("dokunoiki.png");
+    poison->setPosition(ccp(0, 0));
+    this->addChild(poison);
+    CCPoint point = this->getPosition();
+    CCMoveTo* moveTo = CCMoveTo::create(1, ccp(240 - point.x, 50 - point.y));
+    CCCallFuncN *func = CCCallFuncN::create(poison, callfuncN_selector(Enemy::removeSprite));
+    
+    poison->runAction(CCSequence::create(moveTo, func, NULL));
+}
+
+void Enemy::removeSprite(){
+    this->removeFromParentAndCleanup(true);
+    
+}
+
 void Enemy::addAttackLog(){
     std::string text = this->enemyMaster->getName() + "の攻撃で、" + Util::Util::intToString(this->damage) + "のダメージ";
     player->addPlayerLog(text);
@@ -125,6 +142,15 @@ void Enemy::attack(Player* player){
         return;
     }
     
+    int seed = rand() % 100 + 1;
+    if( this->enemyMaster->getSkillProbability() >= seed ){
+        this->skillAttack(player);
+    } else {
+        this->normalAttack(player);
+    }
+}
+
+void Enemy::normalAttack(Player *player){
     //攻撃は、軽減される。
     int damage = baseDamage->getValue() - player->getShieldCurrentHp();
     if(damage < 0){
@@ -136,6 +162,21 @@ void Enemy::attack(Player* player){
     player->addPlayerLog(text);
     player->damageToShield(baseDamage->getValue());
     player->damage(damage);
+}
+
+void Enemy::skillAttack(Player *player){
+    std::string text = this->enemyMaster->getName() + "は「" + this->skill->getName() + "」を使った！";
+    player->addPlayerLog(text);
+    switch(this->skill->getId()){
+        case POISON:
+            this->actionPoison();
+            player->decreaseStrength(1); //力が1下がる。
+            break;
+        case FIRE:
+            break;
+        default:
+            break;
+    }
 }
 
 Enemy::~Enemy(){
