@@ -36,6 +36,7 @@ public:
     void setCameraMove(CCArray* removedPanels); //消える時に、cameraの移動をセットする。
     void attack(CCArray* enemies);
     void start();
+    void progressTurn();
     void gameOver();
     void turnEnd();
     void end();

@@ -34,6 +34,11 @@ void TurnManager::start(){
         this->turnEnd();
         return;
     }
+    this->progressTurn();
+}
+
+void TurnManager::progressTurn(){
+    TouchedPanels* removedPanels = _field->getWillBeRemovedPanel();
     if(removedPanels->hasFloorChangePanels()){
         this->gotoNextFloor(removedPanels);
         return;
@@ -73,6 +78,7 @@ void TurnManager::start(){
     this->turnEnd();
     // ターンを経過させる
     _field->countUpTurn();
+    
 }
 
 void TurnManager::gameOver(){

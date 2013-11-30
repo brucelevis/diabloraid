@@ -31,6 +31,7 @@ class DetailLayer : public CCLayer, public DialogLayerInterface{
     Player* player;
     DetailBase* windowObjects;
     //EquipmentDetail* windowObjects;
+    CCLayer* _parentLayer;
     void close();
     void setDetail();
 public:
@@ -40,7 +41,10 @@ public:
     static DetailLayer* layer();
     static DetailLayer* layerWithUserItem(UserItem* equipment);
     static DetailLayer* layerWithUserItemAndPlayer(UserItem* equipment, Player* player);
+    void setParentLayer(CCLayer* layer);
     void addCommonComponents();
+    
+    void closeParentLayer();
     
     void setScene(CCScene* scene);
     CCScene* getScene();

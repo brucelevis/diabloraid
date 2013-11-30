@@ -142,6 +142,16 @@ void DetailLayer::close(){
     this->removeFromParentAndCleanup(true);
 }
 
+void DetailLayer::closeParentLayer(){
+    if(this->_parentLayer){
+        this->_parentLayer->removeFromParentAndCleanup(true);
+    }
+}
+
+void DetailLayer::setParentLayer(cocos2d::CCLayer *layer){
+    this->_parentLayer = layer;
+}
+
 void DetailLayer::addWindowObjects(){
     switch(userItem->getType()){
         case EQUIPMENT:

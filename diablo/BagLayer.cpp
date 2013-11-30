@@ -113,6 +113,7 @@ void BagLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell){
         return;
     }
     DetailLayer *detail = DetailLayer::layerWithUserItemAndPlayer((UserItem*) userItem->objectAtIndex(cell->getIdx()),this->player);
+    detail->setParentLayer((CCLayer*) this);
     this->addChild(detail->getScene(), 3);
 }
 
@@ -177,7 +178,6 @@ int BagLayer::getTableViewHeight(){
 
 void BagLayer::close(){
     CCLOG("BagLayer close");
-    //userItem->reload();
     this->removeFromParentAndCleanup(true);
 }
 

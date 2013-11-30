@@ -13,6 +13,7 @@
 class DialogLayerInterface{
 public:
     virtual void close() = 0;
+    virtual void closeParentLayer() = 0;
     virtual ~DialogLayerInterface(){};
 };
 

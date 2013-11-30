@@ -105,5 +105,6 @@ void UsableDetail::use(){
     //TODO 薬草、おとぎりそう以外も対応する。
     //別の実装に変える
     userItem->use(player);
-    this->close();
+    //this->close();
+    this->parentLayer->closeParentLayer();
 }
