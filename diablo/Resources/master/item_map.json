@@ -106,5 +106,17 @@
   "itemId": 4,
   "probability": 200,
   "description": "大きなバン"
+  },
+  {
+  "type": 2,
+  "itemId": 5,
+  "probability": 429,
+  "description": "くさったパン"
+  },
+  {
+  "type": 2,
+  "itemId": 6,
+  "probability": 559,
+  "description": "毒消し草"
   }
   ]

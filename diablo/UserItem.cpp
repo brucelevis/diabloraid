@@ -255,6 +255,13 @@ void UserItem::use(Player* player){
         case RECOVER_HUNGRY:
             player->recoverHungryP(this->getValue());
             break;
+        case RECOVER_HUNGRY_AND_DECREASE_STRENGTH:
+            player->recoverHungryP(this->getValue());
+            player->decreaseStrength(1);
+            break;
+        case RECOVER_POISON:
+            player->recoverPoison();
+            break;
     }
     
     player->getUserItem()->remove(this->getId());

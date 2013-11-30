@@ -146,12 +146,22 @@ void Player::recoverAllHp(){
 
 void Player::recoverHungryP(int v){
     attributes->recoverHungryP(v);
+    if(attributes->getCurrentHungryP() < attributes->getMaxHungryP()){
+        this->addPlayerLog("少しおなかがふくれた");
+    } else {
+        this->addPlayerLog("おなかが一杯になった");
+    }
 }
 
 
 //シールドのhpを回復する。
 void Player::recoverShield(int v){
     attributes->recoverShield(v);
+}
+
+//毒状態を解除する。
+void Player::recoverPoison(){
+    attributes->recoverPoison();
 }
 
 bool Player::isAlive(){
@@ -175,6 +185,7 @@ void Player::resetDamage(){
 }
 
 void Player::decreaseStrength(int v){
+    this->addPlayerLog("力が"+ Util::Util::intToString(1) +"下がってしまった。");
     attributes->decreaseStrength(v);
 }
 

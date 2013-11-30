@@ -74,6 +74,7 @@ public:
     void recoverShield(int v);
     
     void recoverHungryP(int v);
+    void recoverPoison();
     
     bool isAlive();
     void pushDamage(int v);

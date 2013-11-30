@@ -170,6 +170,11 @@ void Attributes::recoverShield(int v){
     shieldStatus->increase(v);
 }
 
+//毒状態を解除する。
+void Attributes::recoverPoison(){
+    strength->recoverAll();
+}
+
 bool Attributes::isAlive(){
     return hp->getCurrentHp() > 0;
 }

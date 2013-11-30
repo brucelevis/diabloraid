@@ -97,6 +97,8 @@ public:
     
     void recoverHungryP(int v);
     
+    void recoverPoison();
+    
     bool isAlive();
     void pushDamage(int v);
     void popDamage();
